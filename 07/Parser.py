@@ -55,7 +55,11 @@ class Parser:
         # Your code goes here!
         # A good place to start is to read all the lines of the input:
         input_lines = input_file.read().splitlines()
-        self.commands = list(map(_process_line, input_lines))
+        self.commands = []
+        for command in input_lines:
+            if not command:
+                continue
+            self.commands.append(_process_line(command))
         self.current_command_index = -1
 
     def has_more_commands(self) -> bool:
@@ -83,8 +87,14 @@ class Parser:
             "C_PUSH", "C_POP", "C_LABEL", "C_GOTO", "C_IF", "C_FUNCTION",
             "C_RETURN", "C_CALL".
         """
-        commands = {}
-        pass
+        commands = {"push": "C_PUSH", "pop": "C_POP",
+                    "label": "C_LABEL", "goto": "C_GOTO",
+                    "if-goto": "C_IF", "function": "C_FUNCTION",
+                    "return": "C_RETURN", "call": "C_CALL"}
+        command = self.commands[self.current_command_index].split()[0]
+        if command in commands:
+            return commands[command]
+        return "C_ARITHMETIC"
 
     def arg1(self) -> str:
         """
@@ -94,7 +104,10 @@ class Parser:
             Should not be called if the current command is "C_RETURN".
         """
         # Your code goes here!
-        pass
+        command = self.commands[self.current_command_index]
+        if self.command_type() == "C_ARITHMETIC":
+            return command
+        return command.split()[1]
 
     def arg2(self) -> int:
         """
@@ -103,9 +116,11 @@ class Parser:
             called only if the current command is "C_PUSH", "C_POP", 
             "C_FUNCTION" or "C_CALL".
         """
-        # Your code goes here!
-        pass
+        return int(self.commands[self.current_command_index].split()[2])
+
 
 def _process_line(line: str) -> str:
     line = line.split("//")[0]
     return line.strip()
+parser = Parser(open("text", "r"))
+print(parser.commands)
