@@ -55,7 +55,8 @@ class Parser:
         # Your code goes here!
         # A good place to start is to read all the lines of the input:
         input_lines = input_file.read().splitlines()
-        pass
+        self.commands = list(map(_process_line, input_lines))
+        self.current_command_index = -1
 
     def has_more_commands(self) -> bool:
         """Are there more commands in the input?
@@ -63,16 +64,15 @@ class Parser:
         Returns:
             bool: True if there are more commands, False otherwise.
         """
-        # Your code goes here!
-        pass
-
+        return self.current_command_index < len(self.commands) - 1
     def advance(self) -> None:
         """Reads the next command from the input and makes it the current 
         command. Should be called only if has_more_commands() is true. Initially
         there is no current command.
         """
-        # Your code goes here!
-        pass
+        if not self.has_more_commands():
+            raise ValueError("No more commands to advance to.")
+        self.current_command_index += 1
 
     def command_type(self) -> str:
         """
@@ -83,7 +83,7 @@ class Parser:
             "C_PUSH", "C_POP", "C_LABEL", "C_GOTO", "C_IF", "C_FUNCTION",
             "C_RETURN", "C_CALL".
         """
-        # Your code goes here!
+        commands = {}
         pass
 
     def arg1(self) -> str:
@@ -106,10 +106,6 @@ class Parser:
         # Your code goes here!
         pass
 
-    def _process_line(line: str) -> str:
-        line = line.split("//")[0]
-        return line.strip()
-# input_file = open("text")
-# input_lines = input_file.read().splitlines()
-# input_lines = [_process_line(line) for line in input_lines if _process_line(line)]
-# print(input_lines
+def _process_line(line: str) -> str:
+    line = line.split("//")[0]
+    return line.strip()
