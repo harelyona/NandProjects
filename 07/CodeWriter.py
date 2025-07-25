@@ -5,7 +5,6 @@ was written by Aviv Yaish. It is an extension to the specifications given
 as allowed by the Creative Common Attribution-NonCommercial-ShareAlike 3.0
 Unported [License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
 """
-import os
 import typing
 
 
@@ -106,7 +105,7 @@ class CodeWriter:
         move_to_segment = {"argument": f"@ARG\nD=M\n@{index}\nA=D+A\n",
             "local": f"@LCL\nD=M\n@{index}\nA=D+A\n",
             "static": f"@{self.file_name}.{index}\n",
-            "constant": f"@{index}M=A\n",
+            "constant": f"@{index}\nM=A\n",
             "this": f"@THIS\nD=M\n@{index}\nA=D+A\n",
             "that": f"@THAT\nD=M\n@{index}\nA=D+A\n",
             "pointer": f"@\nD=A\n@{index}\nA=D+A\n",

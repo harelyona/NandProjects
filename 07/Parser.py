@@ -57,9 +57,9 @@ class Parser:
         input_lines = input_file.read().splitlines()
         self.commands = []
         for command in input_lines:
-            if not command:
-                continue
-            self.commands.append(_process_line(command))
+            command = command.split("//")[0].strip()
+            if command:
+                self.commands.append(command)
         self.current_command_index = -1
 
     def has_more_commands(self) -> bool:
@@ -115,10 +115,3 @@ class Parser:
             "C_FUNCTION" or "C_CALL".
         """
         return int(self.commands[self.current_command_index].split()[2])
-
-
-def _process_line(line: str) -> str:
-    line = line.split("//")[0]
-    return line.strip()
-parser = Parser(open("text", "r"))
-print(parser.commands)
