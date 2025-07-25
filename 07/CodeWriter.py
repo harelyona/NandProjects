@@ -5,6 +5,7 @@ was written by Aviv Yaish. It is an extension to the specifications given
 as allowed by the Creative Common Attribution-NonCommercial-ShareAlike 3.0
 Unported [License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
 """
+import os
 import typing
 
 
@@ -20,7 +21,9 @@ class CodeWriter:
         # Your code goes here!
         # Note that you can write to output_stream like so:
         # output_stream.write("Hello world! \n")
-        pass
+        self.output_stream = output_stream
+        self.file_name = None
+        self.label_counter = 0
 
     def set_file_name(self, filename: str) -> None:
         """Informs the code writer that the translation of a new VM file is 
@@ -39,8 +42,7 @@ class CodeWriter:
         # to filenames and paths, you are advised to parse the filename in
         # the function "translate_file" in Main.py using python's os library,
         # For example, using code similar to:
-        # input_filename, input_extension = os.path.splitext(os.path.basename(input_file.name))
-        pass
+        self.file_name = filename
 
     def write_arithmetic(self, command: str) -> None:
         """Writes assembly code that is the translation of the given 
@@ -51,8 +53,41 @@ class CodeWriter:
         Args:
             command (str): an arithmetic command.
         """
-        # Your code goes here!
-        pass
+        self.label_counter += 1
+        pop_last_to_D = "@sp\nAM=M-1\nD=M\n"
+        go_one_element_back = "A=A-1\n"
+        update_to_true = "    @SP\n    A=M-1\n    M=-1\n"
+        update_to_false = "@SP\nA=M-1\nM=0\n"
+        push_D = "@sp\nA=M\nM=D\n@sp\nM=M+1\n"
+        if command == "add":
+            self.output_stream.write(f"{pop_last_to_D}{go_one_element_back}M=M+D\n")
+            return
+        if command == "sub":
+            self.output_stream.write(f"{pop_last_to_D}{go_one_element_back}M=M-D\n")
+            return
+
+        if command == "neg":
+            self.output_stream.write("@sp\nA=M-1\nM=-M\n")
+            return
+        true_label = f"@TRUE{self.label_counter}"
+        continue_label = f"@CONTINUE{self.label_counter}"
+        jump_to_end = f"@CONTINUE{self.label_counter}\n0;JMP\n"
+
+        if command in ["eq", "gt", "lt"]:
+            condition = {"eq": "D;JEQ", "gt": "D;JGT", "lt": "D;JLT"}[command]
+            self.output_stream.write(f"{pop_last_to_D}{go_one_element_back}D=M-D\n"
+                                     f"@{true_label}\n{condition}\n{update_to_false}"
+                                     f"{jump_to_end}({true_label})\n"
+                                     f"{update_to_true}({continue_label})\n")
+            return
+        if command == "not":
+            self.output_stream.write(f"{pop_last_to_D}D=-D\nD=D-1\n{push_D}")
+            return
+        compute = {"and": "D=M+D\nD+1\nD+1", "or": "D=M+D\n"}[command]
+        self.output_stream.write(f"{pop_last_to_D}{go_one_element_back}{compute}"
+                                 f"@({true_label})D;JPM{update_to_false}{jump_to_end}"
+                                 f"({true_label}){update_to_true}{continue_label}\n")
+
 
     def write_push_pop(self, command: str, segment: str, index: int) -> None:
         """Writes assembly code that is the translation of the given 
@@ -68,7 +103,22 @@ class CodeWriter:
         # be translated to the assembly symbol "Xxx.i". In the subsequent
         # assembly process, the Hack assembler will allocate these symbolic
         # variables to the RAM, starting at address 16.
-        pass
+        move_to_segment = {"argument": f"@ARG\nD=M\n@{index}\nA=D+A\n",
+            "local": f"@LCL\nD=M\n@{index}\nA=D+A\n",
+            "static": f"@{self.file_name}.{index}\n",
+            "constant": f"@{index}M=A\n",
+            "this": f"@THIS\nD=M\n@{index}\nA=D+A\n",
+            "that": f"@THAT\nD=M\n@{index}\nA=D+A\n",
+            "pointer": f"@\nD=A\n@{index}\nA=D+A\n",
+            "temp": f"@\nD=A\n@{index}\nA=D+A\n",}
+        if command == "C_PUSH":
+            self.output_stream.write(move_to_segment[segment])
+            self.output_stream.write("D=M\n@sp\nA=M\nM=D\n@sp\nM=M+1\n")
+            return
+        self.output_stream.write("@sp\nAM=M-1\nD=M\n")
+        self.output_stream.write(move_to_segment[segment])
+        self.output_stream.write("M=D\n")
+
 
     def write_label(self, label: str) -> None:
         """Writes assembly code that affects the label command. 

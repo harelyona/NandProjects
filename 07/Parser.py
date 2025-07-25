@@ -74,8 +74,6 @@ class Parser:
         command. Should be called only if has_more_commands() is true. Initially
         there is no current command.
         """
-        if not self.has_more_commands():
-            raise ValueError("No more commands to advance to.")
         self.current_command_index += 1
 
     def command_type(self) -> str:
