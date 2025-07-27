@@ -44,7 +44,7 @@ class CodeWriter:
         self.file_name = filename
 
     def write_arithmetic(self, command: str) -> None:
-        """Writes assembly code that is the translation of the given 
+        """Writes assembly code that is the translation of the given
         arithmetic command. For the commands eq, lt, gt, you should correctly
         compare between all numbers our computer supports, and we define the
         value "true" to be -1, and "false" to be 0.
@@ -52,12 +52,13 @@ class CodeWriter:
         Args:
             command (str): an arithmetic command.
         """
+        self.output_stream.write("//" + command + "\n")
         self.label_counter += 1
-        pop_last_to_D = "@sp\nAM=M-1\nD=M\n"
+        pop_last_to_D = "@SP\nAM=M-1\nD=M\n"
         go_one_element_back = "A=A-1\n"
         update_to_true = "    @SP\n    A=M-1\n    M=-1\n"
         update_to_false = "@SP\nA=M-1\nM=0\n"
-        push_D = "@sp\nA=M\nM=D\n@sp\nM=M+1\n"
+        push_D = "@SP\nA=M\nM=D\n@SP\nM=M+1\n"
         if command == "add":
             self.output_stream.write(f"{pop_last_to_D}{go_one_element_back}M=M+D\n")
             return
@@ -66,11 +67,63 @@ class CodeWriter:
             return
 
         if command == "neg":
-            self.output_stream.write("@sp\nA=M-1\nM=-M\n")
+            self.output_stream.write("@SP\nA=M-1\nM=-M\n")
             return
-        true_label = f"@TRUE{self.label_counter}"
-        continue_label = f"@CONTINUE{self.label_counter}"
+        true_label = f"TRUE{self.label_counter}"
+        continue_label = f"CONTINUE{self.label_counter}"
         jump_to_end = f"@CONTINUE{self.label_counter}\n0;JMP\n"
+        if command in ("lt", "gt"):
+            # Unique labels for this comparison
+            t = self.label_counter
+            TRUE = f"{command.upper()}_TRUE{t}"
+            FALSE = f"{command.upper()}_FALSE{t}"
+            END = f"{command.upper()}_END{t}"
+            XNEG = f"{command.upper()}_XNEG{t}"
+            SAME = f"{command.upper()}_SAME{t}"
+
+            # Stack: [..., x, y]
+            # Save y -> R13, x -> R14 (and leave x at *(SP-1) to overwrite in place)
+            self.output_stream.write(
+                f"{pop_last_to_D}"  # D = y, SP--, A=SP (points to y slot)
+                "@R13\nM=D\n"  # R13 = y
+                f"{go_one_element_back}"  # A = A - 1 -> x slot (top after pop)
+                "D=M\n@R14\nM=D\n"  # R14 = x
+
+                # If x < 0 -> XNEG
+                "@R14\nD=M\n"
+                f"@{XNEG}\nD;JLT\n"
+
+                # x >= 0:
+                "@R13\nD=M\n"
+                # y < 0 ?
+                #   gt: true  |  lt: false
+                f"{('@' + TRUE + '\\nD;JLT\\n') if command == 'gt' else ('@' + FALSE + '\\nD;JLT\\n')}"
+                f"@{SAME}\n0;JMP\n"
+
+                # x < 0:
+                f"({XNEG})\n"
+                "@R13\nD=M\n"
+                # y >= 0 ?
+                #   lt: true  |  gt: false
+                f"{('@' + TRUE + '\\nD;JGE\\n') if command == 'lt' else ('@' + FALSE + '\\nD;JGE\\n')}"
+
+                # Same sign: compare x - y
+                f"({SAME})\n"
+                "@R14\nD=M\n@R13\nD=D-M\n"
+                f"@{TRUE}\nD;{'JLT' if command == 'lt' else 'JGT'}\n"
+                f"@{FALSE}\n0;JMP\n"
+
+                # Set result = -1 (true)
+                f"({TRUE})\n"
+                f"{update_to_true}"
+                f"@{END}\n0;JMP\n"
+
+                # Set result = 0 (false)
+                f"({FALSE})\n"
+                f"{update_to_false}"
+                f"({END})\n"
+            )
+            return
 
         if command in ["eq", "gt", "lt"]:
             condition = {"eq": "D;JEQ", "gt": "D;JGT", "lt": "D;JLT"}[command]
@@ -82,10 +135,8 @@ class CodeWriter:
         if command == "not":
             self.output_stream.write(f"{pop_last_to_D}D=-D\nD=D-1\n{push_D}")
             return
-        compute = {"and": "D=M+D\nD+1\nD+1", "or": "D=M+D\n"}[command]
-        self.output_stream.write(f"{pop_last_to_D}{go_one_element_back}{compute}"
-                                 f"@({true_label})D;JPM{update_to_false}{jump_to_end}"
-                                 f"({true_label}){update_to_true}{continue_label}\n")
+        compute = {"and": "M=D&M\n", "or": "M=D|M\n"}[command]
+        self.output_stream.write(f"{pop_last_to_D}{go_one_element_back}{compute}\n")
 
 
     def write_push_pop(self, command: str, segment: str, index: int) -> None:
@@ -105,18 +156,22 @@ class CodeWriter:
         move_to_segment = {"argument": f"@ARG\nD=M\n@{index}\nA=D+A\n",
             "local": f"@LCL\nD=M\n@{index}\nA=D+A\n",
             "static": f"@{self.file_name}.{index}\n",
-            "constant": f"@{index}\nM=A\n",
+            "constant": f"@{index}\n",
             "this": f"@THIS\nD=M\n@{index}\nA=D+A\n",
             "that": f"@THAT\nD=M\n@{index}\nA=D+A\n",
-            "pointer": f"@\nD=A\n@{index}\nA=D+A\n",
-            "temp": f"@\nD=A\n@{index}\nA=D+A\n",}
+            "pointer": f"@{3 + index}\n",
+            "temp": f"@{5 + index}\n"}
+        self.output_stream.write("//" + command[2:].lower() + " " + segment + " " + str(index) + "\n")
         if command == "C_PUSH":
             self.output_stream.write(move_to_segment[segment])
-            self.output_stream.write("D=M\n@sp\nA=M\nM=D\n@sp\nM=M+1\n")
+            if segment == "constant":
+                self.output_stream.write(f"D=A\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
+            else:
+                self.output_stream.write("D=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
             return
-        self.output_stream.write("@sp\nAM=M-1\nD=M\n")
         self.output_stream.write(move_to_segment[segment])
-        self.output_stream.write("M=D\n")
+        self.output_stream.write("D=A\n@temp\nM=D\n")
+        self.output_stream.write("@SP\nAM=M-1\nD=M\n@temp\nA=M\nM=D\n")
 
 
     def write_label(self, label: str) -> None:
