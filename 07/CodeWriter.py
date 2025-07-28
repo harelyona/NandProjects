@@ -56,7 +56,7 @@ class CodeWriter:
         self.label_counter += 1
         pop_last_to_D = "@SP\nAM=M-1\nD=M\n"
         go_one_element_back = "A=A-1\n"
-        update_to_true = "    @SP\n    A=M-1\n    M=-1\n"
+        update_to_true = "@SP\nA=M-1\nM=-1\n"
         update_to_false = "@SP\nA=M-1\nM=0\n"
         push_D = "@SP\nA=M\nM=D\n@SP\nM=M+1\n"
         if command == "add":
@@ -72,62 +72,28 @@ class CodeWriter:
         true_label = f"TRUE{self.label_counter}"
         continue_label = f"CONTINUE{self.label_counter}"
         jump_to_end = f"@CONTINUE{self.label_counter}\n0;JMP\n"
-        if command in ("lt", "gt"):
-            # Unique labels for this comparison
-            t = self.label_counter
-            TRUE = f"{command.upper()}_TRUE{t}"
-            FALSE = f"{command.upper()}_FALSE{t}"
-            END = f"{command.upper()}_END{t}"
-            XNEG = f"{command.upper()}_XNEG{t}"
-            SAME = f"{command.upper()}_SAME{t}"
-
-            # Stack: [..., x, y]
-            # Save y -> R13, x -> R14 (and leave x at *(SP-1) to overwrite in place)
-            self.output_stream.write(
-                f"{pop_last_to_D}"  # D = y, SP--, A=SP (points to y slot)
-                "@R13\nM=D\n"  # R13 = y
-                f"{go_one_element_back}"  # A = A - 1 -> x slot (top after pop)
-                "D=M\n@R14\nM=D\n"  # R14 = x
-
-                # If x < 0 -> XNEG
-                "@R14\nD=M\n"
-                f"@{XNEG}\nD;JLT\n"
-
-                # x >= 0:
-                "@R13\nD=M\n"
-                # y < 0 ?
-                #   gt: true  |  lt: false
-                f"{('@' + TRUE + '\\nD;JLT\\n') if command == 'gt' else ('@' + FALSE + '\\nD;JLT\\n')}"
-                f"@{SAME}\n0;JMP\n"
-
-                # x < 0:
-                f"({XNEG})\n"
-                "@R13\nD=M\n"
-                # y >= 0 ?
-                #   lt: true  |  gt: false
-                f"{('@' + TRUE + '\\nD;JGE\\n') if command == 'lt' else ('@' + FALSE + '\\nD;JGE\\n')}"
-
-                # Same sign: compare x - y
-                f"({SAME})\n"
-                "@R14\nD=M\n@R13\nD=D-M\n"
-                f"@{TRUE}\nD;{'JLT' if command == 'lt' else 'JGT'}\n"
-                f"@{FALSE}\n0;JMP\n"
-
-                # Set result = -1 (true)
-                f"({TRUE})\n"
-                f"{update_to_true}"
-                f"@{END}\n0;JMP\n"
-
-                # Set result = 0 (false)
-                f"({FALSE})\n"
-                f"{update_to_false}"
-                f"({END})\n"
-            )
-            return
 
         if command in ["eq", "gt", "lt"]:
+            normal_case_label = "NORMAL_CASE" + str(self.label_counter)
+            y_positive_label = "y_POSITIVE" + str(self.label_counter)
+            y_negative_label = "y_NEGATIVE" + str(self.label_counter)
+            insert_y_to_D = "@SP\nA=M-1\nD=M\n"
             condition = {"eq": "D;JEQ", "gt": "D;JGT", "lt": "D;JLT"}[command]
-            self.output_stream.write(f"{pop_last_to_D}{go_one_element_back}D=M-D\n"
+            if command in ("gt", "lt"):
+                # For gt and lt, check bit overflow
+
+                # Check the sign of the first number
+                self.output_stream.write(f"{insert_y_to_D}\n@{y_positive_label}\n"
+                                         f"D;JGT\n@{y_negative_label}\nD;JLT\n"
+                                         f"@{normal_case_label}\n0;JMP\n")
+                # Check the sign of the second number
+                self.output_stream.write(f"({y_positive_label})\n")
+                self._y_positive(command, normal_case_label)
+                self.output_stream.write(f"({y_negative_label})\n")
+                self._y_negative(command, normal_case_label)
+
+            # Normal case
+            self.output_stream.write(f"({normal_case_label})\n{pop_last_to_D}{go_one_element_back}D=M-D\n"
                                      f"@{true_label}\n{condition}\n{update_to_false}"
                                      f"{jump_to_end}({true_label})\n"
                                      f"{update_to_true}({continue_label})\n")
@@ -274,3 +240,33 @@ class CodeWriter:
         # LCL = *(frame-4)              // restores LCL for the caller
         # goto return_address           // go to the return address
         pass
+
+    def _y_positive(self, command, normal_case_label):
+        insert_x_into_D = "@SP\nA=M-1\nA=A-1\nD=M\n"
+        push_false = "A=M-1\nM=0\n"
+        push_true = "A=M-1\nM=-1\n"
+        negative_positive_label = "NEGATIVE_POSITIVE" + str(self.label_counter)
+        self.output_stream.write(f"{insert_x_into_D}"
+                                 f"@{negative_positive_label}\nD;JLT\n@{normal_case_label}\n0;JMP\n")
+        self.output_stream.write(f"({negative_positive_label})\n@SP\nM=M-1\n")
+        if command == "gt":
+            self.output_stream.write(push_false)
+        if command == "lt":
+            self.output_stream.write(push_true)
+        self.output_stream.write(f"@CONTINUE{self.label_counter}\n0;JMP\n")
+
+
+    def _y_negative(self, command, normal_case_label):
+        insert_x_into_D = "@SP\nA=M-1\nA=A-1\nD=M\n"
+        push_false = "@SP\nA=M-1\nM=0\n"
+        push_true = "@SP\nA=M-1\nM=-1\n"
+        positive_negative_label = "POSITIVE_NEGATIVE" + str(self.label_counter)
+
+        self.output_stream.write(f"{insert_x_into_D}"
+                                 f"@{positive_negative_label}\nD;JGT\n@{normal_case_label}\n0;JMP\n")
+        self.output_stream.write(f"({positive_negative_label})\n@SP\nM=M-1\n")
+        if command == "gt":
+            self.output_stream.write(push_true)
+        if command == "lt":
+            self.output_stream.write(push_false)
+        self.output_stream.write(f"@CONTINUE{self.label_counter}\n0;JMP\n")
