@@ -23,8 +23,56 @@ def translate_file(
         bootstrap (bool): if this is True, the current file is the 
             first file we are translating.
     """
-    # Your code goes here!
-    pass
+    parser = Parser(input_file)
+    code_writer = CodeWriter(output_file)
+    input_filename, input_extension = os.path.splitext(os.path.basename(input_file.name))
+    code_writer.set_file_name(input_filename)
+    if bootstrap:
+        output_file.write("// Bootstrap the program:\n")
+        # Initialize SP and call Sys.init
+        commands = """
+        //    (bootstrap) SP = 256
+        @256
+        D=A
+        @SP
+        M=D
+        @Sys.init
+        0;JMP"""
+        output_file.write(commands + "\n")
+
+
+    while parser.has_more_commands():
+        parser.advance()
+        command_type = parser.command_type()
+        if command_type == "C_ARITHMETIC":
+            command = parser.arg1()
+            code_writer.write_arithmetic(command)
+        elif command_type == "C_POP":
+            segment = parser.arg1()
+            index = parser.arg2()
+            code_writer.write_push_pop("C_POP",segment,index)
+        elif command_type == "C_PUSH":
+            segment = parser.arg1()
+            index = parser.arg2()
+            code_writer.write_push_pop("C_PUSH",segment,index)
+        elif command_type == "C_LABEL":
+            code_writer.write_label(parser.arg1())
+        elif command_type == "C_GOTO":
+            code_writer.write_goto(parser.arg1())
+        elif command_type == "C_IF":
+            code_writer.write_if(parser.arg1())
+        elif command_type == "C_CALL":
+            function_name = parser.arg1()
+            n_args = parser.arg2()
+            code_writer.write_call(function_name, n_args)
+        elif command_type == "C_FUNCTION":
+            function_name = parser.arg1()
+            n_vars = parser.arg2()
+            code_writer.write_function(function_name, n_vars)
+        elif command_type == "C_RETURN":
+            code_writer.write_return()
+
+
 
 
 if "__main__" == __name__:

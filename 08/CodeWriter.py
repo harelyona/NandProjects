@@ -6,7 +6,8 @@ as allowed by the Creative Common Attribution-NonCommercial-ShareAlike 3.0
 Unported [License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
 """
 import typing
-
+from os import write
+storage1 = "R13"
 
 class CodeWriter:
     """Translates VM commands into Hack assembly code."""
@@ -24,6 +25,7 @@ class CodeWriter:
         self.file_name = None
         self.label_counter = 0
         self.function_name = ""
+        self.call_counter = 0
 
     def set_file_name(self, filename: str) -> None:
         """Informs the code writer that the translation of a new VM file is 
@@ -136,9 +138,10 @@ class CodeWriter:
             else:
                 self.output_stream.write("D=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
             return
+        # C_POP
         self.output_stream.write(move_to_segment[segment])
-        self.output_stream.write("D=A\n@temp\nM=D\n")
-        self.output_stream.write("@SP\nAM=M-1\nD=M\n@temp\nA=M\nM=D\n")
+        self.output_stream.write(f"D=A\n@{storage1}\nM=D\n")
+        self.output_stream.write(f"@SP\nAM=M-1\nD=M\n@{storage1}\nA=M\nM=D\n")
 
 
     def _y_positive(self, command, normal_case_label):
@@ -185,7 +188,7 @@ class CodeWriter:
         # This is irrelevant for project 7,
         # you will implement this in project 8!
         self.output_stream.write(f"// write label {label}\n")
-        self.output_stream.write(f"({self.file_name}.{self.function_name}${label})\n")
+        self.output_stream.write(f"({self.function_name}${label})\n")
 
     def write_goto(self, label: str) -> None:
         """Writes assembly code that affects the goto command.
@@ -195,7 +198,7 @@ class CodeWriter:
         # This is irrelevant for project 7,
         # you will implement this in project 8!
         self.output_stream.write("// write goto " + label + "\n")
-        self.output_stream.write(f"@{self.file_name}.{self.function_name}${label}\n")
+        self.output_stream.write(f"@{self.function_name}${label}\n")
         self.output_stream.write("0;JMP\n")
     
     def write_if(self, label: str) -> None:
@@ -207,7 +210,7 @@ class CodeWriter:
         # This is irrelevant for project 7,
         # you will implement this in project 8!
         pop = "@SP\nAM=M-1\nD=M\n"
-        goto_label = f"{self.file_name}.{self.function_name}${label}\n"
+        goto_label = f"{self.function_name}${label}\n"
         self.output_stream.write("// write if-goto " + label + "\n")
         self.output_stream.write(f"{pop}@{goto_label}\nD;JNE\n")
     
@@ -229,8 +232,11 @@ class CodeWriter:
         # (function_name)       // injects a function entry label into the code
         # repeat n_vars times:  // n_vars = number of local variables
         #   push constant 0     // initializes the local variables to 0
-        pass
-    
+        self.function_name = function_name
+        self.output_stream.write(f"// write function {function_name} {n_vars}\n")
+        self.output_stream.write(f"({self.function_name})\n")
+        for _ in range(n_vars):
+            self.write_push_pop("C_PUSH", "constant", 0)
     def write_call(self, function_name: str, n_args: int) -> None:
         """Writes assembly code that affects the call command. 
         Let "Xxx.foo" be a function within the file Xxx.vm.
@@ -247,33 +253,46 @@ class CodeWriter:
             function_name (str): the name of the function to call.
             n_args (int): the number of arguments of the function.
         """
+        self.call_counter += 1
+        self.output_stream.write(f"// call function {function_name} {n_args}\n")
         # This is irrelevant for project 7,
         # you will implement this in project 8!
         # The pseudo-code of "call function_name n_args" is:
         # push return_address   // generates a label and pushes it to the stack
+        self.output_stream.write(f"@{self.function_name}$ret.{self.call_counter}\n")
+        self.output_stream.write("D=A\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
         # push LCL              // saves LCL of the caller
         # push ARG              // saves ARG of the caller
         # push THIS             // saves THIS of the caller
         # push THAT             // saves THAT of the caller
+        for pointer in ("LCL", "ARG", "THIS", "THAT"):
+            self.output_stream.write(f"@{pointer}\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n")
         # ARG = SP-5-n_args     // repositions ARG
+        self.output_stream.write(f"@{5 + n_args}\nD=A\n@SP\nD=M-D\n@ARG\nM=D\n")
         # LCL = SP              // repositions LCL
+        self.output_stream.write("@SP\nD=M\n@LCL\nM=D\n")
         # goto function_name    // transfers control to the callee
+        self.output_stream.write(f"@{function_name}\n0;JMP\n")
         # (return_address)      // injects the return address label into the code
-        pass
+        self.output_stream.write(f"({self.function_name}$ret.{self.call_counter})\n")
     
     def write_return(self) -> None:
         """Writes assembly code that affects the return command."""
         # This is irrelevant for project 7,
         # you will implement this in project 8!
-        # The pseudo-code of "return" is:
-        # frame = LCL                   // frame is a temporary variable
-        # return_address = *(frame-5)   // puts the return address in a temp var
-        # *ARG = pop()                  // repositions the return value for the caller
-        # SP = ARG + 1                  // repositions SP for the caller
-        # THAT = *(frame-1)             // restores THAT for the caller
-        # THIS = *(frame-2)             // restores THIS for the caller
-        # ARG = *(frame-3)              // restores ARG for the caller
-        # LCL = *(frame-4)              // restores LCL for the caller
-        # goto return_address           // go to the return address
-        pass
+        self.output_stream.write("// write return\n")
+        # frame = LCL
+        self.output_stream.write("@LCL\nD=M\n@frame\nM=D\n")
+        # ret = *(frame-5)
+        self.output_stream.write(f"@frame\nD=M\n@5\nA=D-A\nD=M\n@{storage1}\nM=D\n")
+        # *ARG = pop()
+        self.output_stream.write("@SP\nAM=M-1\nD=M\n@ARG\nA=M\nM=D\n")
+        # SP = ARG + 1
+        self.output_stream.write("@ARG\nD=M\nD=D+1\n@SP\nM=D\n")
+
+        # restore pointers
+        for i, seg in enumerate(("THAT", "THIS", "ARG", "LCL"), start=1):
+            self.output_stream.write(f"@frame\nD=M\n@{i}\nA=D-A\nD=M\n@{seg}\nM=D\n")
+        # goto ret
+        self.output_stream.write(f"@{storage1}\nA=M\n0;JMP\n")
 
