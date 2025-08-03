@@ -8,6 +8,7 @@ Unported [License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
 import typing
 from os import write
 storage1 = "R13"
+storage2 = "R14"
 
 class CodeWriter:
     """Translates VM commands into Hack assembly code."""
@@ -282,9 +283,9 @@ class CodeWriter:
         # you will implement this in project 8!
         self.output_stream.write("// write return\n")
         # frame = LCL
-        self.output_stream.write("@LCL\nD=M\n@frame\nM=D\n")
+        self.output_stream.write(f"@LCL\nD=M\n@{storage2}\nM=D\n")
         # ret = *(frame-5)
-        self.output_stream.write(f"@frame\nD=M\n@5\nA=D-A\nD=M\n@{storage1}\nM=D\n")
+        self.output_stream.write(f"@{storage2}\nD=M\n@5\nA=D-A\nD=M\n@{storage1}\nM=D\n")
         # *ARG = pop()
         self.output_stream.write("@SP\nAM=M-1\nD=M\n@ARG\nA=M\nM=D\n")
         # SP = ARG + 1
@@ -292,7 +293,7 @@ class CodeWriter:
 
         # restore pointers
         for i, seg in enumerate(("THAT", "THIS", "ARG", "LCL"), start=1):
-            self.output_stream.write(f"@frame\nD=M\n@{i}\nA=D-A\nD=M\n@{seg}\nM=D\n")
+            self.output_stream.write(f"@{storage2}\nD=M\n@{i}\nA=D-A\nD=M\n@{seg}\nM=D\n")
         # goto ret
         self.output_stream.write(f"@{storage1}\nA=M\n0;JMP\n")
 

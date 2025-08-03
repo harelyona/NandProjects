@@ -28,17 +28,9 @@ def translate_file(
     input_filename, input_extension = os.path.splitext(os.path.basename(input_file.name))
     code_writer.set_file_name(input_filename)
     if bootstrap:
-        output_file.write("// Bootstrap the program:\n")
-        # Initialize SP and call Sys.init
-        commands = """
-        //    (bootstrap) SP = 256
-        @256
-        D=A
-        @SP
-        M=D
-        @Sys.init
-        0;JMP"""
-        output_file.write(commands + "\n")
+        output_file.write("@256\nD=A\n@SP\nM=D\n")
+
+        code_writer.write_call("Sys.init", 0)
 
 
     while parser.has_more_commands():
@@ -84,17 +76,19 @@ if "__main__" == __name__:
     if not len(sys.argv) == 2:
         sys.exit("Invalid usage, please use: VMtranslator <input path>")
     argument_path = os.path.abspath(sys.argv[1])
+    bootstrap = False
     if os.path.isdir(argument_path):
         files_to_translate = [
             os.path.join(argument_path, filename)
             for filename in os.listdir(argument_path)]
         output_path = os.path.join(argument_path, os.path.basename(
             argument_path))
+        files = list(map(os.path.basename, files_to_translate))
+        bootstrap = True if "Sys.vm" in files else False
     else:
         files_to_translate = [argument_path]
         output_path, extension = os.path.splitext(argument_path)
     output_path += ".asm"
-    bootstrap = True
     with open(output_path, 'w') as output_file:
         for input_path in files_to_translate:
             filename, extension = os.path.splitext(input_path)

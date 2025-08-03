@@ -23,7 +23,7 @@ set RAM[11] 100,
 set RAM[12] 36,
 
 
-repeat 500 {
+repeat 410 {
   ticktock;
 }
 
