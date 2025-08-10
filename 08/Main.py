@@ -24,7 +24,6 @@ def translate_file(
             first file we are translating.
     """
     parser = Parser(input_file)
-    code_writer = CodeWriter(output_file)
     input_filename, input_extension = os.path.splitext(os.path.basename(input_file.name))
     code_writer.set_file_name(input_filename)
     if bootstrap:
@@ -89,7 +88,9 @@ if "__main__" == __name__:
         files_to_translate = [argument_path]
         output_path, extension = os.path.splitext(argument_path)
     output_path += ".asm"
+
     with open(output_path, 'w') as output_file:
+        code_writer = CodeWriter(output_file)
         for input_path in files_to_translate:
             filename, extension = os.path.splitext(input_path)
             if extension.lower() != ".vm":

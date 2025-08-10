@@ -6,7 +6,11 @@ as allowed by the Creative Common Attribution-NonCommercial-ShareAlike 3.0
 Unported [License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
 """
 import typing
+from JackTokenizer import JackTokenizer
 
+IDENTIFIER = "<identifier>{}</identifier>\n"
+KEYWORD = "<keyword>{}</keyword>\n"
+SYMBOL = "<symbol>{}</symbol>\n"
 
 class CompilationEngine:
     """Gets input from a JackTokenizer and emits its parsed structure into an
@@ -23,17 +27,37 @@ class CompilationEngine:
         # Your code goes here!
         # Note that you can write to output_stream like so:
         # output_stream.write("Hello world! \n")
-        pass
+        self.input_stream = input_stream
+        self.output_stream = output_stream
 
     def compile_class(self) -> None:
         """Compiles a complete class."""
         # Your code goes here!
-        pass
+        self.output_stream.write(KEYWORD.format("class"))
+        self.input_stream.advance()
+        self.output_stream.write(IDENTIFIER.format(self.input_stream.identifier()))
+        self.output_stream.write(SYMBOL.format('{'))
+        self.compile_class_var_dec()
+        self.compile_subroutine()
+        self.output_stream.write(SYMBOL.format('}'))
 
     def compile_class_var_dec(self) -> None:
         """Compiles a static declaration or a field declaration."""
-        # Your code goes here!
-        pass
+        var_classification = self.input_stream.keyword()
+        self.output_stream.write(KEYWORD.format(var_classification))
+        self.input_stream.advance()
+        if self.input_stream.token_type() == "IDENTIFIER":
+            identifier = self.input_stream.identifier()
+            self.output_stream.write(IDENTIFIER.format(identifier))
+        if self.input_stream.token_type() == "KEYWORD":
+            keyword = self.input_stream.keyword()
+            self.output_stream.write(KEYWORD.format(keyword))
+        self.input_stream.advance()
+        self.output_stream.write(IDENTIFIER.format(self.input_stream.identifier()))
+        self.input_stream.advance()
+        while
+
+
 
     def compile_subroutine(self) -> None:
         """
@@ -86,7 +110,6 @@ class CompilationEngine:
     def compile_if(self) -> None:
         """Compiles a if statement, possibly with a trailing else clause."""
         # Your code goes here!
-        pass
 
     def compile_expression(self) -> None:
         """Compiles an expression."""

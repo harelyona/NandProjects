@@ -1,0 +1,6 @@
+venv/
+08/tests/
+tools/
+08/__pycache__/
+.idea/
+10/__pycache__/
