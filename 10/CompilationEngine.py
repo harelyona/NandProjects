@@ -31,33 +31,35 @@ class CompilationEngine:
         self.output_stream = output_stream
 
     def compile_class(self) -> None:
-        """Compiles a complete class."""
-        # Your code goes here!
-        self.output_stream.write(KEYWORD.format("class"))
-        self.input_stream.advance()
-        self.output_stream.write(IDENTIFIER.format(self.input_stream.identifier()))
-        self.output_stream.write(SYMBOL.format('{'))
+        # Write class classname{
+        self.output_stream.write("<class>\n")
+        self._write_keyword()
+        self._write_identifier()
+        self._write_symbol()
+
+        # Write class variables and subroutines
         self.compile_class_var_dec()
         self.compile_subroutine()
-        self.output_stream.write(SYMBOL.format('}'))
+
+        # Write closing }
+        self._write_symbol()
+        self.output_stream.write("</class>\n")
 
     def compile_class_var_dec(self) -> None:
-        """Compiles a static declaration or a field declaration."""
-        var_classification = self.input_stream.keyword()
-        self.output_stream.write(KEYWORD.format(var_classification))
-        self.input_stream.advance()
-        if self.input_stream.token_type() == "IDENTIFIER":
-            identifier = self.input_stream.identifier()
-            self.output_stream.write(IDENTIFIER.format(identifier))
-        if self.input_stream.token_type() == "KEYWORD":
-            keyword = self.input_stream.keyword()
-            self.output_stream.write(KEYWORD.format(keyword))
-        self.input_stream.advance()
-        self.output_stream.write(IDENTIFIER.format(self.input_stream.identifier()))
-        self.input_stream.advance()
-        while
+        # Write static/field type variableName
+        self.output_stream.write("<classVarDec>\n")
+        self._write_keyword()
+        self._write_type()
+        self._write_identifier()
 
+        # Write the rest of the variables
+        while self.input_stream.symbol() == ',':
+            self._write_symbol()
+            self._write_identifier()
 
+        # Write ;
+        self._write_symbol()
+        self.output_stream.write("</classVarDec>\n")
 
     def compile_subroutine(self) -> None:
         """
@@ -65,8 +67,14 @@ class CompilationEngine:
         You can assume that classes with constructors have at least one field,
         you will understand why this is necessary in project 11.
         """
-        # Your code goes here!
-        pass
+        self.output_stream.write("<subroutineDec>\n")
+        # Write subroutine_keyword type subroutineName(parameterList)
+        self._write_keyword()
+        self._write_type()
+        self._write_identifier()
+        self._write_parameter_list()
+        self._write_subroutine_body()
+        self.output_stream.write("</subroutineDec>\n")
 
     def compile_parameter_list(self) -> None:
         """Compiles a (possibly empty) parameter list, not including the 
@@ -133,3 +141,51 @@ class CompilationEngine:
         """Compiles a (possibly empty) comma-separated list of expressions."""
         # Your code goes here!
         pass
+
+    def _write_keyword(self):
+        keyword = self.input_stream.keyword().lower()
+        self.output_stream.write(KEYWORD.format(keyword))
+        self.input_stream.advance()
+
+    def _write_identifier(self):
+        identifier = self.input_stream.identifier()
+        self.output_stream.write(IDENTIFIER.format(identifier))
+        self.input_stream.advance()
+
+    def _write_symbol(self):
+        symbol = self.input_stream.symbol()
+        self.output_stream.write(SYMBOL.format(symbol))
+        self.input_stream.advance()
+
+    def _write_type(self):
+        if self.input_stream.token_type() == "IDENTIFIER":
+            identifier = self.input_stream.identifier()
+            self.output_stream.write(IDENTIFIER.format(identifier))
+        if self.input_stream.token_type() == "KEYWORD":
+            keyword = self.input_stream.keyword().lower()
+            self.output_stream.write(KEYWORD.format(keyword))
+        self.input_stream.advance()
+
+    def _write_parameter_list(self):
+        self._write_symbol() # Write the opening (
+        first_parameter = True
+        while not (self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ")"):
+            # Write comma if not the first parameter
+            if not first_parameter:
+                self._write_symbol()
+            self._write_type()
+            self._write_identifier()
+            first_parameter = False
+        self._write_symbol() # Write the closing )
+
+    def _write_subroutine_body(self):
+        self.output_stream.write("<subroutineBody>\n")
+        self._write_symbol() # Write opening {
+        # Write variable declarations
+        while self.input_stream.token_type() == "KEYWORD" and self.input_stream.keyword().lower() == "var":
+            self.compile_var_dec()
+        # Write statements
+        self.compile_statements()
+
+        self._write_symbol()# Write closing }
+        self.output_stream.write("</subroutineBody>\n")
