@@ -107,18 +107,11 @@ class JackTokenizer:
         """
         # Your code goes here!
         # A good place to start is to read all the lines of the input:
-        input_lines = input_stream.read()
-        input_lines = self._remove_comments(input_lines)
-
-
-        # for line in input_lines:
-        #     line = self._remove_comments(line)
-        self.tokens = self._tokenize(input_lines)
-        print(self.tokens)
-        # self.current_token_idx = -1
-
-
-
+        input_stream = input_stream.read()
+        input_stream = self._remove_comments(input_stream)
+        input_stream = self._seperate_symbols(input_stream)
+        self.tokens = self._tokenize(input_stream)
+        self.current_token_idx = -1
 
 
     def has_more_tokens(self) -> bool:
@@ -221,8 +214,8 @@ class JackTokenizer:
             stream = stream[:start] + stream[end:]
         while "//" in stream:
             start = stream.index("//")
-            end = stream.index("\n", start)
-            stream = stream[:start] + stream[end:]
+            end = stream.find("\n", start)
+            stream = stream[:start] + stream[end:] if end != -1 else stream[:start]
         while "/**" in stream and "*/" in stream:
             start = stream.index("/**")
             end = stream.index("*/", start) + 2
@@ -231,15 +224,9 @@ class JackTokenizer:
 
 
     def _tokenize(self, input_stream: str) -> List[str]:
-        tokens = []
         stream = "".join(input_stream)
         stream = stream.split()
-        stream = self._join_string_constants(stream)
-        pattern = f"([{re.escape(SYMBOLS)}])"
-        for batch in stream:
-            tokens.extend([t for t in re.split(pattern, batch) if t])
-        tokens = self._join_string_constants(tokens)
-        print(tokens)
+        tokens = self._join_string_constants(stream)
         return tokens
 
     def _join_string_constants(self, tokens):
@@ -262,6 +249,17 @@ class JackTokenizer:
             final_tokens.append(token)
         return final_tokens
 
-tokenizer = JackTokenizer(open(r"Square/Main.jack", "r"))
+    def _seperate_symbols(self, input_stream: str) -> str:
+        res = ""
+        is_string = False
+        for char in input_stream:
+            if char == '"':
+                is_string = not is_string
+            if char in SYMBOLS and not is_string:
+                res += f"\n{char}\n"
+            else:
+                res += char
+        return res
+
 
 
