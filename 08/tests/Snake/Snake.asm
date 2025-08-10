@@ -2,14 +2,6 @@
 D=A
 @SP
 M=D
-@300
-D=A
-@LCL
-M=D
-@400
-D=A
-@ARG
-M=D
 // call function Sys.init 0
 @$ret.1
 D=A
@@ -422,9 +414,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -442,28 +434,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -576,9 +568,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -596,28 +588,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -744,9 +736,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -764,28 +756,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -1876,9 +1868,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -1896,28 +1888,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -1965,9 +1957,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -1985,28 +1977,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -2054,9 +2046,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -2074,28 +2066,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -2131,63 +2123,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE1
+@y_POSITIVE13
 D;JGT
-@y_NEGATIVE1
+@y_NEGATIVE13
 D;JLT
-@NORMAL_CASE1
+@NORMAL_CASE13
 0;JMP
-(y_POSITIVE1)
+(y_POSITIVE13)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE1
+@NEGATIVE_POSITIVE13
 D;JLT
-@NORMAL_CASE1
+@NORMAL_CASE13
 0;JMP
-(NEGATIVE_POSITIVE1)
+(NEGATIVE_POSITIVE13)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE1
+@CONTINUE13
 0;JMP
-(y_NEGATIVE1)
+(y_NEGATIVE13)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE1
+@POSITIVE_NEGATIVE13
 D;JGT
-@NORMAL_CASE1
+@NORMAL_CASE13
 0;JMP
-(POSITIVE_NEGATIVE1)
+(POSITIVE_NEGATIVE13)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE1
+@CONTINUE13
 0;JMP
-(NORMAL_CASE1)
+(NORMAL_CASE13)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE1
+@TRUE13
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE1
+@CONTINUE13
 0;JMP
-(TRUE1)
+(TRUE13)
 @SP
 A=M-1
 M=-1
-(CONTINUE1)
+(CONTINUE13)
 //not
 @SP
 AM=M-1
@@ -2220,7 +2212,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@Array.new$ret.1
+@Array.new$ret.17
 D=A
 @SP
 A=M
@@ -2267,7 +2259,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Array.new$ret.1)
+(Array.new$ret.17)
 //pop temp 0
 @5
 D=A
@@ -2293,7 +2285,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.alloc 1
-@Array.new$ret.2
+@Array.new$ret.18
 D=A
 @SP
 A=M
@@ -2340,13 +2332,13 @@ D=M
 M=D
 @Memory.alloc
 0;JMP
-(Array.new$ret.2)
+(Array.new$ret.18)
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -2364,28 +2356,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -2428,7 +2420,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.deAlloc 1
-@Array.dispose$ret.3
+@Array.dispose$ret.19
 D=A
 @SP
 A=M
@@ -2475,7 +2467,7 @@ D=M
 M=D
 @Memory.deAlloc
 0;JMP
-(Array.dispose$ret.3)
+(Array.dispose$ret.19)
 //pop temp 0
 @5
 D=A
@@ -2498,9 +2490,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -2518,28 +2510,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -2576,7 +2568,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.alloc 1
-@Board.new$ret.1
+@Board.new$ret.20
 D=A
 @SP
 A=M
@@ -2623,7 +2615,7 @@ D=M
 M=D
 @Memory.alloc
 0;JMP
-(Board.new$ret.1)
+(Board.new$ret.20)
 //pop pointer 0
 @3
 D=A
@@ -2647,7 +2639,7 @@ M=D
 @SP
 M=M+1
 // call function ConstBlock.LEFT 1
-@Board.new$ret.2
+@Board.new$ret.21
 D=A
 @SP
 A=M
@@ -2694,7 +2686,7 @@ D=M
 M=D
 @ConstBlock.LEFT
 0;JMP
-(Board.new$ret.2)
+(Board.new$ret.21)
 //pop static 0
 @Board.0
 D=A
@@ -2718,7 +2710,7 @@ M=D
 @SP
 M=M+1
 // call function ConstBlock.RIGHT 1
-@Board.new$ret.3
+@Board.new$ret.22
 D=A
 @SP
 A=M
@@ -2765,7 +2757,7 @@ D=M
 M=D
 @ConstBlock.RIGHT
 0;JMP
-(Board.new$ret.3)
+(Board.new$ret.22)
 //pop static 1
 @Board.1
 D=A
@@ -2789,7 +2781,7 @@ M=D
 @SP
 M=M+1
 // call function ConstBlock.UP 1
-@Board.new$ret.4
+@Board.new$ret.23
 D=A
 @SP
 A=M
@@ -2836,7 +2828,7 @@ D=M
 M=D
 @ConstBlock.UP
 0;JMP
-(Board.new$ret.4)
+(Board.new$ret.23)
 //pop static 2
 @Board.2
 D=A
@@ -2860,7 +2852,7 @@ M=D
 @SP
 M=M+1
 // call function ConstBlock.DOWN 1
-@Board.new$ret.5
+@Board.new$ret.24
 D=A
 @SP
 A=M
@@ -2907,7 +2899,7 @@ D=M
 M=D
 @ConstBlock.DOWN
 0;JMP
-(Board.new$ret.5)
+(Board.new$ret.24)
 //pop static 3
 @Board.3
 D=A
@@ -3077,7 +3069,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@Board.new$ret.6
+@Board.new$ret.25
 D=A
 @SP
 A=M
@@ -3124,7 +3116,7 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(Board.new$ret.6)
+(Board.new$ret.25)
 //pop this 14
 @THIS
 D=M
@@ -3201,7 +3193,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.new$ret.7
+@Board.new$ret.26
 D=A
 @SP
 A=M
@@ -3248,7 +3240,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.new$ret.7)
+(Board.new$ret.26)
 //pop this 2
 @THIS
 D=M
@@ -3272,7 +3264,7 @@ M=D
 @SP
 M=M+1
 // call function Board.initrands 1
-@Board.new$ret.8
+@Board.new$ret.27
 D=A
 @SP
 A=M
@@ -3319,7 +3311,7 @@ D=M
 M=D
 @Board.initrands
 0;JMP
-(Board.new$ret.8)
+(Board.new$ret.27)
 //pop temp 0
 @5
 D=A
@@ -3355,63 +3347,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE2
+@y_POSITIVE16
 D;JGT
-@y_NEGATIVE2
+@y_NEGATIVE16
 D;JLT
-@NORMAL_CASE2
+@NORMAL_CASE16
 0;JMP
-(y_POSITIVE2)
+(y_POSITIVE16)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE2
+@NEGATIVE_POSITIVE16
 D;JLT
-@NORMAL_CASE2
+@NORMAL_CASE16
 0;JMP
-(NEGATIVE_POSITIVE2)
+(NEGATIVE_POSITIVE16)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE2
+@CONTINUE16
 0;JMP
-(y_NEGATIVE2)
+(y_NEGATIVE16)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE2
+@POSITIVE_NEGATIVE16
 D;JGT
-@NORMAL_CASE2
+@NORMAL_CASE16
 0;JMP
-(POSITIVE_NEGATIVE2)
+(POSITIVE_NEGATIVE16)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE2
+@CONTINUE16
 0;JMP
-(NORMAL_CASE2)
+(NORMAL_CASE16)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE2
+@TRUE16
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE2
+@CONTINUE16
 0;JMP
-(TRUE2)
+(TRUE16)
 @SP
 A=M-1
 M=-1
-(CONTINUE2)
+(CONTINUE16)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -3474,7 +3466,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.new$ret.9
+@Board.new$ret.28
 D=A
 @SP
 A=M
@@ -3521,9 +3513,9 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.new$ret.9)
+(Board.new$ret.28)
 // call function Array.new 1
-@Board.new$ret.10
+@Board.new$ret.29
 D=A
 @SP
 A=M
@@ -3570,7 +3562,7 @@ D=M
 M=D
 @Array.new
 0;JMP
-(Board.new$ret.10)
+(Board.new$ret.29)
 //pop this 1
 @THIS
 D=M
@@ -3586,7 +3578,7 @@ D=M
 A=M
 M=D
 // call function ConstBlock.new 0
-@Board.new$ret.11
+@Board.new$ret.30
 D=A
 @SP
 A=M
@@ -3633,7 +3625,7 @@ D=M
 M=D
 @ConstBlock.new
 0;JMP
-(Board.new$ret.11)
+(Board.new$ret.30)
 //pop this 0
 @THIS
 D=M
@@ -3699,63 +3691,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE3
+@y_POSITIVE17
 D;JGT
-@y_NEGATIVE3
+@y_NEGATIVE17
 D;JLT
-@NORMAL_CASE3
+@NORMAL_CASE17
 0;JMP
-(y_POSITIVE3)
+(y_POSITIVE17)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE3
+@NEGATIVE_POSITIVE17
 D;JLT
-@NORMAL_CASE3
+@NORMAL_CASE17
 0;JMP
-(NEGATIVE_POSITIVE3)
+(NEGATIVE_POSITIVE17)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE3
+@CONTINUE17
 0;JMP
-(y_NEGATIVE3)
+(y_NEGATIVE17)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE3
+@POSITIVE_NEGATIVE17
 D;JGT
-@NORMAL_CASE3
+@NORMAL_CASE17
 0;JMP
-(POSITIVE_NEGATIVE3)
+(POSITIVE_NEGATIVE17)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE3
+@CONTINUE17
 0;JMP
-(NORMAL_CASE3)
+(NORMAL_CASE17)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE3
+@TRUE17
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE3
+@CONTINUE17
 0;JMP
-(TRUE3)
+(TRUE17)
 @SP
 A=M-1
 M=-1
-(CONTINUE3)
+(CONTINUE17)
 //not
 @SP
 AM=M-1
@@ -3971,7 +3963,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.new$ret.12
+@Board.new$ret.31
 D=A
 @SP
 A=M
@@ -4018,7 +4010,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.new$ret.12)
+(Board.new$ret.31)
 //push this 8
 @THIS
 D=M
@@ -4092,7 +4084,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.setColor 1
-@Board.new$ret.13
+@Board.new$ret.32
 D=A
 @SP
 A=M
@@ -4139,7 +4131,7 @@ D=M
 M=D
 @Screen.setColor
 0;JMP
-(Board.new$ret.13)
+(Board.new$ret.32)
 //pop temp 0
 @5
 D=A
@@ -4180,63 +4172,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE9
+@y_POSITIVE23
 D;JGT
-@y_NEGATIVE9
+@y_NEGATIVE23
 D;JLT
-@NORMAL_CASE9
+@NORMAL_CASE23
 0;JMP
-(y_POSITIVE9)
+(y_POSITIVE23)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE9
+@NEGATIVE_POSITIVE23
 D;JLT
-@NORMAL_CASE9
+@NORMAL_CASE23
 0;JMP
-(NEGATIVE_POSITIVE9)
+(NEGATIVE_POSITIVE23)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE9
+@CONTINUE23
 0;JMP
-(y_NEGATIVE9)
+(y_NEGATIVE23)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE9
+@POSITIVE_NEGATIVE23
 D;JGT
-@NORMAL_CASE9
+@NORMAL_CASE23
 0;JMP
-(POSITIVE_NEGATIVE9)
+(POSITIVE_NEGATIVE23)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE9
+@CONTINUE23
 0;JMP
-(NORMAL_CASE9)
+(NORMAL_CASE23)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE9
+@TRUE23
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE9
+@CONTINUE23
 0;JMP
-(TRUE9)
+(TRUE23)
 @SP
 A=M-1
 M=-1
-(CONTINUE9)
+(CONTINUE23)
 //not
 @SP
 AM=M-1
@@ -4392,7 +4384,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.new$ret.14
+@Board.new$ret.33
 D=A
 @SP
 A=M
@@ -4439,7 +4431,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.new$ret.14)
+(Board.new$ret.33)
 //push this 12
 @THIS
 D=M
@@ -4480,7 +4472,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.new$ret.15
+@Board.new$ret.34
 D=A
 @SP
 A=M
@@ -4527,7 +4519,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.new$ret.15)
+(Board.new$ret.34)
 //push this 12
 @THIS
 D=M
@@ -4599,7 +4591,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.new$ret.16
+@Board.new$ret.35
 D=A
 @SP
 A=M
@@ -4646,7 +4638,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.new$ret.16)
+(Board.new$ret.35)
 //push this 12
 @THIS
 D=M
@@ -4715,7 +4707,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.new$ret.17
+@Board.new$ret.36
 D=A
 @SP
 A=M
@@ -4762,7 +4754,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.new$ret.17)
+(Board.new$ret.36)
 //push this 12
 @THIS
 D=M
@@ -4795,7 +4787,7 @@ D=M
 A=A-1
 M=M-D
 // call function Screen.drawRectangle 4
-@Board.new$ret.18
+@Board.new$ret.37
 D=A
 @SP
 A=M
@@ -4842,7 +4834,7 @@ D=M
 M=D
 @Screen.drawRectangle
 0;JMP
-(Board.new$ret.18)
+(Board.new$ret.37)
 //pop temp 0
 @5
 D=A
@@ -4990,9 +4982,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -5010,28 +5002,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -5074,7 +5066,7 @@ M=D
 @SP
 M=M+1
 // call function Array.new 1
-@Board.initrands$ret.19
+@Board.initrands$ret.38
 D=A
 @SP
 A=M
@@ -5121,7 +5113,7 @@ D=M
 M=D
 @Array.new
 0;JMP
-(Board.initrands$ret.19)
+(Board.initrands$ret.38)
 //pop this 3
 @THIS
 D=M
@@ -5961,9 +5953,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -5981,28 +5973,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -6075,7 +6067,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@Board.addApple$ret.20
+@Board.addApple$ret.39
 D=A
 @SP
 A=M
@@ -6122,7 +6114,7 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(Board.addApple$ret.20)
+(Board.addApple$ret.39)
 //push constant 41
 @41
 D=A
@@ -6132,7 +6124,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.addApple$ret.21
+@Board.addApple$ret.40
 D=A
 @SP
 A=M
@@ -6179,7 +6171,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.addApple$ret.21)
+(Board.addApple$ret.40)
 //sub
 @SP
 AM=M-1
@@ -6237,7 +6229,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.addApple$ret.22
+@Board.addApple$ret.41
 D=A
 @SP
 A=M
@@ -6284,7 +6276,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.addApple$ret.22)
+(Board.addApple$ret.41)
 //pop this 5
 @THIS
 D=M
@@ -6347,7 +6339,7 @@ D=M
 A=A-1
 M=M-D
 // call function Math.divide 2
-@Board.addApple$ret.23
+@Board.addApple$ret.42
 D=A
 @SP
 A=M
@@ -6394,7 +6386,7 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(Board.addApple$ret.23)
+(Board.addApple$ret.42)
 //push this 2
 @THIS
 D=M
@@ -6421,7 +6413,7 @@ D=M
 A=A-1
 M=M-D
 // call function Math.multiply 2
-@Board.addApple$ret.24
+@Board.addApple$ret.43
 D=A
 @SP
 A=M
@@ -6468,7 +6460,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.addApple$ret.24)
+(Board.addApple$ret.43)
 //sub
 @SP
 AM=M-1
@@ -6509,24 +6501,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE41)
+(NORMAL_CASE55)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE41
+@TRUE55
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE41
+@CONTINUE55
 0;JMP
-(TRUE41)
+(TRUE55)
 @SP
 A=M-1
 M=-1
-(CONTINUE41)
+(CONTINUE55)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -6624,24 +6616,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE43)
+(NORMAL_CASE57)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE43
+@TRUE57
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE43
+@CONTINUE57
 0;JMP
-(TRUE43)
+(TRUE57)
 @SP
 A=M-1
 M=-1
-(CONTINUE43)
+(CONTINUE57)
 //not
 @SP
 AM=M-1
@@ -6702,7 +6694,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@Board.addApple$ret.25
+@Board.addApple$ret.44
 D=A
 @SP
 A=M
@@ -6749,7 +6741,7 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(Board.addApple$ret.25)
+(Board.addApple$ret.44)
 //push constant 84
 @84
 D=A
@@ -6759,7 +6751,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.addApple$ret.26
+@Board.addApple$ret.45
 D=A
 @SP
 A=M
@@ -6806,7 +6798,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.addApple$ret.26)
+(Board.addApple$ret.45)
 //sub
 @SP
 AM=M-1
@@ -6864,7 +6856,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.addApple$ret.27
+@Board.addApple$ret.46
 D=A
 @SP
 A=M
@@ -6911,7 +6903,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.addApple$ret.27)
+(Board.addApple$ret.46)
 //pop this 5
 @THIS
 D=M
@@ -6974,7 +6966,7 @@ D=M
 A=A-1
 M=M-D
 // call function Math.divide 2
-@Board.addApple$ret.28
+@Board.addApple$ret.47
 D=A
 @SP
 A=M
@@ -7021,7 +7013,7 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(Board.addApple$ret.28)
+(Board.addApple$ret.47)
 //push this 2
 @THIS
 D=M
@@ -7048,7 +7040,7 @@ D=M
 A=A-1
 M=M-D
 // call function Math.multiply 2
-@Board.addApple$ret.29
+@Board.addApple$ret.48
 D=A
 @SP
 A=M
@@ -7095,7 +7087,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.addApple$ret.29)
+(Board.addApple$ret.48)
 //sub
 @SP
 AM=M-1
@@ -7136,24 +7128,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE51)
+(NORMAL_CASE65)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE51
+@TRUE65
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE51
+@CONTINUE65
 0;JMP
-(TRUE51)
+(TRUE65)
 @SP
 A=M-1
 M=-1
-(CONTINUE51)
+(CONTINUE65)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -7253,63 +7245,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE53
+@y_POSITIVE67
 D;JGT
-@y_NEGATIVE53
+@y_NEGATIVE67
 D;JLT
-@NORMAL_CASE53
+@NORMAL_CASE67
 0;JMP
-(y_POSITIVE53)
+(y_POSITIVE67)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE53
+@NEGATIVE_POSITIVE67
 D;JLT
-@NORMAL_CASE53
+@NORMAL_CASE67
 0;JMP
-(NEGATIVE_POSITIVE53)
+(NEGATIVE_POSITIVE67)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE53
+@CONTINUE67
 0;JMP
-(y_NEGATIVE53)
+(y_NEGATIVE67)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE53
+@POSITIVE_NEGATIVE67
 D;JGT
-@NORMAL_CASE53
+@NORMAL_CASE67
 0;JMP
-(POSITIVE_NEGATIVE53)
+(POSITIVE_NEGATIVE67)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE53
+@CONTINUE67
 0;JMP
-(NORMAL_CASE53)
+(NORMAL_CASE67)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE53
+@TRUE67
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE53
+@CONTINUE67
 0;JMP
-(TRUE53)
+(TRUE67)
 @SP
 A=M-1
 M=-1
-(CONTINUE53)
+(CONTINUE67)
 // write if-goto IF_TRUE2
 @SP
 AM=M-1
@@ -7454,7 +7446,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@Board.addApple$ret.30
+@Board.addApple$ret.49
 D=A
 @SP
 A=M
@@ -7501,7 +7493,7 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(Board.addApple$ret.30)
+(Board.addApple$ret.49)
 //pop local 0
 @LCL
 D=M
@@ -7550,7 +7542,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.addApple$ret.31
+@Board.addApple$ret.50
 D=A
 @SP
 A=M
@@ -7597,7 +7589,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.addApple$ret.31)
+(Board.addApple$ret.50)
 //sub
 @SP
 AM=M-1
@@ -7616,7 +7608,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.addApple$ret.32
+@Board.addApple$ret.51
 D=A
 @SP
 A=M
@@ -7663,7 +7655,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.addApple$ret.32)
+(Board.addApple$ret.51)
 //push this 14
 @THIS
 D=M
@@ -7721,7 +7713,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.addApple$ret.33
+@Board.addApple$ret.52
 D=A
 @SP
 A=M
@@ -7768,7 +7760,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.addApple$ret.33)
+(Board.addApple$ret.52)
 //push this 14
 @THIS
 D=M
@@ -7815,7 +7807,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.drawCircle 3
-@Board.addApple$ret.34
+@Board.addApple$ret.53
 D=A
 @SP
 A=M
@@ -7862,7 +7854,7 @@ D=M
 M=D
 @Screen.drawCircle
 0;JMP
-(Board.addApple$ret.34)
+(Board.addApple$ret.53)
 //pop temp 0
 @5
 D=A
@@ -7885,9 +7877,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -7905,28 +7897,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -8007,7 +7999,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.moveSnake$ret.35
+@Board.moveSnake$ret.54
 D=A
 @SP
 A=M
@@ -8054,7 +8046,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.moveSnake$ret.35)
+(Board.moveSnake$ret.54)
 //push this 6
 @THIS
 D=M
@@ -8164,24 +8156,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE62)
+(NORMAL_CASE76)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE62
+@TRUE76
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE62
+@CONTINUE76
 0;JMP
-(TRUE62)
+(TRUE76)
 @SP
 A=M-1
 M=-1
-(CONTINUE62)
+(CONTINUE76)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -8218,63 +8210,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE63
+@y_POSITIVE77
 D;JGT
-@y_NEGATIVE63
+@y_NEGATIVE77
 D;JLT
-@NORMAL_CASE63
+@NORMAL_CASE77
 0;JMP
-(y_POSITIVE63)
+(y_POSITIVE77)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE63
+@NEGATIVE_POSITIVE77
 D;JLT
-@NORMAL_CASE63
+@NORMAL_CASE77
 0;JMP
-(NEGATIVE_POSITIVE63)
+(NEGATIVE_POSITIVE77)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE63
+@CONTINUE77
 0;JMP
-(y_NEGATIVE63)
+(y_NEGATIVE77)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE63
+@POSITIVE_NEGATIVE77
 D;JGT
-@NORMAL_CASE63
+@NORMAL_CASE77
 0;JMP
-(POSITIVE_NEGATIVE63)
+(POSITIVE_NEGATIVE77)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE63
+@CONTINUE77
 0;JMP
-(NORMAL_CASE63)
+(NORMAL_CASE77)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE63
+@TRUE77
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE63
+@CONTINUE77
 0;JMP
-(TRUE63)
+(TRUE77)
 @SP
 A=M-1
 M=-1
-(CONTINUE63)
+(CONTINUE77)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -8343,7 +8335,7 @@ M=D
 @SP
 M=M+1
 // call function ConstBlock.OUCH 1
-@Board.moveSnake$ret.36
+@Board.moveSnake$ret.55
 D=A
 @SP
 A=M
@@ -8390,13 +8382,13 @@ D=M
 M=D
 @ConstBlock.OUCH
 0;JMP
-(Board.moveSnake$ret.36)
+(Board.moveSnake$ret.55)
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -8414,28 +8406,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -8469,24 +8461,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE65)
+(NORMAL_CASE79)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE65
+@TRUE79
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE65
+@CONTINUE79
 0;JMP
-(TRUE65)
+(TRUE79)
 @SP
 A=M-1
 M=-1
-(CONTINUE65)
+(CONTINUE79)
 // write if-goto IF_TRUE2
 @SP
 AM=M-1
@@ -8540,63 +8532,63 @@ M=M-D
 A=M-1
 D=M
 
-@y_POSITIVE67
+@y_POSITIVE81
 D;JGT
-@y_NEGATIVE67
+@y_NEGATIVE81
 D;JLT
-@NORMAL_CASE67
+@NORMAL_CASE81
 0;JMP
-(y_POSITIVE67)
+(y_POSITIVE81)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE67
+@NEGATIVE_POSITIVE81
 D;JLT
-@NORMAL_CASE67
+@NORMAL_CASE81
 0;JMP
-(NEGATIVE_POSITIVE67)
+(NEGATIVE_POSITIVE81)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE67
+@CONTINUE81
 0;JMP
-(y_NEGATIVE67)
+(y_NEGATIVE81)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE67
+@POSITIVE_NEGATIVE81
 D;JGT
-@NORMAL_CASE67
+@NORMAL_CASE81
 0;JMP
-(POSITIVE_NEGATIVE67)
+(POSITIVE_NEGATIVE81)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE67
+@CONTINUE81
 0;JMP
-(NORMAL_CASE67)
+(NORMAL_CASE81)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE67
+@TRUE81
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE67
+@CONTINUE81
 0;JMP
-(TRUE67)
+(TRUE81)
 @SP
 A=M-1
 M=-1
-(CONTINUE67)
+(CONTINUE81)
 // write if-goto IF_TRUE3
 @SP
 AM=M-1
@@ -8665,7 +8657,7 @@ M=D
 @SP
 M=M+1
 // call function ConstBlock.OUCH 1
-@Board.moveSnake$ret.37
+@Board.moveSnake$ret.56
 D=A
 @SP
 A=M
@@ -8712,13 +8704,13 @@ D=M
 M=D
 @ConstBlock.OUCH
 0;JMP
-(Board.moveSnake$ret.37)
+(Board.moveSnake$ret.56)
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -8736,28 +8728,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -8791,24 +8783,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE69)
+(NORMAL_CASE83)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE69
+@TRUE83
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE69
+@CONTINUE83
 0;JMP
-(TRUE69)
+(TRUE83)
 @SP
 A=M-1
 M=-1
-(CONTINUE69)
+(CONTINUE83)
 // write if-goto IF_TRUE4
 @SP
 AM=M-1
@@ -8845,63 +8837,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE70
+@y_POSITIVE84
 D;JGT
-@y_NEGATIVE70
+@y_NEGATIVE84
 D;JLT
-@NORMAL_CASE70
+@NORMAL_CASE84
 0;JMP
-(y_POSITIVE70)
+(y_POSITIVE84)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE70
+@NEGATIVE_POSITIVE84
 D;JLT
-@NORMAL_CASE70
+@NORMAL_CASE84
 0;JMP
-(NEGATIVE_POSITIVE70)
+(NEGATIVE_POSITIVE84)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE70
+@CONTINUE84
 0;JMP
-(y_NEGATIVE70)
+(y_NEGATIVE84)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE70
+@POSITIVE_NEGATIVE84
 D;JGT
-@NORMAL_CASE70
+@NORMAL_CASE84
 0;JMP
-(POSITIVE_NEGATIVE70)
+(POSITIVE_NEGATIVE84)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE70
+@CONTINUE84
 0;JMP
-(NORMAL_CASE70)
+(NORMAL_CASE84)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE70
+@TRUE84
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE70
+@CONTINUE84
 0;JMP
-(TRUE70)
+(TRUE84)
 @SP
 A=M-1
 M=-1
-(CONTINUE70)
+(CONTINUE84)
 // write if-goto IF_TRUE5
 @SP
 AM=M-1
@@ -8970,7 +8962,7 @@ M=D
 @SP
 M=M+1
 // call function ConstBlock.OUCH 1
-@Board.moveSnake$ret.38
+@Board.moveSnake$ret.57
 D=A
 @SP
 A=M
@@ -9017,13 +9009,13 @@ D=M
 M=D
 @ConstBlock.OUCH
 0;JMP
-(Board.moveSnake$ret.38)
+(Board.moveSnake$ret.57)
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -9041,28 +9033,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -9096,24 +9088,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE72)
+(NORMAL_CASE86)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE72
+@TRUE86
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE72
+@CONTINUE86
 0;JMP
-(TRUE72)
+(TRUE86)
 @SP
 A=M-1
 M=-1
-(CONTINUE72)
+(CONTINUE86)
 // write if-goto IF_TRUE6
 @SP
 AM=M-1
@@ -9167,63 +9159,63 @@ M=M-D
 A=M-1
 D=M
 
-@y_POSITIVE74
+@y_POSITIVE88
 D;JGT
-@y_NEGATIVE74
+@y_NEGATIVE88
 D;JLT
-@NORMAL_CASE74
+@NORMAL_CASE88
 0;JMP
-(y_POSITIVE74)
+(y_POSITIVE88)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE74
+@NEGATIVE_POSITIVE88
 D;JLT
-@NORMAL_CASE74
+@NORMAL_CASE88
 0;JMP
-(NEGATIVE_POSITIVE74)
+(NEGATIVE_POSITIVE88)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE74
+@CONTINUE88
 0;JMP
-(y_NEGATIVE74)
+(y_NEGATIVE88)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE74
+@POSITIVE_NEGATIVE88
 D;JGT
-@NORMAL_CASE74
+@NORMAL_CASE88
 0;JMP
-(POSITIVE_NEGATIVE74)
+(POSITIVE_NEGATIVE88)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE74
+@CONTINUE88
 0;JMP
-(NORMAL_CASE74)
+(NORMAL_CASE88)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE74
+@TRUE88
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE74
+@CONTINUE88
 0;JMP
-(TRUE74)
+(TRUE88)
 @SP
 A=M-1
 M=-1
-(CONTINUE74)
+(CONTINUE88)
 // write if-goto IF_TRUE7
 @SP
 AM=M-1
@@ -9292,7 +9284,7 @@ M=D
 @SP
 M=M+1
 // call function ConstBlock.OUCH 1
-@Board.moveSnake$ret.39
+@Board.moveSnake$ret.58
 D=A
 @SP
 A=M
@@ -9339,13 +9331,13 @@ D=M
 M=D
 @ConstBlock.OUCH
 0;JMP
-(Board.moveSnake$ret.39)
+(Board.moveSnake$ret.58)
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -9363,28 +9355,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -9421,7 +9413,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.moveSnake$ret.40
+@Board.moveSnake$ret.59
 D=A
 @SP
 A=M
@@ -9468,7 +9460,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.moveSnake$ret.40)
+(Board.moveSnake$ret.59)
 //push this 6
 @THIS
 D=M
@@ -9667,24 +9659,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE79)
+(NORMAL_CASE93)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE79
+@TRUE93
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE79
+@CONTINUE93
 0;JMP
-(TRUE79)
+(TRUE93)
 @SP
 A=M-1
 M=-1
-(CONTINUE79)
+(CONTINUE93)
 //push local 1
 @LCL
 D=M
@@ -9705,24 +9697,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE80)
+(NORMAL_CASE94)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE80
+@TRUE94
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE80
+@CONTINUE94
 0;JMP
-(TRUE80)
+(TRUE94)
 @SP
 A=M-1
 M=-1
-(CONTINUE80)
+(CONTINUE94)
 //or
 @SP
 AM=M-1
@@ -9750,24 +9742,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE82)
+(NORMAL_CASE96)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE82
+@TRUE96
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE82
+@CONTINUE96
 0;JMP
-(TRUE82)
+(TRUE96)
 @SP
 A=M-1
 M=-1
-(CONTINUE82)
+(CONTINUE96)
 //or
 @SP
 AM=M-1
@@ -9795,24 +9787,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE84)
+(NORMAL_CASE98)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE84
+@TRUE98
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE84
+@CONTINUE98
 0;JMP
-(TRUE84)
+(TRUE98)
 @SP
 A=M-1
 M=-1
-(CONTINUE84)
+(CONTINUE98)
 //or
 @SP
 AM=M-1
@@ -9844,7 +9836,7 @@ M=D
 @SP
 M=M+1
 // call function ConstBlock.OUCH 1
-@Board.moveSnake$ret.41
+@Board.moveSnake$ret.60
 D=A
 @SP
 A=M
@@ -9891,13 +9883,13 @@ D=M
 M=D
 @ConstBlock.OUCH
 0;JMP
-(Board.moveSnake$ret.41)
+(Board.moveSnake$ret.60)
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -9915,28 +9907,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -9968,7 +9960,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.setColor 1
-@Board.moveSnake$ret.42
+@Board.moveSnake$ret.61
 D=A
 @SP
 A=M
@@ -10015,7 +10007,7 @@ D=M
 M=D
 @Screen.setColor
 0;JMP
-(Board.moveSnake$ret.42)
+(Board.moveSnake$ret.61)
 //pop temp 0
 @5
 D=A
@@ -10050,7 +10042,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.moveSnake$ret.43
+@Board.moveSnake$ret.62
 D=A
 @SP
 A=M
@@ -10097,7 +10089,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.moveSnake$ret.43)
+(Board.moveSnake$ret.62)
 //push this 12
 @THIS
 D=M
@@ -10138,7 +10130,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.moveSnake$ret.44
+@Board.moveSnake$ret.63
 D=A
 @SP
 A=M
@@ -10185,7 +10177,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.moveSnake$ret.44)
+(Board.moveSnake$ret.63)
 //push this 12
 @THIS
 D=M
@@ -10240,7 +10232,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.moveSnake$ret.45
+@Board.moveSnake$ret.64
 D=A
 @SP
 A=M
@@ -10287,7 +10279,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.moveSnake$ret.45)
+(Board.moveSnake$ret.64)
 //push this 12
 @THIS
 D=M
@@ -10356,7 +10348,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.moveSnake$ret.46
+@Board.moveSnake$ret.65
 D=A
 @SP
 A=M
@@ -10403,7 +10395,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.moveSnake$ret.46)
+(Board.moveSnake$ret.65)
 //push this 12
 @THIS
 D=M
@@ -10436,7 +10428,7 @@ D=M
 A=A-1
 M=M-D
 // call function Screen.drawRectangle 4
-@Board.moveSnake$ret.47
+@Board.moveSnake$ret.66
 D=A
 @SP
 A=M
@@ -10483,7 +10475,7 @@ D=M
 M=D
 @Screen.drawRectangle
 0;JMP
-(Board.moveSnake$ret.47)
+(Board.moveSnake$ret.66)
 //pop temp 0
 @5
 D=A
@@ -10515,24 +10507,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE95)
+(NORMAL_CASE109)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE95
+@TRUE109
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE95
+@CONTINUE109
 0;JMP
-(TRUE95)
+(TRUE109)
 @SP
 A=M-1
 M=-1
-(CONTINUE95)
+(CONTINUE109)
 // write if-goto IF_TRUE9
 @SP
 AM=M-1
@@ -10557,7 +10549,7 @@ M=D
 @SP
 M=M+1
 // call function ConstBlock.YAMI 1
-@Board.moveSnake$ret.48
+@Board.moveSnake$ret.67
 D=A
 @SP
 A=M
@@ -10604,13 +10596,13 @@ D=M
 M=D
 @ConstBlock.YAMI
 0;JMP
-(Board.moveSnake$ret.48)
+(Board.moveSnake$ret.67)
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -10628,28 +10620,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -10673,7 +10665,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.setColor 1
-@Board.moveSnake$ret.49
+@Board.moveSnake$ret.68
 D=A
 @SP
 A=M
@@ -10720,7 +10712,7 @@ D=M
 M=D
 @Screen.setColor
 0;JMP
-(Board.moveSnake$ret.49)
+(Board.moveSnake$ret.68)
 //pop temp 0
 @5
 D=A
@@ -10755,7 +10747,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.moveSnake$ret.50
+@Board.moveSnake$ret.69
 D=A
 @SP
 A=M
@@ -10802,7 +10794,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.moveSnake$ret.50)
+(Board.moveSnake$ret.69)
 //push this 12
 @THIS
 D=M
@@ -10843,7 +10835,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.moveSnake$ret.51
+@Board.moveSnake$ret.70
 D=A
 @SP
 A=M
@@ -10890,7 +10882,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.moveSnake$ret.51)
+(Board.moveSnake$ret.70)
 //push this 12
 @THIS
 D=M
@@ -10945,7 +10937,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.moveSnake$ret.52
+@Board.moveSnake$ret.71
 D=A
 @SP
 A=M
@@ -10992,7 +10984,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.moveSnake$ret.52)
+(Board.moveSnake$ret.71)
 //push this 12
 @THIS
 D=M
@@ -11061,7 +11053,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.moveSnake$ret.53
+@Board.moveSnake$ret.72
 D=A
 @SP
 A=M
@@ -11108,7 +11100,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.moveSnake$ret.53)
+(Board.moveSnake$ret.72)
 //push this 12
 @THIS
 D=M
@@ -11141,7 +11133,7 @@ D=M
 A=A-1
 M=M-D
 // call function Screen.drawRectangle 4
-@Board.moveSnake$ret.54
+@Board.moveSnake$ret.73
 D=A
 @SP
 A=M
@@ -11188,7 +11180,7 @@ D=M
 M=D
 @Screen.drawRectangle
 0;JMP
-(Board.moveSnake$ret.54)
+(Board.moveSnake$ret.73)
 //pop temp 0
 @5
 D=A
@@ -11223,7 +11215,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Board.moveSnake$ret.55
+@Board.moveSnake$ret.74
 D=A
 @SP
 A=M
@@ -11270,7 +11262,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Board.moveSnake$ret.55)
+(Board.moveSnake$ret.74)
 //push this 8
 @THIS
 D=M
@@ -11386,24 +11378,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE106)
+(NORMAL_CASE120)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE106
+@TRUE120
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE106
+@CONTINUE120
 0;JMP
-(TRUE106)
+(TRUE120)
 @SP
 A=M-1
 M=-1
-(CONTINUE106)
+(CONTINUE120)
 // write if-goto IF_TRUE10
 @SP
 AM=M-1
@@ -11477,24 +11469,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE108)
+(NORMAL_CASE122)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE108
+@TRUE122
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE108
+@CONTINUE122
 0;JMP
-(TRUE108)
+(TRUE122)
 @SP
 A=M-1
 M=-1
-(CONTINUE108)
+(CONTINUE122)
 // write if-goto IF_TRUE11
 @SP
 AM=M-1
@@ -11568,24 +11560,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE110)
+(NORMAL_CASE124)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE110
+@TRUE124
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE110
+@CONTINUE124
 0;JMP
-(TRUE110)
+(TRUE124)
 @SP
 A=M-1
 M=-1
-(CONTINUE110)
+(CONTINUE124)
 // write if-goto IF_TRUE12
 @SP
 AM=M-1
@@ -11659,24 +11651,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE112)
+(NORMAL_CASE126)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE112
+@TRUE126
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE112
+@CONTINUE126
 0;JMP
-(TRUE112)
+(TRUE126)
 @SP
 A=M-1
 M=-1
-(CONTINUE112)
+(CONTINUE126)
 // write if-goto IF_TRUE13
 @SP
 AM=M-1
@@ -11822,7 +11814,7 @@ M=D
 @SP
 M=M+1
 // call function ConstBlock.OK 1
-@Board.moveSnake$ret.56
+@Board.moveSnake$ret.75
 D=A
 @SP
 A=M
@@ -11869,13 +11861,13 @@ D=M
 M=D
 @ConstBlock.OK
 0;JMP
-(Board.moveSnake$ret.56)
+(Board.moveSnake$ret.75)
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -11893,28 +11885,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -11962,7 +11954,7 @@ M=D
 @SP
 M=M+1
 // call function Array.dispose 1
-@Board.dispose$ret.57
+@Board.dispose$ret.76
 D=A
 @SP
 A=M
@@ -12009,7 +12001,7 @@ D=M
 M=D
 @Array.dispose
 0;JMP
-(Board.dispose$ret.57)
+(Board.dispose$ret.76)
 //pop temp 0
 @5
 D=A
@@ -12033,7 +12025,7 @@ M=D
 @SP
 M=M+1
 // call function ConstBlock.dispose 1
-@Board.dispose$ret.58
+@Board.dispose$ret.77
 D=A
 @SP
 A=M
@@ -12080,7 +12072,7 @@ D=M
 M=D
 @ConstBlock.dispose
 0;JMP
-(Board.dispose$ret.58)
+(Board.dispose$ret.77)
 //pop temp 0
 @5
 D=A
@@ -12104,7 +12096,7 @@ M=D
 @SP
 M=M+1
 // call function Array.dispose 1
-@Board.dispose$ret.59
+@Board.dispose$ret.78
 D=A
 @SP
 A=M
@@ -12151,7 +12143,7 @@ D=M
 M=D
 @Array.dispose
 0;JMP
-(Board.dispose$ret.59)
+(Board.dispose$ret.78)
 //pop temp 0
 @5
 D=A
@@ -12172,7 +12164,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.deAlloc 1
-@Board.dispose$ret.60
+@Board.dispose$ret.79
 D=A
 @SP
 A=M
@@ -12219,7 +12211,7 @@ D=M
 M=D
 @Memory.deAlloc
 0;JMP
-(Board.dispose$ret.60)
+(Board.dispose$ret.79)
 //pop temp 0
 @5
 D=A
@@ -12242,9 +12234,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -12262,28 +12254,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -12304,7 +12296,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.alloc 1
-@ConstBlock.new$ret.1
+@ConstBlock.new$ret.80
 D=A
 @SP
 A=M
@@ -12351,7 +12343,7 @@ D=M
 M=D
 @Memory.alloc
 0;JMP
-(ConstBlock.new$ret.1)
+(ConstBlock.new$ret.80)
 //pop pointer 0
 @3
 D=A
@@ -12374,9 +12366,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -12394,28 +12386,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -12458,7 +12450,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.deAlloc 1
-@ConstBlock.dispose$ret.2
+@ConstBlock.dispose$ret.81
 D=A
 @SP
 A=M
@@ -12505,7 +12497,7 @@ D=M
 M=D
 @Memory.deAlloc
 0;JMP
-(ConstBlock.dispose$ret.2)
+(ConstBlock.dispose$ret.81)
 //pop temp 0
 @5
 D=A
@@ -12528,9 +12520,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -12548,28 +12540,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -12614,9 +12606,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -12634,28 +12626,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -12700,9 +12692,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -12720,28 +12712,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -12786,9 +12778,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -12806,28 +12798,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -12872,9 +12864,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -12892,28 +12884,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -12958,9 +12950,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -12978,28 +12970,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -13044,9 +13036,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -13064,28 +13056,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -13130,9 +13122,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -13150,28 +13142,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -13216,9 +13208,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -13236,28 +13228,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -13302,9 +13294,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -13322,28 +13314,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -13366,9 +13358,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -13386,28 +13378,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -13428,7 +13420,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.peek 1
-@Keyboard.keyPressed$ret.1
+@Keyboard.keyPressed$ret.82
 D=A
 @SP
 A=M
@@ -13475,13 +13467,13 @@ D=M
 M=D
 @Memory.peek
 0;JMP
-(Keyboard.keyPressed$ret.1)
+(Keyboard.keyPressed$ret.82)
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -13499,28 +13491,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -13557,7 +13549,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printChar 1
-@Keyboard.readChar$ret.2
+@Keyboard.readChar$ret.83
 D=A
 @SP
 A=M
@@ -13604,7 +13596,7 @@ D=M
 M=D
 @Output.printChar
 0;JMP
-(Keyboard.readChar$ret.2)
+(Keyboard.readChar$ret.83)
 //pop temp 0
 @5
 D=A
@@ -13638,24 +13630,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE1)
+(NORMAL_CASE129)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE1
+@TRUE129
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE1
+@CONTINUE129
 0;JMP
-(TRUE1)
+(TRUE129)
 @SP
 A=M-1
 M=-1
-(CONTINUE1)
+(CONTINUE129)
 //push local 0
 @LCL
 D=M
@@ -13680,63 +13672,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE2
+@y_POSITIVE130
 D;JGT
-@y_NEGATIVE2
+@y_NEGATIVE130
 D;JLT
-@NORMAL_CASE2
+@NORMAL_CASE130
 0;JMP
-(y_POSITIVE2)
+(y_POSITIVE130)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE2
+@NEGATIVE_POSITIVE130
 D;JLT
-@NORMAL_CASE2
+@NORMAL_CASE130
 0;JMP
-(NEGATIVE_POSITIVE2)
+(NEGATIVE_POSITIVE130)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE2
+@CONTINUE130
 0;JMP
-(y_NEGATIVE2)
+(y_NEGATIVE130)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE2
+@POSITIVE_NEGATIVE130
 D;JGT
-@NORMAL_CASE2
+@NORMAL_CASE130
 0;JMP
-(POSITIVE_NEGATIVE2)
+(POSITIVE_NEGATIVE130)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE2
+@CONTINUE130
 0;JMP
-(NORMAL_CASE2)
+(NORMAL_CASE130)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE2
+@TRUE130
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE2
+@CONTINUE130
 0;JMP
-(TRUE2)
+(TRUE130)
 @SP
 A=M-1
 M=-1
-(CONTINUE2)
+(CONTINUE130)
 //or
 @SP
 AM=M-1
@@ -13763,7 +13755,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@Keyboard.readChar$ret.3
+@Keyboard.readChar$ret.84
 D=A
 @SP
 A=M
@@ -13810,7 +13802,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(Keyboard.readChar$ret.3)
+(Keyboard.readChar$ret.84)
 //pop local 0
 @LCL
 D=M
@@ -13849,63 +13841,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE5
+@y_POSITIVE133
 D;JGT
-@y_NEGATIVE5
+@y_NEGATIVE133
 D;JLT
-@NORMAL_CASE5
+@NORMAL_CASE133
 0;JMP
-(y_POSITIVE5)
+(y_POSITIVE133)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE5
+@NEGATIVE_POSITIVE133
 D;JLT
-@NORMAL_CASE5
+@NORMAL_CASE133
 0;JMP
-(NEGATIVE_POSITIVE5)
+(NEGATIVE_POSITIVE133)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE5
+@CONTINUE133
 0;JMP
-(y_NEGATIVE5)
+(y_NEGATIVE133)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE5
+@POSITIVE_NEGATIVE133
 D;JGT
-@NORMAL_CASE5
+@NORMAL_CASE133
 0;JMP
-(POSITIVE_NEGATIVE5)
+(POSITIVE_NEGATIVE133)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE5
+@CONTINUE133
 0;JMP
-(NORMAL_CASE5)
+(NORMAL_CASE133)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE5
+@TRUE133
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE5
+@CONTINUE133
 0;JMP
-(TRUE5)
+(TRUE133)
 @SP
 A=M-1
 M=-1
-(CONTINUE5)
+(CONTINUE133)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -13951,7 +13943,7 @@ M=D
 // write label WHILE_END0
 (Keyboard.readChar$WHILE_END0)
 // call function String.backSpace 0
-@Keyboard.readChar$ret.4
+@Keyboard.readChar$ret.85
 D=A
 @SP
 A=M
@@ -13998,9 +13990,9 @@ D=M
 M=D
 @String.backSpace
 0;JMP
-(Keyboard.readChar$ret.4)
+(Keyboard.readChar$ret.85)
 // call function Output.printChar 1
-@Keyboard.readChar$ret.5
+@Keyboard.readChar$ret.86
 D=A
 @SP
 A=M
@@ -14047,7 +14039,7 @@ D=M
 M=D
 @Output.printChar
 0;JMP
-(Keyboard.readChar$ret.5)
+(Keyboard.readChar$ret.86)
 //pop temp 0
 @5
 D=A
@@ -14071,7 +14063,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printChar 1
-@Keyboard.readChar$ret.6
+@Keyboard.readChar$ret.87
 D=A
 @SP
 A=M
@@ -14118,7 +14110,7 @@ D=M
 M=D
 @Output.printChar
 0;JMP
-(Keyboard.readChar$ret.6)
+(Keyboard.readChar$ret.87)
 //pop temp 0
 @5
 D=A
@@ -14144,9 +14136,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -14164,28 +14156,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -14246,7 +14238,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@Keyboard.readLine$ret.7
+@Keyboard.readLine$ret.88
 D=A
 @SP
 A=M
@@ -14293,7 +14285,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(Keyboard.readLine$ret.7)
+(Keyboard.readLine$ret.88)
 //pop local 3
 @LCL
 D=M
@@ -14320,7 +14312,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printString 1
-@Keyboard.readLine$ret.8
+@Keyboard.readLine$ret.89
 D=A
 @SP
 A=M
@@ -14367,7 +14359,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(Keyboard.readLine$ret.8)
+(Keyboard.readLine$ret.89)
 //pop temp 0
 @5
 D=A
@@ -14380,7 +14372,7 @@ D=M
 A=M
 M=D
 // call function String.newLine 0
-@Keyboard.readLine$ret.9
+@Keyboard.readLine$ret.90
 D=A
 @SP
 A=M
@@ -14427,7 +14419,7 @@ D=M
 M=D
 @String.newLine
 0;JMP
-(Keyboard.readLine$ret.9)
+(Keyboard.readLine$ret.90)
 //pop local 1
 @LCL
 D=M
@@ -14443,7 +14435,7 @@ D=M
 A=M
 M=D
 // call function String.backSpace 0
-@Keyboard.readLine$ret.10
+@Keyboard.readLine$ret.91
 D=A
 @SP
 A=M
@@ -14490,7 +14482,7 @@ D=M
 M=D
 @String.backSpace
 0;JMP
-(Keyboard.readLine$ret.10)
+(Keyboard.readLine$ret.91)
 //pop local 2
 @LCL
 D=M
@@ -14548,7 +14540,7 @@ D=M
 
 D;JNE
 // call function Keyboard.readChar 0
-@Keyboard.readLine$ret.11
+@Keyboard.readLine$ret.92
 D=A
 @SP
 A=M
@@ -14595,7 +14587,7 @@ D=M
 M=D
 @Keyboard.readChar
 0;JMP
-(Keyboard.readLine$ret.11)
+(Keyboard.readLine$ret.92)
 //pop local 0
 @LCL
 D=M
@@ -14633,24 +14625,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE8)
+(NORMAL_CASE136)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE8
+@TRUE136
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE8
+@CONTINUE136
 0;JMP
-(TRUE8)
+(TRUE136)
 @SP
 A=M-1
 M=-1
-(CONTINUE8)
+(CONTINUE136)
 //pop local 4
 @LCL
 D=M
@@ -14722,24 +14714,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE10)
+(NORMAL_CASE138)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE10
+@TRUE138
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE10
+@CONTINUE138
 0;JMP
-(TRUE10)
+(TRUE138)
 @SP
 A=M-1
 M=-1
-(CONTINUE10)
+(CONTINUE138)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -14764,7 +14756,7 @@ M=D
 @SP
 M=M+1
 // call function String.eraseLastChar 1
-@Keyboard.readLine$ret.12
+@Keyboard.readLine$ret.93
 D=A
 @SP
 A=M
@@ -14811,7 +14803,7 @@ D=M
 M=D
 @String.eraseLastChar
 0;JMP
-(Keyboard.readLine$ret.12)
+(Keyboard.readLine$ret.93)
 //pop temp 0
 @5
 D=A
@@ -14851,7 +14843,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@Keyboard.readLine$ret.13
+@Keyboard.readLine$ret.94
 D=A
 @SP
 A=M
@@ -14898,7 +14890,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(Keyboard.readLine$ret.13)
+(Keyboard.readLine$ret.94)
 //pop local 3
 @LCL
 D=M
@@ -14936,9 +14928,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -14956,28 +14948,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -15017,7 +15009,7 @@ M=D
 @SP
 M=M+1
 // call function Keyboard.readLine 1
-@Keyboard.readInt$ret.14
+@Keyboard.readInt$ret.95
 D=A
 @SP
 A=M
@@ -15064,7 +15056,7 @@ D=M
 M=D
 @Keyboard.readLine
 0;JMP
-(Keyboard.readInt$ret.14)
+(Keyboard.readInt$ret.95)
 //pop local 0
 @LCL
 D=M
@@ -15091,7 +15083,7 @@ M=D
 @SP
 M=M+1
 // call function String.intValue 1
-@Keyboard.readInt$ret.15
+@Keyboard.readInt$ret.96
 D=A
 @SP
 A=M
@@ -15138,7 +15130,7 @@ D=M
 M=D
 @String.intValue
 0;JMP
-(Keyboard.readInt$ret.15)
+(Keyboard.readInt$ret.96)
 //pop local 1
 @LCL
 D=M
@@ -15165,7 +15157,7 @@ M=D
 @SP
 M=M+1
 // call function String.dispose 1
-@Keyboard.readInt$ret.16
+@Keyboard.readInt$ret.97
 D=A
 @SP
 A=M
@@ -15212,7 +15204,7 @@ D=M
 M=D
 @String.dispose
 0;JMP
-(Keyboard.readInt$ret.16)
+(Keyboard.readInt$ret.97)
 //pop temp 0
 @5
 D=A
@@ -15238,9 +15230,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -15258,28 +15250,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -15308,7 +15300,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeGame.new 0
-@Main.main$ret.1
+@Main.main$ret.98
 D=A
 @SP
 A=M
@@ -15355,7 +15347,7 @@ D=M
 M=D
 @SnakeGame.new
 0;JMP
-(Main.main$ret.1)
+(Main.main$ret.98)
 //pop local 1
 @LCL
 D=M
@@ -15382,7 +15374,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeGame.run 1
-@Main.main$ret.2
+@Main.main$ret.99
 D=A
 @SP
 A=M
@@ -15429,7 +15421,7 @@ D=M
 M=D
 @SnakeGame.run
 0;JMP
-(Main.main$ret.2)
+(Main.main$ret.99)
 //pop temp 0
 @5
 D=A
@@ -15453,7 +15445,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeGame.dispose 1
-@Main.main$ret.3
+@Main.main$ret.100
 D=A
 @SP
 A=M
@@ -15500,7 +15492,7 @@ D=M
 M=D
 @SnakeGame.dispose
 0;JMP
-(Main.main$ret.3)
+(Main.main$ret.100)
 //pop temp 0
 @5
 D=A
@@ -91946,63 +91938,63 @@ M=-M
 A=M-1
 D=M
 
-@y_POSITIVE5458
+@y_POSITIVE5596
 D;JGT
-@y_NEGATIVE5458
+@y_NEGATIVE5596
 D;JLT
-@NORMAL_CASE5458
+@NORMAL_CASE5596
 0;JMP
-(y_POSITIVE5458)
+(y_POSITIVE5596)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE5458
+@NEGATIVE_POSITIVE5596
 D;JLT
-@NORMAL_CASE5458
+@NORMAL_CASE5596
 0;JMP
-(NEGATIVE_POSITIVE5458)
+(NEGATIVE_POSITIVE5596)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE5458
+@CONTINUE5596
 0;JMP
-(y_NEGATIVE5458)
+(y_NEGATIVE5596)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE5458
+@POSITIVE_NEGATIVE5596
 D;JGT
-@NORMAL_CASE5458
+@NORMAL_CASE5596
 0;JMP
-(POSITIVE_NEGATIVE5458)
+(POSITIVE_NEGATIVE5596)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE5458
+@CONTINUE5596
 0;JMP
-(NORMAL_CASE5458)
+(NORMAL_CASE5596)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE5458
+@TRUE5596
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE5458
+@CONTINUE5596
 0;JMP
-(TRUE5458)
+(TRUE5596)
 @SP
 A=M-1
 M=-1
-(CONTINUE5458)
+(CONTINUE5596)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -92024,7 +92016,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.wait 1
-@Main.main$ret.4
+@Main.main$ret.101
 D=A
 @SP
 A=M
@@ -92071,7 +92063,7 @@ D=M
 M=D
 @Sys.wait
 0;JMP
-(Main.main$ret.4)
+(Main.main$ret.101)
 //pop temp 0
 @5
 D=A
@@ -92096,9 +92088,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -92116,28 +92108,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -92166,7 +92158,7 @@ M=D
 @SP
 M=M+1
 // call function Array.new 1
-@Math.init$ret.1
+@Math.init$ret.102
 D=A
 @SP
 A=M
@@ -92213,7 +92205,7 @@ D=M
 M=D
 @Array.new
 0;JMP
-(Math.init$ret.1)
+(Math.init$ret.102)
 //pop static 1
 @Math.1
 D=A
@@ -92234,7 +92226,7 @@ M=D
 @SP
 M=M+1
 // call function Array.new 1
-@Math.init$ret.2
+@Math.init$ret.103
 D=A
 @SP
 A=M
@@ -92281,7 +92273,7 @@ D=M
 M=D
 @Array.new
 0;JMP
-(Math.init$ret.2)
+(Math.init$ret.103)
 //pop static 0
 @Math.0
 D=A
@@ -92393,63 +92385,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE2
+@y_POSITIVE5598
 D;JGT
-@y_NEGATIVE2
+@y_NEGATIVE5598
 D;JLT
-@NORMAL_CASE2
+@NORMAL_CASE5598
 0;JMP
-(y_POSITIVE2)
+(y_POSITIVE5598)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE2
+@NEGATIVE_POSITIVE5598
 D;JLT
-@NORMAL_CASE2
+@NORMAL_CASE5598
 0;JMP
-(NEGATIVE_POSITIVE2)
+(NEGATIVE_POSITIVE5598)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE2
+@CONTINUE5598
 0;JMP
-(y_NEGATIVE2)
+(y_NEGATIVE5598)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE2
+@POSITIVE_NEGATIVE5598
 D;JGT
-@NORMAL_CASE2
+@NORMAL_CASE5598
 0;JMP
-(POSITIVE_NEGATIVE2)
+(POSITIVE_NEGATIVE5598)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE2
+@CONTINUE5598
 0;JMP
-(NORMAL_CASE2)
+(NORMAL_CASE5598)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE2
+@TRUE5598
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE2
+@CONTINUE5598
 0;JMP
-(TRUE2)
+(TRUE5598)
 @SP
 A=M-1
 M=-1
-(CONTINUE2)
+(CONTINUE5598)
 //not
 @SP
 AM=M-1
@@ -92720,9 +92712,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -92740,28 +92732,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -92797,63 +92789,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE11
+@y_POSITIVE5607
 D;JGT
-@y_NEGATIVE11
+@y_NEGATIVE5607
 D;JLT
-@NORMAL_CASE11
+@NORMAL_CASE5607
 0;JMP
-(y_POSITIVE11)
+(y_POSITIVE5607)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE11
+@NEGATIVE_POSITIVE5607
 D;JLT
-@NORMAL_CASE11
+@NORMAL_CASE5607
 0;JMP
-(NEGATIVE_POSITIVE11)
+(NEGATIVE_POSITIVE5607)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE11
+@CONTINUE5607
 0;JMP
-(y_NEGATIVE11)
+(y_NEGATIVE5607)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE11
+@POSITIVE_NEGATIVE5607
 D;JGT
-@NORMAL_CASE11
+@NORMAL_CASE5607
 0;JMP
-(POSITIVE_NEGATIVE11)
+(POSITIVE_NEGATIVE5607)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE11
+@CONTINUE5607
 0;JMP
-(NORMAL_CASE11)
+(NORMAL_CASE5607)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE11
+@TRUE5607
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE11
+@CONTINUE5607
 0;JMP
-(TRUE11)
+(TRUE5607)
 @SP
 A=M-1
 M=-1
-(CONTINUE11)
+(CONTINUE5607)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -92911,9 +92903,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -92931,28 +92923,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -93028,63 +93020,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE13
+@y_POSITIVE5609
 D;JGT
-@y_NEGATIVE13
+@y_NEGATIVE5609
 D;JLT
-@NORMAL_CASE13
+@NORMAL_CASE5609
 0;JMP
-(y_POSITIVE13)
+(y_POSITIVE5609)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE13
+@NEGATIVE_POSITIVE5609
 D;JLT
-@NORMAL_CASE13
+@NORMAL_CASE5609
 0;JMP
-(NEGATIVE_POSITIVE13)
+(NEGATIVE_POSITIVE5609)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE13
+@CONTINUE5609
 0;JMP
-(y_NEGATIVE13)
+(y_NEGATIVE5609)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE13
+@POSITIVE_NEGATIVE5609
 D;JGT
-@NORMAL_CASE13
+@NORMAL_CASE5609
 0;JMP
-(POSITIVE_NEGATIVE13)
+(POSITIVE_NEGATIVE5609)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE13
+@CONTINUE5609
 0;JMP
-(NORMAL_CASE13)
+(NORMAL_CASE5609)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE13
+@TRUE5609
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE13
+@CONTINUE5609
 0;JMP
-(TRUE13)
+(TRUE5609)
 @SP
 A=M-1
 M=-1
-(CONTINUE13)
+(CONTINUE5609)
 //push argument 1
 @ARG
 D=M
@@ -93109,63 +93101,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE14
+@y_POSITIVE5610
 D;JGT
-@y_NEGATIVE14
+@y_NEGATIVE5610
 D;JLT
-@NORMAL_CASE14
+@NORMAL_CASE5610
 0;JMP
-(y_POSITIVE14)
+(y_POSITIVE5610)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE14
+@NEGATIVE_POSITIVE5610
 D;JLT
-@NORMAL_CASE14
+@NORMAL_CASE5610
 0;JMP
-(NEGATIVE_POSITIVE14)
+(NEGATIVE_POSITIVE5610)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE14
+@CONTINUE5610
 0;JMP
-(y_NEGATIVE14)
+(y_NEGATIVE5610)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE14
+@POSITIVE_NEGATIVE5610
 D;JGT
-@NORMAL_CASE14
+@NORMAL_CASE5610
 0;JMP
-(POSITIVE_NEGATIVE14)
+(POSITIVE_NEGATIVE5610)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE14
+@CONTINUE5610
 0;JMP
-(NORMAL_CASE14)
+(NORMAL_CASE5610)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE14
+@TRUE5610
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE14
+@CONTINUE5610
 0;JMP
-(TRUE14)
+(TRUE5610)
 @SP
 A=M-1
 M=-1
-(CONTINUE14)
+(CONTINUE5610)
 //and
 @SP
 AM=M-1
@@ -93197,63 +93189,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE16
+@y_POSITIVE5612
 D;JGT
-@y_NEGATIVE16
+@y_NEGATIVE5612
 D;JLT
-@NORMAL_CASE16
+@NORMAL_CASE5612
 0;JMP
-(y_POSITIVE16)
+(y_POSITIVE5612)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE16
+@NEGATIVE_POSITIVE5612
 D;JLT
-@NORMAL_CASE16
+@NORMAL_CASE5612
 0;JMP
-(NEGATIVE_POSITIVE16)
+(NEGATIVE_POSITIVE5612)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE16
+@CONTINUE5612
 0;JMP
-(y_NEGATIVE16)
+(y_NEGATIVE5612)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE16
+@POSITIVE_NEGATIVE5612
 D;JGT
-@NORMAL_CASE16
+@NORMAL_CASE5612
 0;JMP
-(POSITIVE_NEGATIVE16)
+(POSITIVE_NEGATIVE5612)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE16
+@CONTINUE5612
 0;JMP
-(NORMAL_CASE16)
+(NORMAL_CASE5612)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE16
+@TRUE5612
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE16
+@CONTINUE5612
 0;JMP
-(TRUE16)
+(TRUE5612)
 @SP
 A=M-1
 M=-1
-(CONTINUE16)
+(CONTINUE5612)
 //push argument 1
 @ARG
 D=M
@@ -93278,63 +93270,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE17
+@y_POSITIVE5613
 D;JGT
-@y_NEGATIVE17
+@y_NEGATIVE5613
 D;JLT
-@NORMAL_CASE17
+@NORMAL_CASE5613
 0;JMP
-(y_POSITIVE17)
+(y_POSITIVE5613)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE17
+@NEGATIVE_POSITIVE5613
 D;JLT
-@NORMAL_CASE17
+@NORMAL_CASE5613
 0;JMP
-(NEGATIVE_POSITIVE17)
+(NEGATIVE_POSITIVE5613)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE17
+@CONTINUE5613
 0;JMP
-(y_NEGATIVE17)
+(y_NEGATIVE5613)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE17
+@POSITIVE_NEGATIVE5613
 D;JGT
-@NORMAL_CASE17
+@NORMAL_CASE5613
 0;JMP
-(POSITIVE_NEGATIVE17)
+(POSITIVE_NEGATIVE5613)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE17
+@CONTINUE5613
 0;JMP
-(NORMAL_CASE17)
+(NORMAL_CASE5613)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE17
+@TRUE5613
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE17
+@CONTINUE5613
 0;JMP
-(TRUE17)
+(TRUE5613)
 @SP
 A=M-1
 M=-1
-(CONTINUE17)
+(CONTINUE5613)
 //and
 @SP
 AM=M-1
@@ -93375,7 +93367,7 @@ M=D
 @SP
 M=M+1
 // call function Math.abs 1
-@Math.multiply$ret.3
+@Math.multiply$ret.104
 D=A
 @SP
 A=M
@@ -93422,7 +93414,7 @@ D=M
 M=D
 @Math.abs
 0;JMP
-(Math.multiply$ret.3)
+(Math.multiply$ret.104)
 //pop argument 0
 @ARG
 D=M
@@ -93449,7 +93441,7 @@ M=D
 @SP
 M=M+1
 // call function Math.abs 1
-@Math.multiply$ret.4
+@Math.multiply$ret.105
 D=A
 @SP
 A=M
@@ -93496,7 +93488,7 @@ D=M
 M=D
 @Math.abs
 0;JMP
-(Math.multiply$ret.4)
+(Math.multiply$ret.105)
 //pop argument 1
 @ARG
 D=M
@@ -93538,63 +93530,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE20
+@y_POSITIVE5616
 D;JGT
-@y_NEGATIVE20
+@y_NEGATIVE5616
 D;JLT
-@NORMAL_CASE20
+@NORMAL_CASE5616
 0;JMP
-(y_POSITIVE20)
+(y_POSITIVE5616)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE20
+@NEGATIVE_POSITIVE5616
 D;JLT
-@NORMAL_CASE20
+@NORMAL_CASE5616
 0;JMP
-(NEGATIVE_POSITIVE20)
+(NEGATIVE_POSITIVE5616)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE20
+@CONTINUE5616
 0;JMP
-(y_NEGATIVE20)
+(y_NEGATIVE5616)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE20
+@POSITIVE_NEGATIVE5616
 D;JGT
-@NORMAL_CASE20
+@NORMAL_CASE5616
 0;JMP
-(POSITIVE_NEGATIVE20)
+(POSITIVE_NEGATIVE5616)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE20
+@CONTINUE5616
 0;JMP
-(NORMAL_CASE20)
+(NORMAL_CASE5616)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE20
+@TRUE5616
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE20
+@CONTINUE5616
 0;JMP
-(TRUE20)
+(TRUE5616)
 @SP
 A=M-1
 M=-1
-(CONTINUE20)
+(CONTINUE5616)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -93713,63 +93705,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE21
+@y_POSITIVE5617
 D;JGT
-@y_NEGATIVE21
+@y_NEGATIVE5617
 D;JLT
-@NORMAL_CASE21
+@NORMAL_CASE5617
 0;JMP
-(y_POSITIVE21)
+(y_POSITIVE5617)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE21
+@NEGATIVE_POSITIVE5617
 D;JLT
-@NORMAL_CASE21
+@NORMAL_CASE5617
 0;JMP
-(NEGATIVE_POSITIVE21)
+(NEGATIVE_POSITIVE5617)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE21
+@CONTINUE5617
 0;JMP
-(y_NEGATIVE21)
+(y_NEGATIVE5617)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE21
+@POSITIVE_NEGATIVE5617
 D;JGT
-@NORMAL_CASE21
+@NORMAL_CASE5617
 0;JMP
-(POSITIVE_NEGATIVE21)
+(POSITIVE_NEGATIVE5617)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE21
+@CONTINUE5617
 0;JMP
-(NORMAL_CASE21)
+(NORMAL_CASE5617)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE21
+@TRUE5617
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE21
+@CONTINUE5617
 0;JMP
-(TRUE21)
+(TRUE5617)
 @SP
 A=M-1
 M=-1
-(CONTINUE21)
+(CONTINUE5617)
 //not
 @SP
 AM=M-1
@@ -93866,63 +93858,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE25
+@y_POSITIVE5621
 D;JGT
-@y_NEGATIVE25
+@y_NEGATIVE5621
 D;JLT
-@NORMAL_CASE25
+@NORMAL_CASE5621
 0;JMP
-(y_POSITIVE25)
+(y_POSITIVE5621)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE25
+@NEGATIVE_POSITIVE5621
 D;JLT
-@NORMAL_CASE25
+@NORMAL_CASE5621
 0;JMP
-(NEGATIVE_POSITIVE25)
+(NEGATIVE_POSITIVE5621)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE25
+@CONTINUE5621
 0;JMP
-(y_NEGATIVE25)
+(y_NEGATIVE5621)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE25
+@POSITIVE_NEGATIVE5621
 D;JGT
-@NORMAL_CASE25
+@NORMAL_CASE5621
 0;JMP
-(POSITIVE_NEGATIVE25)
+(POSITIVE_NEGATIVE5621)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE25
+@CONTINUE5621
 0;JMP
-(NORMAL_CASE25)
+(NORMAL_CASE5621)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE25
+@TRUE5621
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE25
+@CONTINUE5621
 0;JMP
-(TRUE25)
+(TRUE5621)
 @SP
 A=M-1
 M=-1
-(CONTINUE25)
+(CONTINUE5621)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -94211,9 +94203,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -94231,28 +94223,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -94316,24 +94308,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE32)
+(NORMAL_CASE5628)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE32
+@TRUE5628
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE32
+@CONTINUE5628
 0;JMP
-(TRUE32)
+(TRUE5628)
 @SP
 A=M-1
 M=-1
-(CONTINUE32)
+(CONTINUE5628)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -94355,7 +94347,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@Math.divide$ret.5
+@Math.divide$ret.106
 D=A
 @SP
 A=M
@@ -94402,7 +94394,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Math.divide$ret.5)
+(Math.divide$ret.106)
 //pop temp 0
 @5
 D=A
@@ -94440,63 +94432,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE33
+@y_POSITIVE5629
 D;JGT
-@y_NEGATIVE33
+@y_NEGATIVE5629
 D;JLT
-@NORMAL_CASE33
+@NORMAL_CASE5629
 0;JMP
-(y_POSITIVE33)
+(y_POSITIVE5629)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE33
+@NEGATIVE_POSITIVE5629
 D;JLT
-@NORMAL_CASE33
+@NORMAL_CASE5629
 0;JMP
-(NEGATIVE_POSITIVE33)
+(NEGATIVE_POSITIVE5629)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE33
+@CONTINUE5629
 0;JMP
-(y_NEGATIVE33)
+(y_NEGATIVE5629)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE33
+@POSITIVE_NEGATIVE5629
 D;JGT
-@NORMAL_CASE33
+@NORMAL_CASE5629
 0;JMP
-(POSITIVE_NEGATIVE33)
+(POSITIVE_NEGATIVE5629)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE33
+@CONTINUE5629
 0;JMP
-(NORMAL_CASE33)
+(NORMAL_CASE5629)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE33
+@TRUE5629
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE33
+@CONTINUE5629
 0;JMP
-(TRUE33)
+(TRUE5629)
 @SP
 A=M-1
 M=-1
-(CONTINUE33)
+(CONTINUE5629)
 //push argument 1
 @ARG
 D=M
@@ -94521,63 +94513,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE34
+@y_POSITIVE5630
 D;JGT
-@y_NEGATIVE34
+@y_NEGATIVE5630
 D;JLT
-@NORMAL_CASE34
+@NORMAL_CASE5630
 0;JMP
-(y_POSITIVE34)
+(y_POSITIVE5630)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE34
+@NEGATIVE_POSITIVE5630
 D;JLT
-@NORMAL_CASE34
+@NORMAL_CASE5630
 0;JMP
-(NEGATIVE_POSITIVE34)
+(NEGATIVE_POSITIVE5630)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE34
+@CONTINUE5630
 0;JMP
-(y_NEGATIVE34)
+(y_NEGATIVE5630)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE34
+@POSITIVE_NEGATIVE5630
 D;JGT
-@NORMAL_CASE34
+@NORMAL_CASE5630
 0;JMP
-(POSITIVE_NEGATIVE34)
+(POSITIVE_NEGATIVE5630)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE34
+@CONTINUE5630
 0;JMP
-(NORMAL_CASE34)
+(NORMAL_CASE5630)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE34
+@TRUE5630
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE34
+@CONTINUE5630
 0;JMP
-(TRUE34)
+(TRUE5630)
 @SP
 A=M-1
 M=-1
-(CONTINUE34)
+(CONTINUE5630)
 //and
 @SP
 AM=M-1
@@ -94609,63 +94601,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE36
+@y_POSITIVE5632
 D;JGT
-@y_NEGATIVE36
+@y_NEGATIVE5632
 D;JLT
-@NORMAL_CASE36
+@NORMAL_CASE5632
 0;JMP
-(y_POSITIVE36)
+(y_POSITIVE5632)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE36
+@NEGATIVE_POSITIVE5632
 D;JLT
-@NORMAL_CASE36
+@NORMAL_CASE5632
 0;JMP
-(NEGATIVE_POSITIVE36)
+(NEGATIVE_POSITIVE5632)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE36
+@CONTINUE5632
 0;JMP
-(y_NEGATIVE36)
+(y_NEGATIVE5632)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE36
+@POSITIVE_NEGATIVE5632
 D;JGT
-@NORMAL_CASE36
+@NORMAL_CASE5632
 0;JMP
-(POSITIVE_NEGATIVE36)
+(POSITIVE_NEGATIVE5632)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE36
+@CONTINUE5632
 0;JMP
-(NORMAL_CASE36)
+(NORMAL_CASE5632)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE36
+@TRUE5632
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE36
+@CONTINUE5632
 0;JMP
-(TRUE36)
+(TRUE5632)
 @SP
 A=M-1
 M=-1
-(CONTINUE36)
+(CONTINUE5632)
 //push argument 1
 @ARG
 D=M
@@ -94690,63 +94682,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE37
+@y_POSITIVE5633
 D;JGT
-@y_NEGATIVE37
+@y_NEGATIVE5633
 D;JLT
-@NORMAL_CASE37
+@NORMAL_CASE5633
 0;JMP
-(y_POSITIVE37)
+(y_POSITIVE5633)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE37
+@NEGATIVE_POSITIVE5633
 D;JLT
-@NORMAL_CASE37
+@NORMAL_CASE5633
 0;JMP
-(NEGATIVE_POSITIVE37)
+(NEGATIVE_POSITIVE5633)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE37
+@CONTINUE5633
 0;JMP
-(y_NEGATIVE37)
+(y_NEGATIVE5633)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE37
+@POSITIVE_NEGATIVE5633
 D;JGT
-@NORMAL_CASE37
+@NORMAL_CASE5633
 0;JMP
-(POSITIVE_NEGATIVE37)
+(POSITIVE_NEGATIVE5633)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE37
+@CONTINUE5633
 0;JMP
-(NORMAL_CASE37)
+(NORMAL_CASE5633)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE37
+@TRUE5633
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE37
+@CONTINUE5633
 0;JMP
-(TRUE37)
+(TRUE5633)
 @SP
 A=M-1
 M=-1
-(CONTINUE37)
+(CONTINUE5633)
 //and
 @SP
 AM=M-1
@@ -94809,7 +94801,7 @@ M=D
 @SP
 M=M+1
 // call function Math.abs 1
-@Math.divide$ret.6
+@Math.divide$ret.107
 D=A
 @SP
 A=M
@@ -94856,7 +94848,7 @@ D=M
 M=D
 @Math.abs
 0;JMP
-(Math.divide$ret.6)
+(Math.divide$ret.107)
 //pop temp 0
 @5
 D=A
@@ -94913,7 +94905,7 @@ M=D
 @SP
 M=M+1
 // call function Math.abs 1
-@Math.divide$ret.7
+@Math.divide$ret.108
 D=A
 @SP
 A=M
@@ -94960,7 +94952,7 @@ D=M
 M=D
 @Math.abs
 0;JMP
-(Math.divide$ret.7)
+(Math.divide$ret.108)
 //pop argument 0
 @ARG
 D=M
@@ -95130,63 +95122,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE46
+@y_POSITIVE5642
 D;JGT
-@y_NEGATIVE46
+@y_NEGATIVE5642
 D;JLT
-@NORMAL_CASE46
+@NORMAL_CASE5642
 0;JMP
-(y_POSITIVE46)
+(y_POSITIVE5642)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE46
+@NEGATIVE_POSITIVE5642
 D;JLT
-@NORMAL_CASE46
+@NORMAL_CASE5642
 0;JMP
-(NEGATIVE_POSITIVE46)
+(NEGATIVE_POSITIVE5642)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE46
+@CONTINUE5642
 0;JMP
-(y_NEGATIVE46)
+(y_NEGATIVE5642)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE46
+@POSITIVE_NEGATIVE5642
 D;JGT
-@NORMAL_CASE46
+@NORMAL_CASE5642
 0;JMP
-(POSITIVE_NEGATIVE46)
+(POSITIVE_NEGATIVE5642)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE46
+@CONTINUE5642
 0;JMP
-(NORMAL_CASE46)
+(NORMAL_CASE5642)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE46
+@TRUE5642
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE46
+@CONTINUE5642
 0;JMP
-(TRUE46)
+(TRUE5642)
 @SP
 A=M-1
 M=-1
-(CONTINUE46)
+(CONTINUE5642)
 //pop local 3
 @LCL
 D=M
@@ -95495,63 +95487,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE55
+@y_POSITIVE5651
 D;JGT
-@y_NEGATIVE55
+@y_NEGATIVE5651
 D;JLT
-@NORMAL_CASE55
+@NORMAL_CASE5651
 0;JMP
-(y_POSITIVE55)
+(y_POSITIVE5651)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE55
+@NEGATIVE_POSITIVE5651
 D;JLT
-@NORMAL_CASE55
+@NORMAL_CASE5651
 0;JMP
-(NEGATIVE_POSITIVE55)
+(NEGATIVE_POSITIVE5651)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE55
+@CONTINUE5651
 0;JMP
-(y_NEGATIVE55)
+(y_NEGATIVE5651)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE55
+@POSITIVE_NEGATIVE5651
 D;JGT
-@NORMAL_CASE55
+@NORMAL_CASE5651
 0;JMP
-(POSITIVE_NEGATIVE55)
+(POSITIVE_NEGATIVE5651)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE55
+@CONTINUE5651
 0;JMP
-(NORMAL_CASE55)
+(NORMAL_CASE5651)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE55
+@TRUE5651
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE55
+@CONTINUE5651
 0;JMP
-(TRUE55)
+(TRUE5651)
 @SP
 A=M-1
 M=-1
-(CONTINUE55)
+(CONTINUE5651)
 //pop local 3
 @LCL
 D=M
@@ -95678,63 +95670,63 @@ M=-M
 A=M-1
 D=M
 
-@y_POSITIVE59
+@y_POSITIVE5655
 D;JGT
-@y_NEGATIVE59
+@y_NEGATIVE5655
 D;JLT
-@NORMAL_CASE59
+@NORMAL_CASE5655
 0;JMP
-(y_POSITIVE59)
+(y_POSITIVE5655)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE59
+@NEGATIVE_POSITIVE5655
 D;JLT
-@NORMAL_CASE59
+@NORMAL_CASE5655
 0;JMP
-(NEGATIVE_POSITIVE59)
+(NEGATIVE_POSITIVE5655)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE59
+@CONTINUE5655
 0;JMP
-(y_NEGATIVE59)
+(y_NEGATIVE5655)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE59
+@POSITIVE_NEGATIVE5655
 D;JGT
-@NORMAL_CASE59
+@NORMAL_CASE5655
 0;JMP
-(POSITIVE_NEGATIVE59)
+(POSITIVE_NEGATIVE5655)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE59
+@CONTINUE5655
 0;JMP
-(NORMAL_CASE59)
+(NORMAL_CASE5655)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE59
+@TRUE5655
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE59
+@CONTINUE5655
 0;JMP
-(TRUE59)
+(TRUE5655)
 @SP
 A=M-1
 M=-1
-(CONTINUE59)
+(CONTINUE5655)
 //not
 @SP
 AM=M-1
@@ -95816,63 +95808,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE62
+@y_POSITIVE5658
 D;JGT
-@y_NEGATIVE62
+@y_NEGATIVE5658
 D;JLT
-@NORMAL_CASE62
+@NORMAL_CASE5658
 0;JMP
-(y_POSITIVE62)
+(y_POSITIVE5658)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE62
+@NEGATIVE_POSITIVE5658
 D;JLT
-@NORMAL_CASE62
+@NORMAL_CASE5658
 0;JMP
-(NEGATIVE_POSITIVE62)
+(NEGATIVE_POSITIVE5658)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE62
+@CONTINUE5658
 0;JMP
-(y_NEGATIVE62)
+(y_NEGATIVE5658)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE62
+@POSITIVE_NEGATIVE5658
 D;JGT
-@NORMAL_CASE62
+@NORMAL_CASE5658
 0;JMP
-(POSITIVE_NEGATIVE62)
+(POSITIVE_NEGATIVE5658)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE62
+@CONTINUE5658
 0;JMP
-(NORMAL_CASE62)
+(NORMAL_CASE5658)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE62
+@TRUE5658
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE62
+@CONTINUE5658
 0;JMP
-(TRUE62)
+(TRUE5658)
 @SP
 A=M-1
 M=-1
-(CONTINUE62)
+(CONTINUE5658)
 //not
 @SP
 AM=M-1
@@ -96166,9 +96158,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -96186,28 +96178,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -96275,63 +96267,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE70
+@y_POSITIVE5666
 D;JGT
-@y_NEGATIVE70
+@y_NEGATIVE5666
 D;JLT
-@NORMAL_CASE70
+@NORMAL_CASE5666
 0;JMP
-(y_POSITIVE70)
+(y_POSITIVE5666)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE70
+@NEGATIVE_POSITIVE5666
 D;JLT
-@NORMAL_CASE70
+@NORMAL_CASE5666
 0;JMP
-(NEGATIVE_POSITIVE70)
+(NEGATIVE_POSITIVE5666)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE70
+@CONTINUE5666
 0;JMP
-(y_NEGATIVE70)
+(y_NEGATIVE5666)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE70
+@POSITIVE_NEGATIVE5666
 D;JGT
-@NORMAL_CASE70
+@NORMAL_CASE5666
 0;JMP
-(POSITIVE_NEGATIVE70)
+(POSITIVE_NEGATIVE5666)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE70
+@CONTINUE5666
 0;JMP
-(NORMAL_CASE70)
+(NORMAL_CASE5666)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE70
+@TRUE5666
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE70
+@CONTINUE5666
 0;JMP
-(TRUE70)
+(TRUE5666)
 @SP
 A=M-1
 M=-1
-(CONTINUE70)
+(CONTINUE5666)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -96353,7 +96345,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@Math.sqrt$ret.8
+@Math.sqrt$ret.109
 D=A
 @SP
 A=M
@@ -96400,7 +96392,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Math.sqrt$ret.8)
+(Math.sqrt$ret.109)
 //pop temp 0
 @5
 D=A
@@ -96466,63 +96458,63 @@ M=-M
 A=M-1
 D=M
 
-@y_POSITIVE72
+@y_POSITIVE5668
 D;JGT
-@y_NEGATIVE72
+@y_NEGATIVE5668
 D;JLT
-@NORMAL_CASE72
+@NORMAL_CASE5668
 0;JMP
-(y_POSITIVE72)
+(y_POSITIVE5668)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE72
+@NEGATIVE_POSITIVE5668
 D;JLT
-@NORMAL_CASE72
+@NORMAL_CASE5668
 0;JMP
-(NEGATIVE_POSITIVE72)
+(NEGATIVE_POSITIVE5668)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE72
+@CONTINUE5668
 0;JMP
-(y_NEGATIVE72)
+(y_NEGATIVE5668)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE72
+@POSITIVE_NEGATIVE5668
 D;JGT
-@NORMAL_CASE72
+@NORMAL_CASE5668
 0;JMP
-(POSITIVE_NEGATIVE72)
+(POSITIVE_NEGATIVE5668)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE72
+@CONTINUE5668
 0;JMP
-(NORMAL_CASE72)
+(NORMAL_CASE5668)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE72
+@TRUE5668
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE72
+@CONTINUE5668
 0;JMP
-(TRUE72)
+(TRUE5668)
 @SP
 A=M-1
 M=-1
-(CONTINUE72)
+(CONTINUE5668)
 //not
 @SP
 AM=M-1
@@ -96642,7 +96634,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Math.sqrt$ret.9
+@Math.sqrt$ret.110
 D=A
 @SP
 A=M
@@ -96689,7 +96681,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Math.sqrt$ret.9)
+(Math.sqrt$ret.110)
 //pop local 2
 @LCL
 D=M
@@ -96731,63 +96723,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE76
+@y_POSITIVE5672
 D;JGT
-@y_NEGATIVE76
+@y_NEGATIVE5672
 D;JLT
-@NORMAL_CASE76
+@NORMAL_CASE5672
 0;JMP
-(y_POSITIVE76)
+(y_POSITIVE5672)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE76
+@NEGATIVE_POSITIVE5672
 D;JLT
-@NORMAL_CASE76
+@NORMAL_CASE5672
 0;JMP
-(NEGATIVE_POSITIVE76)
+(NEGATIVE_POSITIVE5672)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE76
+@CONTINUE5672
 0;JMP
-(y_NEGATIVE76)
+(y_NEGATIVE5672)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE76
+@POSITIVE_NEGATIVE5672
 D;JGT
-@NORMAL_CASE76
+@NORMAL_CASE5672
 0;JMP
-(POSITIVE_NEGATIVE76)
+(POSITIVE_NEGATIVE5672)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE76
+@CONTINUE5672
 0;JMP
-(NORMAL_CASE76)
+(NORMAL_CASE5672)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE76
+@TRUE5672
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE76
+@CONTINUE5672
 0;JMP
-(TRUE76)
+(TRUE5672)
 @SP
 A=M-1
 M=-1
-(CONTINUE76)
+(CONTINUE5672)
 //not
 @SP
 AM=M-1
@@ -96823,63 +96815,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE78
+@y_POSITIVE5674
 D;JGT
-@y_NEGATIVE78
+@y_NEGATIVE5674
 D;JLT
-@NORMAL_CASE78
+@NORMAL_CASE5674
 0;JMP
-(y_POSITIVE78)
+(y_POSITIVE5674)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE78
+@NEGATIVE_POSITIVE5674
 D;JLT
-@NORMAL_CASE78
+@NORMAL_CASE5674
 0;JMP
-(NEGATIVE_POSITIVE78)
+(NEGATIVE_POSITIVE5674)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE78
+@CONTINUE5674
 0;JMP
-(y_NEGATIVE78)
+(y_NEGATIVE5674)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE78
+@POSITIVE_NEGATIVE5674
 D;JGT
-@NORMAL_CASE78
+@NORMAL_CASE5674
 0;JMP
-(POSITIVE_NEGATIVE78)
+(POSITIVE_NEGATIVE5674)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE78
+@CONTINUE5674
 0;JMP
-(NORMAL_CASE78)
+(NORMAL_CASE5674)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE78
+@TRUE5674
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE78
+@CONTINUE5674
 0;JMP
-(TRUE78)
+(TRUE5674)
 @SP
 A=M-1
 M=-1
-(CONTINUE78)
+(CONTINUE5674)
 //not
 @SP
 AM=M-1
@@ -96995,9 +96987,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -97015,28 +97007,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -97075,63 +97067,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE82
+@y_POSITIVE5678
 D;JGT
-@y_NEGATIVE82
+@y_NEGATIVE5678
 D;JLT
-@NORMAL_CASE82
+@NORMAL_CASE5678
 0;JMP
-(y_POSITIVE82)
+(y_POSITIVE5678)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE82
+@NEGATIVE_POSITIVE5678
 D;JLT
-@NORMAL_CASE82
+@NORMAL_CASE5678
 0;JMP
-(NEGATIVE_POSITIVE82)
+(NEGATIVE_POSITIVE5678)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE82
+@CONTINUE5678
 0;JMP
-(y_NEGATIVE82)
+(y_NEGATIVE5678)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE82
+@POSITIVE_NEGATIVE5678
 D;JGT
-@NORMAL_CASE82
+@NORMAL_CASE5678
 0;JMP
-(POSITIVE_NEGATIVE82)
+(POSITIVE_NEGATIVE5678)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE82
+@CONTINUE5678
 0;JMP
-(NORMAL_CASE82)
+(NORMAL_CASE5678)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE82
+@TRUE5678
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE82
+@CONTINUE5678
 0;JMP
-(TRUE82)
+(TRUE5678)
 @SP
 A=M-1
 M=-1
-(CONTINUE82)
+(CONTINUE5678)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -97185,9 +97177,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -97205,28 +97197,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -97265,63 +97257,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE83
+@y_POSITIVE5679
 D;JGT
-@y_NEGATIVE83
+@y_NEGATIVE5679
 D;JLT
-@NORMAL_CASE83
+@NORMAL_CASE5679
 0;JMP
-(y_POSITIVE83)
+(y_POSITIVE5679)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE83
+@NEGATIVE_POSITIVE5679
 D;JLT
-@NORMAL_CASE83
+@NORMAL_CASE5679
 0;JMP
-(NEGATIVE_POSITIVE83)
+(NEGATIVE_POSITIVE5679)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE83
+@CONTINUE5679
 0;JMP
-(y_NEGATIVE83)
+(y_NEGATIVE5679)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE83
+@POSITIVE_NEGATIVE5679
 D;JGT
-@NORMAL_CASE83
+@NORMAL_CASE5679
 0;JMP
-(POSITIVE_NEGATIVE83)
+(POSITIVE_NEGATIVE5679)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE83
+@CONTINUE5679
 0;JMP
-(NORMAL_CASE83)
+(NORMAL_CASE5679)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE83
+@TRUE5679
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE83
+@CONTINUE5679
 0;JMP
-(TRUE83)
+(TRUE5679)
 @SP
 A=M-1
 M=-1
-(CONTINUE83)
+(CONTINUE5679)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -97375,9 +97367,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -97395,28 +97387,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -97606,9 +97598,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -97626,28 +97618,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -97709,9 +97701,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -97729,28 +97721,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -97853,9 +97845,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -97873,28 +97865,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -97938,63 +97930,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE5
+@y_POSITIVE5684
 D;JGT
-@y_NEGATIVE5
+@y_NEGATIVE5684
 D;JLT
-@NORMAL_CASE5
+@NORMAL_CASE5684
 0;JMP
-(y_POSITIVE5)
+(y_POSITIVE5684)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE5
+@NEGATIVE_POSITIVE5684
 D;JLT
-@NORMAL_CASE5
+@NORMAL_CASE5684
 0;JMP
-(NEGATIVE_POSITIVE5)
+(NEGATIVE_POSITIVE5684)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE5
+@CONTINUE5684
 0;JMP
-(y_NEGATIVE5)
+(y_NEGATIVE5684)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE5
+@POSITIVE_NEGATIVE5684
 D;JGT
-@NORMAL_CASE5
+@NORMAL_CASE5684
 0;JMP
-(POSITIVE_NEGATIVE5)
+(POSITIVE_NEGATIVE5684)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE5
+@CONTINUE5684
 0;JMP
-(NORMAL_CASE5)
+(NORMAL_CASE5684)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE5
+@TRUE5684
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE5
+@CONTINUE5684
 0;JMP
-(TRUE5)
+(TRUE5684)
 @SP
 A=M-1
 M=-1
-(CONTINUE5)
+(CONTINUE5684)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -98016,7 +98008,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@Memory.alloc$ret.1
+@Memory.alloc$ret.111
 D=A
 @SP
 A=M
@@ -98063,7 +98055,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Memory.alloc$ret.1)
+(Memory.alloc$ret.111)
 //pop temp 0
 @5
 D=A
@@ -98164,63 +98156,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE7
+@y_POSITIVE5686
 D;JGT
-@y_NEGATIVE7
+@y_NEGATIVE5686
 D;JLT
-@NORMAL_CASE7
+@NORMAL_CASE5686
 0;JMP
-(y_POSITIVE7)
+(y_POSITIVE5686)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE7
+@NEGATIVE_POSITIVE5686
 D;JLT
-@NORMAL_CASE7
+@NORMAL_CASE5686
 0;JMP
-(NEGATIVE_POSITIVE7)
+(NEGATIVE_POSITIVE5686)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE7
+@CONTINUE5686
 0;JMP
-(y_NEGATIVE7)
+(y_NEGATIVE5686)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE7
+@POSITIVE_NEGATIVE5686
 D;JGT
-@NORMAL_CASE7
+@NORMAL_CASE5686
 0;JMP
-(POSITIVE_NEGATIVE7)
+(POSITIVE_NEGATIVE5686)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE7
+@CONTINUE5686
 0;JMP
-(NORMAL_CASE7)
+(NORMAL_CASE5686)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE7
+@TRUE5686
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE7
+@CONTINUE5686
 0;JMP
-(TRUE7)
+(TRUE5686)
 @SP
 A=M-1
 M=-1
-(CONTINUE7)
+(CONTINUE5686)
 //not
 @SP
 AM=M-1
@@ -98346,63 +98338,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE11
+@y_POSITIVE5690
 D;JGT
-@y_NEGATIVE11
+@y_NEGATIVE5690
 D;JLT
-@NORMAL_CASE11
+@NORMAL_CASE5690
 0;JMP
-(y_POSITIVE11)
+(y_POSITIVE5690)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE11
+@NEGATIVE_POSITIVE5690
 D;JLT
-@NORMAL_CASE11
+@NORMAL_CASE5690
 0;JMP
-(NEGATIVE_POSITIVE11)
+(NEGATIVE_POSITIVE5690)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE11
+@CONTINUE5690
 0;JMP
-(y_NEGATIVE11)
+(y_NEGATIVE5690)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE11
+@POSITIVE_NEGATIVE5690
 D;JGT
-@NORMAL_CASE11
+@NORMAL_CASE5690
 0;JMP
-(POSITIVE_NEGATIVE11)
+(POSITIVE_NEGATIVE5690)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE11
+@CONTINUE5690
 0;JMP
-(NORMAL_CASE11)
+(NORMAL_CASE5690)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE11
+@TRUE5690
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE11
+@CONTINUE5690
 0;JMP
-(TRUE11)
+(TRUE5690)
 @SP
 A=M-1
 M=-1
-(CONTINUE11)
+(CONTINUE5690)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -98424,7 +98416,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@Memory.alloc$ret.2
+@Memory.alloc$ret.112
 D=A
 @SP
 A=M
@@ -98471,7 +98463,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Memory.alloc$ret.2)
+(Memory.alloc$ret.112)
 //pop temp 0
 @5
 D=A
@@ -98562,63 +98554,63 @@ M=M+D
 A=M-1
 D=M
 
-@y_POSITIVE14
+@y_POSITIVE5693
 D;JGT
-@y_NEGATIVE14
+@y_NEGATIVE5693
 D;JLT
-@NORMAL_CASE14
+@NORMAL_CASE5693
 0;JMP
-(y_POSITIVE14)
+(y_POSITIVE5693)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE14
+@NEGATIVE_POSITIVE5693
 D;JLT
-@NORMAL_CASE14
+@NORMAL_CASE5693
 0;JMP
-(NEGATIVE_POSITIVE14)
+(NEGATIVE_POSITIVE5693)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE14
+@CONTINUE5693
 0;JMP
-(y_NEGATIVE14)
+(y_NEGATIVE5693)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE14
+@POSITIVE_NEGATIVE5693
 D;JGT
-@NORMAL_CASE14
+@NORMAL_CASE5693
 0;JMP
-(POSITIVE_NEGATIVE14)
+(POSITIVE_NEGATIVE5693)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE14
+@CONTINUE5693
 0;JMP
-(NORMAL_CASE14)
+(NORMAL_CASE5693)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE14
+@TRUE5693
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE14
+@CONTINUE5693
 0;JMP
-(TRUE14)
+(TRUE5693)
 @SP
 A=M-1
 M=-1
-(CONTINUE14)
+(CONTINUE5693)
 // write if-goto IF_TRUE2
 @SP
 AM=M-1
@@ -98868,24 +98860,24 @@ D=M
 A=A-1
 M=M+D
 //eq
-(NORMAL_CASE22)
+(NORMAL_CASE5701)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE22
+@TRUE5701
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE22
+@CONTINUE5701
 0;JMP
-(TRUE22)
+(TRUE5701)
 @SP
 A=M-1
 M=-1
-(CONTINUE22)
+(CONTINUE5701)
 // write if-goto IF_TRUE3
 @SP
 AM=M-1
@@ -99384,9 +99376,9 @@ M=M+D
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -99404,28 +99396,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -99609,24 +99601,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE38)
+(NORMAL_CASE5717)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE38
+@TRUE5717
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE38
+@CONTINUE5717
 0;JMP
-(TRUE38)
+(TRUE5717)
 @SP
 A=M-1
 M=-1
-(CONTINUE38)
+(CONTINUE5717)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -100050,24 +100042,24 @@ D=M
 A=A-1
 M=M+D
 //eq
-(NORMAL_CASE50)
+(NORMAL_CASE5729)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE50
+@TRUE5729
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE50
+@CONTINUE5729
 0;JMP
-(TRUE50)
+(TRUE5729)
 @SP
 A=M-1
 M=-1
-(CONTINUE50)
+(CONTINUE5729)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -100310,9 +100302,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -100330,28 +100322,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -100459,7 +100451,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@Output.init$ret.1
+@Output.init$ret.113
 D=A
 @SP
 A=M
@@ -100506,7 +100498,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(Output.init$ret.1)
+(Output.init$ret.113)
 //pop static 3
 @Output.3
 D=A
@@ -100519,7 +100511,7 @@ D=M
 A=M
 M=D
 // call function Output.initMap 0
-@Output.init$ret.2
+@Output.init$ret.114
 D=A
 @SP
 A=M
@@ -100566,7 +100558,7 @@ D=M
 M=D
 @Output.initMap
 0;JMP
-(Output.init$ret.2)
+(Output.init$ret.114)
 //pop temp 0
 @5
 D=A
@@ -100579,7 +100571,7 @@ D=M
 A=M
 M=D
 // call function Output.createShiftedMap 0
-@Output.init$ret.3
+@Output.init$ret.115
 D=A
 @SP
 A=M
@@ -100626,7 +100618,7 @@ D=M
 M=D
 @Output.createShiftedMap
 0;JMP
-(Output.init$ret.3)
+(Output.init$ret.115)
 //pop temp 0
 @5
 D=A
@@ -100649,9 +100641,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -100669,28 +100661,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -100711,7 +100703,7 @@ M=D
 @SP
 M=M+1
 // call function Array.new 1
-@Output.initMap$ret.4
+@Output.initMap$ret.116
 D=A
 @SP
 A=M
@@ -100758,7 +100750,7 @@ D=M
 M=D
 @Array.new
 0;JMP
-(Output.initMap$ret.4)
+(Output.initMap$ret.116)
 //pop static 5
 @Output.5
 D=A
@@ -100867,7 +100859,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.5
+@Output.initMap$ret.117
 D=A
 @SP
 A=M
@@ -100914,7 +100906,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.5)
+(Output.initMap$ret.117)
 //pop temp 0
 @5
 D=A
@@ -101023,7 +101015,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.6
+@Output.initMap$ret.118
 D=A
 @SP
 A=M
@@ -101070,7 +101062,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.6)
+(Output.initMap$ret.118)
 //pop temp 0
 @5
 D=A
@@ -101179,7 +101171,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.7
+@Output.initMap$ret.119
 D=A
 @SP
 A=M
@@ -101226,7 +101218,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.7)
+(Output.initMap$ret.119)
 //pop temp 0
 @5
 D=A
@@ -101335,7 +101327,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.8
+@Output.initMap$ret.120
 D=A
 @SP
 A=M
@@ -101382,7 +101374,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.8)
+(Output.initMap$ret.120)
 //pop temp 0
 @5
 D=A
@@ -101491,7 +101483,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.9
+@Output.initMap$ret.121
 D=A
 @SP
 A=M
@@ -101538,7 +101530,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.9)
+(Output.initMap$ret.121)
 //pop temp 0
 @5
 D=A
@@ -101647,7 +101639,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.10
+@Output.initMap$ret.122
 D=A
 @SP
 A=M
@@ -101694,7 +101686,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.10)
+(Output.initMap$ret.122)
 //pop temp 0
 @5
 D=A
@@ -101803,7 +101795,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.11
+@Output.initMap$ret.123
 D=A
 @SP
 A=M
@@ -101850,7 +101842,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.11)
+(Output.initMap$ret.123)
 //pop temp 0
 @5
 D=A
@@ -101959,7 +101951,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.12
+@Output.initMap$ret.124
 D=A
 @SP
 A=M
@@ -102006,7 +101998,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.12)
+(Output.initMap$ret.124)
 //pop temp 0
 @5
 D=A
@@ -102115,7 +102107,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.13
+@Output.initMap$ret.125
 D=A
 @SP
 A=M
@@ -102162,7 +102154,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.13)
+(Output.initMap$ret.125)
 //pop temp 0
 @5
 D=A
@@ -102271,7 +102263,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.14
+@Output.initMap$ret.126
 D=A
 @SP
 A=M
@@ -102318,7 +102310,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.14)
+(Output.initMap$ret.126)
 //pop temp 0
 @5
 D=A
@@ -102427,7 +102419,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.15
+@Output.initMap$ret.127
 D=A
 @SP
 A=M
@@ -102474,7 +102466,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.15)
+(Output.initMap$ret.127)
 //pop temp 0
 @5
 D=A
@@ -102583,7 +102575,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.16
+@Output.initMap$ret.128
 D=A
 @SP
 A=M
@@ -102630,7 +102622,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.16)
+(Output.initMap$ret.128)
 //pop temp 0
 @5
 D=A
@@ -102739,7 +102731,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.17
+@Output.initMap$ret.129
 D=A
 @SP
 A=M
@@ -102786,7 +102778,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.17)
+(Output.initMap$ret.129)
 //pop temp 0
 @5
 D=A
@@ -102895,7 +102887,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.18
+@Output.initMap$ret.130
 D=A
 @SP
 A=M
@@ -102942,7 +102934,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.18)
+(Output.initMap$ret.130)
 //pop temp 0
 @5
 D=A
@@ -103051,7 +103043,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.19
+@Output.initMap$ret.131
 D=A
 @SP
 A=M
@@ -103098,7 +103090,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.19)
+(Output.initMap$ret.131)
 //pop temp 0
 @5
 D=A
@@ -103207,7 +103199,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.20
+@Output.initMap$ret.132
 D=A
 @SP
 A=M
@@ -103254,7 +103246,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.20)
+(Output.initMap$ret.132)
 //pop temp 0
 @5
 D=A
@@ -103363,7 +103355,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.21
+@Output.initMap$ret.133
 D=A
 @SP
 A=M
@@ -103410,7 +103402,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.21)
+(Output.initMap$ret.133)
 //pop temp 0
 @5
 D=A
@@ -103519,7 +103511,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.22
+@Output.initMap$ret.134
 D=A
 @SP
 A=M
@@ -103566,7 +103558,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.22)
+(Output.initMap$ret.134)
 //pop temp 0
 @5
 D=A
@@ -103675,7 +103667,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.23
+@Output.initMap$ret.135
 D=A
 @SP
 A=M
@@ -103722,7 +103714,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.23)
+(Output.initMap$ret.135)
 //pop temp 0
 @5
 D=A
@@ -103831,7 +103823,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.24
+@Output.initMap$ret.136
 D=A
 @SP
 A=M
@@ -103878,7 +103870,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.24)
+(Output.initMap$ret.136)
 //pop temp 0
 @5
 D=A
@@ -103987,7 +103979,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.25
+@Output.initMap$ret.137
 D=A
 @SP
 A=M
@@ -104034,7 +104026,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.25)
+(Output.initMap$ret.137)
 //pop temp 0
 @5
 D=A
@@ -104143,7 +104135,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.26
+@Output.initMap$ret.138
 D=A
 @SP
 A=M
@@ -104190,7 +104182,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.26)
+(Output.initMap$ret.138)
 //pop temp 0
 @5
 D=A
@@ -104299,7 +104291,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.27
+@Output.initMap$ret.139
 D=A
 @SP
 A=M
@@ -104346,7 +104338,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.27)
+(Output.initMap$ret.139)
 //pop temp 0
 @5
 D=A
@@ -104455,7 +104447,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.28
+@Output.initMap$ret.140
 D=A
 @SP
 A=M
@@ -104502,7 +104494,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.28)
+(Output.initMap$ret.140)
 //pop temp 0
 @5
 D=A
@@ -104611,7 +104603,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.29
+@Output.initMap$ret.141
 D=A
 @SP
 A=M
@@ -104658,7 +104650,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.29)
+(Output.initMap$ret.141)
 //pop temp 0
 @5
 D=A
@@ -104767,7 +104759,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.30
+@Output.initMap$ret.142
 D=A
 @SP
 A=M
@@ -104814,7 +104806,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.30)
+(Output.initMap$ret.142)
 //pop temp 0
 @5
 D=A
@@ -104923,7 +104915,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.31
+@Output.initMap$ret.143
 D=A
 @SP
 A=M
@@ -104970,7 +104962,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.31)
+(Output.initMap$ret.143)
 //pop temp 0
 @5
 D=A
@@ -105079,7 +105071,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.32
+@Output.initMap$ret.144
 D=A
 @SP
 A=M
@@ -105126,7 +105118,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.32)
+(Output.initMap$ret.144)
 //pop temp 0
 @5
 D=A
@@ -105235,7 +105227,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.33
+@Output.initMap$ret.145
 D=A
 @SP
 A=M
@@ -105282,7 +105274,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.33)
+(Output.initMap$ret.145)
 //pop temp 0
 @5
 D=A
@@ -105391,7 +105383,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.34
+@Output.initMap$ret.146
 D=A
 @SP
 A=M
@@ -105438,7 +105430,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.34)
+(Output.initMap$ret.146)
 //pop temp 0
 @5
 D=A
@@ -105547,7 +105539,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.35
+@Output.initMap$ret.147
 D=A
 @SP
 A=M
@@ -105594,7 +105586,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.35)
+(Output.initMap$ret.147)
 //pop temp 0
 @5
 D=A
@@ -105703,7 +105695,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.36
+@Output.initMap$ret.148
 D=A
 @SP
 A=M
@@ -105750,7 +105742,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.36)
+(Output.initMap$ret.148)
 //pop temp 0
 @5
 D=A
@@ -105859,7 +105851,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.37
+@Output.initMap$ret.149
 D=A
 @SP
 A=M
@@ -105906,7 +105898,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.37)
+(Output.initMap$ret.149)
 //pop temp 0
 @5
 D=A
@@ -106015,7 +106007,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.38
+@Output.initMap$ret.150
 D=A
 @SP
 A=M
@@ -106062,7 +106054,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.38)
+(Output.initMap$ret.150)
 //pop temp 0
 @5
 D=A
@@ -106171,7 +106163,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.39
+@Output.initMap$ret.151
 D=A
 @SP
 A=M
@@ -106218,7 +106210,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.39)
+(Output.initMap$ret.151)
 //pop temp 0
 @5
 D=A
@@ -106327,7 +106319,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.40
+@Output.initMap$ret.152
 D=A
 @SP
 A=M
@@ -106374,7 +106366,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.40)
+(Output.initMap$ret.152)
 //pop temp 0
 @5
 D=A
@@ -106483,7 +106475,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.41
+@Output.initMap$ret.153
 D=A
 @SP
 A=M
@@ -106530,7 +106522,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.41)
+(Output.initMap$ret.153)
 //pop temp 0
 @5
 D=A
@@ -106639,7 +106631,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.42
+@Output.initMap$ret.154
 D=A
 @SP
 A=M
@@ -106686,7 +106678,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.42)
+(Output.initMap$ret.154)
 //pop temp 0
 @5
 D=A
@@ -106795,7 +106787,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.43
+@Output.initMap$ret.155
 D=A
 @SP
 A=M
@@ -106842,7 +106834,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.43)
+(Output.initMap$ret.155)
 //pop temp 0
 @5
 D=A
@@ -106951,7 +106943,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.44
+@Output.initMap$ret.156
 D=A
 @SP
 A=M
@@ -106998,7 +106990,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.44)
+(Output.initMap$ret.156)
 //pop temp 0
 @5
 D=A
@@ -107107,7 +107099,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.45
+@Output.initMap$ret.157
 D=A
 @SP
 A=M
@@ -107154,7 +107146,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.45)
+(Output.initMap$ret.157)
 //pop temp 0
 @5
 D=A
@@ -107263,7 +107255,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.46
+@Output.initMap$ret.158
 D=A
 @SP
 A=M
@@ -107310,7 +107302,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.46)
+(Output.initMap$ret.158)
 //pop temp 0
 @5
 D=A
@@ -107419,7 +107411,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.47
+@Output.initMap$ret.159
 D=A
 @SP
 A=M
@@ -107466,7 +107458,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.47)
+(Output.initMap$ret.159)
 //pop temp 0
 @5
 D=A
@@ -107575,7 +107567,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.48
+@Output.initMap$ret.160
 D=A
 @SP
 A=M
@@ -107622,7 +107614,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.48)
+(Output.initMap$ret.160)
 //pop temp 0
 @5
 D=A
@@ -107731,7 +107723,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.49
+@Output.initMap$ret.161
 D=A
 @SP
 A=M
@@ -107778,7 +107770,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.49)
+(Output.initMap$ret.161)
 //pop temp 0
 @5
 D=A
@@ -107887,7 +107879,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.50
+@Output.initMap$ret.162
 D=A
 @SP
 A=M
@@ -107934,7 +107926,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.50)
+(Output.initMap$ret.162)
 //pop temp 0
 @5
 D=A
@@ -108043,7 +108035,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.51
+@Output.initMap$ret.163
 D=A
 @SP
 A=M
@@ -108090,7 +108082,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.51)
+(Output.initMap$ret.163)
 //pop temp 0
 @5
 D=A
@@ -108199,7 +108191,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.52
+@Output.initMap$ret.164
 D=A
 @SP
 A=M
@@ -108246,7 +108238,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.52)
+(Output.initMap$ret.164)
 //pop temp 0
 @5
 D=A
@@ -108355,7 +108347,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.53
+@Output.initMap$ret.165
 D=A
 @SP
 A=M
@@ -108402,7 +108394,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.53)
+(Output.initMap$ret.165)
 //pop temp 0
 @5
 D=A
@@ -108511,7 +108503,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.54
+@Output.initMap$ret.166
 D=A
 @SP
 A=M
@@ -108558,7 +108550,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.54)
+(Output.initMap$ret.166)
 //pop temp 0
 @5
 D=A
@@ -108667,7 +108659,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.55
+@Output.initMap$ret.167
 D=A
 @SP
 A=M
@@ -108714,7 +108706,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.55)
+(Output.initMap$ret.167)
 //pop temp 0
 @5
 D=A
@@ -108823,7 +108815,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.56
+@Output.initMap$ret.168
 D=A
 @SP
 A=M
@@ -108870,7 +108862,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.56)
+(Output.initMap$ret.168)
 //pop temp 0
 @5
 D=A
@@ -108979,7 +108971,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.57
+@Output.initMap$ret.169
 D=A
 @SP
 A=M
@@ -109026,7 +109018,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.57)
+(Output.initMap$ret.169)
 //pop temp 0
 @5
 D=A
@@ -109135,7 +109127,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.58
+@Output.initMap$ret.170
 D=A
 @SP
 A=M
@@ -109182,7 +109174,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.58)
+(Output.initMap$ret.170)
 //pop temp 0
 @5
 D=A
@@ -109291,7 +109283,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.59
+@Output.initMap$ret.171
 D=A
 @SP
 A=M
@@ -109338,7 +109330,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.59)
+(Output.initMap$ret.171)
 //pop temp 0
 @5
 D=A
@@ -109447,7 +109439,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.60
+@Output.initMap$ret.172
 D=A
 @SP
 A=M
@@ -109494,7 +109486,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.60)
+(Output.initMap$ret.172)
 //pop temp 0
 @5
 D=A
@@ -109603,7 +109595,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.61
+@Output.initMap$ret.173
 D=A
 @SP
 A=M
@@ -109650,7 +109642,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.61)
+(Output.initMap$ret.173)
 //pop temp 0
 @5
 D=A
@@ -109759,7 +109751,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.62
+@Output.initMap$ret.174
 D=A
 @SP
 A=M
@@ -109806,7 +109798,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.62)
+(Output.initMap$ret.174)
 //pop temp 0
 @5
 D=A
@@ -109915,7 +109907,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.63
+@Output.initMap$ret.175
 D=A
 @SP
 A=M
@@ -109962,7 +109954,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.63)
+(Output.initMap$ret.175)
 //pop temp 0
 @5
 D=A
@@ -110071,7 +110063,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.64
+@Output.initMap$ret.176
 D=A
 @SP
 A=M
@@ -110118,7 +110110,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.64)
+(Output.initMap$ret.176)
 //pop temp 0
 @5
 D=A
@@ -110227,7 +110219,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.65
+@Output.initMap$ret.177
 D=A
 @SP
 A=M
@@ -110274,7 +110266,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.65)
+(Output.initMap$ret.177)
 //pop temp 0
 @5
 D=A
@@ -110383,7 +110375,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.66
+@Output.initMap$ret.178
 D=A
 @SP
 A=M
@@ -110430,7 +110422,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.66)
+(Output.initMap$ret.178)
 //pop temp 0
 @5
 D=A
@@ -110539,7 +110531,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.67
+@Output.initMap$ret.179
 D=A
 @SP
 A=M
@@ -110586,7 +110578,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.67)
+(Output.initMap$ret.179)
 //pop temp 0
 @5
 D=A
@@ -110695,7 +110687,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.68
+@Output.initMap$ret.180
 D=A
 @SP
 A=M
@@ -110742,7 +110734,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.68)
+(Output.initMap$ret.180)
 //pop temp 0
 @5
 D=A
@@ -110851,7 +110843,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.69
+@Output.initMap$ret.181
 D=A
 @SP
 A=M
@@ -110898,7 +110890,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.69)
+(Output.initMap$ret.181)
 //pop temp 0
 @5
 D=A
@@ -111007,7 +110999,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.70
+@Output.initMap$ret.182
 D=A
 @SP
 A=M
@@ -111054,7 +111046,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.70)
+(Output.initMap$ret.182)
 //pop temp 0
 @5
 D=A
@@ -111163,7 +111155,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.71
+@Output.initMap$ret.183
 D=A
 @SP
 A=M
@@ -111210,7 +111202,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.71)
+(Output.initMap$ret.183)
 //pop temp 0
 @5
 D=A
@@ -111319,7 +111311,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.72
+@Output.initMap$ret.184
 D=A
 @SP
 A=M
@@ -111366,7 +111358,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.72)
+(Output.initMap$ret.184)
 //pop temp 0
 @5
 D=A
@@ -111475,7 +111467,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.73
+@Output.initMap$ret.185
 D=A
 @SP
 A=M
@@ -111522,7 +111514,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.73)
+(Output.initMap$ret.185)
 //pop temp 0
 @5
 D=A
@@ -111631,7 +111623,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.74
+@Output.initMap$ret.186
 D=A
 @SP
 A=M
@@ -111678,7 +111670,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.74)
+(Output.initMap$ret.186)
 //pop temp 0
 @5
 D=A
@@ -111787,7 +111779,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.75
+@Output.initMap$ret.187
 D=A
 @SP
 A=M
@@ -111834,7 +111826,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.75)
+(Output.initMap$ret.187)
 //pop temp 0
 @5
 D=A
@@ -111943,7 +111935,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.76
+@Output.initMap$ret.188
 D=A
 @SP
 A=M
@@ -111990,7 +111982,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.76)
+(Output.initMap$ret.188)
 //pop temp 0
 @5
 D=A
@@ -112099,7 +112091,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.77
+@Output.initMap$ret.189
 D=A
 @SP
 A=M
@@ -112146,7 +112138,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.77)
+(Output.initMap$ret.189)
 //pop temp 0
 @5
 D=A
@@ -112255,7 +112247,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.78
+@Output.initMap$ret.190
 D=A
 @SP
 A=M
@@ -112302,7 +112294,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.78)
+(Output.initMap$ret.190)
 //pop temp 0
 @5
 D=A
@@ -112411,7 +112403,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.79
+@Output.initMap$ret.191
 D=A
 @SP
 A=M
@@ -112458,7 +112450,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.79)
+(Output.initMap$ret.191)
 //pop temp 0
 @5
 D=A
@@ -112567,7 +112559,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.80
+@Output.initMap$ret.192
 D=A
 @SP
 A=M
@@ -112614,7 +112606,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.80)
+(Output.initMap$ret.192)
 //pop temp 0
 @5
 D=A
@@ -112723,7 +112715,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.81
+@Output.initMap$ret.193
 D=A
 @SP
 A=M
@@ -112770,7 +112762,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.81)
+(Output.initMap$ret.193)
 //pop temp 0
 @5
 D=A
@@ -112879,7 +112871,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.82
+@Output.initMap$ret.194
 D=A
 @SP
 A=M
@@ -112926,7 +112918,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.82)
+(Output.initMap$ret.194)
 //pop temp 0
 @5
 D=A
@@ -113035,7 +113027,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.83
+@Output.initMap$ret.195
 D=A
 @SP
 A=M
@@ -113082,7 +113074,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.83)
+(Output.initMap$ret.195)
 //pop temp 0
 @5
 D=A
@@ -113191,7 +113183,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.84
+@Output.initMap$ret.196
 D=A
 @SP
 A=M
@@ -113238,7 +113230,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.84)
+(Output.initMap$ret.196)
 //pop temp 0
 @5
 D=A
@@ -113347,7 +113339,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.85
+@Output.initMap$ret.197
 D=A
 @SP
 A=M
@@ -113394,7 +113386,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.85)
+(Output.initMap$ret.197)
 //pop temp 0
 @5
 D=A
@@ -113503,7 +113495,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.86
+@Output.initMap$ret.198
 D=A
 @SP
 A=M
@@ -113550,7 +113542,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.86)
+(Output.initMap$ret.198)
 //pop temp 0
 @5
 D=A
@@ -113659,7 +113651,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.87
+@Output.initMap$ret.199
 D=A
 @SP
 A=M
@@ -113706,7 +113698,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.87)
+(Output.initMap$ret.199)
 //pop temp 0
 @5
 D=A
@@ -113815,7 +113807,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.88
+@Output.initMap$ret.200
 D=A
 @SP
 A=M
@@ -113862,7 +113854,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.88)
+(Output.initMap$ret.200)
 //pop temp 0
 @5
 D=A
@@ -113971,7 +113963,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.89
+@Output.initMap$ret.201
 D=A
 @SP
 A=M
@@ -114018,7 +114010,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.89)
+(Output.initMap$ret.201)
 //pop temp 0
 @5
 D=A
@@ -114127,7 +114119,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.90
+@Output.initMap$ret.202
 D=A
 @SP
 A=M
@@ -114174,7 +114166,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.90)
+(Output.initMap$ret.202)
 //pop temp 0
 @5
 D=A
@@ -114283,7 +114275,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.91
+@Output.initMap$ret.203
 D=A
 @SP
 A=M
@@ -114330,7 +114322,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.91)
+(Output.initMap$ret.203)
 //pop temp 0
 @5
 D=A
@@ -114439,7 +114431,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.92
+@Output.initMap$ret.204
 D=A
 @SP
 A=M
@@ -114486,7 +114478,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.92)
+(Output.initMap$ret.204)
 //pop temp 0
 @5
 D=A
@@ -114595,7 +114587,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.93
+@Output.initMap$ret.205
 D=A
 @SP
 A=M
@@ -114642,7 +114634,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.93)
+(Output.initMap$ret.205)
 //pop temp 0
 @5
 D=A
@@ -114751,7 +114743,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.94
+@Output.initMap$ret.206
 D=A
 @SP
 A=M
@@ -114798,7 +114790,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.94)
+(Output.initMap$ret.206)
 //pop temp 0
 @5
 D=A
@@ -114907,7 +114899,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.95
+@Output.initMap$ret.207
 D=A
 @SP
 A=M
@@ -114954,7 +114946,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.95)
+(Output.initMap$ret.207)
 //pop temp 0
 @5
 D=A
@@ -115063,7 +115055,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.96
+@Output.initMap$ret.208
 D=A
 @SP
 A=M
@@ -115110,7 +115102,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.96)
+(Output.initMap$ret.208)
 //pop temp 0
 @5
 D=A
@@ -115219,7 +115211,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.97
+@Output.initMap$ret.209
 D=A
 @SP
 A=M
@@ -115266,7 +115258,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.97)
+(Output.initMap$ret.209)
 //pop temp 0
 @5
 D=A
@@ -115375,7 +115367,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.98
+@Output.initMap$ret.210
 D=A
 @SP
 A=M
@@ -115422,7 +115414,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.98)
+(Output.initMap$ret.210)
 //pop temp 0
 @5
 D=A
@@ -115531,7 +115523,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.99
+@Output.initMap$ret.211
 D=A
 @SP
 A=M
@@ -115578,7 +115570,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.99)
+(Output.initMap$ret.211)
 //pop temp 0
 @5
 D=A
@@ -115687,7 +115679,7 @@ M=D
 @SP
 M=M+1
 // call function Output.create 12
-@Output.initMap$ret.100
+@Output.initMap$ret.212
 D=A
 @SP
 A=M
@@ -115734,7 +115726,7 @@ D=M
 M=D
 @Output.create
 0;JMP
-(Output.initMap$ret.100)
+(Output.initMap$ret.212)
 //pop temp 0
 @5
 D=A
@@ -115757,9 +115749,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -115777,28 +115769,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -115827,7 +115819,7 @@ M=D
 @SP
 M=M+1
 // call function Array.new 1
-@Output.create$ret.101
+@Output.create$ret.213
 D=A
 @SP
 A=M
@@ -115874,7 +115866,7 @@ D=M
 M=D
 @Array.new
 0;JMP
-(Output.create$ret.101)
+(Output.create$ret.213)
 //pop local 0
 @LCL
 D=M
@@ -116860,9 +116852,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -116880,28 +116872,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -116954,7 +116946,7 @@ M=D
 @SP
 M=M+1
 // call function Array.new 1
-@Output.createShiftedMap$ret.102
+@Output.createShiftedMap$ret.214
 D=A
 @SP
 A=M
@@ -117001,7 +116993,7 @@ D=M
 M=D
 @Array.new
 0;JMP
-(Output.createShiftedMap$ret.102)
+(Output.createShiftedMap$ret.214)
 //pop static 6
 @Output.6
 D=A
@@ -117061,63 +117053,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE14
+@y_POSITIVE5747
 D;JGT
-@y_NEGATIVE14
+@y_NEGATIVE5747
 D;JLT
-@NORMAL_CASE14
+@NORMAL_CASE5747
 0;JMP
-(y_POSITIVE14)
+(y_POSITIVE5747)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE14
+@NEGATIVE_POSITIVE5747
 D;JLT
-@NORMAL_CASE14
+@NORMAL_CASE5747
 0;JMP
-(NEGATIVE_POSITIVE14)
+(NEGATIVE_POSITIVE5747)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE14
+@CONTINUE5747
 0;JMP
-(y_NEGATIVE14)
+(y_NEGATIVE5747)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE14
+@POSITIVE_NEGATIVE5747
 D;JGT
-@NORMAL_CASE14
+@NORMAL_CASE5747
 0;JMP
-(POSITIVE_NEGATIVE14)
+(POSITIVE_NEGATIVE5747)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE14
+@CONTINUE5747
 0;JMP
-(NORMAL_CASE14)
+(NORMAL_CASE5747)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE14
+@TRUE5747
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE14
+@CONTINUE5747
 0;JMP
-(TRUE14)
+(TRUE5747)
 @SP
 A=M-1
 M=-1
-(CONTINUE14)
+(CONTINUE5747)
 //not
 @SP
 AM=M-1
@@ -117206,7 +117198,7 @@ M=D
 @SP
 M=M+1
 // call function Array.new 1
-@Output.createShiftedMap$ret.103
+@Output.createShiftedMap$ret.215
 D=A
 @SP
 A=M
@@ -117253,7 +117245,7 @@ D=M
 M=D
 @Array.new
 0;JMP
-(Output.createShiftedMap$ret.103)
+(Output.createShiftedMap$ret.215)
 //pop local 1
 @LCL
 D=M
@@ -117396,63 +117388,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE18
+@y_POSITIVE5751
 D;JGT
-@y_NEGATIVE18
+@y_NEGATIVE5751
 D;JLT
-@NORMAL_CASE18
+@NORMAL_CASE5751
 0;JMP
-(y_POSITIVE18)
+(y_POSITIVE5751)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE18
+@NEGATIVE_POSITIVE5751
 D;JLT
-@NORMAL_CASE18
+@NORMAL_CASE5751
 0;JMP
-(NEGATIVE_POSITIVE18)
+(NEGATIVE_POSITIVE5751)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE18
+@CONTINUE5751
 0;JMP
-(y_NEGATIVE18)
+(y_NEGATIVE5751)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE18
+@POSITIVE_NEGATIVE5751
 D;JGT
-@NORMAL_CASE18
+@NORMAL_CASE5751
 0;JMP
-(POSITIVE_NEGATIVE18)
+(POSITIVE_NEGATIVE5751)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE18
+@CONTINUE5751
 0;JMP
-(NORMAL_CASE18)
+(NORMAL_CASE5751)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE18
+@TRUE5751
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE18
+@CONTINUE5751
 0;JMP
-(TRUE18)
+(TRUE5751)
 @SP
 A=M-1
 M=-1
-(CONTINUE18)
+(CONTINUE5751)
 //not
 @SP
 AM=M-1
@@ -117558,7 +117550,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Output.createShiftedMap$ret.104
+@Output.createShiftedMap$ret.216
 D=A
 @SP
 A=M
@@ -117605,7 +117597,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Output.createShiftedMap$ret.104)
+(Output.createShiftedMap$ret.216)
 //pop temp 0
 @5
 D=A
@@ -117714,24 +117706,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE23)
+(NORMAL_CASE5756)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE23
+@TRUE5756
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE23
+@CONTINUE5756
 0;JMP
-(TRUE23)
+(TRUE5756)
 @SP
 A=M-1
 M=-1
-(CONTINUE23)
+(CONTINUE5756)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -117828,9 +117820,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -117848,28 +117840,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -117913,63 +117905,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE25
+@y_POSITIVE5758
 D;JGT
-@y_NEGATIVE25
+@y_NEGATIVE5758
 D;JLT
-@NORMAL_CASE25
+@NORMAL_CASE5758
 0;JMP
-(y_POSITIVE25)
+(y_POSITIVE5758)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE25
+@NEGATIVE_POSITIVE5758
 D;JLT
-@NORMAL_CASE25
+@NORMAL_CASE5758
 0;JMP
-(NEGATIVE_POSITIVE25)
+(NEGATIVE_POSITIVE5758)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE25
+@CONTINUE5758
 0;JMP
-(y_NEGATIVE25)
+(y_NEGATIVE5758)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE25
+@POSITIVE_NEGATIVE5758
 D;JGT
-@NORMAL_CASE25
+@NORMAL_CASE5758
 0;JMP
-(POSITIVE_NEGATIVE25)
+(POSITIVE_NEGATIVE5758)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE25
+@CONTINUE5758
 0;JMP
-(NORMAL_CASE25)
+(NORMAL_CASE5758)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE25
+@TRUE5758
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE25
+@CONTINUE5758
 0;JMP
-(TRUE25)
+(TRUE5758)
 @SP
 A=M-1
 M=-1
-(CONTINUE25)
+(CONTINUE5758)
 //push argument 0
 @ARG
 D=M
@@ -117994,63 +117986,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE26
+@y_POSITIVE5759
 D;JGT
-@y_NEGATIVE26
+@y_NEGATIVE5759
 D;JLT
-@NORMAL_CASE26
+@NORMAL_CASE5759
 0;JMP
-(y_POSITIVE26)
+(y_POSITIVE5759)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE26
+@NEGATIVE_POSITIVE5759
 D;JLT
-@NORMAL_CASE26
+@NORMAL_CASE5759
 0;JMP
-(NEGATIVE_POSITIVE26)
+(NEGATIVE_POSITIVE5759)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE26
+@CONTINUE5759
 0;JMP
-(y_NEGATIVE26)
+(y_NEGATIVE5759)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE26
+@POSITIVE_NEGATIVE5759
 D;JGT
-@NORMAL_CASE26
+@NORMAL_CASE5759
 0;JMP
-(POSITIVE_NEGATIVE26)
+(POSITIVE_NEGATIVE5759)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE26
+@CONTINUE5759
 0;JMP
-(NORMAL_CASE26)
+(NORMAL_CASE5759)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE26
+@TRUE5759
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE26
+@CONTINUE5759
 0;JMP
-(TRUE26)
+(TRUE5759)
 @SP
 A=M-1
 M=-1
-(CONTINUE26)
+(CONTINUE5759)
 //or
 @SP
 AM=M-1
@@ -118257,9 +118249,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -118277,28 +118269,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -118354,7 +118346,7 @@ M=D
 @SP
 M=M+1
 // call function Output.getMap 1
-@Output.drawChar$ret.105
+@Output.drawChar$ret.217
 D=A
 @SP
 A=M
@@ -118401,7 +118393,7 @@ D=M
 M=D
 @Output.getMap
 0;JMP
-(Output.drawChar$ret.105)
+(Output.drawChar$ret.217)
 //pop local 2
 @LCL
 D=M
@@ -118464,63 +118456,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE30
+@y_POSITIVE5763
 D;JGT
-@y_NEGATIVE30
+@y_NEGATIVE5763
 D;JLT
-@NORMAL_CASE30
+@NORMAL_CASE5763
 0;JMP
-(y_POSITIVE30)
+(y_POSITIVE5763)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE30
+@NEGATIVE_POSITIVE5763
 D;JLT
-@NORMAL_CASE30
+@NORMAL_CASE5763
 0;JMP
-(NEGATIVE_POSITIVE30)
+(NEGATIVE_POSITIVE5763)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE30
+@CONTINUE5763
 0;JMP
-(y_NEGATIVE30)
+(y_NEGATIVE5763)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE30
+@POSITIVE_NEGATIVE5763
 D;JGT
-@NORMAL_CASE30
+@NORMAL_CASE5763
 0;JMP
-(POSITIVE_NEGATIVE30)
+(POSITIVE_NEGATIVE5763)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE30
+@CONTINUE5763
 0;JMP
-(NORMAL_CASE30)
+(NORMAL_CASE5763)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE30
+@TRUE5763
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE30
+@CONTINUE5763
 0;JMP
-(TRUE30)
+(TRUE5763)
 @SP
 A=M-1
 M=-1
-(CONTINUE30)
+(CONTINUE5763)
 //not
 @SP
 AM=M-1
@@ -118953,9 +118945,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -118973,28 +118965,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -119030,63 +119022,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE42
+@y_POSITIVE5775
 D;JGT
-@y_NEGATIVE42
+@y_NEGATIVE5775
 D;JLT
-@NORMAL_CASE42
+@NORMAL_CASE5775
 0;JMP
-(y_POSITIVE42)
+(y_POSITIVE5775)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE42
+@NEGATIVE_POSITIVE5775
 D;JLT
-@NORMAL_CASE42
+@NORMAL_CASE5775
 0;JMP
-(NEGATIVE_POSITIVE42)
+(NEGATIVE_POSITIVE5775)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE42
+@CONTINUE5775
 0;JMP
-(y_NEGATIVE42)
+(y_NEGATIVE5775)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE42
+@POSITIVE_NEGATIVE5775
 D;JGT
-@NORMAL_CASE42
+@NORMAL_CASE5775
 0;JMP
-(POSITIVE_NEGATIVE42)
+(POSITIVE_NEGATIVE5775)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE42
+@CONTINUE5775
 0;JMP
-(NORMAL_CASE42)
+(NORMAL_CASE5775)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE42
+@TRUE5775
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE42
+@CONTINUE5775
 0;JMP
-(TRUE42)
+(TRUE5775)
 @SP
 A=M-1
 M=-1
-(CONTINUE42)
+(CONTINUE5775)
 //push argument 0
 @ARG
 D=M
@@ -119111,63 +119103,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE43
+@y_POSITIVE5776
 D;JGT
-@y_NEGATIVE43
+@y_NEGATIVE5776
 D;JLT
-@NORMAL_CASE43
+@NORMAL_CASE5776
 0;JMP
-(y_POSITIVE43)
+(y_POSITIVE5776)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE43
+@NEGATIVE_POSITIVE5776
 D;JLT
-@NORMAL_CASE43
+@NORMAL_CASE5776
 0;JMP
-(NEGATIVE_POSITIVE43)
+(NEGATIVE_POSITIVE5776)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE43
+@CONTINUE5776
 0;JMP
-(y_NEGATIVE43)
+(y_NEGATIVE5776)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE43
+@POSITIVE_NEGATIVE5776
 D;JGT
-@NORMAL_CASE43
+@NORMAL_CASE5776
 0;JMP
-(POSITIVE_NEGATIVE43)
+(POSITIVE_NEGATIVE5776)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE43
+@CONTINUE5776
 0;JMP
-(NORMAL_CASE43)
+(NORMAL_CASE5776)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE43
+@TRUE5776
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE43
+@CONTINUE5776
 0;JMP
-(TRUE43)
+(TRUE5776)
 @SP
 A=M-1
 M=-1
-(CONTINUE43)
+(CONTINUE5776)
 //or
 @SP
 AM=M-1
@@ -119199,63 +119191,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE45
+@y_POSITIVE5778
 D;JGT
-@y_NEGATIVE45
+@y_NEGATIVE5778
 D;JLT
-@NORMAL_CASE45
+@NORMAL_CASE5778
 0;JMP
-(y_POSITIVE45)
+(y_POSITIVE5778)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE45
+@NEGATIVE_POSITIVE5778
 D;JLT
-@NORMAL_CASE45
+@NORMAL_CASE5778
 0;JMP
-(NEGATIVE_POSITIVE45)
+(NEGATIVE_POSITIVE5778)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE45
+@CONTINUE5778
 0;JMP
-(y_NEGATIVE45)
+(y_NEGATIVE5778)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE45
+@POSITIVE_NEGATIVE5778
 D;JGT
-@NORMAL_CASE45
+@NORMAL_CASE5778
 0;JMP
-(POSITIVE_NEGATIVE45)
+(POSITIVE_NEGATIVE5778)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE45
+@CONTINUE5778
 0;JMP
-(NORMAL_CASE45)
+(NORMAL_CASE5778)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE45
+@TRUE5778
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE45
+@CONTINUE5778
 0;JMP
-(TRUE45)
+(TRUE5778)
 @SP
 A=M-1
 M=-1
-(CONTINUE45)
+(CONTINUE5778)
 //or
 @SP
 AM=M-1
@@ -119287,63 +119279,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE47
+@y_POSITIVE5780
 D;JGT
-@y_NEGATIVE47
+@y_NEGATIVE5780
 D;JLT
-@NORMAL_CASE47
+@NORMAL_CASE5780
 0;JMP
-(y_POSITIVE47)
+(y_POSITIVE5780)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE47
+@NEGATIVE_POSITIVE5780
 D;JLT
-@NORMAL_CASE47
+@NORMAL_CASE5780
 0;JMP
-(NEGATIVE_POSITIVE47)
+(NEGATIVE_POSITIVE5780)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE47
+@CONTINUE5780
 0;JMP
-(y_NEGATIVE47)
+(y_NEGATIVE5780)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE47
+@POSITIVE_NEGATIVE5780
 D;JGT
-@NORMAL_CASE47
+@NORMAL_CASE5780
 0;JMP
-(POSITIVE_NEGATIVE47)
+(POSITIVE_NEGATIVE5780)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE47
+@CONTINUE5780
 0;JMP
-(NORMAL_CASE47)
+(NORMAL_CASE5780)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE47
+@TRUE5780
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE47
+@CONTINUE5780
 0;JMP
-(TRUE47)
+(TRUE5780)
 @SP
 A=M-1
 M=-1
-(CONTINUE47)
+(CONTINUE5780)
 //or
 @SP
 AM=M-1
@@ -119372,7 +119364,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@Output.moveCursor$ret.106
+@Output.moveCursor$ret.218
 D=A
 @SP
 A=M
@@ -119419,7 +119411,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Output.moveCursor$ret.106)
+(Output.moveCursor$ret.218)
 //pop temp 0
 @5
 D=A
@@ -119453,7 +119445,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@Output.moveCursor$ret.107
+@Output.moveCursor$ret.219
 D=A
 @SP
 A=M
@@ -119500,7 +119492,7 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(Output.moveCursor$ret.107)
+(Output.moveCursor$ret.219)
 //pop static 0
 @Output.0
 D=A
@@ -119540,7 +119532,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Output.moveCursor$ret.108
+@Output.moveCursor$ret.220
 D=A
 @SP
 A=M
@@ -119587,7 +119579,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Output.moveCursor$ret.108)
+(Output.moveCursor$ret.220)
 //add
 @SP
 AM=M-1
@@ -119647,7 +119639,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Output.moveCursor$ret.109
+@Output.moveCursor$ret.221
 D=A
 @SP
 A=M
@@ -119694,26 +119686,26 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Output.moveCursor$ret.109)
+(Output.moveCursor$ret.221)
 //eq
-(NORMAL_CASE51)
+(NORMAL_CASE5784)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE51
+@TRUE5784
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE51
+@CONTINUE5784
 0;JMP
-(TRUE51)
+(TRUE5784)
 @SP
 A=M-1
 M=-1
-(CONTINUE51)
+(CONTINUE5784)
 //pop static 2
 @Output.2
 D=A
@@ -119734,7 +119726,7 @@ M=D
 @SP
 M=M+1
 // call function Output.drawChar 1
-@Output.moveCursor$ret.110
+@Output.moveCursor$ret.222
 D=A
 @SP
 A=M
@@ -119781,7 +119773,7 @@ D=M
 M=D
 @Output.drawChar
 0;JMP
-(Output.moveCursor$ret.110)
+(Output.moveCursor$ret.222)
 //pop temp 0
 @5
 D=A
@@ -119804,9 +119796,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -119824,28 +119816,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -119869,7 +119861,7 @@ M=D
 @SP
 M=M+1
 // call function String.newLine 0
-@Output.printChar$ret.111
+@Output.printChar$ret.223
 D=A
 @SP
 A=M
@@ -119916,26 +119908,26 @@ D=M
 M=D
 @String.newLine
 0;JMP
-(Output.printChar$ret.111)
+(Output.printChar$ret.223)
 //eq
-(NORMAL_CASE52)
+(NORMAL_CASE5785)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE52
+@TRUE5785
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE52
+@CONTINUE5785
 0;JMP
-(TRUE52)
+(TRUE5785)
 @SP
 A=M-1
 M=-1
-(CONTINUE52)
+(CONTINUE5785)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -119949,7 +119941,7 @@ D;JNE
 // write label IF_TRUE0
 (Output.printChar$IF_TRUE0)
 // call function Output.println 0
-@Output.printChar$ret.112
+@Output.printChar$ret.224
 D=A
 @SP
 A=M
@@ -119996,7 +119988,7 @@ D=M
 M=D
 @Output.println
 0;JMP
-(Output.printChar$ret.112)
+(Output.printChar$ret.224)
 //pop temp 0
 @5
 D=A
@@ -120025,7 +120017,7 @@ M=D
 @SP
 M=M+1
 // call function String.backSpace 0
-@Output.printChar$ret.113
+@Output.printChar$ret.225
 D=A
 @SP
 A=M
@@ -120072,26 +120064,26 @@ D=M
 M=D
 @String.backSpace
 0;JMP
-(Output.printChar$ret.113)
+(Output.printChar$ret.225)
 //eq
-(NORMAL_CASE53)
+(NORMAL_CASE5786)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE53
+@TRUE5786
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE53
+@CONTINUE5786
 0;JMP
-(TRUE53)
+(TRUE5786)
 @SP
 A=M-1
 M=-1
-(CONTINUE53)
+(CONTINUE5786)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -120105,7 +120097,7 @@ D;JNE
 // write label IF_TRUE1
 (Output.printChar$IF_TRUE1)
 // call function Output.backSpace 0
-@Output.printChar$ret.114
+@Output.printChar$ret.226
 D=A
 @SP
 A=M
@@ -120152,7 +120144,7 @@ D=M
 M=D
 @Output.backSpace
 0;JMP
-(Output.printChar$ret.114)
+(Output.printChar$ret.226)
 //pop temp 0
 @5
 D=A
@@ -120181,7 +120173,7 @@ M=D
 @SP
 M=M+1
 // call function Output.drawChar 1
-@Output.printChar$ret.115
+@Output.printChar$ret.227
 D=A
 @SP
 A=M
@@ -120228,7 +120220,7 @@ D=M
 M=D
 @Output.drawChar
 0;JMP
-(Output.printChar$ret.115)
+(Output.printChar$ret.227)
 //pop temp 0
 @5
 D=A
@@ -120356,24 +120348,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE57)
+(NORMAL_CASE5790)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE57
+@TRUE5790
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE57
+@CONTINUE5790
 0;JMP
-(TRUE57)
+(TRUE5790)
 @SP
 A=M-1
 M=-1
-(CONTINUE57)
+(CONTINUE5790)
 // write if-goto IF_TRUE3
 @SP
 AM=M-1
@@ -120387,7 +120379,7 @@ D;JNE
 // write label IF_TRUE3
 (Output.printChar$IF_TRUE3)
 // call function Output.println 0
-@Output.printChar$ret.116
+@Output.printChar$ret.228
 D=A
 @SP
 A=M
@@ -120434,7 +120426,7 @@ D=M
 M=D
 @Output.println
 0;JMP
-(Output.printChar$ret.116)
+(Output.printChar$ret.228)
 //pop temp 0
 @5
 D=A
@@ -120498,9 +120490,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -120518,28 +120510,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -120579,7 +120571,7 @@ M=D
 @SP
 M=M+1
 // call function String.length 1
-@Output.printString$ret.117
+@Output.printString$ret.229
 D=A
 @SP
 A=M
@@ -120626,7 +120618,7 @@ D=M
 M=D
 @String.length
 0;JMP
-(Output.printString$ret.117)
+(Output.printString$ret.229)
 //pop local 1
 @LCL
 D=M
@@ -120670,63 +120662,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE59
+@y_POSITIVE5792
 D;JGT
-@y_NEGATIVE59
+@y_NEGATIVE5792
 D;JLT
-@NORMAL_CASE59
+@NORMAL_CASE5792
 0;JMP
-(y_POSITIVE59)
+(y_POSITIVE5792)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE59
+@NEGATIVE_POSITIVE5792
 D;JLT
-@NORMAL_CASE59
+@NORMAL_CASE5792
 0;JMP
-(NEGATIVE_POSITIVE59)
+(NEGATIVE_POSITIVE5792)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE59
+@CONTINUE5792
 0;JMP
-(y_NEGATIVE59)
+(y_NEGATIVE5792)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE59
+@POSITIVE_NEGATIVE5792
 D;JGT
-@NORMAL_CASE59
+@NORMAL_CASE5792
 0;JMP
-(POSITIVE_NEGATIVE59)
+(POSITIVE_NEGATIVE5792)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE59
+@CONTINUE5792
 0;JMP
-(NORMAL_CASE59)
+(NORMAL_CASE5792)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE59
+@TRUE5792
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE59
+@CONTINUE5792
 0;JMP
-(TRUE59)
+(TRUE5792)
 @SP
 A=M-1
 M=-1
-(CONTINUE59)
+(CONTINUE5792)
 //not
 @SP
 AM=M-1
@@ -120768,7 +120760,7 @@ M=D
 @SP
 M=M+1
 // call function String.charAt 2
-@Output.printString$ret.118
+@Output.printString$ret.230
 D=A
 @SP
 A=M
@@ -120815,9 +120807,9 @@ D=M
 M=D
 @String.charAt
 0;JMP
-(Output.printString$ret.118)
+(Output.printString$ret.230)
 // call function Output.printChar 1
-@Output.printString$ret.119
+@Output.printString$ret.231
 D=A
 @SP
 A=M
@@ -120864,7 +120856,7 @@ D=M
 M=D
 @Output.printChar
 0;JMP
-(Output.printString$ret.119)
+(Output.printString$ret.231)
 //pop temp 0
 @5
 D=A
@@ -120931,9 +120923,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -120951,28 +120943,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -121004,7 +120996,7 @@ M=D
 @SP
 M=M+1
 // call function String.setInt 2
-@Output.printInt$ret.120
+@Output.printInt$ret.232
 D=A
 @SP
 A=M
@@ -121051,7 +121043,7 @@ D=M
 M=D
 @String.setInt
 0;JMP
-(Output.printInt$ret.120)
+(Output.printInt$ret.232)
 //pop temp 0
 @5
 D=A
@@ -121072,7 +121064,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printString 1
-@Output.printInt$ret.121
+@Output.printInt$ret.233
 D=A
 @SP
 A=M
@@ -121119,7 +121111,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(Output.printInt$ret.121)
+(Output.printInt$ret.233)
 //pop temp 0
 @5
 D=A
@@ -121142,9 +121134,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -121162,28 +121154,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -121308,24 +121300,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE65)
+(NORMAL_CASE5798)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE65
+@TRUE5798
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE65
+@CONTINUE5798
 0;JMP
-(TRUE65)
+(TRUE5798)
 @SP
 A=M-1
 M=-1
-(CONTINUE65)
+(CONTINUE5798)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -121370,9 +121362,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -121390,28 +121382,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -121464,63 +121456,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE66
+@y_POSITIVE5799
 D;JGT
-@y_NEGATIVE66
+@y_NEGATIVE5799
 D;JLT
-@NORMAL_CASE66
+@NORMAL_CASE5799
 0;JMP
-(y_POSITIVE66)
+(y_POSITIVE5799)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE66
+@NEGATIVE_POSITIVE5799
 D;JLT
-@NORMAL_CASE66
+@NORMAL_CASE5799
 0;JMP
-(NEGATIVE_POSITIVE66)
+(NEGATIVE_POSITIVE5799)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE66
+@CONTINUE5799
 0;JMP
-(y_NEGATIVE66)
+(y_NEGATIVE5799)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE66
+@POSITIVE_NEGATIVE5799
 D;JGT
-@NORMAL_CASE66
+@NORMAL_CASE5799
 0;JMP
-(POSITIVE_NEGATIVE66)
+(POSITIVE_NEGATIVE5799)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE66
+@CONTINUE5799
 0;JMP
-(NORMAL_CASE66)
+(NORMAL_CASE5799)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE66
+@TRUE5799
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE66
+@CONTINUE5799
 0;JMP
-(TRUE66)
+(TRUE5799)
 @SP
 A=M-1
 M=-1
-(CONTINUE66)
+(CONTINUE5799)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -121640,24 +121632,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE69)
+(NORMAL_CASE5802)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE69
+@TRUE5802
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE69
+@CONTINUE5802
 0;JMP
-(TRUE69)
+(TRUE5802)
 @SP
 A=M-1
 M=-1
-(CONTINUE69)
+(CONTINUE5802)
 // write if-goto IF_TRUE2
 @SP
 AM=M-1
@@ -121791,7 +121783,7 @@ M=D
 @SP
 M=M+1
 // call function Output.drawChar 1
-@Output.backSpace$ret.122
+@Output.backSpace$ret.234
 D=A
 @SP
 A=M
@@ -121838,7 +121830,7 @@ D=M
 M=D
 @Output.drawChar
 0;JMP
-(Output.backSpace$ret.122)
+(Output.backSpace$ret.234)
 //pop temp 0
 @5
 D=A
@@ -121861,9 +121853,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -121881,28 +121873,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -121980,7 +121972,7 @@ M=D
 @SP
 M=M+1
 // call function Array.new 1
-@Screen.init$ret.1
+@Screen.init$ret.235
 D=A
 @SP
 A=M
@@ -122027,7 +122019,7 @@ D=M
 M=D
 @Array.new
 0;JMP
-(Screen.init$ret.1)
+(Screen.init$ret.235)
 //pop static 0
 @Screen.0
 D=A
@@ -122139,63 +122131,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE3
+@y_POSITIVE5807
 D;JGT
-@y_NEGATIVE3
+@y_NEGATIVE5807
 D;JLT
-@NORMAL_CASE3
+@NORMAL_CASE5807
 0;JMP
-(y_POSITIVE3)
+(y_POSITIVE5807)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE3
+@NEGATIVE_POSITIVE5807
 D;JLT
-@NORMAL_CASE3
+@NORMAL_CASE5807
 0;JMP
-(NEGATIVE_POSITIVE3)
+(NEGATIVE_POSITIVE5807)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE3
+@CONTINUE5807
 0;JMP
-(y_NEGATIVE3)
+(y_NEGATIVE5807)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE3
+@POSITIVE_NEGATIVE5807
 D;JGT
-@NORMAL_CASE3
+@NORMAL_CASE5807
 0;JMP
-(POSITIVE_NEGATIVE3)
+(POSITIVE_NEGATIVE5807)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE3
+@CONTINUE5807
 0;JMP
-(NORMAL_CASE3)
+(NORMAL_CASE5807)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE3
+@TRUE5807
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE3
+@CONTINUE5807
 0;JMP
-(TRUE3)
+(TRUE5807)
 @SP
 A=M-1
 M=-1
-(CONTINUE3)
+(CONTINUE5807)
 //not
 @SP
 AM=M-1
@@ -122466,9 +122458,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -122486,28 +122478,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -122553,63 +122545,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE12
+@y_POSITIVE5816
 D;JGT
-@y_NEGATIVE12
+@y_NEGATIVE5816
 D;JLT
-@NORMAL_CASE12
+@NORMAL_CASE5816
 0;JMP
-(y_POSITIVE12)
+(y_POSITIVE5816)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE12
+@NEGATIVE_POSITIVE5816
 D;JLT
-@NORMAL_CASE12
+@NORMAL_CASE5816
 0;JMP
-(NEGATIVE_POSITIVE12)
+(NEGATIVE_POSITIVE5816)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE12
+@CONTINUE5816
 0;JMP
-(y_NEGATIVE12)
+(y_NEGATIVE5816)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE12
+@POSITIVE_NEGATIVE5816
 D;JGT
-@NORMAL_CASE12
+@NORMAL_CASE5816
 0;JMP
-(POSITIVE_NEGATIVE12)
+(POSITIVE_NEGATIVE5816)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE12
+@CONTINUE5816
 0;JMP
-(NORMAL_CASE12)
+(NORMAL_CASE5816)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE12
+@TRUE5816
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE12
+@CONTINUE5816
 0;JMP
-(TRUE12)
+(TRUE5816)
 @SP
 A=M-1
 M=-1
-(CONTINUE12)
+(CONTINUE5816)
 //not
 @SP
 AM=M-1
@@ -122760,9 +122752,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -122780,28 +122772,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -123130,9 +123122,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -123150,28 +123142,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -123216,9 +123208,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -123236,28 +123228,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -123317,63 +123309,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE23
+@y_POSITIVE5827
 D;JGT
-@y_NEGATIVE23
+@y_NEGATIVE5827
 D;JLT
-@NORMAL_CASE23
+@NORMAL_CASE5827
 0;JMP
-(y_POSITIVE23)
+(y_POSITIVE5827)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE23
+@NEGATIVE_POSITIVE5827
 D;JLT
-@NORMAL_CASE23
+@NORMAL_CASE5827
 0;JMP
-(NEGATIVE_POSITIVE23)
+(NEGATIVE_POSITIVE5827)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE23
+@CONTINUE5827
 0;JMP
-(y_NEGATIVE23)
+(y_NEGATIVE5827)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE23
+@POSITIVE_NEGATIVE5827
 D;JGT
-@NORMAL_CASE23
+@NORMAL_CASE5827
 0;JMP
-(POSITIVE_NEGATIVE23)
+(POSITIVE_NEGATIVE5827)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE23
+@CONTINUE5827
 0;JMP
-(NORMAL_CASE23)
+(NORMAL_CASE5827)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE23
+@TRUE5827
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE23
+@CONTINUE5827
 0;JMP
-(TRUE23)
+(TRUE5827)
 @SP
 A=M-1
 M=-1
-(CONTINUE23)
+(CONTINUE5827)
 //push argument 0
 @ARG
 D=M
@@ -123398,63 +123390,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE24
+@y_POSITIVE5828
 D;JGT
-@y_NEGATIVE24
+@y_NEGATIVE5828
 D;JLT
-@NORMAL_CASE24
+@NORMAL_CASE5828
 0;JMP
-(y_POSITIVE24)
+(y_POSITIVE5828)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE24
+@NEGATIVE_POSITIVE5828
 D;JLT
-@NORMAL_CASE24
+@NORMAL_CASE5828
 0;JMP
-(NEGATIVE_POSITIVE24)
+(NEGATIVE_POSITIVE5828)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE24
+@CONTINUE5828
 0;JMP
-(y_NEGATIVE24)
+(y_NEGATIVE5828)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE24
+@POSITIVE_NEGATIVE5828
 D;JGT
-@NORMAL_CASE24
+@NORMAL_CASE5828
 0;JMP
-(POSITIVE_NEGATIVE24)
+(POSITIVE_NEGATIVE5828)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE24
+@CONTINUE5828
 0;JMP
-(NORMAL_CASE24)
+(NORMAL_CASE5828)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE24
+@TRUE5828
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE24
+@CONTINUE5828
 0;JMP
-(TRUE24)
+(TRUE5828)
 @SP
 A=M-1
 M=-1
-(CONTINUE24)
+(CONTINUE5828)
 //or
 @SP
 AM=M-1
@@ -123486,63 +123478,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE26
+@y_POSITIVE5830
 D;JGT
-@y_NEGATIVE26
+@y_NEGATIVE5830
 D;JLT
-@NORMAL_CASE26
+@NORMAL_CASE5830
 0;JMP
-(y_POSITIVE26)
+(y_POSITIVE5830)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE26
+@NEGATIVE_POSITIVE5830
 D;JLT
-@NORMAL_CASE26
+@NORMAL_CASE5830
 0;JMP
-(NEGATIVE_POSITIVE26)
+(NEGATIVE_POSITIVE5830)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE26
+@CONTINUE5830
 0;JMP
-(y_NEGATIVE26)
+(y_NEGATIVE5830)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE26
+@POSITIVE_NEGATIVE5830
 D;JGT
-@NORMAL_CASE26
+@NORMAL_CASE5830
 0;JMP
-(POSITIVE_NEGATIVE26)
+(POSITIVE_NEGATIVE5830)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE26
+@CONTINUE5830
 0;JMP
-(NORMAL_CASE26)
+(NORMAL_CASE5830)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE26
+@TRUE5830
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE26
+@CONTINUE5830
 0;JMP
-(TRUE26)
+(TRUE5830)
 @SP
 A=M-1
 M=-1
-(CONTINUE26)
+(CONTINUE5830)
 //or
 @SP
 AM=M-1
@@ -123574,63 +123566,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE28
+@y_POSITIVE5832
 D;JGT
-@y_NEGATIVE28
+@y_NEGATIVE5832
 D;JLT
-@NORMAL_CASE28
+@NORMAL_CASE5832
 0;JMP
-(y_POSITIVE28)
+(y_POSITIVE5832)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE28
+@NEGATIVE_POSITIVE5832
 D;JLT
-@NORMAL_CASE28
+@NORMAL_CASE5832
 0;JMP
-(NEGATIVE_POSITIVE28)
+(NEGATIVE_POSITIVE5832)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE28
+@CONTINUE5832
 0;JMP
-(y_NEGATIVE28)
+(y_NEGATIVE5832)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE28
+@POSITIVE_NEGATIVE5832
 D;JGT
-@NORMAL_CASE28
+@NORMAL_CASE5832
 0;JMP
-(POSITIVE_NEGATIVE28)
+(POSITIVE_NEGATIVE5832)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE28
+@CONTINUE5832
 0;JMP
-(NORMAL_CASE28)
+(NORMAL_CASE5832)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE28
+@TRUE5832
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE28
+@CONTINUE5832
 0;JMP
-(TRUE28)
+(TRUE5832)
 @SP
 A=M-1
 M=-1
-(CONTINUE28)
+(CONTINUE5832)
 //or
 @SP
 AM=M-1
@@ -123659,7 +123651,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@Screen.drawPixel$ret.2
+@Screen.drawPixel$ret.236
 D=A
 @SP
 A=M
@@ -123706,7 +123698,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Screen.drawPixel$ret.2)
+(Screen.drawPixel$ret.236)
 //pop temp 0
 @5
 D=A
@@ -123740,7 +123732,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@Screen.drawPixel$ret.3
+@Screen.drawPixel$ret.237
 D=A
 @SP
 A=M
@@ -123787,7 +123779,7 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(Screen.drawPixel$ret.3)
+(Screen.drawPixel$ret.237)
 //pop local 0
 @LCL
 D=M
@@ -123833,7 +123825,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Screen.drawPixel$ret.4
+@Screen.drawPixel$ret.238
 D=A
 @SP
 A=M
@@ -123880,7 +123872,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Screen.drawPixel$ret.4)
+(Screen.drawPixel$ret.238)
 //sub
 @SP
 AM=M-1
@@ -123921,7 +123913,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Screen.drawPixel$ret.5
+@Screen.drawPixel$ret.239
 D=A
 @SP
 A=M
@@ -123968,7 +123960,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Screen.drawPixel$ret.5)
+(Screen.drawPixel$ret.239)
 //push local 0
 @LCL
 D=M
@@ -124059,7 +124051,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.updateLocation 2
-@Screen.drawPixel$ret.6
+@Screen.drawPixel$ret.240
 D=A
 @SP
 A=M
@@ -124106,7 +124098,7 @@ D=M
 M=D
 @Screen.updateLocation
 0;JMP
-(Screen.drawPixel$ret.6)
+(Screen.drawPixel$ret.240)
 //pop temp 0
 @5
 D=A
@@ -124129,9 +124121,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -124149,28 +124141,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -124228,7 +124220,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.drawPixel 2
-@Screen.drawConditional$ret.7
+@Screen.drawConditional$ret.241
 D=A
 @SP
 A=M
@@ -124275,7 +124267,7 @@ D=M
 M=D
 @Screen.drawPixel
 0;JMP
-(Screen.drawConditional$ret.7)
+(Screen.drawConditional$ret.241)
 //pop temp 0
 @5
 D=A
@@ -124315,7 +124307,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.drawPixel 2
-@Screen.drawConditional$ret.8
+@Screen.drawConditional$ret.242
 D=A
 @SP
 A=M
@@ -124362,7 +124354,7 @@ D=M
 M=D
 @Screen.drawPixel
 0;JMP
-(Screen.drawConditional$ret.8)
+(Screen.drawConditional$ret.242)
 //pop temp 0
 @5
 D=A
@@ -124387,9 +124379,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -124407,28 +124399,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -124552,63 +124544,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE33
+@y_POSITIVE5837
 D;JGT
-@y_NEGATIVE33
+@y_NEGATIVE5837
 D;JLT
-@NORMAL_CASE33
+@NORMAL_CASE5837
 0;JMP
-(y_POSITIVE33)
+(y_POSITIVE5837)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE33
+@NEGATIVE_POSITIVE5837
 D;JLT
-@NORMAL_CASE33
+@NORMAL_CASE5837
 0;JMP
-(NEGATIVE_POSITIVE33)
+(NEGATIVE_POSITIVE5837)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE33
+@CONTINUE5837
 0;JMP
-(y_NEGATIVE33)
+(y_NEGATIVE5837)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE33
+@POSITIVE_NEGATIVE5837
 D;JGT
-@NORMAL_CASE33
+@NORMAL_CASE5837
 0;JMP
-(POSITIVE_NEGATIVE33)
+(POSITIVE_NEGATIVE5837)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE33
+@CONTINUE5837
 0;JMP
-(NORMAL_CASE33)
+(NORMAL_CASE5837)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE33
+@TRUE5837
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE33
+@CONTINUE5837
 0;JMP
-(TRUE33)
+(TRUE5837)
 @SP
 A=M-1
 M=-1
-(CONTINUE33)
+(CONTINUE5837)
 //push argument 2
 @ARG
 D=M
@@ -124633,63 +124625,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE34
+@y_POSITIVE5838
 D;JGT
-@y_NEGATIVE34
+@y_NEGATIVE5838
 D;JLT
-@NORMAL_CASE34
+@NORMAL_CASE5838
 0;JMP
-(y_POSITIVE34)
+(y_POSITIVE5838)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE34
+@NEGATIVE_POSITIVE5838
 D;JLT
-@NORMAL_CASE34
+@NORMAL_CASE5838
 0;JMP
-(NEGATIVE_POSITIVE34)
+(NEGATIVE_POSITIVE5838)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE34
+@CONTINUE5838
 0;JMP
-(y_NEGATIVE34)
+(y_NEGATIVE5838)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE34
+@POSITIVE_NEGATIVE5838
 D;JGT
-@NORMAL_CASE34
+@NORMAL_CASE5838
 0;JMP
-(POSITIVE_NEGATIVE34)
+(POSITIVE_NEGATIVE5838)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE34
+@CONTINUE5838
 0;JMP
-(NORMAL_CASE34)
+(NORMAL_CASE5838)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE34
+@TRUE5838
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE34
+@CONTINUE5838
 0;JMP
-(TRUE34)
+(TRUE5838)
 @SP
 A=M-1
 M=-1
-(CONTINUE34)
+(CONTINUE5838)
 //or
 @SP
 AM=M-1
@@ -124721,63 +124713,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE36
+@y_POSITIVE5840
 D;JGT
-@y_NEGATIVE36
+@y_NEGATIVE5840
 D;JLT
-@NORMAL_CASE36
+@NORMAL_CASE5840
 0;JMP
-(y_POSITIVE36)
+(y_POSITIVE5840)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE36
+@NEGATIVE_POSITIVE5840
 D;JLT
-@NORMAL_CASE36
+@NORMAL_CASE5840
 0;JMP
-(NEGATIVE_POSITIVE36)
+(NEGATIVE_POSITIVE5840)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE36
+@CONTINUE5840
 0;JMP
-(y_NEGATIVE36)
+(y_NEGATIVE5840)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE36
+@POSITIVE_NEGATIVE5840
 D;JGT
-@NORMAL_CASE36
+@NORMAL_CASE5840
 0;JMP
-(POSITIVE_NEGATIVE36)
+(POSITIVE_NEGATIVE5840)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE36
+@CONTINUE5840
 0;JMP
-(NORMAL_CASE36)
+(NORMAL_CASE5840)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE36
+@TRUE5840
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE36
+@CONTINUE5840
 0;JMP
-(TRUE36)
+(TRUE5840)
 @SP
 A=M-1
 M=-1
-(CONTINUE36)
+(CONTINUE5840)
 //or
 @SP
 AM=M-1
@@ -124809,63 +124801,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE38
+@y_POSITIVE5842
 D;JGT
-@y_NEGATIVE38
+@y_NEGATIVE5842
 D;JLT
-@NORMAL_CASE38
+@NORMAL_CASE5842
 0;JMP
-(y_POSITIVE38)
+(y_POSITIVE5842)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE38
+@NEGATIVE_POSITIVE5842
 D;JLT
-@NORMAL_CASE38
+@NORMAL_CASE5842
 0;JMP
-(NEGATIVE_POSITIVE38)
+(NEGATIVE_POSITIVE5842)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE38
+@CONTINUE5842
 0;JMP
-(y_NEGATIVE38)
+(y_NEGATIVE5842)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE38
+@POSITIVE_NEGATIVE5842
 D;JGT
-@NORMAL_CASE38
+@NORMAL_CASE5842
 0;JMP
-(POSITIVE_NEGATIVE38)
+(POSITIVE_NEGATIVE5842)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE38
+@CONTINUE5842
 0;JMP
-(NORMAL_CASE38)
+(NORMAL_CASE5842)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE38
+@TRUE5842
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE38
+@CONTINUE5842
 0;JMP
-(TRUE38)
+(TRUE5842)
 @SP
 A=M-1
 M=-1
-(CONTINUE38)
+(CONTINUE5842)
 //or
 @SP
 AM=M-1
@@ -124894,7 +124886,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@Screen.drawLine$ret.9
+@Screen.drawLine$ret.243
 D=A
 @SP
 A=M
@@ -124941,7 +124933,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Screen.drawLine$ret.9)
+(Screen.drawLine$ret.243)
 //pop temp 0
 @5
 D=A
@@ -124984,7 +124976,7 @@ D=M
 A=A-1
 M=M-D
 // call function Math.abs 1
-@Screen.drawLine$ret.10
+@Screen.drawLine$ret.244
 D=A
 @SP
 A=M
@@ -125031,7 +125023,7 @@ D=M
 M=D
 @Math.abs
 0;JMP
-(Screen.drawLine$ret.10)
+(Screen.drawLine$ret.244)
 //pop local 3
 @LCL
 D=M
@@ -125075,7 +125067,7 @@ D=M
 A=A-1
 M=M-D
 // call function Math.abs 1
-@Screen.drawLine$ret.11
+@Screen.drawLine$ret.245
 D=A
 @SP
 A=M
@@ -125122,7 +125114,7 @@ D=M
 M=D
 @Math.abs
 0;JMP
-(Screen.drawLine$ret.11)
+(Screen.drawLine$ret.245)
 //pop local 2
 @LCL
 D=M
@@ -125164,63 +125156,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE42
+@y_POSITIVE5846
 D;JGT
-@y_NEGATIVE42
+@y_NEGATIVE5846
 D;JLT
-@NORMAL_CASE42
+@NORMAL_CASE5846
 0;JMP
-(y_POSITIVE42)
+(y_POSITIVE5846)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE42
+@NEGATIVE_POSITIVE5846
 D;JLT
-@NORMAL_CASE42
+@NORMAL_CASE5846
 0;JMP
-(NEGATIVE_POSITIVE42)
+(NEGATIVE_POSITIVE5846)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE42
+@CONTINUE5846
 0;JMP
-(y_NEGATIVE42)
+(y_NEGATIVE5846)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE42
+@POSITIVE_NEGATIVE5846
 D;JGT
-@NORMAL_CASE42
+@NORMAL_CASE5846
 0;JMP
-(POSITIVE_NEGATIVE42)
+(POSITIVE_NEGATIVE5846)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE42
+@CONTINUE5846
 0;JMP
-(NORMAL_CASE42)
+(NORMAL_CASE5846)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE42
+@TRUE5846
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE42
+@CONTINUE5846
 0;JMP
-(TRUE42)
+(TRUE5846)
 @SP
 A=M-1
 M=-1
-(CONTINUE42)
+(CONTINUE5846)
 //pop local 6
 @LCL
 D=M
@@ -125273,63 +125265,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE43
+@y_POSITIVE5847
 D;JGT
-@y_NEGATIVE43
+@y_NEGATIVE5847
 D;JLT
-@NORMAL_CASE43
+@NORMAL_CASE5847
 0;JMP
-(y_POSITIVE43)
+(y_POSITIVE5847)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE43
+@NEGATIVE_POSITIVE5847
 D;JLT
-@NORMAL_CASE43
+@NORMAL_CASE5847
 0;JMP
-(NEGATIVE_POSITIVE43)
+(NEGATIVE_POSITIVE5847)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE43
+@CONTINUE5847
 0;JMP
-(y_NEGATIVE43)
+(y_NEGATIVE5847)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE43
+@POSITIVE_NEGATIVE5847
 D;JGT
-@NORMAL_CASE43
+@NORMAL_CASE5847
 0;JMP
-(POSITIVE_NEGATIVE43)
+(POSITIVE_NEGATIVE5847)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE43
+@CONTINUE5847
 0;JMP
-(NORMAL_CASE43)
+(NORMAL_CASE5847)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE43
+@TRUE5847
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE43
+@CONTINUE5847
 0;JMP
-(TRUE43)
+(TRUE5847)
 @SP
 A=M-1
 M=-1
-(CONTINUE43)
+(CONTINUE5847)
 //and
 @SP
 AM=M-1
@@ -125386,63 +125378,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE46
+@y_POSITIVE5850
 D;JGT
-@y_NEGATIVE46
+@y_NEGATIVE5850
 D;JLT
-@NORMAL_CASE46
+@NORMAL_CASE5850
 0;JMP
-(y_POSITIVE46)
+(y_POSITIVE5850)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE46
+@NEGATIVE_POSITIVE5850
 D;JLT
-@NORMAL_CASE46
+@NORMAL_CASE5850
 0;JMP
-(NEGATIVE_POSITIVE46)
+(NEGATIVE_POSITIVE5850)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE46
+@CONTINUE5850
 0;JMP
-(y_NEGATIVE46)
+(y_NEGATIVE5850)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE46
+@POSITIVE_NEGATIVE5850
 D;JGT
-@NORMAL_CASE46
+@NORMAL_CASE5850
 0;JMP
-(POSITIVE_NEGATIVE46)
+(POSITIVE_NEGATIVE5850)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE46
+@CONTINUE5850
 0;JMP
-(NORMAL_CASE46)
+(NORMAL_CASE5850)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE46
+@TRUE5850
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE46
+@CONTINUE5850
 0;JMP
-(TRUE46)
+(TRUE5850)
 @SP
 A=M-1
 M=-1
-(CONTINUE46)
+(CONTINUE5850)
 //and
 @SP
 AM=M-1
@@ -125821,63 +125813,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE49
+@y_POSITIVE5853
 D;JGT
-@y_NEGATIVE49
+@y_NEGATIVE5853
 D;JLT
-@NORMAL_CASE49
+@NORMAL_CASE5853
 0;JMP
-(y_POSITIVE49)
+(y_POSITIVE5853)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE49
+@NEGATIVE_POSITIVE5853
 D;JLT
-@NORMAL_CASE49
+@NORMAL_CASE5853
 0;JMP
-(NEGATIVE_POSITIVE49)
+(NEGATIVE_POSITIVE5853)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE49
+@CONTINUE5853
 0;JMP
-(y_NEGATIVE49)
+(y_NEGATIVE5853)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE49
+@POSITIVE_NEGATIVE5853
 D;JGT
-@NORMAL_CASE49
+@NORMAL_CASE5853
 0;JMP
-(POSITIVE_NEGATIVE49)
+(POSITIVE_NEGATIVE5853)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE49
+@CONTINUE5853
 0;JMP
-(NORMAL_CASE49)
+(NORMAL_CASE5853)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE49
+@TRUE5853
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE49
+@CONTINUE5853
 0;JMP
-(TRUE49)
+(TRUE5853)
 @SP
 A=M-1
 M=-1
-(CONTINUE49)
+(CONTINUE5853)
 //pop local 7
 @LCL
 D=M
@@ -125999,63 +125991,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE50
+@y_POSITIVE5854
 D;JGT
-@y_NEGATIVE50
+@y_NEGATIVE5854
 D;JLT
-@NORMAL_CASE50
+@NORMAL_CASE5854
 0;JMP
-(y_POSITIVE50)
+(y_POSITIVE5854)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE50
+@NEGATIVE_POSITIVE5854
 D;JLT
-@NORMAL_CASE50
+@NORMAL_CASE5854
 0;JMP
-(NEGATIVE_POSITIVE50)
+(NEGATIVE_POSITIVE5854)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE50
+@CONTINUE5854
 0;JMP
-(y_NEGATIVE50)
+(y_NEGATIVE5854)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE50
+@POSITIVE_NEGATIVE5854
 D;JGT
-@NORMAL_CASE50
+@NORMAL_CASE5854
 0;JMP
-(POSITIVE_NEGATIVE50)
+(POSITIVE_NEGATIVE5854)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE50
+@CONTINUE5854
 0;JMP
-(NORMAL_CASE50)
+(NORMAL_CASE5854)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE50
+@TRUE5854
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE50
+@CONTINUE5854
 0;JMP
-(TRUE50)
+(TRUE5854)
 @SP
 A=M-1
 M=-1
-(CONTINUE50)
+(CONTINUE5854)
 //pop local 7
 @LCL
 D=M
@@ -126092,7 +126084,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Screen.drawLine$ret.12
+@Screen.drawLine$ret.246
 D=A
 @SP
 A=M
@@ -126139,7 +126131,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Screen.drawLine$ret.12)
+(Screen.drawLine$ret.246)
 //push local 3
 @LCL
 D=M
@@ -126191,7 +126183,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Screen.drawLine$ret.13
+@Screen.drawLine$ret.247
 D=A
 @SP
 A=M
@@ -126238,7 +126230,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Screen.drawLine$ret.13)
+(Screen.drawLine$ret.247)
 //pop local 9
 @LCL
 D=M
@@ -126290,7 +126282,7 @@ D=M
 A=A-1
 M=M-D
 // call function Math.multiply 2
-@Screen.drawLine$ret.14
+@Screen.drawLine$ret.248
 D=A
 @SP
 A=M
@@ -126337,7 +126329,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Screen.drawLine$ret.14)
+(Screen.drawLine$ret.248)
 //pop local 10
 @LCL
 D=M
@@ -126386,7 +126378,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.drawConditional 3
-@Screen.drawLine$ret.15
+@Screen.drawLine$ret.249
 D=A
 @SP
 A=M
@@ -126433,7 +126425,7 @@ D=M
 M=D
 @Screen.drawConditional
 0;JMP
-(Screen.drawLine$ret.15)
+(Screen.drawLine$ret.249)
 //pop temp 0
 @5
 D=A
@@ -126474,63 +126466,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE53
+@y_POSITIVE5857
 D;JGT
-@y_NEGATIVE53
+@y_NEGATIVE5857
 D;JLT
-@NORMAL_CASE53
+@NORMAL_CASE5857
 0;JMP
-(y_POSITIVE53)
+(y_POSITIVE5857)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE53
+@NEGATIVE_POSITIVE5857
 D;JLT
-@NORMAL_CASE53
+@NORMAL_CASE5857
 0;JMP
-(NEGATIVE_POSITIVE53)
+(NEGATIVE_POSITIVE5857)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE53
+@CONTINUE5857
 0;JMP
-(y_NEGATIVE53)
+(y_NEGATIVE5857)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE53
+@POSITIVE_NEGATIVE5857
 D;JGT
-@NORMAL_CASE53
+@NORMAL_CASE5857
 0;JMP
-(POSITIVE_NEGATIVE53)
+(POSITIVE_NEGATIVE5857)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE53
+@CONTINUE5857
 0;JMP
-(NORMAL_CASE53)
+(NORMAL_CASE5857)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE53
+@TRUE5857
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE53
+@CONTINUE5857
 0;JMP
-(TRUE53)
+(TRUE5857)
 @SP
 A=M-1
 M=-1
-(CONTINUE53)
+(CONTINUE5857)
 //not
 @SP
 AM=M-1
@@ -126573,63 +126565,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE55
+@y_POSITIVE5859
 D;JGT
-@y_NEGATIVE55
+@y_NEGATIVE5859
 D;JLT
-@NORMAL_CASE55
+@NORMAL_CASE5859
 0;JMP
-(y_POSITIVE55)
+(y_POSITIVE5859)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE55
+@NEGATIVE_POSITIVE5859
 D;JLT
-@NORMAL_CASE55
+@NORMAL_CASE5859
 0;JMP
-(NEGATIVE_POSITIVE55)
+(NEGATIVE_POSITIVE5859)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE55
+@CONTINUE5859
 0;JMP
-(y_NEGATIVE55)
+(y_NEGATIVE5859)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE55
+@POSITIVE_NEGATIVE5859
 D;JGT
-@NORMAL_CASE55
+@NORMAL_CASE5859
 0;JMP
-(POSITIVE_NEGATIVE55)
+(POSITIVE_NEGATIVE5859)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE55
+@CONTINUE5859
 0;JMP
-(NORMAL_CASE55)
+(NORMAL_CASE5859)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE55
+@TRUE5859
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE55
+@CONTINUE5859
 0;JMP
-(TRUE55)
+(TRUE5859)
 @SP
 A=M-1
 M=-1
-(CONTINUE55)
+(CONTINUE5859)
 // write if-goto IF_TRUE3
 @SP
 AM=M-1
@@ -126914,7 +126906,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.drawConditional 3
-@Screen.drawLine$ret.16
+@Screen.drawLine$ret.250
 D=A
 @SP
 A=M
@@ -126961,7 +126953,7 @@ D=M
 M=D
 @Screen.drawConditional
 0;JMP
-(Screen.drawLine$ret.16)
+(Screen.drawLine$ret.250)
 //pop temp 0
 @5
 D=A
@@ -126989,9 +126981,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -127009,28 +127001,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -127141,63 +127133,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE61
+@y_POSITIVE5865
 D;JGT
-@y_NEGATIVE61
+@y_NEGATIVE5865
 D;JLT
-@NORMAL_CASE61
+@NORMAL_CASE5865
 0;JMP
-(y_POSITIVE61)
+(y_POSITIVE5865)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE61
+@NEGATIVE_POSITIVE5865
 D;JLT
-@NORMAL_CASE61
+@NORMAL_CASE5865
 0;JMP
-(NEGATIVE_POSITIVE61)
+(NEGATIVE_POSITIVE5865)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE61
+@CONTINUE5865
 0;JMP
-(y_NEGATIVE61)
+(y_NEGATIVE5865)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE61
+@POSITIVE_NEGATIVE5865
 D;JGT
-@NORMAL_CASE61
+@NORMAL_CASE5865
 0;JMP
-(POSITIVE_NEGATIVE61)
+(POSITIVE_NEGATIVE5865)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE61
+@CONTINUE5865
 0;JMP
-(NORMAL_CASE61)
+(NORMAL_CASE5865)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE61
+@TRUE5865
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE61
+@CONTINUE5865
 0;JMP
-(TRUE61)
+(TRUE5865)
 @SP
 A=M-1
 M=-1
-(CONTINUE61)
+(CONTINUE5865)
 //push argument 1
 @ARG
 D=M
@@ -127225,63 +127217,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE62
+@y_POSITIVE5866
 D;JGT
-@y_NEGATIVE62
+@y_NEGATIVE5866
 D;JLT
-@NORMAL_CASE62
+@NORMAL_CASE5866
 0;JMP
-(y_POSITIVE62)
+(y_POSITIVE5866)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE62
+@NEGATIVE_POSITIVE5866
 D;JLT
-@NORMAL_CASE62
+@NORMAL_CASE5866
 0;JMP
-(NEGATIVE_POSITIVE62)
+(NEGATIVE_POSITIVE5866)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE62
+@CONTINUE5866
 0;JMP
-(y_NEGATIVE62)
+(y_NEGATIVE5866)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE62
+@POSITIVE_NEGATIVE5866
 D;JGT
-@NORMAL_CASE62
+@NORMAL_CASE5866
 0;JMP
-(POSITIVE_NEGATIVE62)
+(POSITIVE_NEGATIVE5866)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE62
+@CONTINUE5866
 0;JMP
-(NORMAL_CASE62)
+(NORMAL_CASE5866)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE62
+@TRUE5866
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE62
+@CONTINUE5866
 0;JMP
-(TRUE62)
+(TRUE5866)
 @SP
 A=M-1
 M=-1
-(CONTINUE62)
+(CONTINUE5866)
 //or
 @SP
 AM=M-1
@@ -127313,63 +127305,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE64
+@y_POSITIVE5868
 D;JGT
-@y_NEGATIVE64
+@y_NEGATIVE5868
 D;JLT
-@NORMAL_CASE64
+@NORMAL_CASE5868
 0;JMP
-(y_POSITIVE64)
+(y_POSITIVE5868)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE64
+@NEGATIVE_POSITIVE5868
 D;JLT
-@NORMAL_CASE64
+@NORMAL_CASE5868
 0;JMP
-(NEGATIVE_POSITIVE64)
+(NEGATIVE_POSITIVE5868)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE64
+@CONTINUE5868
 0;JMP
-(y_NEGATIVE64)
+(y_NEGATIVE5868)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE64
+@POSITIVE_NEGATIVE5868
 D;JGT
-@NORMAL_CASE64
+@NORMAL_CASE5868
 0;JMP
-(POSITIVE_NEGATIVE64)
+(POSITIVE_NEGATIVE5868)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE64
+@CONTINUE5868
 0;JMP
-(NORMAL_CASE64)
+(NORMAL_CASE5868)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE64
+@TRUE5868
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE64
+@CONTINUE5868
 0;JMP
-(TRUE64)
+(TRUE5868)
 @SP
 A=M-1
 M=-1
-(CONTINUE64)
+(CONTINUE5868)
 //or
 @SP
 AM=M-1
@@ -127401,63 +127393,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE66
+@y_POSITIVE5870
 D;JGT
-@y_NEGATIVE66
+@y_NEGATIVE5870
 D;JLT
-@NORMAL_CASE66
+@NORMAL_CASE5870
 0;JMP
-(y_POSITIVE66)
+(y_POSITIVE5870)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE66
+@NEGATIVE_POSITIVE5870
 D;JLT
-@NORMAL_CASE66
+@NORMAL_CASE5870
 0;JMP
-(NEGATIVE_POSITIVE66)
+(NEGATIVE_POSITIVE5870)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE66
+@CONTINUE5870
 0;JMP
-(y_NEGATIVE66)
+(y_NEGATIVE5870)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE66
+@POSITIVE_NEGATIVE5870
 D;JGT
-@NORMAL_CASE66
+@NORMAL_CASE5870
 0;JMP
-(POSITIVE_NEGATIVE66)
+(POSITIVE_NEGATIVE5870)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE66
+@CONTINUE5870
 0;JMP
-(NORMAL_CASE66)
+(NORMAL_CASE5870)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE66
+@TRUE5870
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE66
+@CONTINUE5870
 0;JMP
-(TRUE66)
+(TRUE5870)
 @SP
 A=M-1
 M=-1
-(CONTINUE66)
+(CONTINUE5870)
 //or
 @SP
 AM=M-1
@@ -127489,63 +127481,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE68
+@y_POSITIVE5872
 D;JGT
-@y_NEGATIVE68
+@y_NEGATIVE5872
 D;JLT
-@NORMAL_CASE68
+@NORMAL_CASE5872
 0;JMP
-(y_POSITIVE68)
+(y_POSITIVE5872)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE68
+@NEGATIVE_POSITIVE5872
 D;JLT
-@NORMAL_CASE68
+@NORMAL_CASE5872
 0;JMP
-(NEGATIVE_POSITIVE68)
+(NEGATIVE_POSITIVE5872)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE68
+@CONTINUE5872
 0;JMP
-(y_NEGATIVE68)
+(y_NEGATIVE5872)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE68
+@POSITIVE_NEGATIVE5872
 D;JGT
-@NORMAL_CASE68
+@NORMAL_CASE5872
 0;JMP
-(POSITIVE_NEGATIVE68)
+(POSITIVE_NEGATIVE5872)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE68
+@CONTINUE5872
 0;JMP
-(NORMAL_CASE68)
+(NORMAL_CASE5872)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE68
+@TRUE5872
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE68
+@CONTINUE5872
 0;JMP
-(TRUE68)
+(TRUE5872)
 @SP
 A=M-1
 M=-1
-(CONTINUE68)
+(CONTINUE5872)
 //or
 @SP
 AM=M-1
@@ -127577,63 +127569,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE70
+@y_POSITIVE5874
 D;JGT
-@y_NEGATIVE70
+@y_NEGATIVE5874
 D;JLT
-@NORMAL_CASE70
+@NORMAL_CASE5874
 0;JMP
-(y_POSITIVE70)
+(y_POSITIVE5874)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE70
+@NEGATIVE_POSITIVE5874
 D;JLT
-@NORMAL_CASE70
+@NORMAL_CASE5874
 0;JMP
-(NEGATIVE_POSITIVE70)
+(NEGATIVE_POSITIVE5874)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE70
+@CONTINUE5874
 0;JMP
-(y_NEGATIVE70)
+(y_NEGATIVE5874)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE70
+@POSITIVE_NEGATIVE5874
 D;JGT
-@NORMAL_CASE70
+@NORMAL_CASE5874
 0;JMP
-(POSITIVE_NEGATIVE70)
+(POSITIVE_NEGATIVE5874)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE70
+@CONTINUE5874
 0;JMP
-(NORMAL_CASE70)
+(NORMAL_CASE5874)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE70
+@TRUE5874
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE70
+@CONTINUE5874
 0;JMP
-(TRUE70)
+(TRUE5874)
 @SP
 A=M-1
 M=-1
-(CONTINUE70)
+(CONTINUE5874)
 //or
 @SP
 AM=M-1
@@ -127662,7 +127654,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@Screen.drawRectangle$ret.17
+@Screen.drawRectangle$ret.251
 D=A
 @SP
 A=M
@@ -127709,7 +127701,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Screen.drawRectangle$ret.17)
+(Screen.drawRectangle$ret.251)
 //pop temp 0
 @5
 D=A
@@ -127743,7 +127735,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@Screen.drawRectangle$ret.18
+@Screen.drawRectangle$ret.252
 D=A
 @SP
 A=M
@@ -127790,7 +127782,7 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(Screen.drawRectangle$ret.18)
+(Screen.drawRectangle$ret.252)
 //pop local 3
 @LCL
 D=M
@@ -127836,7 +127828,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Screen.drawRectangle$ret.19
+@Screen.drawRectangle$ret.253
 D=A
 @SP
 A=M
@@ -127883,7 +127875,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Screen.drawRectangle$ret.19)
+(Screen.drawRectangle$ret.253)
 //sub
 @SP
 AM=M-1
@@ -127924,7 +127916,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@Screen.drawRectangle$ret.20
+@Screen.drawRectangle$ret.254
 D=A
 @SP
 A=M
@@ -127971,7 +127963,7 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(Screen.drawRectangle$ret.20)
+(Screen.drawRectangle$ret.254)
 //pop local 4
 @LCL
 D=M
@@ -128017,7 +128009,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Screen.drawRectangle$ret.21
+@Screen.drawRectangle$ret.255
 D=A
 @SP
 A=M
@@ -128064,7 +128056,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Screen.drawRectangle$ret.21)
+(Screen.drawRectangle$ret.255)
 //sub
 @SP
 AM=M-1
@@ -128280,7 +128272,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Screen.drawRectangle$ret.22
+@Screen.drawRectangle$ret.256
 D=A
 @SP
 A=M
@@ -128327,7 +128319,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Screen.drawRectangle$ret.22)
+(Screen.drawRectangle$ret.256)
 //push local 3
 @LCL
 D=M
@@ -128430,63 +128422,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE82
+@y_POSITIVE5886
 D;JGT
-@y_NEGATIVE82
+@y_NEGATIVE5886
 D;JLT
-@NORMAL_CASE82
+@NORMAL_CASE5886
 0;JMP
-(y_POSITIVE82)
+(y_POSITIVE5886)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE82
+@NEGATIVE_POSITIVE5886
 D;JLT
-@NORMAL_CASE82
+@NORMAL_CASE5886
 0;JMP
-(NEGATIVE_POSITIVE82)
+(NEGATIVE_POSITIVE5886)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE82
+@CONTINUE5886
 0;JMP
-(y_NEGATIVE82)
+(y_NEGATIVE5886)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE82
+@POSITIVE_NEGATIVE5886
 D;JGT
-@NORMAL_CASE82
+@NORMAL_CASE5886
 0;JMP
-(POSITIVE_NEGATIVE82)
+(POSITIVE_NEGATIVE5886)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE82
+@CONTINUE5886
 0;JMP
-(NORMAL_CASE82)
+(NORMAL_CASE5886)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE82
+@TRUE5886
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE82
+@CONTINUE5886
 0;JMP
-(TRUE82)
+(TRUE5886)
 @SP
 A=M-1
 M=-1
-(CONTINUE82)
+(CONTINUE5886)
 //not
 @SP
 AM=M-1
@@ -128578,24 +128570,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE86)
+(NORMAL_CASE5890)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE86
+@TRUE5890
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE86
+@CONTINUE5890
 0;JMP
-(TRUE86)
+(TRUE5890)
 @SP
 A=M-1
 M=-1
-(CONTINUE86)
+(CONTINUE5890)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -128649,7 +128641,7 @@ A=A-1
 M=D&M
 
 // call function Screen.updateLocation 2
-@Screen.drawRectangle$ret.23
+@Screen.drawRectangle$ret.257
 D=A
 @SP
 A=M
@@ -128696,7 +128688,7 @@ D=M
 M=D
 @Screen.updateLocation
 0;JMP
-(Screen.drawRectangle$ret.23)
+(Screen.drawRectangle$ret.257)
 //pop temp 0
 @5
 D=A
@@ -128736,7 +128728,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.updateLocation 2
-@Screen.drawRectangle$ret.24
+@Screen.drawRectangle$ret.258
 D=A
 @SP
 A=M
@@ -128783,7 +128775,7 @@ D=M
 M=D
 @Screen.updateLocation
 0;JMP
-(Screen.drawRectangle$ret.24)
+(Screen.drawRectangle$ret.258)
 //pop temp 0
 @5
 D=A
@@ -128863,63 +128855,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE89
+@y_POSITIVE5893
 D;JGT
-@y_NEGATIVE89
+@y_NEGATIVE5893
 D;JLT
-@NORMAL_CASE89
+@NORMAL_CASE5893
 0;JMP
-(y_POSITIVE89)
+(y_POSITIVE5893)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE89
+@NEGATIVE_POSITIVE5893
 D;JLT
-@NORMAL_CASE89
+@NORMAL_CASE5893
 0;JMP
-(NEGATIVE_POSITIVE89)
+(NEGATIVE_POSITIVE5893)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE89
+@CONTINUE5893
 0;JMP
-(y_NEGATIVE89)
+(y_NEGATIVE5893)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE89
+@POSITIVE_NEGATIVE5893
 D;JGT
-@NORMAL_CASE89
+@NORMAL_CASE5893
 0;JMP
-(POSITIVE_NEGATIVE89)
+(POSITIVE_NEGATIVE5893)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE89
+@CONTINUE5893
 0;JMP
-(NORMAL_CASE89)
+(NORMAL_CASE5893)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE89
+@TRUE5893
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE89
+@CONTINUE5893
 0;JMP
-(TRUE89)
+(TRUE5893)
 @SP
 A=M-1
 M=-1
-(CONTINUE89)
+(CONTINUE5893)
 //not
 @SP
 AM=M-1
@@ -128962,7 +128954,7 @@ M=M+1
 A=M-1
 M=-M
 // call function Screen.updateLocation 2
-@Screen.drawRectangle$ret.25
+@Screen.drawRectangle$ret.259
 D=A
 @SP
 A=M
@@ -129009,7 +129001,7 @@ D=M
 M=D
 @Screen.updateLocation
 0;JMP
-(Screen.drawRectangle$ret.25)
+(Screen.drawRectangle$ret.259)
 //pop temp 0
 @5
 D=A
@@ -129088,7 +129080,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.updateLocation 2
-@Screen.drawRectangle$ret.26
+@Screen.drawRectangle$ret.260
 D=A
 @SP
 A=M
@@ -129135,7 +129127,7 @@ D=M
 M=D
 @Screen.updateLocation
 0;JMP
-(Screen.drawRectangle$ret.26)
+(Screen.drawRectangle$ret.260)
 //pop temp 0
 @5
 D=A
@@ -129260,9 +129252,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -129280,28 +129272,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -129424,7 +129416,7 @@ M=D
 @SP
 M=M+1
 // call function Math.min 2
-@Screen.drawHorizontal$ret.27
+@Screen.drawHorizontal$ret.261
 D=A
 @SP
 A=M
@@ -129471,7 +129463,7 @@ D=M
 M=D
 @Math.min
 0;JMP
-(Screen.drawHorizontal$ret.27)
+(Screen.drawHorizontal$ret.261)
 //pop local 7
 @LCL
 D=M
@@ -129509,7 +129501,7 @@ M=D
 @SP
 M=M+1
 // call function Math.max 2
-@Screen.drawHorizontal$ret.28
+@Screen.drawHorizontal$ret.262
 D=A
 @SP
 A=M
@@ -129556,7 +129548,7 @@ D=M
 M=D
 @Math.max
 0;JMP
-(Screen.drawHorizontal$ret.28)
+(Screen.drawHorizontal$ret.262)
 //pop local 8
 @LCL
 D=M
@@ -129599,63 +129591,63 @@ M=-M
 A=M-1
 D=M
 
-@y_POSITIVE97
+@y_POSITIVE5901
 D;JGT
-@y_NEGATIVE97
+@y_NEGATIVE5901
 D;JLT
-@NORMAL_CASE97
+@NORMAL_CASE5901
 0;JMP
-(y_POSITIVE97)
+(y_POSITIVE5901)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE97
+@NEGATIVE_POSITIVE5901
 D;JLT
-@NORMAL_CASE97
+@NORMAL_CASE5901
 0;JMP
-(NEGATIVE_POSITIVE97)
+(NEGATIVE_POSITIVE5901)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE97
+@CONTINUE5901
 0;JMP
-(y_NEGATIVE97)
+(y_NEGATIVE5901)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE97
+@POSITIVE_NEGATIVE5901
 D;JGT
-@NORMAL_CASE97
+@NORMAL_CASE5901
 0;JMP
-(POSITIVE_NEGATIVE97)
+(POSITIVE_NEGATIVE5901)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE97
+@CONTINUE5901
 0;JMP
-(NORMAL_CASE97)
+(NORMAL_CASE5901)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE97
+@TRUE5901
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE97
+@CONTINUE5901
 0;JMP
-(TRUE97)
+(TRUE5901)
 @SP
 A=M-1
 M=-1
-(CONTINUE97)
+(CONTINUE5901)
 //push argument 0
 @ARG
 D=M
@@ -129680,63 +129672,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE98
+@y_POSITIVE5902
 D;JGT
-@y_NEGATIVE98
+@y_NEGATIVE5902
 D;JLT
-@NORMAL_CASE98
+@NORMAL_CASE5902
 0;JMP
-(y_POSITIVE98)
+(y_POSITIVE5902)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE98
+@NEGATIVE_POSITIVE5902
 D;JLT
-@NORMAL_CASE98
+@NORMAL_CASE5902
 0;JMP
-(NEGATIVE_POSITIVE98)
+(NEGATIVE_POSITIVE5902)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE98
+@CONTINUE5902
 0;JMP
-(y_NEGATIVE98)
+(y_NEGATIVE5902)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE98
+@POSITIVE_NEGATIVE5902
 D;JGT
-@NORMAL_CASE98
+@NORMAL_CASE5902
 0;JMP
-(POSITIVE_NEGATIVE98)
+(POSITIVE_NEGATIVE5902)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE98
+@CONTINUE5902
 0;JMP
-(NORMAL_CASE98)
+(NORMAL_CASE5902)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE98
+@TRUE5902
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE98
+@CONTINUE5902
 0;JMP
-(TRUE98)
+(TRUE5902)
 @SP
 A=M-1
 M=-1
-(CONTINUE98)
+(CONTINUE5902)
 //and
 @SP
 AM=M-1
@@ -129768,63 +129760,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE100
+@y_POSITIVE5904
 D;JGT
-@y_NEGATIVE100
+@y_NEGATIVE5904
 D;JLT
-@NORMAL_CASE100
+@NORMAL_CASE5904
 0;JMP
-(y_POSITIVE100)
+(y_POSITIVE5904)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE100
+@NEGATIVE_POSITIVE5904
 D;JLT
-@NORMAL_CASE100
+@NORMAL_CASE5904
 0;JMP
-(NEGATIVE_POSITIVE100)
+(NEGATIVE_POSITIVE5904)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE100
+@CONTINUE5904
 0;JMP
-(y_NEGATIVE100)
+(y_NEGATIVE5904)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE100
+@POSITIVE_NEGATIVE5904
 D;JGT
-@NORMAL_CASE100
+@NORMAL_CASE5904
 0;JMP
-(POSITIVE_NEGATIVE100)
+(POSITIVE_NEGATIVE5904)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE100
+@CONTINUE5904
 0;JMP
-(NORMAL_CASE100)
+(NORMAL_CASE5904)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE100
+@TRUE5904
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE100
+@CONTINUE5904
 0;JMP
-(TRUE100)
+(TRUE5904)
 @SP
 A=M-1
 M=-1
-(CONTINUE100)
+(CONTINUE5904)
 //and
 @SP
 AM=M-1
@@ -129860,63 +129852,63 @@ M=-M
 A=M-1
 D=M
 
-@y_POSITIVE103
+@y_POSITIVE5907
 D;JGT
-@y_NEGATIVE103
+@y_NEGATIVE5907
 D;JLT
-@NORMAL_CASE103
+@NORMAL_CASE5907
 0;JMP
-(y_POSITIVE103)
+(y_POSITIVE5907)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE103
+@NEGATIVE_POSITIVE5907
 D;JLT
-@NORMAL_CASE103
+@NORMAL_CASE5907
 0;JMP
-(NEGATIVE_POSITIVE103)
+(NEGATIVE_POSITIVE5907)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE103
+@CONTINUE5907
 0;JMP
-(y_NEGATIVE103)
+(y_NEGATIVE5907)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE103
+@POSITIVE_NEGATIVE5907
 D;JGT
-@NORMAL_CASE103
+@NORMAL_CASE5907
 0;JMP
-(POSITIVE_NEGATIVE103)
+(POSITIVE_NEGATIVE5907)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE103
+@CONTINUE5907
 0;JMP
-(NORMAL_CASE103)
+(NORMAL_CASE5907)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE103
+@TRUE5907
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE103
+@CONTINUE5907
 0;JMP
-(TRUE103)
+(TRUE5907)
 @SP
 A=M-1
 M=-1
-(CONTINUE103)
+(CONTINUE5907)
 //and
 @SP
 AM=M-1
@@ -129956,7 +129948,7 @@ M=D
 @SP
 M=M+1
 // call function Math.max 2
-@Screen.drawHorizontal$ret.29
+@Screen.drawHorizontal$ret.263
 D=A
 @SP
 A=M
@@ -130003,7 +129995,7 @@ D=M
 M=D
 @Math.max
 0;JMP
-(Screen.drawHorizontal$ret.29)
+(Screen.drawHorizontal$ret.263)
 //pop local 7
 @LCL
 D=M
@@ -130038,7 +130030,7 @@ M=D
 @SP
 M=M+1
 // call function Math.min 2
-@Screen.drawHorizontal$ret.30
+@Screen.drawHorizontal$ret.264
 D=A
 @SP
 A=M
@@ -130085,7 +130077,7 @@ D=M
 M=D
 @Math.min
 0;JMP
-(Screen.drawHorizontal$ret.30)
+(Screen.drawHorizontal$ret.264)
 //pop local 8
 @LCL
 D=M
@@ -130120,7 +130112,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@Screen.drawHorizontal$ret.31
+@Screen.drawHorizontal$ret.265
 D=A
 @SP
 A=M
@@ -130167,7 +130159,7 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(Screen.drawHorizontal$ret.31)
+(Screen.drawHorizontal$ret.265)
 //pop local 1
 @LCL
 D=M
@@ -130213,7 +130205,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Screen.drawHorizontal$ret.32
+@Screen.drawHorizontal$ret.266
 D=A
 @SP
 A=M
@@ -130260,7 +130252,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Screen.drawHorizontal$ret.32)
+(Screen.drawHorizontal$ret.266)
 //sub
 @SP
 AM=M-1
@@ -130301,7 +130293,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@Screen.drawHorizontal$ret.33
+@Screen.drawHorizontal$ret.267
 D=A
 @SP
 A=M
@@ -130348,7 +130340,7 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(Screen.drawHorizontal$ret.33)
+(Screen.drawHorizontal$ret.267)
 //pop local 2
 @LCL
 D=M
@@ -130394,7 +130386,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Screen.drawHorizontal$ret.34
+@Screen.drawHorizontal$ret.268
 D=A
 @SP
 A=M
@@ -130441,7 +130433,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Screen.drawHorizontal$ret.34)
+(Screen.drawHorizontal$ret.268)
 //sub
 @SP
 AM=M-1
@@ -130657,7 +130649,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Screen.drawHorizontal$ret.35
+@Screen.drawHorizontal$ret.269
 D=A
 @SP
 A=M
@@ -130704,7 +130696,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Screen.drawHorizontal$ret.35)
+(Screen.drawHorizontal$ret.269)
 //push local 1
 @LCL
 D=M
@@ -130840,24 +130832,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE116)
+(NORMAL_CASE5920)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE116
+@TRUE5920
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE116
+@CONTINUE5920
 0;JMP
-(TRUE116)
+(TRUE5920)
 @SP
 A=M-1
 M=-1
-(CONTINUE116)
+(CONTINUE5920)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -130911,7 +130903,7 @@ A=A-1
 M=D&M
 
 // call function Screen.updateLocation 2
-@Screen.drawHorizontal$ret.36
+@Screen.drawHorizontal$ret.270
 D=A
 @SP
 A=M
@@ -130958,7 +130950,7 @@ D=M
 M=D
 @Screen.updateLocation
 0;JMP
-(Screen.drawHorizontal$ret.36)
+(Screen.drawHorizontal$ret.270)
 //pop temp 0
 @5
 D=A
@@ -130998,7 +130990,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.updateLocation 2
-@Screen.drawHorizontal$ret.37
+@Screen.drawHorizontal$ret.271
 D=A
 @SP
 A=M
@@ -131045,7 +131037,7 @@ D=M
 M=D
 @Screen.updateLocation
 0;JMP
-(Screen.drawHorizontal$ret.37)
+(Screen.drawHorizontal$ret.271)
 //pop temp 0
 @5
 D=A
@@ -131125,63 +131117,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE119
+@y_POSITIVE5923
 D;JGT
-@y_NEGATIVE119
+@y_NEGATIVE5923
 D;JLT
-@NORMAL_CASE119
+@NORMAL_CASE5923
 0;JMP
-(y_POSITIVE119)
+(y_POSITIVE5923)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE119
+@NEGATIVE_POSITIVE5923
 D;JLT
-@NORMAL_CASE119
+@NORMAL_CASE5923
 0;JMP
-(NEGATIVE_POSITIVE119)
+(NEGATIVE_POSITIVE5923)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE119
+@CONTINUE5923
 0;JMP
-(y_NEGATIVE119)
+(y_NEGATIVE5923)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE119
+@POSITIVE_NEGATIVE5923
 D;JGT
-@NORMAL_CASE119
+@NORMAL_CASE5923
 0;JMP
-(POSITIVE_NEGATIVE119)
+(POSITIVE_NEGATIVE5923)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE119
+@CONTINUE5923
 0;JMP
-(NORMAL_CASE119)
+(NORMAL_CASE5923)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE119
+@TRUE5923
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE119
+@CONTINUE5923
 0;JMP
-(TRUE119)
+(TRUE5923)
 @SP
 A=M-1
 M=-1
-(CONTINUE119)
+(CONTINUE5923)
 //not
 @SP
 AM=M-1
@@ -131224,7 +131216,7 @@ M=M+1
 A=M-1
 M=-M
 // call function Screen.updateLocation 2
-@Screen.drawHorizontal$ret.38
+@Screen.drawHorizontal$ret.272
 D=A
 @SP
 A=M
@@ -131271,7 +131263,7 @@ D=M
 M=D
 @Screen.updateLocation
 0;JMP
-(Screen.drawHorizontal$ret.38)
+(Screen.drawHorizontal$ret.272)
 //pop temp 0
 @5
 D=A
@@ -131350,7 +131342,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.updateLocation 2
-@Screen.drawHorizontal$ret.39
+@Screen.drawHorizontal$ret.273
 D=A
 @SP
 A=M
@@ -131397,7 +131389,7 @@ D=M
 M=D
 @Screen.updateLocation
 0;JMP
-(Screen.drawHorizontal$ret.39)
+(Screen.drawHorizontal$ret.273)
 //pop temp 0
 @5
 D=A
@@ -131424,9 +131416,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -131444,28 +131436,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -131562,7 +131554,7 @@ D=M
 A=A-1
 M=M-D
 // call function Screen.drawHorizontal 3
-@Screen.drawSymetric$ret.40
+@Screen.drawSymetric$ret.274
 D=A
 @SP
 A=M
@@ -131609,7 +131601,7 @@ D=M
 M=D
 @Screen.drawHorizontal
 0;JMP
-(Screen.drawSymetric$ret.40)
+(Screen.drawSymetric$ret.274)
 //pop temp 0
 @5
 D=A
@@ -131706,7 +131698,7 @@ D=M
 A=A-1
 M=M-D
 // call function Screen.drawHorizontal 3
-@Screen.drawSymetric$ret.41
+@Screen.drawSymetric$ret.275
 D=A
 @SP
 A=M
@@ -131753,7 +131745,7 @@ D=M
 M=D
 @Screen.drawHorizontal
 0;JMP
-(Screen.drawSymetric$ret.41)
+(Screen.drawSymetric$ret.275)
 //pop temp 0
 @5
 D=A
@@ -131850,7 +131842,7 @@ D=M
 A=A-1
 M=M+D
 // call function Screen.drawHorizontal 3
-@Screen.drawSymetric$ret.42
+@Screen.drawSymetric$ret.276
 D=A
 @SP
 A=M
@@ -131897,7 +131889,7 @@ D=M
 M=D
 @Screen.drawHorizontal
 0;JMP
-(Screen.drawSymetric$ret.42)
+(Screen.drawSymetric$ret.276)
 //pop temp 0
 @5
 D=A
@@ -131994,7 +131986,7 @@ D=M
 A=A-1
 M=M+D
 // call function Screen.drawHorizontal 3
-@Screen.drawSymetric$ret.43
+@Screen.drawSymetric$ret.277
 D=A
 @SP
 A=M
@@ -132041,7 +132033,7 @@ D=M
 M=D
 @Screen.drawHorizontal
 0;JMP
-(Screen.drawSymetric$ret.43)
+(Screen.drawSymetric$ret.277)
 //pop temp 0
 @5
 D=A
@@ -132064,9 +132056,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -132084,28 +132076,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -132165,63 +132157,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE135
+@y_POSITIVE5939
 D;JGT
-@y_NEGATIVE135
+@y_NEGATIVE5939
 D;JLT
-@NORMAL_CASE135
+@NORMAL_CASE5939
 0;JMP
-(y_POSITIVE135)
+(y_POSITIVE5939)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE135
+@NEGATIVE_POSITIVE5939
 D;JLT
-@NORMAL_CASE135
+@NORMAL_CASE5939
 0;JMP
-(NEGATIVE_POSITIVE135)
+(NEGATIVE_POSITIVE5939)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE135
+@CONTINUE5939
 0;JMP
-(y_NEGATIVE135)
+(y_NEGATIVE5939)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE135
+@POSITIVE_NEGATIVE5939
 D;JGT
-@NORMAL_CASE135
+@NORMAL_CASE5939
 0;JMP
-(POSITIVE_NEGATIVE135)
+(POSITIVE_NEGATIVE5939)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE135
+@CONTINUE5939
 0;JMP
-(NORMAL_CASE135)
+(NORMAL_CASE5939)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE135
+@TRUE5939
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE135
+@CONTINUE5939
 0;JMP
-(TRUE135)
+(TRUE5939)
 @SP
 A=M-1
 M=-1
-(CONTINUE135)
+(CONTINUE5939)
 //push argument 0
 @ARG
 D=M
@@ -132246,63 +132238,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE136
+@y_POSITIVE5940
 D;JGT
-@y_NEGATIVE136
+@y_NEGATIVE5940
 D;JLT
-@NORMAL_CASE136
+@NORMAL_CASE5940
 0;JMP
-(y_POSITIVE136)
+(y_POSITIVE5940)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE136
+@NEGATIVE_POSITIVE5940
 D;JLT
-@NORMAL_CASE136
+@NORMAL_CASE5940
 0;JMP
-(NEGATIVE_POSITIVE136)
+(NEGATIVE_POSITIVE5940)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE136
+@CONTINUE5940
 0;JMP
-(y_NEGATIVE136)
+(y_NEGATIVE5940)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE136
+@POSITIVE_NEGATIVE5940
 D;JGT
-@NORMAL_CASE136
+@NORMAL_CASE5940
 0;JMP
-(POSITIVE_NEGATIVE136)
+(POSITIVE_NEGATIVE5940)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE136
+@CONTINUE5940
 0;JMP
-(NORMAL_CASE136)
+(NORMAL_CASE5940)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE136
+@TRUE5940
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE136
+@CONTINUE5940
 0;JMP
-(TRUE136)
+(TRUE5940)
 @SP
 A=M-1
 M=-1
-(CONTINUE136)
+(CONTINUE5940)
 //or
 @SP
 AM=M-1
@@ -132334,63 +132326,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE138
+@y_POSITIVE5942
 D;JGT
-@y_NEGATIVE138
+@y_NEGATIVE5942
 D;JLT
-@NORMAL_CASE138
+@NORMAL_CASE5942
 0;JMP
-(y_POSITIVE138)
+(y_POSITIVE5942)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE138
+@NEGATIVE_POSITIVE5942
 D;JLT
-@NORMAL_CASE138
+@NORMAL_CASE5942
 0;JMP
-(NEGATIVE_POSITIVE138)
+(NEGATIVE_POSITIVE5942)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE138
+@CONTINUE5942
 0;JMP
-(y_NEGATIVE138)
+(y_NEGATIVE5942)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE138
+@POSITIVE_NEGATIVE5942
 D;JGT
-@NORMAL_CASE138
+@NORMAL_CASE5942
 0;JMP
-(POSITIVE_NEGATIVE138)
+(POSITIVE_NEGATIVE5942)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE138
+@CONTINUE5942
 0;JMP
-(NORMAL_CASE138)
+(NORMAL_CASE5942)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE138
+@TRUE5942
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE138
+@CONTINUE5942
 0;JMP
-(TRUE138)
+(TRUE5942)
 @SP
 A=M-1
 M=-1
-(CONTINUE138)
+(CONTINUE5942)
 //or
 @SP
 AM=M-1
@@ -132422,63 +132414,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE140
+@y_POSITIVE5944
 D;JGT
-@y_NEGATIVE140
+@y_NEGATIVE5944
 D;JLT
-@NORMAL_CASE140
+@NORMAL_CASE5944
 0;JMP
-(y_POSITIVE140)
+(y_POSITIVE5944)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE140
+@NEGATIVE_POSITIVE5944
 D;JLT
-@NORMAL_CASE140
+@NORMAL_CASE5944
 0;JMP
-(NEGATIVE_POSITIVE140)
+(NEGATIVE_POSITIVE5944)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE140
+@CONTINUE5944
 0;JMP
-(y_NEGATIVE140)
+(y_NEGATIVE5944)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE140
+@POSITIVE_NEGATIVE5944
 D;JGT
-@NORMAL_CASE140
+@NORMAL_CASE5944
 0;JMP
-(POSITIVE_NEGATIVE140)
+(POSITIVE_NEGATIVE5944)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE140
+@CONTINUE5944
 0;JMP
-(NORMAL_CASE140)
+(NORMAL_CASE5944)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE140
+@TRUE5944
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE140
+@CONTINUE5944
 0;JMP
-(TRUE140)
+(TRUE5944)
 @SP
 A=M-1
 M=-1
-(CONTINUE140)
+(CONTINUE5944)
 //or
 @SP
 AM=M-1
@@ -132507,7 +132499,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@Screen.drawCircle$ret.44
+@Screen.drawCircle$ret.278
 D=A
 @SP
 A=M
@@ -132554,7 +132546,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Screen.drawCircle$ret.44)
+(Screen.drawCircle$ret.278)
 //pop temp 0
 @5
 D=A
@@ -132609,63 +132601,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE143
+@y_POSITIVE5947
 D;JGT
-@y_NEGATIVE143
+@y_NEGATIVE5947
 D;JLT
-@NORMAL_CASE143
+@NORMAL_CASE5947
 0;JMP
-(y_POSITIVE143)
+(y_POSITIVE5947)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE143
+@NEGATIVE_POSITIVE5947
 D;JLT
-@NORMAL_CASE143
+@NORMAL_CASE5947
 0;JMP
-(NEGATIVE_POSITIVE143)
+(NEGATIVE_POSITIVE5947)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE143
+@CONTINUE5947
 0;JMP
-(y_NEGATIVE143)
+(y_NEGATIVE5947)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE143
+@POSITIVE_NEGATIVE5947
 D;JGT
-@NORMAL_CASE143
+@NORMAL_CASE5947
 0;JMP
-(POSITIVE_NEGATIVE143)
+(POSITIVE_NEGATIVE5947)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE143
+@CONTINUE5947
 0;JMP
-(NORMAL_CASE143)
+(NORMAL_CASE5947)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE143
+@TRUE5947
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE143
+@CONTINUE5947
 0;JMP
-(TRUE143)
+(TRUE5947)
 @SP
 A=M-1
 M=-1
-(CONTINUE143)
+(CONTINUE5947)
 //push argument 0
 @ARG
 D=M
@@ -132707,63 +132699,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE145
+@y_POSITIVE5949
 D;JGT
-@y_NEGATIVE145
+@y_NEGATIVE5949
 D;JLT
-@NORMAL_CASE145
+@NORMAL_CASE5949
 0;JMP
-(y_POSITIVE145)
+(y_POSITIVE5949)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE145
+@NEGATIVE_POSITIVE5949
 D;JLT
-@NORMAL_CASE145
+@NORMAL_CASE5949
 0;JMP
-(NEGATIVE_POSITIVE145)
+(NEGATIVE_POSITIVE5949)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE145
+@CONTINUE5949
 0;JMP
-(y_NEGATIVE145)
+(y_NEGATIVE5949)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE145
+@POSITIVE_NEGATIVE5949
 D;JGT
-@NORMAL_CASE145
+@NORMAL_CASE5949
 0;JMP
-(POSITIVE_NEGATIVE145)
+(POSITIVE_NEGATIVE5949)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE145
+@CONTINUE5949
 0;JMP
-(NORMAL_CASE145)
+(NORMAL_CASE5949)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE145
+@TRUE5949
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE145
+@CONTINUE5949
 0;JMP
-(TRUE145)
+(TRUE5949)
 @SP
 A=M-1
 M=-1
-(CONTINUE145)
+(CONTINUE5949)
 //or
 @SP
 AM=M-1
@@ -132812,63 +132804,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE148
+@y_POSITIVE5952
 D;JGT
-@y_NEGATIVE148
+@y_NEGATIVE5952
 D;JLT
-@NORMAL_CASE148
+@NORMAL_CASE5952
 0;JMP
-(y_POSITIVE148)
+(y_POSITIVE5952)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE148
+@NEGATIVE_POSITIVE5952
 D;JLT
-@NORMAL_CASE148
+@NORMAL_CASE5952
 0;JMP
-(NEGATIVE_POSITIVE148)
+(NEGATIVE_POSITIVE5952)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE148
+@CONTINUE5952
 0;JMP
-(y_NEGATIVE148)
+(y_NEGATIVE5952)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE148
+@POSITIVE_NEGATIVE5952
 D;JGT
-@NORMAL_CASE148
+@NORMAL_CASE5952
 0;JMP
-(POSITIVE_NEGATIVE148)
+(POSITIVE_NEGATIVE5952)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE148
+@CONTINUE5952
 0;JMP
-(NORMAL_CASE148)
+(NORMAL_CASE5952)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE148
+@TRUE5952
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE148
+@CONTINUE5952
 0;JMP
-(TRUE148)
+(TRUE5952)
 @SP
 A=M-1
 M=-1
-(CONTINUE148)
+(CONTINUE5952)
 //or
 @SP
 AM=M-1
@@ -132917,63 +132909,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE151
+@y_POSITIVE5955
 D;JGT
-@y_NEGATIVE151
+@y_NEGATIVE5955
 D;JLT
-@NORMAL_CASE151
+@NORMAL_CASE5955
 0;JMP
-(y_POSITIVE151)
+(y_POSITIVE5955)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE151
+@NEGATIVE_POSITIVE5955
 D;JLT
-@NORMAL_CASE151
+@NORMAL_CASE5955
 0;JMP
-(NEGATIVE_POSITIVE151)
+(NEGATIVE_POSITIVE5955)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE151
+@CONTINUE5955
 0;JMP
-(y_NEGATIVE151)
+(y_NEGATIVE5955)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE151
+@POSITIVE_NEGATIVE5955
 D;JGT
-@NORMAL_CASE151
+@NORMAL_CASE5955
 0;JMP
-(POSITIVE_NEGATIVE151)
+(POSITIVE_NEGATIVE5955)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE151
+@CONTINUE5955
 0;JMP
-(NORMAL_CASE151)
+(NORMAL_CASE5955)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE151
+@TRUE5955
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE151
+@CONTINUE5955
 0;JMP
-(TRUE151)
+(TRUE5955)
 @SP
 A=M-1
 M=-1
-(CONTINUE151)
+(CONTINUE5955)
 //or
 @SP
 AM=M-1
@@ -133002,7 +132994,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@Screen.drawCircle$ret.45
+@Screen.drawCircle$ret.279
 D=A
 @SP
 A=M
@@ -133049,7 +133041,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Screen.drawCircle$ret.45)
+(Screen.drawCircle$ret.279)
 //pop temp 0
 @5
 D=A
@@ -133172,7 +133164,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.drawSymetric 4
-@Screen.drawCircle$ret.46
+@Screen.drawCircle$ret.280
 D=A
 @SP
 A=M
@@ -133219,7 +133211,7 @@ D=M
 M=D
 @Screen.drawSymetric
 0;JMP
-(Screen.drawCircle$ret.46)
+(Screen.drawCircle$ret.280)
 //pop temp 0
 @5
 D=A
@@ -133260,63 +133252,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE154
+@y_POSITIVE5958
 D;JGT
-@y_NEGATIVE154
+@y_NEGATIVE5958
 D;JLT
-@NORMAL_CASE154
+@NORMAL_CASE5958
 0;JMP
-(y_POSITIVE154)
+(y_POSITIVE5958)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE154
+@NEGATIVE_POSITIVE5958
 D;JLT
-@NORMAL_CASE154
+@NORMAL_CASE5958
 0;JMP
-(NEGATIVE_POSITIVE154)
+(NEGATIVE_POSITIVE5958)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE154
+@CONTINUE5958
 0;JMP
-(y_NEGATIVE154)
+(y_NEGATIVE5958)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE154
+@POSITIVE_NEGATIVE5958
 D;JGT
-@NORMAL_CASE154
+@NORMAL_CASE5958
 0;JMP
-(POSITIVE_NEGATIVE154)
+(POSITIVE_NEGATIVE5958)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE154
+@CONTINUE5958
 0;JMP
-(NORMAL_CASE154)
+(NORMAL_CASE5958)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE154
+@TRUE5958
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE154
+@CONTINUE5958
 0;JMP
-(TRUE154)
+(TRUE5958)
 @SP
 A=M-1
 M=-1
-(CONTINUE154)
+(CONTINUE5958)
 //not
 @SP
 AM=M-1
@@ -133359,63 +133351,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE156
+@y_POSITIVE5960
 D;JGT
-@y_NEGATIVE156
+@y_NEGATIVE5960
 D;JLT
-@NORMAL_CASE156
+@NORMAL_CASE5960
 0;JMP
-(y_POSITIVE156)
+(y_POSITIVE5960)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE156
+@NEGATIVE_POSITIVE5960
 D;JLT
-@NORMAL_CASE156
+@NORMAL_CASE5960
 0;JMP
-(NEGATIVE_POSITIVE156)
+(NEGATIVE_POSITIVE5960)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE156
+@CONTINUE5960
 0;JMP
-(y_NEGATIVE156)
+(y_NEGATIVE5960)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE156
+@POSITIVE_NEGATIVE5960
 D;JGT
-@NORMAL_CASE156
+@NORMAL_CASE5960
 0;JMP
-(POSITIVE_NEGATIVE156)
+(POSITIVE_NEGATIVE5960)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE156
+@CONTINUE5960
 0;JMP
-(NORMAL_CASE156)
+(NORMAL_CASE5960)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE156
+@TRUE5960
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE156
+@CONTINUE5960
 0;JMP
-(TRUE156)
+(TRUE5960)
 @SP
 A=M-1
 M=-1
-(CONTINUE156)
+(CONTINUE5960)
 // write if-goto IF_TRUE2
 @SP
 AM=M-1
@@ -133459,7 +133451,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Screen.drawCircle$ret.47
+@Screen.drawCircle$ret.281
 D=A
 @SP
 A=M
@@ -133506,7 +133498,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Screen.drawCircle$ret.47)
+(Screen.drawCircle$ret.281)
 //add
 @SP
 AM=M-1
@@ -133594,7 +133586,7 @@ D=M
 A=A-1
 M=M-D
 // call function Math.multiply 2
-@Screen.drawCircle$ret.48
+@Screen.drawCircle$ret.282
 D=A
 @SP
 A=M
@@ -133641,7 +133633,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Screen.drawCircle$ret.48)
+(Screen.drawCircle$ret.282)
 //add
 @SP
 AM=M-1
@@ -133801,7 +133793,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.drawSymetric 4
-@Screen.drawCircle$ret.49
+@Screen.drawCircle$ret.283
 D=A
 @SP
 A=M
@@ -133848,7 +133840,7 @@ D=M
 M=D
 @Screen.drawSymetric
 0;JMP
-(Screen.drawCircle$ret.49)
+(Screen.drawCircle$ret.283)
 //pop temp 0
 @5
 D=A
@@ -133876,9 +133868,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -133896,28 +133888,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -133946,7 +133938,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.alloc 1
-@Snake.new$ret.1
+@Snake.new$ret.284
 D=A
 @SP
 A=M
@@ -133993,7 +133985,7 @@ D=M
 M=D
 @Memory.alloc
 0;JMP
-(Snake.new$ret.1)
+(Snake.new$ret.284)
 //pop pointer 0
 @3
 D=A
@@ -134006,7 +133998,7 @@ D=M
 A=M
 M=D
 // call function SnakeScreen.width 0
-@Snake.new$ret.2
+@Snake.new$ret.285
 D=A
 @SP
 A=M
@@ -134053,7 +134045,7 @@ D=M
 M=D
 @SnakeScreen.width
 0;JMP
-(Snake.new$ret.2)
+(Snake.new$ret.285)
 //pop this 7
 @THIS
 D=M
@@ -134069,7 +134061,7 @@ D=M
 A=M
 M=D
 // call function SnakeScreen.height 0
-@Snake.new$ret.3
+@Snake.new$ret.286
 D=A
 @SP
 A=M
@@ -134116,7 +134108,7 @@ D=M
 M=D
 @SnakeScreen.height
 0;JMP
-(Snake.new$ret.3)
+(Snake.new$ret.286)
 //pop this 8
 @THIS
 D=M
@@ -134329,7 +134321,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Snake.new$ret.4
+@Snake.new$ret.287
 D=A
 @SP
 A=M
@@ -134376,9 +134368,9 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Snake.new$ret.4)
+(Snake.new$ret.287)
 // call function Array.new 1
-@Snake.new$ret.5
+@Snake.new$ret.288
 D=A
 @SP
 A=M
@@ -134425,7 +134417,7 @@ D=M
 M=D
 @Array.new
 0;JMP
-(Snake.new$ret.5)
+(Snake.new$ret.288)
 //pop this 6
 @THIS
 D=M
@@ -134498,7 +134490,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Snake.new$ret.6
+@Snake.new$ret.289
 D=A
 @SP
 A=M
@@ -134545,69 +134537,69 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Snake.new$ret.6)
+(Snake.new$ret.289)
 //lt
 @SP
 A=M-1
 D=M
 
-@y_POSITIVE3
+@y_POSITIVE5970
 D;JGT
-@y_NEGATIVE3
+@y_NEGATIVE5970
 D;JLT
-@NORMAL_CASE3
+@NORMAL_CASE5970
 0;JMP
-(y_POSITIVE3)
+(y_POSITIVE5970)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE3
+@NEGATIVE_POSITIVE5970
 D;JLT
-@NORMAL_CASE3
+@NORMAL_CASE5970
 0;JMP
-(NEGATIVE_POSITIVE3)
+(NEGATIVE_POSITIVE5970)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE3
+@CONTINUE5970
 0;JMP
-(y_NEGATIVE3)
+(y_NEGATIVE5970)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE3
+@POSITIVE_NEGATIVE5970
 D;JGT
-@NORMAL_CASE3
+@NORMAL_CASE5970
 0;JMP
-(POSITIVE_NEGATIVE3)
+(POSITIVE_NEGATIVE5970)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE3
+@CONTINUE5970
 0;JMP
-(NORMAL_CASE3)
+(NORMAL_CASE5970)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE3
+@TRUE5970
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE3
+@CONTINUE5970
 0;JMP
-(TRUE3)
+(TRUE5970)
 @SP
 A=M-1
 M=-1
-(CONTINUE3)
+(CONTINUE5970)
 //not
 @SP
 AM=M-1
@@ -134805,63 +134797,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE8
+@y_POSITIVE5975
 D;JGT
-@y_NEGATIVE8
+@y_NEGATIVE5975
 D;JLT
-@NORMAL_CASE8
+@NORMAL_CASE5975
 0;JMP
-(y_POSITIVE8)
+(y_POSITIVE5975)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE8
+@NEGATIVE_POSITIVE5975
 D;JLT
-@NORMAL_CASE8
+@NORMAL_CASE5975
 0;JMP
-(NEGATIVE_POSITIVE8)
+(NEGATIVE_POSITIVE5975)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE8
+@CONTINUE5975
 0;JMP
-(y_NEGATIVE8)
+(y_NEGATIVE5975)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE8
+@POSITIVE_NEGATIVE5975
 D;JGT
-@NORMAL_CASE8
+@NORMAL_CASE5975
 0;JMP
-(POSITIVE_NEGATIVE8)
+(POSITIVE_NEGATIVE5975)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE8
+@CONTINUE5975
 0;JMP
-(NORMAL_CASE8)
+(NORMAL_CASE5975)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE8
+@TRUE5975
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE8
+@CONTINUE5975
 0;JMP
-(TRUE8)
+(TRUE5975)
 @SP
 A=M-1
 M=-1
-(CONTINUE8)
+(CONTINUE5975)
 //not
 @SP
 AM=M-1
@@ -134903,7 +134895,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Snake.new$ret.7
+@Snake.new$ret.290
 D=A
 @SP
 A=M
@@ -134950,7 +134942,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Snake.new$ret.7)
+(Snake.new$ret.290)
 //push this 0
 @THIS
 D=M
@@ -135094,7 +135086,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeScreen.drawPixel 2
-@Snake.new$ret.8
+@Snake.new$ret.291
 D=A
 @SP
 A=M
@@ -135141,7 +135133,7 @@ D=M
 M=D
 @SnakeScreen.drawPixel
 0;JMP
-(Snake.new$ret.8)
+(Snake.new$ret.291)
 //pop temp 0
 @5
 D=A
@@ -135208,9 +135200,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -135228,28 +135220,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -135292,7 +135284,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.deAlloc 1
-@Snake.dispose$ret.9
+@Snake.dispose$ret.292
 D=A
 @SP
 A=M
@@ -135339,7 +135331,7 @@ D=M
 M=D
 @Memory.deAlloc
 0;JMP
-(Snake.dispose$ret.9)
+(Snake.dispose$ret.292)
 //pop temp 0
 @5
 D=A
@@ -135362,9 +135354,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -135382,28 +135374,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -135476,7 +135468,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.atPosition 3
-@Snake.draw$ret.10
+@Snake.draw$ret.293
 D=A
 @SP
 A=M
@@ -135523,7 +135515,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(Snake.draw$ret.10)
+(Snake.draw$ret.293)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -135580,9 +135572,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -135600,28 +135592,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -135656,7 +135648,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeScreen.drawPixel 2
-@Snake.draw$ret.11
+@Snake.draw$ret.294
 D=A
 @SP
 A=M
@@ -135703,7 +135695,7 @@ D=M
 M=D
 @SnakeScreen.drawPixel
 0;JMP
-(Snake.draw$ret.11)
+(Snake.draw$ret.294)
 //pop temp 0
 @5
 D=A
@@ -135788,7 +135780,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Snake.draw$ret.12
+@Snake.draw$ret.295
 D=A
 @SP
 A=M
@@ -135835,7 +135827,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Snake.draw$ret.12)
+(Snake.draw$ret.295)
 //push this 2
 @THIS
 D=M
@@ -135929,7 +135921,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeScreen.clearPixel 2
-@Snake.draw$ret.13
+@Snake.draw$ret.296
 D=A
 @SP
 A=M
@@ -135976,7 +135968,7 @@ D=M
 M=D
 @SnakeScreen.clearPixel
 0;JMP
-(Snake.draw$ret.13)
+(Snake.draw$ret.296)
 //pop temp 0
 @5
 D=A
@@ -136011,7 +136003,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Snake.draw$ret.14
+@Snake.draw$ret.297
 D=A
 @SP
 A=M
@@ -136058,7 +136050,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Snake.draw$ret.14)
+(Snake.draw$ret.297)
 //push this 2
 @THIS
 D=M
@@ -136169,24 +136161,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE21)
+(NORMAL_CASE5988)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE21
+@TRUE5988
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE21
+@CONTINUE5988
 0;JMP
-(TRUE21)
+(TRUE5988)
 @SP
 A=M-1
 M=-1
-(CONTINUE21)
+(CONTINUE5988)
 // write if-goto IF_TRUE2
 @SP
 AM=M-1
@@ -136260,24 +136252,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE23)
+(NORMAL_CASE5990)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE23
+@TRUE5990
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE23
+@CONTINUE5990
 0;JMP
-(TRUE23)
+(TRUE5990)
 @SP
 A=M-1
 M=-1
-(CONTINUE23)
+(CONTINUE5990)
 // write if-goto IF_TRUE3
 @SP
 AM=M-1
@@ -136351,24 +136343,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE25)
+(NORMAL_CASE5992)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE25
+@TRUE5992
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE25
+@CONTINUE5992
 0;JMP
-(TRUE25)
+(TRUE5992)
 @SP
 A=M-1
 M=-1
-(CONTINUE25)
+(CONTINUE5992)
 // write if-goto IF_TRUE4
 @SP
 AM=M-1
@@ -136442,24 +136434,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE27)
+(NORMAL_CASE5994)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE27
+@TRUE5994
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE27
+@CONTINUE5994
 0;JMP
-(TRUE27)
+(TRUE5994)
 @SP
 A=M-1
 M=-1
-(CONTINUE27)
+(CONTINUE5994)
 // write if-goto IF_TRUE5
 @SP
 AM=M-1
@@ -136526,9 +136518,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -136546,28 +136538,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -136624,7 +136616,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Snake.moveUp$ret.15
+@Snake.moveUp$ret.298
 D=A
 @SP
 A=M
@@ -136671,7 +136663,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Snake.moveUp$ret.15)
+(Snake.moveUp$ret.298)
 //push this 0
 @THIS
 D=M
@@ -136806,7 +136798,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.draw 1
-@Snake.moveUp$ret.16
+@Snake.moveUp$ret.299
 D=A
 @SP
 A=M
@@ -136853,7 +136845,7 @@ D=M
 M=D
 @Snake.draw
 0;JMP
-(Snake.moveUp$ret.16)
+(Snake.moveUp$ret.299)
 //pop temp 0
 @5
 D=A
@@ -136876,9 +136868,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -136896,28 +136888,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -136974,7 +136966,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Snake.moveDown$ret.17
+@Snake.moveDown$ret.300
 D=A
 @SP
 A=M
@@ -137021,7 +137013,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Snake.moveDown$ret.17)
+(Snake.moveDown$ret.300)
 //push this 0
 @THIS
 D=M
@@ -137156,7 +137148,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.draw 1
-@Snake.moveDown$ret.18
+@Snake.moveDown$ret.301
 D=A
 @SP
 A=M
@@ -137203,7 +137195,7 @@ D=M
 M=D
 @Snake.draw
 0;JMP
-(Snake.moveDown$ret.18)
+(Snake.moveDown$ret.301)
 //pop temp 0
 @5
 D=A
@@ -137226,9 +137218,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -137246,28 +137238,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -137324,7 +137316,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Snake.moveLeft$ret.19
+@Snake.moveLeft$ret.302
 D=A
 @SP
 A=M
@@ -137371,7 +137363,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Snake.moveLeft$ret.19)
+(Snake.moveLeft$ret.302)
 //push this 0
 @THIS
 D=M
@@ -137506,7 +137498,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.draw 1
-@Snake.moveLeft$ret.20
+@Snake.moveLeft$ret.303
 D=A
 @SP
 A=M
@@ -137553,7 +137545,7 @@ D=M
 M=D
 @Snake.draw
 0;JMP
-(Snake.moveLeft$ret.20)
+(Snake.moveLeft$ret.303)
 //pop temp 0
 @5
 D=A
@@ -137576,9 +137568,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -137596,28 +137588,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -137674,7 +137666,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Snake.moveRight$ret.21
+@Snake.moveRight$ret.304
 D=A
 @SP
 A=M
@@ -137721,7 +137713,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Snake.moveRight$ret.21)
+(Snake.moveRight$ret.304)
 //push this 0
 @THIS
 D=M
@@ -137856,7 +137848,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.draw 1
-@Snake.moveRight$ret.22
+@Snake.moveRight$ret.305
 D=A
 @SP
 A=M
@@ -137903,7 +137895,7 @@ D=M
 M=D
 @Snake.draw
 0;JMP
-(Snake.moveRight$ret.22)
+(Snake.moveRight$ret.305)
 //pop temp 0
 @5
 D=A
@@ -137926,9 +137918,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -137946,28 +137938,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -138015,9 +138007,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -138035,28 +138027,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -138104,9 +138096,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -138124,28 +138116,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -138193,9 +138185,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -138213,28 +138205,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -138291,7 +138283,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@Snake.atPosition$ret.23
+@Snake.atPosition$ret.306
 D=A
 @SP
 A=M
@@ -138338,7 +138330,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(Snake.atPosition$ret.23)
+(Snake.atPosition$ret.306)
 //push argument 1
 @ARG
 D=M
@@ -138408,24 +138400,24 @@ M=M+1
 A=M-1
 M=-M
 //eq
-(NORMAL_CASE44)
+(NORMAL_CASE6011)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE44
+@TRUE6011
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE44
+@CONTINUE6011
 0;JMP
-(TRUE44)
+(TRUE6011)
 @SP
 A=M-1
 M=-1
-(CONTINUE44)
+(CONTINUE6011)
 //not
 @SP
 AM=M-1
@@ -138471,9 +138463,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -138491,28 +138483,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -138535,9 +138527,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -138555,28 +138547,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -138654,9 +138646,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -138674,28 +138666,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -138716,7 +138708,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.alloc 1
-@SnakeGame.new$ret.1
+@SnakeGame.new$ret.307
 D=A
 @SP
 A=M
@@ -138763,7 +138755,7 @@ D=M
 M=D
 @Memory.alloc
 0;JMP
-(SnakeGame.new$ret.1)
+(SnakeGame.new$ret.307)
 //pop pointer 0
 @3
 D=A
@@ -138776,7 +138768,7 @@ D=M
 A=M
 M=D
 // call function SnakeScreen.init 0
-@SnakeGame.new$ret.2
+@SnakeGame.new$ret.308
 D=A
 @SP
 A=M
@@ -138823,7 +138815,7 @@ D=M
 M=D
 @SnakeScreen.init
 0;JMP
-(SnakeGame.new$ret.2)
+(SnakeGame.new$ret.308)
 //pop temp 0
 @5
 D=A
@@ -138836,7 +138828,7 @@ D=M
 A=M
 M=D
 // call function SnakeScreen.width 0
-@SnakeGame.new$ret.3
+@SnakeGame.new$ret.309
 D=A
 @SP
 A=M
@@ -138883,7 +138875,7 @@ D=M
 M=D
 @SnakeScreen.width
 0;JMP
-(SnakeGame.new$ret.3)
+(SnakeGame.new$ret.309)
 //push constant 2
 @2
 D=A
@@ -138893,7 +138885,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@SnakeGame.new$ret.4
+@SnakeGame.new$ret.310
 D=A
 @SP
 A=M
@@ -138940,9 +138932,9 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(SnakeGame.new$ret.4)
+(SnakeGame.new$ret.310)
 // call function SnakeScreen.height 0
-@SnakeGame.new$ret.5
+@SnakeGame.new$ret.311
 D=A
 @SP
 A=M
@@ -138989,7 +138981,7 @@ D=M
 M=D
 @SnakeScreen.height
 0;JMP
-(SnakeGame.new$ret.5)
+(SnakeGame.new$ret.311)
 //push constant 2
 @2
 D=A
@@ -138999,7 +138991,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@SnakeGame.new$ret.6
+@SnakeGame.new$ret.312
 D=A
 @SP
 A=M
@@ -139046,7 +139038,7 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(SnakeGame.new$ret.6)
+(SnakeGame.new$ret.312)
 //push constant 3
 @3
 D=A
@@ -139056,7 +139048,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.new 3
-@SnakeGame.new$ret.7
+@SnakeGame.new$ret.313
 D=A
 @SP
 A=M
@@ -139103,7 +139095,7 @@ D=M
 M=D
 @Snake.new
 0;JMP
-(SnakeGame.new$ret.7)
+(SnakeGame.new$ret.313)
 //pop this 0
 @THIS
 D=M
@@ -139163,7 +139155,7 @@ D=M
 A=M
 M=D
 // call function Wall.new 0
-@SnakeGame.new$ret.8
+@SnakeGame.new$ret.314
 D=A
 @SP
 A=M
@@ -139210,7 +139202,7 @@ D=M
 M=D
 @Wall.new
 0;JMP
-(SnakeGame.new$ret.8)
+(SnakeGame.new$ret.314)
 //pop this 1
 @THIS
 D=M
@@ -139236,9 +139228,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -139256,28 +139248,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -139323,7 +139315,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.dispose 1
-@SnakeGame.dispose$ret.9
+@SnakeGame.dispose$ret.315
 D=A
 @SP
 A=M
@@ -139370,7 +139362,7 @@ D=M
 M=D
 @Snake.dispose
 0;JMP
-(SnakeGame.dispose$ret.9)
+(SnakeGame.dispose$ret.315)
 //pop temp 0
 @5
 D=A
@@ -139394,7 +139386,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.dispose 1
-@SnakeGame.dispose$ret.10
+@SnakeGame.dispose$ret.316
 D=A
 @SP
 A=M
@@ -139441,7 +139433,7 @@ D=M
 M=D
 @Apple.dispose
 0;JMP
-(SnakeGame.dispose$ret.10)
+(SnakeGame.dispose$ret.316)
 //pop temp 0
 @5
 D=A
@@ -139465,7 +139457,7 @@ M=D
 @SP
 M=M+1
 // call function Wall.dispose 1
-@SnakeGame.dispose$ret.11
+@SnakeGame.dispose$ret.317
 D=A
 @SP
 A=M
@@ -139512,7 +139504,7 @@ D=M
 M=D
 @Wall.dispose
 0;JMP
-(SnakeGame.dispose$ret.11)
+(SnakeGame.dispose$ret.317)
 //pop temp 0
 @5
 D=A
@@ -139533,7 +139525,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.deAlloc 1
-@SnakeGame.dispose$ret.12
+@SnakeGame.dispose$ret.318
 D=A
 @SP
 A=M
@@ -139580,7 +139572,7 @@ D=M
 M=D
 @Memory.deAlloc
 0;JMP
-(SnakeGame.dispose$ret.12)
+(SnakeGame.dispose$ret.318)
 //pop temp 0
 @5
 D=A
@@ -139603,9 +139595,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -139623,28 +139615,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -139738,24 +139730,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE1)
+(NORMAL_CASE6015)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE1
+@TRUE6015
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE1
+@CONTINUE6015
 0;JMP
-(TRUE1)
+(TRUE6015)
 @SP
 A=M-1
 M=-1
-(CONTINUE1)
+(CONTINUE6015)
 //not
 @SP
 AM=M-1
@@ -139775,7 +139767,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.run$ret.13
+@SnakeGame.run$ret.319
 D=A
 @SP
 A=M
@@ -139822,7 +139814,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.run$ret.13)
+(SnakeGame.run$ret.319)
 //pop local 0
 @LCL
 D=M
@@ -139843,7 +139835,7 @@ M=D
 // write label WHILE_END0
 (SnakeGame.run$WHILE_END0)
 // call function Apple.new 0
-@SnakeGame.run$ret.14
+@SnakeGame.run$ret.320
 D=A
 @SP
 A=M
@@ -139890,7 +139882,7 @@ D=M
 M=D
 @Apple.new
 0;JMP
-(SnakeGame.run$ret.14)
+(SnakeGame.run$ret.320)
 //pop this 2
 @THIS
 D=M
@@ -139930,7 +139922,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.run$ret.15
+@SnakeGame.run$ret.321
 D=A
 @SP
 A=M
@@ -139977,7 +139969,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.run$ret.15)
+(SnakeGame.run$ret.321)
 //push this 2
 @THIS
 D=M
@@ -139990,7 +139982,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.run$ret.16
+@SnakeGame.run$ret.322
 D=A
 @SP
 A=M
@@ -140037,9 +140029,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.run$ret.16)
+(SnakeGame.run$ret.322)
 // call function Wall.atPosition 3
-@SnakeGame.run$ret.17
+@SnakeGame.run$ret.323
 D=A
 @SP
 A=M
@@ -140086,7 +140078,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.run$ret.17)
+(SnakeGame.run$ret.323)
 //push this 0
 @THIS
 D=M
@@ -140110,7 +140102,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.run$ret.18
+@SnakeGame.run$ret.324
 D=A
 @SP
 A=M
@@ -140157,7 +140149,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.run$ret.18)
+(SnakeGame.run$ret.324)
 //push this 2
 @THIS
 D=M
@@ -140170,7 +140162,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.run$ret.19
+@SnakeGame.run$ret.325
 D=A
 @SP
 A=M
@@ -140217,9 +140209,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.run$ret.19)
+(SnakeGame.run$ret.325)
 // call function Snake.atPosition 3
-@SnakeGame.run$ret.20
+@SnakeGame.run$ret.326
 D=A
 @SP
 A=M
@@ -140266,7 +140258,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.run$ret.20)
+(SnakeGame.run$ret.326)
 //or
 @SP
 AM=M-1
@@ -140304,7 +140296,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.run$ret.21
+@SnakeGame.run$ret.327
 D=A
 @SP
 A=M
@@ -140351,7 +140343,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.run$ret.21)
+(SnakeGame.run$ret.327)
 //pop temp 0
 @5
 D=A
@@ -140411,7 +140403,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.run$ret.22
+@SnakeGame.run$ret.328
 D=A
 @SP
 A=M
@@ -140458,7 +140450,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.run$ret.22)
+(SnakeGame.run$ret.328)
 //pop local 0
 @LCL
 D=M
@@ -140493,24 +140485,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE7)
+(NORMAL_CASE6021)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE7
+@TRUE6021
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE7
+@CONTINUE6021
 0;JMP
-(TRUE7)
+(TRUE6021)
 @SP
 A=M-1
 M=-1
-(CONTINUE7)
+(CONTINUE6021)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -140578,24 +140570,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE9)
+(NORMAL_CASE6023)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE9
+@TRUE6023
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE9
+@CONTINUE6023
 0;JMP
-(TRUE9)
+(TRUE6023)
 @SP
 A=M-1
 M=-1
-(CONTINUE9)
+(CONTINUE6023)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -140628,24 +140620,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE10)
+(NORMAL_CASE6024)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE10
+@TRUE6024
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE10
+@CONTINUE6024
 0;JMP
-(TRUE10)
+(TRUE6024)
 @SP
 A=M-1
 M=-1
-(CONTINUE10)
+(CONTINUE6024)
 //not
 @SP
 AM=M-1
@@ -140715,24 +140707,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE12)
+(NORMAL_CASE6026)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE12
+@TRUE6026
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE12
+@CONTINUE6026
 0;JMP
-(TRUE12)
+(TRUE6026)
 @SP
 A=M-1
 M=-1
-(CONTINUE12)
+(CONTINUE6026)
 // write if-goto IF_TRUE3
 @SP
 AM=M-1
@@ -140765,24 +140757,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE13)
+(NORMAL_CASE6027)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE13
+@TRUE6027
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE13
+@CONTINUE6027
 0;JMP
-(TRUE13)
+(TRUE6027)
 @SP
 A=M-1
 M=-1
-(CONTINUE13)
+(CONTINUE6027)
 //not
 @SP
 AM=M-1
@@ -140852,24 +140844,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE15)
+(NORMAL_CASE6029)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE15
+@TRUE6029
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE15
+@CONTINUE6029
 0;JMP
-(TRUE15)
+(TRUE6029)
 @SP
 A=M-1
 M=-1
-(CONTINUE15)
+(CONTINUE6029)
 // write if-goto IF_TRUE5
 @SP
 AM=M-1
@@ -140902,24 +140894,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE16)
+(NORMAL_CASE6030)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE16
+@TRUE6030
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE16
+@CONTINUE6030
 0;JMP
-(TRUE16)
+(TRUE6030)
 @SP
 A=M-1
 M=-1
-(CONTINUE16)
+(CONTINUE6030)
 //not
 @SP
 AM=M-1
@@ -140989,24 +140981,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE18)
+(NORMAL_CASE6032)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE18
+@TRUE6032
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE18
+@CONTINUE6032
 0;JMP
-(TRUE18)
+(TRUE6032)
 @SP
 A=M-1
 M=-1
-(CONTINUE18)
+(CONTINUE6032)
 // write if-goto IF_TRUE7
 @SP
 AM=M-1
@@ -141039,24 +141031,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE19)
+(NORMAL_CASE6033)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE19
+@TRUE6033
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE19
+@CONTINUE6033
 0;JMP
-(TRUE19)
+(TRUE6033)
 @SP
 A=M-1
 M=-1
-(CONTINUE19)
+(CONTINUE6033)
 //not
 @SP
 AM=M-1
@@ -141126,24 +141118,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE21)
+(NORMAL_CASE6035)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE21
+@TRUE6035
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE21
+@CONTINUE6035
 0;JMP
-(TRUE21)
+(TRUE6035)
 @SP
 A=M-1
 M=-1
-(CONTINUE21)
+(CONTINUE6035)
 // write if-goto IF_TRUE9
 @SP
 AM=M-1
@@ -141157,7 +141149,7 @@ D;JNE
 // write label IF_TRUE9
 (SnakeGame.run$IF_TRUE9)
 // call function Keyboard.keyPressed 0
-@SnakeGame.run$ret.23
+@SnakeGame.run$ret.329
 D=A
 @SP
 A=M
@@ -141204,7 +141196,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.run$ret.23)
+(SnakeGame.run$ret.329)
 //pop local 0
 @LCL
 D=M
@@ -141230,7 +141222,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeGame.moveSnake 1
-@SnakeGame.run$ret.24
+@SnakeGame.run$ret.330
 D=A
 @SP
 A=M
@@ -141277,7 +141269,7 @@ D=M
 M=D
 @SnakeGame.moveSnake
 0;JMP
-(SnakeGame.run$ret.24)
+(SnakeGame.run$ret.330)
 //pop temp 0
 @5
 D=A
@@ -141323,7 +141315,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.run$ret.25
+@SnakeGame.run$ret.331
 D=A
 @SP
 A=M
@@ -141370,7 +141362,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.run$ret.25)
+(SnakeGame.run$ret.331)
 //push this 0
 @THIS
 D=M
@@ -141383,7 +141375,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.run$ret.26
+@SnakeGame.run$ret.332
 D=A
 @SP
 A=M
@@ -141430,26 +141422,26 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.run$ret.26)
+(SnakeGame.run$ret.332)
 //eq
-(NORMAL_CASE22)
+(NORMAL_CASE6036)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE22
+@TRUE6036
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE22
+@CONTINUE6036
 0;JMP
-(TRUE22)
+(TRUE6036)
 @SP
 A=M-1
 M=-1
-(CONTINUE22)
+(CONTINUE6036)
 //push this 2
 @THIS
 D=M
@@ -141462,7 +141454,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.run$ret.27
+@SnakeGame.run$ret.333
 D=A
 @SP
 A=M
@@ -141509,7 +141501,7 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.run$ret.27)
+(SnakeGame.run$ret.333)
 //push this 0
 @THIS
 D=M
@@ -141522,7 +141514,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.run$ret.28
+@SnakeGame.run$ret.334
 D=A
 @SP
 A=M
@@ -141569,26 +141561,26 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.run$ret.28)
+(SnakeGame.run$ret.334)
 //eq
-(NORMAL_CASE23)
+(NORMAL_CASE6037)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE23
+@TRUE6037
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE23
+@CONTINUE6037
 0;JMP
-(TRUE23)
+(TRUE6037)
 @SP
 A=M-1
 M=-1
-(CONTINUE23)
+(CONTINUE6037)
 //and
 @SP
 AM=M-1
@@ -141659,7 +141651,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.run$ret.29
+@SnakeGame.run$ret.335
 D=A
 @SP
 A=M
@@ -141706,7 +141698,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.run$ret.29)
+(SnakeGame.run$ret.335)
 //pop temp 0
 @5
 D=A
@@ -141743,7 +141735,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.run$ret.30
+@SnakeGame.run$ret.336
 D=A
 @SP
 A=M
@@ -141790,7 +141782,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.run$ret.30)
+(SnakeGame.run$ret.336)
 //push this 2
 @THIS
 D=M
@@ -141803,7 +141795,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.run$ret.31
+@SnakeGame.run$ret.337
 D=A
 @SP
 A=M
@@ -141850,9 +141842,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.run$ret.31)
+(SnakeGame.run$ret.337)
 // call function Wall.atPosition 3
-@SnakeGame.run$ret.32
+@SnakeGame.run$ret.338
 D=A
 @SP
 A=M
@@ -141899,7 +141891,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.run$ret.32)
+(SnakeGame.run$ret.338)
 //push this 0
 @THIS
 D=M
@@ -141923,7 +141915,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.run$ret.33
+@SnakeGame.run$ret.339
 D=A
 @SP
 A=M
@@ -141970,7 +141962,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.run$ret.33)
+(SnakeGame.run$ret.339)
 //push this 2
 @THIS
 D=M
@@ -141983,7 +141975,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.run$ret.34
+@SnakeGame.run$ret.340
 D=A
 @SP
 A=M
@@ -142030,9 +142022,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.run$ret.34)
+(SnakeGame.run$ret.340)
 // call function Snake.atPosition 3
-@SnakeGame.run$ret.35
+@SnakeGame.run$ret.341
 D=A
 @SP
 A=M
@@ -142079,7 +142071,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.run$ret.35)
+(SnakeGame.run$ret.341)
 //or
 @SP
 AM=M-1
@@ -142117,7 +142109,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.run$ret.36
+@SnakeGame.run$ret.342
 D=A
 @SP
 A=M
@@ -142164,7 +142156,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.run$ret.36)
+(SnakeGame.run$ret.342)
 //pop temp 0
 @5
 D=A
@@ -142193,7 +142185,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.lengthen 1
-@SnakeGame.run$ret.37
+@SnakeGame.run$ret.343
 D=A
 @SP
 A=M
@@ -142240,7 +142232,7 @@ D=M
 M=D
 @Snake.lengthen
 0;JMP
-(SnakeGame.run$ret.37)
+(SnakeGame.run$ret.343)
 //pop temp 0
 @5
 D=A
@@ -142266,7 +142258,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.hitItself 1
-@SnakeGame.run$ret.38
+@SnakeGame.run$ret.344
 D=A
 @SP
 A=M
@@ -142313,7 +142305,7 @@ D=M
 M=D
 @Snake.hitItself
 0;JMP
-(SnakeGame.run$ret.38)
+(SnakeGame.run$ret.344)
 // write if-goto IF_TRUE11
 @SP
 AM=M-1
@@ -142384,7 +142376,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.run$ret.39
+@SnakeGame.run$ret.345
 D=A
 @SP
 A=M
@@ -142431,7 +142423,7 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.run$ret.39)
+(SnakeGame.run$ret.345)
 //push this 0
 @THIS
 D=M
@@ -142444,7 +142436,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.run$ret.40
+@SnakeGame.run$ret.346
 D=A
 @SP
 A=M
@@ -142491,9 +142483,9 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.run$ret.40)
+(SnakeGame.run$ret.346)
 // call function Wall.atPosition 3
-@SnakeGame.run$ret.41
+@SnakeGame.run$ret.347
 D=A
 @SP
 A=M
@@ -142540,7 +142532,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.run$ret.41)
+(SnakeGame.run$ret.347)
 //push constant 0
 @0
 D=A
@@ -142561,24 +142553,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE30)
+(NORMAL_CASE6044)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE30
+@TRUE6044
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE30
+@CONTINUE6044
 0;JMP
-(TRUE30)
+(TRUE6044)
 @SP
 A=M-1
 M=-1
-(CONTINUE30)
+(CONTINUE6044)
 // write if-goto IF_TRUE12
 @SP
 AM=M-1
@@ -142648,7 +142640,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.run$ret.42
+@SnakeGame.run$ret.348
 D=A
 @SP
 A=M
@@ -142695,7 +142687,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.run$ret.42)
+(SnakeGame.run$ret.348)
 //pop temp 0
 @5
 D=A
@@ -142716,7 +142708,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.run$ret.43
+@SnakeGame.run$ret.349
 D=A
 @SP
 A=M
@@ -142763,7 +142755,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.run$ret.43)
+(SnakeGame.run$ret.349)
 //push constant 71
 @71
 D=A
@@ -142773,7 +142765,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.44
+@SnakeGame.run$ret.350
 D=A
 @SP
 A=M
@@ -142820,7 +142812,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.44)
+(SnakeGame.run$ret.350)
 //push constant 65
 @65
 D=A
@@ -142830,7 +142822,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.45
+@SnakeGame.run$ret.351
 D=A
 @SP
 A=M
@@ -142877,7 +142869,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.45)
+(SnakeGame.run$ret.351)
 //push constant 77
 @77
 D=A
@@ -142887,7 +142879,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.46
+@SnakeGame.run$ret.352
 D=A
 @SP
 A=M
@@ -142934,7 +142926,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.46)
+(SnakeGame.run$ret.352)
 //push constant 69
 @69
 D=A
@@ -142944,7 +142936,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.47
+@SnakeGame.run$ret.353
 D=A
 @SP
 A=M
@@ -142991,7 +142983,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.47)
+(SnakeGame.run$ret.353)
 //push constant 32
 @32
 D=A
@@ -143001,7 +142993,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.48
+@SnakeGame.run$ret.354
 D=A
 @SP
 A=M
@@ -143048,7 +143040,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.48)
+(SnakeGame.run$ret.354)
 //push constant 79
 @79
 D=A
@@ -143058,7 +143050,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.49
+@SnakeGame.run$ret.355
 D=A
 @SP
 A=M
@@ -143105,7 +143097,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.49)
+(SnakeGame.run$ret.355)
 //push constant 86
 @86
 D=A
@@ -143115,7 +143107,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.50
+@SnakeGame.run$ret.356
 D=A
 @SP
 A=M
@@ -143162,7 +143154,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.50)
+(SnakeGame.run$ret.356)
 //push constant 69
 @69
 D=A
@@ -143172,7 +143164,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.51
+@SnakeGame.run$ret.357
 D=A
 @SP
 A=M
@@ -143219,7 +143211,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.51)
+(SnakeGame.run$ret.357)
 //push constant 82
 @82
 D=A
@@ -143229,7 +143221,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.52
+@SnakeGame.run$ret.358
 D=A
 @SP
 A=M
@@ -143276,9 +143268,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.52)
+(SnakeGame.run$ret.358)
 // call function Output.printString 1
-@SnakeGame.run$ret.53
+@SnakeGame.run$ret.359
 D=A
 @SP
 A=M
@@ -143325,7 +143317,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.run$ret.53)
+(SnakeGame.run$ret.359)
 //pop temp 0
 @5
 D=A
@@ -143354,7 +143346,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.run$ret.54
+@SnakeGame.run$ret.360
 D=A
 @SP
 A=M
@@ -143401,7 +143393,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.run$ret.54)
+(SnakeGame.run$ret.360)
 //pop temp 0
 @5
 D=A
@@ -143422,7 +143414,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.run$ret.55
+@SnakeGame.run$ret.361
 D=A
 @SP
 A=M
@@ -143469,7 +143461,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.run$ret.55)
+(SnakeGame.run$ret.361)
 //push constant 83
 @83
 D=A
@@ -143479,7 +143471,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.56
+@SnakeGame.run$ret.362
 D=A
 @SP
 A=M
@@ -143526,7 +143518,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.56)
+(SnakeGame.run$ret.362)
 //push constant 67
 @67
 D=A
@@ -143536,7 +143528,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.57
+@SnakeGame.run$ret.363
 D=A
 @SP
 A=M
@@ -143583,7 +143575,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.57)
+(SnakeGame.run$ret.363)
 //push constant 79
 @79
 D=A
@@ -143593,7 +143585,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.58
+@SnakeGame.run$ret.364
 D=A
 @SP
 A=M
@@ -143640,7 +143632,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.58)
+(SnakeGame.run$ret.364)
 //push constant 82
 @82
 D=A
@@ -143650,7 +143642,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.59
+@SnakeGame.run$ret.365
 D=A
 @SP
 A=M
@@ -143697,7 +143689,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.59)
+(SnakeGame.run$ret.365)
 //push constant 69
 @69
 D=A
@@ -143707,7 +143699,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.60
+@SnakeGame.run$ret.366
 D=A
 @SP
 A=M
@@ -143754,7 +143746,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.60)
+(SnakeGame.run$ret.366)
 //push constant 58
 @58
 D=A
@@ -143764,7 +143756,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.61
+@SnakeGame.run$ret.367
 D=A
 @SP
 A=M
@@ -143811,7 +143803,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.61)
+(SnakeGame.run$ret.367)
 //push constant 32
 @32
 D=A
@@ -143821,7 +143813,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.run$ret.62
+@SnakeGame.run$ret.368
 D=A
 @SP
 A=M
@@ -143868,9 +143860,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.run$ret.62)
+(SnakeGame.run$ret.368)
 // call function Output.printString 1
-@SnakeGame.run$ret.63
+@SnakeGame.run$ret.369
 D=A
 @SP
 A=M
@@ -143917,7 +143909,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.run$ret.63)
+(SnakeGame.run$ret.369)
 //pop temp 0
 @5
 D=A
@@ -143941,7 +143933,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printInt 1
-@SnakeGame.run$ret.64
+@SnakeGame.run$ret.370
 D=A
 @SP
 A=M
@@ -143988,7 +143980,7 @@ D=M
 M=D
 @Output.printInt
 0;JMP
-(SnakeGame.run$ret.64)
+(SnakeGame.run$ret.370)
 //pop temp 0
 @5
 D=A
@@ -144011,9 +144003,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -144031,28 +144023,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -144106,24 +144098,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE32)
+(NORMAL_CASE6046)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE32
+@TRUE6046
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE32
+@CONTINUE6046
 0;JMP
-(TRUE32)
+(TRUE6046)
 @SP
 A=M-1
 M=-1
-(CONTINUE32)
+(CONTINUE6046)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -144148,7 +144140,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.moveUp 1
-@SnakeGame.moveSnake$ret.65
+@SnakeGame.moveSnake$ret.371
 D=A
 @SP
 A=M
@@ -144195,7 +144187,7 @@ D=M
 M=D
 @Snake.moveUp
 0;JMP
-(SnakeGame.moveSnake$ret.65)
+(SnakeGame.moveSnake$ret.371)
 //pop temp 0
 @5
 D=A
@@ -144229,24 +144221,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE33)
+(NORMAL_CASE6047)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE33
+@TRUE6047
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE33
+@CONTINUE6047
 0;JMP
-(TRUE33)
+(TRUE6047)
 @SP
 A=M-1
 M=-1
-(CONTINUE33)
+(CONTINUE6047)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -144271,7 +144263,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.moveDown 1
-@SnakeGame.moveSnake$ret.66
+@SnakeGame.moveSnake$ret.372
 D=A
 @SP
 A=M
@@ -144318,7 +144310,7 @@ D=M
 M=D
 @Snake.moveDown
 0;JMP
-(SnakeGame.moveSnake$ret.66)
+(SnakeGame.moveSnake$ret.372)
 //pop temp 0
 @5
 D=A
@@ -144352,24 +144344,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE34)
+(NORMAL_CASE6048)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE34
+@TRUE6048
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE34
+@CONTINUE6048
 0;JMP
-(TRUE34)
+(TRUE6048)
 @SP
 A=M-1
 M=-1
-(CONTINUE34)
+(CONTINUE6048)
 // write if-goto IF_TRUE2
 @SP
 AM=M-1
@@ -144394,7 +144386,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.moveLeft 1
-@SnakeGame.moveSnake$ret.67
+@SnakeGame.moveSnake$ret.373
 D=A
 @SP
 A=M
@@ -144441,7 +144433,7 @@ D=M
 M=D
 @Snake.moveLeft
 0;JMP
-(SnakeGame.moveSnake$ret.67)
+(SnakeGame.moveSnake$ret.373)
 //pop temp 0
 @5
 D=A
@@ -144475,24 +144467,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE35)
+(NORMAL_CASE6049)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE35
+@TRUE6049
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE35
+@CONTINUE6049
 0;JMP
-(TRUE35)
+(TRUE6049)
 @SP
 A=M-1
 M=-1
-(CONTINUE35)
+(CONTINUE6049)
 // write if-goto IF_TRUE3
 @SP
 AM=M-1
@@ -144517,7 +144509,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.moveRight 1
-@SnakeGame.moveSnake$ret.68
+@SnakeGame.moveSnake$ret.374
 D=A
 @SP
 A=M
@@ -144564,7 +144556,7 @@ D=M
 M=D
 @Snake.moveRight
 0;JMP
-(SnakeGame.moveSnake$ret.68)
+(SnakeGame.moveSnake$ret.374)
 //pop temp 0
 @5
 D=A
@@ -144587,7 +144579,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.wait 1
-@SnakeGame.moveSnake$ret.69
+@SnakeGame.moveSnake$ret.375
 D=A
 @SP
 A=M
@@ -144634,7 +144626,7 @@ D=M
 M=D
 @Sys.wait
 0;JMP
-(SnakeGame.moveSnake$ret.69)
+(SnakeGame.moveSnake$ret.375)
 //pop temp 0
 @5
 D=A
@@ -144657,9 +144649,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -144677,28 +144669,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -144792,24 +144784,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE36)
+(NORMAL_CASE6050)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE36
+@TRUE6050
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE36
+@CONTINUE6050
 0;JMP
-(TRUE36)
+(TRUE6050)
 @SP
 A=M-1
 M=-1
-(CONTINUE36)
+(CONTINUE6050)
 //not
 @SP
 AM=M-1
@@ -144829,7 +144821,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.70
+@SnakeGame.moveUpNa$ret.376
 D=A
 @SP
 A=M
@@ -144876,7 +144868,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.70)
+(SnakeGame.moveUpNa$ret.376)
 //pop local 0
 @LCL
 D=M
@@ -144897,7 +144889,7 @@ M=D
 // write label WHILE_END0
 (SnakeGame.moveUpNa$WHILE_END0)
 // call function Apple.new 0
-@SnakeGame.moveUpNa$ret.71
+@SnakeGame.moveUpNa$ret.377
 D=A
 @SP
 A=M
@@ -144944,7 +144936,7 @@ D=M
 M=D
 @Apple.new
 0;JMP
-(SnakeGame.moveUpNa$ret.71)
+(SnakeGame.moveUpNa$ret.377)
 //pop this 2
 @THIS
 D=M
@@ -144984,7 +144976,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.72
+@SnakeGame.moveUpNa$ret.378
 D=A
 @SP
 A=M
@@ -145031,7 +145023,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.72)
+(SnakeGame.moveUpNa$ret.378)
 //push this 2
 @THIS
 D=M
@@ -145044,7 +145036,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.73
+@SnakeGame.moveUpNa$ret.379
 D=A
 @SP
 A=M
@@ -145091,9 +145083,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.73)
+(SnakeGame.moveUpNa$ret.379)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.74
+@SnakeGame.moveUpNa$ret.380
 D=A
 @SP
 A=M
@@ -145140,7 +145132,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.74)
+(SnakeGame.moveUpNa$ret.380)
 //push this 0
 @THIS
 D=M
@@ -145164,7 +145156,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.75
+@SnakeGame.moveUpNa$ret.381
 D=A
 @SP
 A=M
@@ -145211,7 +145203,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.75)
+(SnakeGame.moveUpNa$ret.381)
 //push this 2
 @THIS
 D=M
@@ -145224,7 +145216,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.76
+@SnakeGame.moveUpNa$ret.382
 D=A
 @SP
 A=M
@@ -145271,9 +145263,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.76)
+(SnakeGame.moveUpNa$ret.382)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.77
+@SnakeGame.moveUpNa$ret.383
 D=A
 @SP
 A=M
@@ -145320,7 +145312,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.77)
+(SnakeGame.moveUpNa$ret.383)
 //or
 @SP
 AM=M-1
@@ -145358,7 +145350,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.78
+@SnakeGame.moveUpNa$ret.384
 D=A
 @SP
 A=M
@@ -145405,7 +145397,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.78)
+(SnakeGame.moveUpNa$ret.384)
 //pop temp 0
 @5
 D=A
@@ -145465,7 +145457,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.79
+@SnakeGame.moveUpNa$ret.385
 D=A
 @SP
 A=M
@@ -145512,7 +145504,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.79)
+(SnakeGame.moveUpNa$ret.385)
 //pop local 0
 @LCL
 D=M
@@ -145547,24 +145539,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE42)
+(NORMAL_CASE6056)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE42
+@TRUE6056
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE42
+@CONTINUE6056
 0;JMP
-(TRUE42)
+(TRUE6056)
 @SP
 A=M-1
 M=-1
-(CONTINUE42)
+(CONTINUE6056)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -145632,24 +145624,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE44)
+(NORMAL_CASE6058)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE44
+@TRUE6058
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE44
+@CONTINUE6058
 0;JMP
-(TRUE44)
+(TRUE6058)
 @SP
 A=M-1
 M=-1
-(CONTINUE44)
+(CONTINUE6058)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -145682,24 +145674,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE45)
+(NORMAL_CASE6059)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE45
+@TRUE6059
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE45
+@CONTINUE6059
 0;JMP
-(TRUE45)
+(TRUE6059)
 @SP
 A=M-1
 M=-1
-(CONTINUE45)
+(CONTINUE6059)
 //not
 @SP
 AM=M-1
@@ -145769,24 +145761,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE47)
+(NORMAL_CASE6061)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE47
+@TRUE6061
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE47
+@CONTINUE6061
 0;JMP
-(TRUE47)
+(TRUE6061)
 @SP
 A=M-1
 M=-1
-(CONTINUE47)
+(CONTINUE6061)
 // write if-goto IF_TRUE3
 @SP
 AM=M-1
@@ -145819,24 +145811,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE48)
+(NORMAL_CASE6062)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE48
+@TRUE6062
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE48
+@CONTINUE6062
 0;JMP
-(TRUE48)
+(TRUE6062)
 @SP
 A=M-1
 M=-1
-(CONTINUE48)
+(CONTINUE6062)
 //not
 @SP
 AM=M-1
@@ -145906,24 +145898,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE50)
+(NORMAL_CASE6064)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE50
+@TRUE6064
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE50
+@CONTINUE6064
 0;JMP
-(TRUE50)
+(TRUE6064)
 @SP
 A=M-1
 M=-1
-(CONTINUE50)
+(CONTINUE6064)
 // write if-goto IF_TRUE5
 @SP
 AM=M-1
@@ -145956,24 +145948,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE51)
+(NORMAL_CASE6065)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE51
+@TRUE6065
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE51
+@CONTINUE6065
 0;JMP
-(TRUE51)
+(TRUE6065)
 @SP
 A=M-1
 M=-1
-(CONTINUE51)
+(CONTINUE6065)
 //not
 @SP
 AM=M-1
@@ -146043,24 +146035,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE53)
+(NORMAL_CASE6067)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE53
+@TRUE6067
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE53
+@CONTINUE6067
 0;JMP
-(TRUE53)
+(TRUE6067)
 @SP
 A=M-1
 M=-1
-(CONTINUE53)
+(CONTINUE6067)
 // write if-goto IF_TRUE7
 @SP
 AM=M-1
@@ -146093,24 +146085,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE54)
+(NORMAL_CASE6068)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE54
+@TRUE6068
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE54
+@CONTINUE6068
 0;JMP
-(TRUE54)
+(TRUE6068)
 @SP
 A=M-1
 M=-1
-(CONTINUE54)
+(CONTINUE6068)
 //not
 @SP
 AM=M-1
@@ -146180,24 +146172,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE56)
+(NORMAL_CASE6070)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE56
+@TRUE6070
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE56
+@CONTINUE6070
 0;JMP
-(TRUE56)
+(TRUE6070)
 @SP
 A=M-1
 M=-1
-(CONTINUE56)
+(CONTINUE6070)
 // write if-goto IF_TRUE9
 @SP
 AM=M-1
@@ -146211,7 +146203,7 @@ D;JNE
 // write label IF_TRUE9
 (SnakeGame.moveUpNa$IF_TRUE9)
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.80
+@SnakeGame.moveUpNa$ret.386
 D=A
 @SP
 A=M
@@ -146258,7 +146250,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.80)
+(SnakeGame.moveUpNa$ret.386)
 //pop local 0
 @LCL
 D=M
@@ -146284,7 +146276,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeGame.moveSnake 1
-@SnakeGame.moveUpNa$ret.81
+@SnakeGame.moveUpNa$ret.387
 D=A
 @SP
 A=M
@@ -146331,7 +146323,7 @@ D=M
 M=D
 @SnakeGame.moveSnake
 0;JMP
-(SnakeGame.moveUpNa$ret.81)
+(SnakeGame.moveUpNa$ret.387)
 //pop temp 0
 @5
 D=A
@@ -146377,7 +146369,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.82
+@SnakeGame.moveUpNa$ret.388
 D=A
 @SP
 A=M
@@ -146424,7 +146416,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.82)
+(SnakeGame.moveUpNa$ret.388)
 //push this 0
 @THIS
 D=M
@@ -146437,7 +146429,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.83
+@SnakeGame.moveUpNa$ret.389
 D=A
 @SP
 A=M
@@ -146484,26 +146476,26 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.83)
+(SnakeGame.moveUpNa$ret.389)
 //eq
-(NORMAL_CASE57)
+(NORMAL_CASE6071)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE57
+@TRUE6071
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE57
+@CONTINUE6071
 0;JMP
-(TRUE57)
+(TRUE6071)
 @SP
 A=M-1
 M=-1
-(CONTINUE57)
+(CONTINUE6071)
 //push this 2
 @THIS
 D=M
@@ -146516,7 +146508,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.84
+@SnakeGame.moveUpNa$ret.390
 D=A
 @SP
 A=M
@@ -146563,7 +146555,7 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.84)
+(SnakeGame.moveUpNa$ret.390)
 //push this 0
 @THIS
 D=M
@@ -146576,7 +146568,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.85
+@SnakeGame.moveUpNa$ret.391
 D=A
 @SP
 A=M
@@ -146623,26 +146615,26 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.85)
+(SnakeGame.moveUpNa$ret.391)
 //eq
-(NORMAL_CASE58)
+(NORMAL_CASE6072)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE58
+@TRUE6072
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE58
+@CONTINUE6072
 0;JMP
-(TRUE58)
+(TRUE6072)
 @SP
 A=M-1
 M=-1
-(CONTINUE58)
+(CONTINUE6072)
 //and
 @SP
 AM=M-1
@@ -146713,7 +146705,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.86
+@SnakeGame.moveUpNa$ret.392
 D=A
 @SP
 A=M
@@ -146760,7 +146752,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.86)
+(SnakeGame.moveUpNa$ret.392)
 //pop temp 0
 @5
 D=A
@@ -146797,7 +146789,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.87
+@SnakeGame.moveUpNa$ret.393
 D=A
 @SP
 A=M
@@ -146844,7 +146836,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.87)
+(SnakeGame.moveUpNa$ret.393)
 //push this 2
 @THIS
 D=M
@@ -146857,7 +146849,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.88
+@SnakeGame.moveUpNa$ret.394
 D=A
 @SP
 A=M
@@ -146904,9 +146896,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.88)
+(SnakeGame.moveUpNa$ret.394)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.89
+@SnakeGame.moveUpNa$ret.395
 D=A
 @SP
 A=M
@@ -146953,7 +146945,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.89)
+(SnakeGame.moveUpNa$ret.395)
 //push this 0
 @THIS
 D=M
@@ -146977,7 +146969,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.90
+@SnakeGame.moveUpNa$ret.396
 D=A
 @SP
 A=M
@@ -147024,7 +147016,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.90)
+(SnakeGame.moveUpNa$ret.396)
 //push this 2
 @THIS
 D=M
@@ -147037,7 +147029,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.91
+@SnakeGame.moveUpNa$ret.397
 D=A
 @SP
 A=M
@@ -147084,9 +147076,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.91)
+(SnakeGame.moveUpNa$ret.397)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.92
+@SnakeGame.moveUpNa$ret.398
 D=A
 @SP
 A=M
@@ -147133,7 +147125,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.92)
+(SnakeGame.moveUpNa$ret.398)
 //or
 @SP
 AM=M-1
@@ -147171,7 +147163,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.93
+@SnakeGame.moveUpNa$ret.399
 D=A
 @SP
 A=M
@@ -147218,7 +147210,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.93)
+(SnakeGame.moveUpNa$ret.399)
 //pop temp 0
 @5
 D=A
@@ -147247,7 +147239,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.lengthen 1
-@SnakeGame.moveUpNa$ret.94
+@SnakeGame.moveUpNa$ret.400
 D=A
 @SP
 A=M
@@ -147294,7 +147286,7 @@ D=M
 M=D
 @Snake.lengthen
 0;JMP
-(SnakeGame.moveUpNa$ret.94)
+(SnakeGame.moveUpNa$ret.400)
 //pop temp 0
 @5
 D=A
@@ -147320,7 +147312,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.hitItself 1
-@SnakeGame.moveUpNa$ret.95
+@SnakeGame.moveUpNa$ret.401
 D=A
 @SP
 A=M
@@ -147367,7 +147359,7 @@ D=M
 M=D
 @Snake.hitItself
 0;JMP
-(SnakeGame.moveUpNa$ret.95)
+(SnakeGame.moveUpNa$ret.401)
 // write if-goto IF_TRUE11
 @SP
 AM=M-1
@@ -147438,7 +147430,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.96
+@SnakeGame.moveUpNa$ret.402
 D=A
 @SP
 A=M
@@ -147485,7 +147477,7 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.96)
+(SnakeGame.moveUpNa$ret.402)
 //push this 0
 @THIS
 D=M
@@ -147498,7 +147490,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.97
+@SnakeGame.moveUpNa$ret.403
 D=A
 @SP
 A=M
@@ -147545,9 +147537,9 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.97)
+(SnakeGame.moveUpNa$ret.403)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.98
+@SnakeGame.moveUpNa$ret.404
 D=A
 @SP
 A=M
@@ -147594,7 +147586,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.98)
+(SnakeGame.moveUpNa$ret.404)
 //push constant 0
 @0
 D=A
@@ -147615,24 +147607,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE65)
+(NORMAL_CASE6079)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE65
+@TRUE6079
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE65
+@CONTINUE6079
 0;JMP
-(TRUE65)
+(TRUE6079)
 @SP
 A=M-1
 M=-1
-(CONTINUE65)
+(CONTINUE6079)
 // write if-goto IF_TRUE12
 @SP
 AM=M-1
@@ -147702,7 +147694,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.99
+@SnakeGame.moveUpNa$ret.405
 D=A
 @SP
 A=M
@@ -147749,7 +147741,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.99)
+(SnakeGame.moveUpNa$ret.405)
 //pop temp 0
 @5
 D=A
@@ -147770,7 +147762,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.100
+@SnakeGame.moveUpNa$ret.406
 D=A
 @SP
 A=M
@@ -147817,7 +147809,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.100)
+(SnakeGame.moveUpNa$ret.406)
 //push constant 71
 @71
 D=A
@@ -147827,7 +147819,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.101
+@SnakeGame.moveUpNa$ret.407
 D=A
 @SP
 A=M
@@ -147874,7 +147866,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.101)
+(SnakeGame.moveUpNa$ret.407)
 //push constant 65
 @65
 D=A
@@ -147884,7 +147876,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.102
+@SnakeGame.moveUpNa$ret.408
 D=A
 @SP
 A=M
@@ -147931,7 +147923,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.102)
+(SnakeGame.moveUpNa$ret.408)
 //push constant 77
 @77
 D=A
@@ -147941,7 +147933,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.103
+@SnakeGame.moveUpNa$ret.409
 D=A
 @SP
 A=M
@@ -147988,7 +147980,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.103)
+(SnakeGame.moveUpNa$ret.409)
 //push constant 69
 @69
 D=A
@@ -147998,7 +147990,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.104
+@SnakeGame.moveUpNa$ret.410
 D=A
 @SP
 A=M
@@ -148045,7 +148037,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.104)
+(SnakeGame.moveUpNa$ret.410)
 //push constant 32
 @32
 D=A
@@ -148055,7 +148047,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.105
+@SnakeGame.moveUpNa$ret.411
 D=A
 @SP
 A=M
@@ -148102,7 +148094,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.105)
+(SnakeGame.moveUpNa$ret.411)
 //push constant 79
 @79
 D=A
@@ -148112,7 +148104,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.106
+@SnakeGame.moveUpNa$ret.412
 D=A
 @SP
 A=M
@@ -148159,7 +148151,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.106)
+(SnakeGame.moveUpNa$ret.412)
 //push constant 86
 @86
 D=A
@@ -148169,7 +148161,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.107
+@SnakeGame.moveUpNa$ret.413
 D=A
 @SP
 A=M
@@ -148216,7 +148208,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.107)
+(SnakeGame.moveUpNa$ret.413)
 //push constant 69
 @69
 D=A
@@ -148226,7 +148218,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.108
+@SnakeGame.moveUpNa$ret.414
 D=A
 @SP
 A=M
@@ -148273,7 +148265,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.108)
+(SnakeGame.moveUpNa$ret.414)
 //push constant 82
 @82
 D=A
@@ -148283,7 +148275,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.109
+@SnakeGame.moveUpNa$ret.415
 D=A
 @SP
 A=M
@@ -148330,9 +148322,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.109)
+(SnakeGame.moveUpNa$ret.415)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.110
+@SnakeGame.moveUpNa$ret.416
 D=A
 @SP
 A=M
@@ -148379,7 +148371,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.110)
+(SnakeGame.moveUpNa$ret.416)
 //pop temp 0
 @5
 D=A
@@ -148408,7 +148400,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.111
+@SnakeGame.moveUpNa$ret.417
 D=A
 @SP
 A=M
@@ -148455,7 +148447,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.111)
+(SnakeGame.moveUpNa$ret.417)
 //pop temp 0
 @5
 D=A
@@ -148476,7 +148468,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.112
+@SnakeGame.moveUpNa$ret.418
 D=A
 @SP
 A=M
@@ -148523,7 +148515,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.112)
+(SnakeGame.moveUpNa$ret.418)
 //push constant 83
 @83
 D=A
@@ -148533,7 +148525,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.113
+@SnakeGame.moveUpNa$ret.419
 D=A
 @SP
 A=M
@@ -148580,7 +148572,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.113)
+(SnakeGame.moveUpNa$ret.419)
 //push constant 67
 @67
 D=A
@@ -148590,7 +148582,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.114
+@SnakeGame.moveUpNa$ret.420
 D=A
 @SP
 A=M
@@ -148637,7 +148629,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.114)
+(SnakeGame.moveUpNa$ret.420)
 //push constant 79
 @79
 D=A
@@ -148647,7 +148639,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.115
+@SnakeGame.moveUpNa$ret.421
 D=A
 @SP
 A=M
@@ -148694,7 +148686,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.115)
+(SnakeGame.moveUpNa$ret.421)
 //push constant 82
 @82
 D=A
@@ -148704,7 +148696,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.116
+@SnakeGame.moveUpNa$ret.422
 D=A
 @SP
 A=M
@@ -148751,7 +148743,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.116)
+(SnakeGame.moveUpNa$ret.422)
 //push constant 69
 @69
 D=A
@@ -148761,7 +148753,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.117
+@SnakeGame.moveUpNa$ret.423
 D=A
 @SP
 A=M
@@ -148808,7 +148800,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.117)
+(SnakeGame.moveUpNa$ret.423)
 //push constant 58
 @58
 D=A
@@ -148818,7 +148810,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.118
+@SnakeGame.moveUpNa$ret.424
 D=A
 @SP
 A=M
@@ -148865,7 +148857,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.118)
+(SnakeGame.moveUpNa$ret.424)
 //push constant 32
 @32
 D=A
@@ -148875,7 +148867,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.119
+@SnakeGame.moveUpNa$ret.425
 D=A
 @SP
 A=M
@@ -148922,9 +148914,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.119)
+(SnakeGame.moveUpNa$ret.425)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.120
+@SnakeGame.moveUpNa$ret.426
 D=A
 @SP
 A=M
@@ -148971,7 +148963,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.120)
+(SnakeGame.moveUpNa$ret.426)
 //pop temp 0
 @5
 D=A
@@ -148995,7 +148987,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printInt 1
-@SnakeGame.moveUpNa$ret.121
+@SnakeGame.moveUpNa$ret.427
 D=A
 @SP
 A=M
@@ -149042,7 +149034,7 @@ D=M
 M=D
 @Output.printInt
 0;JMP
-(SnakeGame.moveUpNa$ret.121)
+(SnakeGame.moveUpNa$ret.427)
 //pop temp 0
 @5
 D=A
@@ -149098,24 +149090,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE67)
+(NORMAL_CASE6081)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE67
+@TRUE6081
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE67
+@CONTINUE6081
 0;JMP
-(TRUE67)
+(TRUE6081)
 @SP
 A=M-1
 M=-1
-(CONTINUE67)
+(CONTINUE6081)
 //not
 @SP
 AM=M-1
@@ -149135,7 +149127,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.122
+@SnakeGame.moveUpNa$ret.428
 D=A
 @SP
 A=M
@@ -149182,7 +149174,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.122)
+(SnakeGame.moveUpNa$ret.428)
 //pop local 0
 @LCL
 D=M
@@ -149203,7 +149195,7 @@ M=D
 // write label WHILE_END4
 (SnakeGame.moveUpNa$WHILE_END4)
 // call function Apple.new 0
-@SnakeGame.moveUpNa$ret.123
+@SnakeGame.moveUpNa$ret.429
 D=A
 @SP
 A=M
@@ -149250,7 +149242,7 @@ D=M
 M=D
 @Apple.new
 0;JMP
-(SnakeGame.moveUpNa$ret.123)
+(SnakeGame.moveUpNa$ret.429)
 //pop this 2
 @THIS
 D=M
@@ -149290,7 +149282,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.124
+@SnakeGame.moveUpNa$ret.430
 D=A
 @SP
 A=M
@@ -149337,7 +149329,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.124)
+(SnakeGame.moveUpNa$ret.430)
 //push this 2
 @THIS
 D=M
@@ -149350,7 +149342,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.125
+@SnakeGame.moveUpNa$ret.431
 D=A
 @SP
 A=M
@@ -149397,9 +149389,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.125)
+(SnakeGame.moveUpNa$ret.431)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.126
+@SnakeGame.moveUpNa$ret.432
 D=A
 @SP
 A=M
@@ -149446,7 +149438,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.126)
+(SnakeGame.moveUpNa$ret.432)
 //push this 0
 @THIS
 D=M
@@ -149470,7 +149462,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.127
+@SnakeGame.moveUpNa$ret.433
 D=A
 @SP
 A=M
@@ -149517,7 +149509,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.127)
+(SnakeGame.moveUpNa$ret.433)
 //push this 2
 @THIS
 D=M
@@ -149530,7 +149522,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.128
+@SnakeGame.moveUpNa$ret.434
 D=A
 @SP
 A=M
@@ -149577,9 +149569,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.128)
+(SnakeGame.moveUpNa$ret.434)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.129
+@SnakeGame.moveUpNa$ret.435
 D=A
 @SP
 A=M
@@ -149626,7 +149618,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.129)
+(SnakeGame.moveUpNa$ret.435)
 //or
 @SP
 AM=M-1
@@ -149664,7 +149656,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.130
+@SnakeGame.moveUpNa$ret.436
 D=A
 @SP
 A=M
@@ -149711,7 +149703,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.130)
+(SnakeGame.moveUpNa$ret.436)
 //pop temp 0
 @5
 D=A
@@ -149771,7 +149763,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.131
+@SnakeGame.moveUpNa$ret.437
 D=A
 @SP
 A=M
@@ -149818,7 +149810,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.131)
+(SnakeGame.moveUpNa$ret.437)
 //pop local 0
 @LCL
 D=M
@@ -149853,24 +149845,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE73)
+(NORMAL_CASE6087)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE73
+@TRUE6087
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE73
+@CONTINUE6087
 0;JMP
-(TRUE73)
+(TRUE6087)
 @SP
 A=M-1
 M=-1
-(CONTINUE73)
+(CONTINUE6087)
 // write if-goto IF_TRUE13
 @SP
 AM=M-1
@@ -149938,24 +149930,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE75)
+(NORMAL_CASE6089)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE75
+@TRUE6089
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE75
+@CONTINUE6089
 0;JMP
-(TRUE75)
+(TRUE6089)
 @SP
 A=M-1
 M=-1
-(CONTINUE75)
+(CONTINUE6089)
 // write if-goto IF_TRUE14
 @SP
 AM=M-1
@@ -149988,24 +149980,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE76)
+(NORMAL_CASE6090)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE76
+@TRUE6090
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE76
+@CONTINUE6090
 0;JMP
-(TRUE76)
+(TRUE6090)
 @SP
 A=M-1
 M=-1
-(CONTINUE76)
+(CONTINUE6090)
 //not
 @SP
 AM=M-1
@@ -150075,24 +150067,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE78)
+(NORMAL_CASE6092)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE78
+@TRUE6092
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE78
+@CONTINUE6092
 0;JMP
-(TRUE78)
+(TRUE6092)
 @SP
 A=M-1
 M=-1
-(CONTINUE78)
+(CONTINUE6092)
 // write if-goto IF_TRUE16
 @SP
 AM=M-1
@@ -150125,24 +150117,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE79)
+(NORMAL_CASE6093)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE79
+@TRUE6093
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE79
+@CONTINUE6093
 0;JMP
-(TRUE79)
+(TRUE6093)
 @SP
 A=M-1
 M=-1
-(CONTINUE79)
+(CONTINUE6093)
 //not
 @SP
 AM=M-1
@@ -150212,24 +150204,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE81)
+(NORMAL_CASE6095)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE81
+@TRUE6095
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE81
+@CONTINUE6095
 0;JMP
-(TRUE81)
+(TRUE6095)
 @SP
 A=M-1
 M=-1
-(CONTINUE81)
+(CONTINUE6095)
 // write if-goto IF_TRUE18
 @SP
 AM=M-1
@@ -150262,24 +150254,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE82)
+(NORMAL_CASE6096)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE82
+@TRUE6096
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE82
+@CONTINUE6096
 0;JMP
-(TRUE82)
+(TRUE6096)
 @SP
 A=M-1
 M=-1
-(CONTINUE82)
+(CONTINUE6096)
 //not
 @SP
 AM=M-1
@@ -150349,24 +150341,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE84)
+(NORMAL_CASE6098)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE84
+@TRUE6098
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE84
+@CONTINUE6098
 0;JMP
-(TRUE84)
+(TRUE6098)
 @SP
 A=M-1
 M=-1
-(CONTINUE84)
+(CONTINUE6098)
 // write if-goto IF_TRUE20
 @SP
 AM=M-1
@@ -150399,24 +150391,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE85)
+(NORMAL_CASE6099)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE85
+@TRUE6099
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE85
+@CONTINUE6099
 0;JMP
-(TRUE85)
+(TRUE6099)
 @SP
 A=M-1
 M=-1
-(CONTINUE85)
+(CONTINUE6099)
 //not
 @SP
 AM=M-1
@@ -150486,24 +150478,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE87)
+(NORMAL_CASE6101)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE87
+@TRUE6101
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE87
+@CONTINUE6101
 0;JMP
-(TRUE87)
+(TRUE6101)
 @SP
 A=M-1
 M=-1
-(CONTINUE87)
+(CONTINUE6101)
 // write if-goto IF_TRUE22
 @SP
 AM=M-1
@@ -150517,7 +150509,7 @@ D;JNE
 // write label IF_TRUE22
 (SnakeGame.moveUpNa$IF_TRUE22)
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.132
+@SnakeGame.moveUpNa$ret.438
 D=A
 @SP
 A=M
@@ -150564,7 +150556,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.132)
+(SnakeGame.moveUpNa$ret.438)
 //pop local 0
 @LCL
 D=M
@@ -150590,7 +150582,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeGame.moveSnake 1
-@SnakeGame.moveUpNa$ret.133
+@SnakeGame.moveUpNa$ret.439
 D=A
 @SP
 A=M
@@ -150637,7 +150629,7 @@ D=M
 M=D
 @SnakeGame.moveSnake
 0;JMP
-(SnakeGame.moveUpNa$ret.133)
+(SnakeGame.moveUpNa$ret.439)
 //pop temp 0
 @5
 D=A
@@ -150683,7 +150675,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.134
+@SnakeGame.moveUpNa$ret.440
 D=A
 @SP
 A=M
@@ -150730,7 +150722,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.134)
+(SnakeGame.moveUpNa$ret.440)
 //push this 0
 @THIS
 D=M
@@ -150743,7 +150735,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.135
+@SnakeGame.moveUpNa$ret.441
 D=A
 @SP
 A=M
@@ -150790,26 +150782,26 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.135)
+(SnakeGame.moveUpNa$ret.441)
 //eq
-(NORMAL_CASE88)
+(NORMAL_CASE6102)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE88
+@TRUE6102
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE88
+@CONTINUE6102
 0;JMP
-(TRUE88)
+(TRUE6102)
 @SP
 A=M-1
 M=-1
-(CONTINUE88)
+(CONTINUE6102)
 //push this 2
 @THIS
 D=M
@@ -150822,7 +150814,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.136
+@SnakeGame.moveUpNa$ret.442
 D=A
 @SP
 A=M
@@ -150869,7 +150861,7 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.136)
+(SnakeGame.moveUpNa$ret.442)
 //push this 0
 @THIS
 D=M
@@ -150882,7 +150874,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.137
+@SnakeGame.moveUpNa$ret.443
 D=A
 @SP
 A=M
@@ -150929,26 +150921,26 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.137)
+(SnakeGame.moveUpNa$ret.443)
 //eq
-(NORMAL_CASE89)
+(NORMAL_CASE6103)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE89
+@TRUE6103
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE89
+@CONTINUE6103
 0;JMP
-(TRUE89)
+(TRUE6103)
 @SP
 A=M-1
 M=-1
-(CONTINUE89)
+(CONTINUE6103)
 //and
 @SP
 AM=M-1
@@ -151019,7 +151011,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.138
+@SnakeGame.moveUpNa$ret.444
 D=A
 @SP
 A=M
@@ -151066,7 +151058,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.138)
+(SnakeGame.moveUpNa$ret.444)
 //pop temp 0
 @5
 D=A
@@ -151103,7 +151095,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.139
+@SnakeGame.moveUpNa$ret.445
 D=A
 @SP
 A=M
@@ -151150,7 +151142,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.139)
+(SnakeGame.moveUpNa$ret.445)
 //push this 2
 @THIS
 D=M
@@ -151163,7 +151155,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.140
+@SnakeGame.moveUpNa$ret.446
 D=A
 @SP
 A=M
@@ -151210,9 +151202,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.140)
+(SnakeGame.moveUpNa$ret.446)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.141
+@SnakeGame.moveUpNa$ret.447
 D=A
 @SP
 A=M
@@ -151259,7 +151251,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.141)
+(SnakeGame.moveUpNa$ret.447)
 //push this 0
 @THIS
 D=M
@@ -151283,7 +151275,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.142
+@SnakeGame.moveUpNa$ret.448
 D=A
 @SP
 A=M
@@ -151330,7 +151322,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.142)
+(SnakeGame.moveUpNa$ret.448)
 //push this 2
 @THIS
 D=M
@@ -151343,7 +151335,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.143
+@SnakeGame.moveUpNa$ret.449
 D=A
 @SP
 A=M
@@ -151390,9 +151382,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.143)
+(SnakeGame.moveUpNa$ret.449)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.144
+@SnakeGame.moveUpNa$ret.450
 D=A
 @SP
 A=M
@@ -151439,7 +151431,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.144)
+(SnakeGame.moveUpNa$ret.450)
 //or
 @SP
 AM=M-1
@@ -151477,7 +151469,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.145
+@SnakeGame.moveUpNa$ret.451
 D=A
 @SP
 A=M
@@ -151524,7 +151516,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.145)
+(SnakeGame.moveUpNa$ret.451)
 //pop temp 0
 @5
 D=A
@@ -151553,7 +151545,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.lengthen 1
-@SnakeGame.moveUpNa$ret.146
+@SnakeGame.moveUpNa$ret.452
 D=A
 @SP
 A=M
@@ -151600,7 +151592,7 @@ D=M
 M=D
 @Snake.lengthen
 0;JMP
-(SnakeGame.moveUpNa$ret.146)
+(SnakeGame.moveUpNa$ret.452)
 //pop temp 0
 @5
 D=A
@@ -151626,7 +151618,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.hitItself 1
-@SnakeGame.moveUpNa$ret.147
+@SnakeGame.moveUpNa$ret.453
 D=A
 @SP
 A=M
@@ -151673,7 +151665,7 @@ D=M
 M=D
 @Snake.hitItself
 0;JMP
-(SnakeGame.moveUpNa$ret.147)
+(SnakeGame.moveUpNa$ret.453)
 // write if-goto IF_TRUE24
 @SP
 AM=M-1
@@ -151744,7 +151736,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.148
+@SnakeGame.moveUpNa$ret.454
 D=A
 @SP
 A=M
@@ -151791,7 +151783,7 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.148)
+(SnakeGame.moveUpNa$ret.454)
 //push this 0
 @THIS
 D=M
@@ -151804,7 +151796,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.149
+@SnakeGame.moveUpNa$ret.455
 D=A
 @SP
 A=M
@@ -151851,9 +151843,9 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.149)
+(SnakeGame.moveUpNa$ret.455)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.150
+@SnakeGame.moveUpNa$ret.456
 D=A
 @SP
 A=M
@@ -151900,7 +151892,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.150)
+(SnakeGame.moveUpNa$ret.456)
 //push constant 0
 @0
 D=A
@@ -151921,24 +151913,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE96)
+(NORMAL_CASE6110)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE96
+@TRUE6110
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE96
+@CONTINUE6110
 0;JMP
-(TRUE96)
+(TRUE6110)
 @SP
 A=M-1
 M=-1
-(CONTINUE96)
+(CONTINUE6110)
 // write if-goto IF_TRUE25
 @SP
 AM=M-1
@@ -152008,7 +152000,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.151
+@SnakeGame.moveUpNa$ret.457
 D=A
 @SP
 A=M
@@ -152055,7 +152047,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.151)
+(SnakeGame.moveUpNa$ret.457)
 //pop temp 0
 @5
 D=A
@@ -152076,7 +152068,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.152
+@SnakeGame.moveUpNa$ret.458
 D=A
 @SP
 A=M
@@ -152123,7 +152115,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.152)
+(SnakeGame.moveUpNa$ret.458)
 //push constant 71
 @71
 D=A
@@ -152133,7 +152125,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.153
+@SnakeGame.moveUpNa$ret.459
 D=A
 @SP
 A=M
@@ -152180,7 +152172,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.153)
+(SnakeGame.moveUpNa$ret.459)
 //push constant 65
 @65
 D=A
@@ -152190,7 +152182,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.154
+@SnakeGame.moveUpNa$ret.460
 D=A
 @SP
 A=M
@@ -152237,7 +152229,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.154)
+(SnakeGame.moveUpNa$ret.460)
 //push constant 77
 @77
 D=A
@@ -152247,7 +152239,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.155
+@SnakeGame.moveUpNa$ret.461
 D=A
 @SP
 A=M
@@ -152294,7 +152286,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.155)
+(SnakeGame.moveUpNa$ret.461)
 //push constant 69
 @69
 D=A
@@ -152304,7 +152296,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.156
+@SnakeGame.moveUpNa$ret.462
 D=A
 @SP
 A=M
@@ -152351,7 +152343,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.156)
+(SnakeGame.moveUpNa$ret.462)
 //push constant 32
 @32
 D=A
@@ -152361,7 +152353,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.157
+@SnakeGame.moveUpNa$ret.463
 D=A
 @SP
 A=M
@@ -152408,7 +152400,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.157)
+(SnakeGame.moveUpNa$ret.463)
 //push constant 79
 @79
 D=A
@@ -152418,7 +152410,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.158
+@SnakeGame.moveUpNa$ret.464
 D=A
 @SP
 A=M
@@ -152465,7 +152457,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.158)
+(SnakeGame.moveUpNa$ret.464)
 //push constant 86
 @86
 D=A
@@ -152475,7 +152467,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.159
+@SnakeGame.moveUpNa$ret.465
 D=A
 @SP
 A=M
@@ -152522,7 +152514,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.159)
+(SnakeGame.moveUpNa$ret.465)
 //push constant 69
 @69
 D=A
@@ -152532,7 +152524,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.160
+@SnakeGame.moveUpNa$ret.466
 D=A
 @SP
 A=M
@@ -152579,7 +152571,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.160)
+(SnakeGame.moveUpNa$ret.466)
 //push constant 82
 @82
 D=A
@@ -152589,7 +152581,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.161
+@SnakeGame.moveUpNa$ret.467
 D=A
 @SP
 A=M
@@ -152636,9 +152628,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.161)
+(SnakeGame.moveUpNa$ret.467)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.162
+@SnakeGame.moveUpNa$ret.468
 D=A
 @SP
 A=M
@@ -152685,7 +152677,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.162)
+(SnakeGame.moveUpNa$ret.468)
 //pop temp 0
 @5
 D=A
@@ -152714,7 +152706,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.163
+@SnakeGame.moveUpNa$ret.469
 D=A
 @SP
 A=M
@@ -152761,7 +152753,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.163)
+(SnakeGame.moveUpNa$ret.469)
 //pop temp 0
 @5
 D=A
@@ -152782,7 +152774,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.164
+@SnakeGame.moveUpNa$ret.470
 D=A
 @SP
 A=M
@@ -152829,7 +152821,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.164)
+(SnakeGame.moveUpNa$ret.470)
 //push constant 83
 @83
 D=A
@@ -152839,7 +152831,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.165
+@SnakeGame.moveUpNa$ret.471
 D=A
 @SP
 A=M
@@ -152886,7 +152878,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.165)
+(SnakeGame.moveUpNa$ret.471)
 //push constant 67
 @67
 D=A
@@ -152896,7 +152888,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.166
+@SnakeGame.moveUpNa$ret.472
 D=A
 @SP
 A=M
@@ -152943,7 +152935,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.166)
+(SnakeGame.moveUpNa$ret.472)
 //push constant 79
 @79
 D=A
@@ -152953,7 +152945,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.167
+@SnakeGame.moveUpNa$ret.473
 D=A
 @SP
 A=M
@@ -153000,7 +152992,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.167)
+(SnakeGame.moveUpNa$ret.473)
 //push constant 82
 @82
 D=A
@@ -153010,7 +153002,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.168
+@SnakeGame.moveUpNa$ret.474
 D=A
 @SP
 A=M
@@ -153057,7 +153049,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.168)
+(SnakeGame.moveUpNa$ret.474)
 //push constant 69
 @69
 D=A
@@ -153067,7 +153059,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.169
+@SnakeGame.moveUpNa$ret.475
 D=A
 @SP
 A=M
@@ -153114,7 +153106,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.169)
+(SnakeGame.moveUpNa$ret.475)
 //push constant 58
 @58
 D=A
@@ -153124,7 +153116,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.170
+@SnakeGame.moveUpNa$ret.476
 D=A
 @SP
 A=M
@@ -153171,7 +153163,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.170)
+(SnakeGame.moveUpNa$ret.476)
 //push constant 32
 @32
 D=A
@@ -153181,7 +153173,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.171
+@SnakeGame.moveUpNa$ret.477
 D=A
 @SP
 A=M
@@ -153228,9 +153220,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.171)
+(SnakeGame.moveUpNa$ret.477)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.172
+@SnakeGame.moveUpNa$ret.478
 D=A
 @SP
 A=M
@@ -153277,7 +153269,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.172)
+(SnakeGame.moveUpNa$ret.478)
 //pop temp 0
 @5
 D=A
@@ -153301,7 +153293,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printInt 1
-@SnakeGame.moveUpNa$ret.173
+@SnakeGame.moveUpNa$ret.479
 D=A
 @SP
 A=M
@@ -153348,7 +153340,7 @@ D=M
 M=D
 @Output.printInt
 0;JMP
-(SnakeGame.moveUpNa$ret.173)
+(SnakeGame.moveUpNa$ret.479)
 //pop temp 0
 @5
 D=A
@@ -153404,24 +153396,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE98)
+(NORMAL_CASE6112)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE98
+@TRUE6112
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE98
+@CONTINUE6112
 0;JMP
-(TRUE98)
+(TRUE6112)
 @SP
 A=M-1
 M=-1
-(CONTINUE98)
+(CONTINUE6112)
 //not
 @SP
 AM=M-1
@@ -153441,7 +153433,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.174
+@SnakeGame.moveUpNa$ret.480
 D=A
 @SP
 A=M
@@ -153488,7 +153480,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.174)
+(SnakeGame.moveUpNa$ret.480)
 //pop local 0
 @LCL
 D=M
@@ -153509,7 +153501,7 @@ M=D
 // write label WHILE_END8
 (SnakeGame.moveUpNa$WHILE_END8)
 // call function Apple.new 0
-@SnakeGame.moveUpNa$ret.175
+@SnakeGame.moveUpNa$ret.481
 D=A
 @SP
 A=M
@@ -153556,7 +153548,7 @@ D=M
 M=D
 @Apple.new
 0;JMP
-(SnakeGame.moveUpNa$ret.175)
+(SnakeGame.moveUpNa$ret.481)
 //pop this 2
 @THIS
 D=M
@@ -153596,7 +153588,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.176
+@SnakeGame.moveUpNa$ret.482
 D=A
 @SP
 A=M
@@ -153643,7 +153635,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.176)
+(SnakeGame.moveUpNa$ret.482)
 //push this 2
 @THIS
 D=M
@@ -153656,7 +153648,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.177
+@SnakeGame.moveUpNa$ret.483
 D=A
 @SP
 A=M
@@ -153703,9 +153695,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.177)
+(SnakeGame.moveUpNa$ret.483)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.178
+@SnakeGame.moveUpNa$ret.484
 D=A
 @SP
 A=M
@@ -153752,7 +153744,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.178)
+(SnakeGame.moveUpNa$ret.484)
 //push this 0
 @THIS
 D=M
@@ -153776,7 +153768,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.179
+@SnakeGame.moveUpNa$ret.485
 D=A
 @SP
 A=M
@@ -153823,7 +153815,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.179)
+(SnakeGame.moveUpNa$ret.485)
 //push this 2
 @THIS
 D=M
@@ -153836,7 +153828,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.180
+@SnakeGame.moveUpNa$ret.486
 D=A
 @SP
 A=M
@@ -153883,9 +153875,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.180)
+(SnakeGame.moveUpNa$ret.486)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.181
+@SnakeGame.moveUpNa$ret.487
 D=A
 @SP
 A=M
@@ -153932,7 +153924,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.181)
+(SnakeGame.moveUpNa$ret.487)
 //or
 @SP
 AM=M-1
@@ -153970,7 +153962,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.182
+@SnakeGame.moveUpNa$ret.488
 D=A
 @SP
 A=M
@@ -154017,7 +154009,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.182)
+(SnakeGame.moveUpNa$ret.488)
 //pop temp 0
 @5
 D=A
@@ -154077,7 +154069,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.183
+@SnakeGame.moveUpNa$ret.489
 D=A
 @SP
 A=M
@@ -154124,7 +154116,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.183)
+(SnakeGame.moveUpNa$ret.489)
 //pop local 0
 @LCL
 D=M
@@ -154159,24 +154151,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE104)
+(NORMAL_CASE6118)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE104
+@TRUE6118
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE104
+@CONTINUE6118
 0;JMP
-(TRUE104)
+(TRUE6118)
 @SP
 A=M-1
 M=-1
-(CONTINUE104)
+(CONTINUE6118)
 // write if-goto IF_TRUE26
 @SP
 AM=M-1
@@ -154244,24 +154236,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE106)
+(NORMAL_CASE6120)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE106
+@TRUE6120
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE106
+@CONTINUE6120
 0;JMP
-(TRUE106)
+(TRUE6120)
 @SP
 A=M-1
 M=-1
-(CONTINUE106)
+(CONTINUE6120)
 // write if-goto IF_TRUE27
 @SP
 AM=M-1
@@ -154294,24 +154286,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE107)
+(NORMAL_CASE6121)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE107
+@TRUE6121
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE107
+@CONTINUE6121
 0;JMP
-(TRUE107)
+(TRUE6121)
 @SP
 A=M-1
 M=-1
-(CONTINUE107)
+(CONTINUE6121)
 //not
 @SP
 AM=M-1
@@ -154381,24 +154373,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE109)
+(NORMAL_CASE6123)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE109
+@TRUE6123
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE109
+@CONTINUE6123
 0;JMP
-(TRUE109)
+(TRUE6123)
 @SP
 A=M-1
 M=-1
-(CONTINUE109)
+(CONTINUE6123)
 // write if-goto IF_TRUE29
 @SP
 AM=M-1
@@ -154431,24 +154423,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE110)
+(NORMAL_CASE6124)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE110
+@TRUE6124
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE110
+@CONTINUE6124
 0;JMP
-(TRUE110)
+(TRUE6124)
 @SP
 A=M-1
 M=-1
-(CONTINUE110)
+(CONTINUE6124)
 //not
 @SP
 AM=M-1
@@ -154518,24 +154510,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE112)
+(NORMAL_CASE6126)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE112
+@TRUE6126
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE112
+@CONTINUE6126
 0;JMP
-(TRUE112)
+(TRUE6126)
 @SP
 A=M-1
 M=-1
-(CONTINUE112)
+(CONTINUE6126)
 // write if-goto IF_TRUE31
 @SP
 AM=M-1
@@ -154568,24 +154560,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE113)
+(NORMAL_CASE6127)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE113
+@TRUE6127
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE113
+@CONTINUE6127
 0;JMP
-(TRUE113)
+(TRUE6127)
 @SP
 A=M-1
 M=-1
-(CONTINUE113)
+(CONTINUE6127)
 //not
 @SP
 AM=M-1
@@ -154655,24 +154647,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE115)
+(NORMAL_CASE6129)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE115
+@TRUE6129
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE115
+@CONTINUE6129
 0;JMP
-(TRUE115)
+(TRUE6129)
 @SP
 A=M-1
 M=-1
-(CONTINUE115)
+(CONTINUE6129)
 // write if-goto IF_TRUE33
 @SP
 AM=M-1
@@ -154705,24 +154697,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE116)
+(NORMAL_CASE6130)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE116
+@TRUE6130
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE116
+@CONTINUE6130
 0;JMP
-(TRUE116)
+(TRUE6130)
 @SP
 A=M-1
 M=-1
-(CONTINUE116)
+(CONTINUE6130)
 //not
 @SP
 AM=M-1
@@ -154792,24 +154784,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE118)
+(NORMAL_CASE6132)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE118
+@TRUE6132
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE118
+@CONTINUE6132
 0;JMP
-(TRUE118)
+(TRUE6132)
 @SP
 A=M-1
 M=-1
-(CONTINUE118)
+(CONTINUE6132)
 // write if-goto IF_TRUE35
 @SP
 AM=M-1
@@ -154823,7 +154815,7 @@ D;JNE
 // write label IF_TRUE35
 (SnakeGame.moveUpNa$IF_TRUE35)
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.184
+@SnakeGame.moveUpNa$ret.490
 D=A
 @SP
 A=M
@@ -154870,7 +154862,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.184)
+(SnakeGame.moveUpNa$ret.490)
 //pop local 0
 @LCL
 D=M
@@ -154896,7 +154888,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeGame.moveSnake 1
-@SnakeGame.moveUpNa$ret.185
+@SnakeGame.moveUpNa$ret.491
 D=A
 @SP
 A=M
@@ -154943,7 +154935,7 @@ D=M
 M=D
 @SnakeGame.moveSnake
 0;JMP
-(SnakeGame.moveUpNa$ret.185)
+(SnakeGame.moveUpNa$ret.491)
 //pop temp 0
 @5
 D=A
@@ -154989,7 +154981,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.186
+@SnakeGame.moveUpNa$ret.492
 D=A
 @SP
 A=M
@@ -155036,7 +155028,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.186)
+(SnakeGame.moveUpNa$ret.492)
 //push this 0
 @THIS
 D=M
@@ -155049,7 +155041,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.187
+@SnakeGame.moveUpNa$ret.493
 D=A
 @SP
 A=M
@@ -155096,26 +155088,26 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.187)
+(SnakeGame.moveUpNa$ret.493)
 //eq
-(NORMAL_CASE119)
+(NORMAL_CASE6133)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE119
+@TRUE6133
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE119
+@CONTINUE6133
 0;JMP
-(TRUE119)
+(TRUE6133)
 @SP
 A=M-1
 M=-1
-(CONTINUE119)
+(CONTINUE6133)
 //push this 2
 @THIS
 D=M
@@ -155128,7 +155120,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.188
+@SnakeGame.moveUpNa$ret.494
 D=A
 @SP
 A=M
@@ -155175,7 +155167,7 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.188)
+(SnakeGame.moveUpNa$ret.494)
 //push this 0
 @THIS
 D=M
@@ -155188,7 +155180,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.189
+@SnakeGame.moveUpNa$ret.495
 D=A
 @SP
 A=M
@@ -155235,26 +155227,26 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.189)
+(SnakeGame.moveUpNa$ret.495)
 //eq
-(NORMAL_CASE120)
+(NORMAL_CASE6134)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE120
+@TRUE6134
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE120
+@CONTINUE6134
 0;JMP
-(TRUE120)
+(TRUE6134)
 @SP
 A=M-1
 M=-1
-(CONTINUE120)
+(CONTINUE6134)
 //and
 @SP
 AM=M-1
@@ -155325,7 +155317,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.190
+@SnakeGame.moveUpNa$ret.496
 D=A
 @SP
 A=M
@@ -155372,7 +155364,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.190)
+(SnakeGame.moveUpNa$ret.496)
 //pop temp 0
 @5
 D=A
@@ -155409,7 +155401,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.191
+@SnakeGame.moveUpNa$ret.497
 D=A
 @SP
 A=M
@@ -155456,7 +155448,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.191)
+(SnakeGame.moveUpNa$ret.497)
 //push this 2
 @THIS
 D=M
@@ -155469,7 +155461,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.192
+@SnakeGame.moveUpNa$ret.498
 D=A
 @SP
 A=M
@@ -155516,9 +155508,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.192)
+(SnakeGame.moveUpNa$ret.498)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.193
+@SnakeGame.moveUpNa$ret.499
 D=A
 @SP
 A=M
@@ -155565,7 +155557,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.193)
+(SnakeGame.moveUpNa$ret.499)
 //push this 0
 @THIS
 D=M
@@ -155589,7 +155581,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.194
+@SnakeGame.moveUpNa$ret.500
 D=A
 @SP
 A=M
@@ -155636,7 +155628,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.194)
+(SnakeGame.moveUpNa$ret.500)
 //push this 2
 @THIS
 D=M
@@ -155649,7 +155641,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.195
+@SnakeGame.moveUpNa$ret.501
 D=A
 @SP
 A=M
@@ -155696,9 +155688,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.195)
+(SnakeGame.moveUpNa$ret.501)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.196
+@SnakeGame.moveUpNa$ret.502
 D=A
 @SP
 A=M
@@ -155745,7 +155737,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.196)
+(SnakeGame.moveUpNa$ret.502)
 //or
 @SP
 AM=M-1
@@ -155783,7 +155775,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.197
+@SnakeGame.moveUpNa$ret.503
 D=A
 @SP
 A=M
@@ -155830,7 +155822,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.197)
+(SnakeGame.moveUpNa$ret.503)
 //pop temp 0
 @5
 D=A
@@ -155859,7 +155851,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.lengthen 1
-@SnakeGame.moveUpNa$ret.198
+@SnakeGame.moveUpNa$ret.504
 D=A
 @SP
 A=M
@@ -155906,7 +155898,7 @@ D=M
 M=D
 @Snake.lengthen
 0;JMP
-(SnakeGame.moveUpNa$ret.198)
+(SnakeGame.moveUpNa$ret.504)
 //pop temp 0
 @5
 D=A
@@ -155932,7 +155924,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.hitItself 1
-@SnakeGame.moveUpNa$ret.199
+@SnakeGame.moveUpNa$ret.505
 D=A
 @SP
 A=M
@@ -155979,7 +155971,7 @@ D=M
 M=D
 @Snake.hitItself
 0;JMP
-(SnakeGame.moveUpNa$ret.199)
+(SnakeGame.moveUpNa$ret.505)
 // write if-goto IF_TRUE37
 @SP
 AM=M-1
@@ -156050,7 +156042,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.200
+@SnakeGame.moveUpNa$ret.506
 D=A
 @SP
 A=M
@@ -156097,7 +156089,7 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.200)
+(SnakeGame.moveUpNa$ret.506)
 //push this 0
 @THIS
 D=M
@@ -156110,7 +156102,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.201
+@SnakeGame.moveUpNa$ret.507
 D=A
 @SP
 A=M
@@ -156157,9 +156149,9 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.201)
+(SnakeGame.moveUpNa$ret.507)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.202
+@SnakeGame.moveUpNa$ret.508
 D=A
 @SP
 A=M
@@ -156206,7 +156198,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.202)
+(SnakeGame.moveUpNa$ret.508)
 //push constant 0
 @0
 D=A
@@ -156227,24 +156219,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE127)
+(NORMAL_CASE6141)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE127
+@TRUE6141
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE127
+@CONTINUE6141
 0;JMP
-(TRUE127)
+(TRUE6141)
 @SP
 A=M-1
 M=-1
-(CONTINUE127)
+(CONTINUE6141)
 // write if-goto IF_TRUE38
 @SP
 AM=M-1
@@ -156314,7 +156306,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.203
+@SnakeGame.moveUpNa$ret.509
 D=A
 @SP
 A=M
@@ -156361,7 +156353,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.203)
+(SnakeGame.moveUpNa$ret.509)
 //pop temp 0
 @5
 D=A
@@ -156382,7 +156374,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.204
+@SnakeGame.moveUpNa$ret.510
 D=A
 @SP
 A=M
@@ -156429,7 +156421,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.204)
+(SnakeGame.moveUpNa$ret.510)
 //push constant 71
 @71
 D=A
@@ -156439,7 +156431,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.205
+@SnakeGame.moveUpNa$ret.511
 D=A
 @SP
 A=M
@@ -156486,7 +156478,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.205)
+(SnakeGame.moveUpNa$ret.511)
 //push constant 65
 @65
 D=A
@@ -156496,7 +156488,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.206
+@SnakeGame.moveUpNa$ret.512
 D=A
 @SP
 A=M
@@ -156543,7 +156535,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.206)
+(SnakeGame.moveUpNa$ret.512)
 //push constant 77
 @77
 D=A
@@ -156553,7 +156545,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.207
+@SnakeGame.moveUpNa$ret.513
 D=A
 @SP
 A=M
@@ -156600,7 +156592,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.207)
+(SnakeGame.moveUpNa$ret.513)
 //push constant 69
 @69
 D=A
@@ -156610,7 +156602,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.208
+@SnakeGame.moveUpNa$ret.514
 D=A
 @SP
 A=M
@@ -156657,7 +156649,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.208)
+(SnakeGame.moveUpNa$ret.514)
 //push constant 32
 @32
 D=A
@@ -156667,7 +156659,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.209
+@SnakeGame.moveUpNa$ret.515
 D=A
 @SP
 A=M
@@ -156714,7 +156706,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.209)
+(SnakeGame.moveUpNa$ret.515)
 //push constant 79
 @79
 D=A
@@ -156724,7 +156716,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.210
+@SnakeGame.moveUpNa$ret.516
 D=A
 @SP
 A=M
@@ -156771,7 +156763,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.210)
+(SnakeGame.moveUpNa$ret.516)
 //push constant 86
 @86
 D=A
@@ -156781,7 +156773,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.211
+@SnakeGame.moveUpNa$ret.517
 D=A
 @SP
 A=M
@@ -156828,7 +156820,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.211)
+(SnakeGame.moveUpNa$ret.517)
 //push constant 69
 @69
 D=A
@@ -156838,7 +156830,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.212
+@SnakeGame.moveUpNa$ret.518
 D=A
 @SP
 A=M
@@ -156885,7 +156877,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.212)
+(SnakeGame.moveUpNa$ret.518)
 //push constant 82
 @82
 D=A
@@ -156895,7 +156887,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.213
+@SnakeGame.moveUpNa$ret.519
 D=A
 @SP
 A=M
@@ -156942,9 +156934,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.213)
+(SnakeGame.moveUpNa$ret.519)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.214
+@SnakeGame.moveUpNa$ret.520
 D=A
 @SP
 A=M
@@ -156991,7 +156983,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.214)
+(SnakeGame.moveUpNa$ret.520)
 //pop temp 0
 @5
 D=A
@@ -157020,7 +157012,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.215
+@SnakeGame.moveUpNa$ret.521
 D=A
 @SP
 A=M
@@ -157067,7 +157059,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.215)
+(SnakeGame.moveUpNa$ret.521)
 //pop temp 0
 @5
 D=A
@@ -157088,7 +157080,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.216
+@SnakeGame.moveUpNa$ret.522
 D=A
 @SP
 A=M
@@ -157135,7 +157127,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.216)
+(SnakeGame.moveUpNa$ret.522)
 //push constant 83
 @83
 D=A
@@ -157145,7 +157137,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.217
+@SnakeGame.moveUpNa$ret.523
 D=A
 @SP
 A=M
@@ -157192,7 +157184,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.217)
+(SnakeGame.moveUpNa$ret.523)
 //push constant 67
 @67
 D=A
@@ -157202,7 +157194,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.218
+@SnakeGame.moveUpNa$ret.524
 D=A
 @SP
 A=M
@@ -157249,7 +157241,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.218)
+(SnakeGame.moveUpNa$ret.524)
 //push constant 79
 @79
 D=A
@@ -157259,7 +157251,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.219
+@SnakeGame.moveUpNa$ret.525
 D=A
 @SP
 A=M
@@ -157306,7 +157298,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.219)
+(SnakeGame.moveUpNa$ret.525)
 //push constant 82
 @82
 D=A
@@ -157316,7 +157308,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.220
+@SnakeGame.moveUpNa$ret.526
 D=A
 @SP
 A=M
@@ -157363,7 +157355,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.220)
+(SnakeGame.moveUpNa$ret.526)
 //push constant 69
 @69
 D=A
@@ -157373,7 +157365,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.221
+@SnakeGame.moveUpNa$ret.527
 D=A
 @SP
 A=M
@@ -157420,7 +157412,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.221)
+(SnakeGame.moveUpNa$ret.527)
 //push constant 58
 @58
 D=A
@@ -157430,7 +157422,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.222
+@SnakeGame.moveUpNa$ret.528
 D=A
 @SP
 A=M
@@ -157477,7 +157469,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.222)
+(SnakeGame.moveUpNa$ret.528)
 //push constant 32
 @32
 D=A
@@ -157487,7 +157479,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.223
+@SnakeGame.moveUpNa$ret.529
 D=A
 @SP
 A=M
@@ -157534,9 +157526,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.223)
+(SnakeGame.moveUpNa$ret.529)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.224
+@SnakeGame.moveUpNa$ret.530
 D=A
 @SP
 A=M
@@ -157583,7 +157575,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.224)
+(SnakeGame.moveUpNa$ret.530)
 //pop temp 0
 @5
 D=A
@@ -157607,7 +157599,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printInt 1
-@SnakeGame.moveUpNa$ret.225
+@SnakeGame.moveUpNa$ret.531
 D=A
 @SP
 A=M
@@ -157654,7 +157646,7 @@ D=M
 M=D
 @Output.printInt
 0;JMP
-(SnakeGame.moveUpNa$ret.225)
+(SnakeGame.moveUpNa$ret.531)
 //pop temp 0
 @5
 D=A
@@ -157710,24 +157702,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE129)
+(NORMAL_CASE6143)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE129
+@TRUE6143
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE129
+@CONTINUE6143
 0;JMP
-(TRUE129)
+(TRUE6143)
 @SP
 A=M-1
 M=-1
-(CONTINUE129)
+(CONTINUE6143)
 //not
 @SP
 AM=M-1
@@ -157747,7 +157739,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.226
+@SnakeGame.moveUpNa$ret.532
 D=A
 @SP
 A=M
@@ -157794,7 +157786,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.226)
+(SnakeGame.moveUpNa$ret.532)
 //pop local 0
 @LCL
 D=M
@@ -157815,7 +157807,7 @@ M=D
 // write label WHILE_END12
 (SnakeGame.moveUpNa$WHILE_END12)
 // call function Apple.new 0
-@SnakeGame.moveUpNa$ret.227
+@SnakeGame.moveUpNa$ret.533
 D=A
 @SP
 A=M
@@ -157862,7 +157854,7 @@ D=M
 M=D
 @Apple.new
 0;JMP
-(SnakeGame.moveUpNa$ret.227)
+(SnakeGame.moveUpNa$ret.533)
 //pop this 2
 @THIS
 D=M
@@ -157902,7 +157894,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.228
+@SnakeGame.moveUpNa$ret.534
 D=A
 @SP
 A=M
@@ -157949,7 +157941,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.228)
+(SnakeGame.moveUpNa$ret.534)
 //push this 2
 @THIS
 D=M
@@ -157962,7 +157954,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.229
+@SnakeGame.moveUpNa$ret.535
 D=A
 @SP
 A=M
@@ -158009,9 +158001,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.229)
+(SnakeGame.moveUpNa$ret.535)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.230
+@SnakeGame.moveUpNa$ret.536
 D=A
 @SP
 A=M
@@ -158058,7 +158050,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.230)
+(SnakeGame.moveUpNa$ret.536)
 //push this 0
 @THIS
 D=M
@@ -158082,7 +158074,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.231
+@SnakeGame.moveUpNa$ret.537
 D=A
 @SP
 A=M
@@ -158129,7 +158121,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.231)
+(SnakeGame.moveUpNa$ret.537)
 //push this 2
 @THIS
 D=M
@@ -158142,7 +158134,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.232
+@SnakeGame.moveUpNa$ret.538
 D=A
 @SP
 A=M
@@ -158189,9 +158181,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.232)
+(SnakeGame.moveUpNa$ret.538)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.233
+@SnakeGame.moveUpNa$ret.539
 D=A
 @SP
 A=M
@@ -158238,7 +158230,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.233)
+(SnakeGame.moveUpNa$ret.539)
 //or
 @SP
 AM=M-1
@@ -158276,7 +158268,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.234
+@SnakeGame.moveUpNa$ret.540
 D=A
 @SP
 A=M
@@ -158323,7 +158315,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.234)
+(SnakeGame.moveUpNa$ret.540)
 //pop temp 0
 @5
 D=A
@@ -158383,7 +158375,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.235
+@SnakeGame.moveUpNa$ret.541
 D=A
 @SP
 A=M
@@ -158430,7 +158422,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.235)
+(SnakeGame.moveUpNa$ret.541)
 //pop local 0
 @LCL
 D=M
@@ -158465,24 +158457,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE135)
+(NORMAL_CASE6149)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE135
+@TRUE6149
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE135
+@CONTINUE6149
 0;JMP
-(TRUE135)
+(TRUE6149)
 @SP
 A=M-1
 M=-1
-(CONTINUE135)
+(CONTINUE6149)
 // write if-goto IF_TRUE39
 @SP
 AM=M-1
@@ -158550,24 +158542,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE137)
+(NORMAL_CASE6151)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE137
+@TRUE6151
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE137
+@CONTINUE6151
 0;JMP
-(TRUE137)
+(TRUE6151)
 @SP
 A=M-1
 M=-1
-(CONTINUE137)
+(CONTINUE6151)
 // write if-goto IF_TRUE40
 @SP
 AM=M-1
@@ -158600,24 +158592,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE138)
+(NORMAL_CASE6152)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE138
+@TRUE6152
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE138
+@CONTINUE6152
 0;JMP
-(TRUE138)
+(TRUE6152)
 @SP
 A=M-1
 M=-1
-(CONTINUE138)
+(CONTINUE6152)
 //not
 @SP
 AM=M-1
@@ -158687,24 +158679,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE140)
+(NORMAL_CASE6154)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE140
+@TRUE6154
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE140
+@CONTINUE6154
 0;JMP
-(TRUE140)
+(TRUE6154)
 @SP
 A=M-1
 M=-1
-(CONTINUE140)
+(CONTINUE6154)
 // write if-goto IF_TRUE42
 @SP
 AM=M-1
@@ -158737,24 +158729,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE141)
+(NORMAL_CASE6155)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE141
+@TRUE6155
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE141
+@CONTINUE6155
 0;JMP
-(TRUE141)
+(TRUE6155)
 @SP
 A=M-1
 M=-1
-(CONTINUE141)
+(CONTINUE6155)
 //not
 @SP
 AM=M-1
@@ -158824,24 +158816,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE143)
+(NORMAL_CASE6157)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE143
+@TRUE6157
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE143
+@CONTINUE6157
 0;JMP
-(TRUE143)
+(TRUE6157)
 @SP
 A=M-1
 M=-1
-(CONTINUE143)
+(CONTINUE6157)
 // write if-goto IF_TRUE44
 @SP
 AM=M-1
@@ -158874,24 +158866,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE144)
+(NORMAL_CASE6158)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE144
+@TRUE6158
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE144
+@CONTINUE6158
 0;JMP
-(TRUE144)
+(TRUE6158)
 @SP
 A=M-1
 M=-1
-(CONTINUE144)
+(CONTINUE6158)
 //not
 @SP
 AM=M-1
@@ -158961,24 +158953,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE146)
+(NORMAL_CASE6160)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE146
+@TRUE6160
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE146
+@CONTINUE6160
 0;JMP
-(TRUE146)
+(TRUE6160)
 @SP
 A=M-1
 M=-1
-(CONTINUE146)
+(CONTINUE6160)
 // write if-goto IF_TRUE46
 @SP
 AM=M-1
@@ -159011,24 +159003,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE147)
+(NORMAL_CASE6161)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE147
+@TRUE6161
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE147
+@CONTINUE6161
 0;JMP
-(TRUE147)
+(TRUE6161)
 @SP
 A=M-1
 M=-1
-(CONTINUE147)
+(CONTINUE6161)
 //not
 @SP
 AM=M-1
@@ -159098,24 +159090,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE149)
+(NORMAL_CASE6163)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE149
+@TRUE6163
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE149
+@CONTINUE6163
 0;JMP
-(TRUE149)
+(TRUE6163)
 @SP
 A=M-1
 M=-1
-(CONTINUE149)
+(CONTINUE6163)
 // write if-goto IF_TRUE48
 @SP
 AM=M-1
@@ -159129,7 +159121,7 @@ D;JNE
 // write label IF_TRUE48
 (SnakeGame.moveUpNa$IF_TRUE48)
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.236
+@SnakeGame.moveUpNa$ret.542
 D=A
 @SP
 A=M
@@ -159176,7 +159168,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.236)
+(SnakeGame.moveUpNa$ret.542)
 //pop local 0
 @LCL
 D=M
@@ -159202,7 +159194,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeGame.moveSnake 1
-@SnakeGame.moveUpNa$ret.237
+@SnakeGame.moveUpNa$ret.543
 D=A
 @SP
 A=M
@@ -159249,7 +159241,7 @@ D=M
 M=D
 @SnakeGame.moveSnake
 0;JMP
-(SnakeGame.moveUpNa$ret.237)
+(SnakeGame.moveUpNa$ret.543)
 //pop temp 0
 @5
 D=A
@@ -159295,7 +159287,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.238
+@SnakeGame.moveUpNa$ret.544
 D=A
 @SP
 A=M
@@ -159342,7 +159334,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.238)
+(SnakeGame.moveUpNa$ret.544)
 //push this 0
 @THIS
 D=M
@@ -159355,7 +159347,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.239
+@SnakeGame.moveUpNa$ret.545
 D=A
 @SP
 A=M
@@ -159402,26 +159394,26 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.239)
+(SnakeGame.moveUpNa$ret.545)
 //eq
-(NORMAL_CASE150)
+(NORMAL_CASE6164)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE150
+@TRUE6164
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE150
+@CONTINUE6164
 0;JMP
-(TRUE150)
+(TRUE6164)
 @SP
 A=M-1
 M=-1
-(CONTINUE150)
+(CONTINUE6164)
 //push this 2
 @THIS
 D=M
@@ -159434,7 +159426,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.240
+@SnakeGame.moveUpNa$ret.546
 D=A
 @SP
 A=M
@@ -159481,7 +159473,7 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.240)
+(SnakeGame.moveUpNa$ret.546)
 //push this 0
 @THIS
 D=M
@@ -159494,7 +159486,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.241
+@SnakeGame.moveUpNa$ret.547
 D=A
 @SP
 A=M
@@ -159541,26 +159533,26 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.241)
+(SnakeGame.moveUpNa$ret.547)
 //eq
-(NORMAL_CASE151)
+(NORMAL_CASE6165)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE151
+@TRUE6165
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE151
+@CONTINUE6165
 0;JMP
-(TRUE151)
+(TRUE6165)
 @SP
 A=M-1
 M=-1
-(CONTINUE151)
+(CONTINUE6165)
 //and
 @SP
 AM=M-1
@@ -159631,7 +159623,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.242
+@SnakeGame.moveUpNa$ret.548
 D=A
 @SP
 A=M
@@ -159678,7 +159670,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.242)
+(SnakeGame.moveUpNa$ret.548)
 //pop temp 0
 @5
 D=A
@@ -159715,7 +159707,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.243
+@SnakeGame.moveUpNa$ret.549
 D=A
 @SP
 A=M
@@ -159762,7 +159754,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.243)
+(SnakeGame.moveUpNa$ret.549)
 //push this 2
 @THIS
 D=M
@@ -159775,7 +159767,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.244
+@SnakeGame.moveUpNa$ret.550
 D=A
 @SP
 A=M
@@ -159822,9 +159814,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.244)
+(SnakeGame.moveUpNa$ret.550)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.245
+@SnakeGame.moveUpNa$ret.551
 D=A
 @SP
 A=M
@@ -159871,7 +159863,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.245)
+(SnakeGame.moveUpNa$ret.551)
 //push this 0
 @THIS
 D=M
@@ -159895,7 +159887,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.246
+@SnakeGame.moveUpNa$ret.552
 D=A
 @SP
 A=M
@@ -159942,7 +159934,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.246)
+(SnakeGame.moveUpNa$ret.552)
 //push this 2
 @THIS
 D=M
@@ -159955,7 +159947,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.247
+@SnakeGame.moveUpNa$ret.553
 D=A
 @SP
 A=M
@@ -160002,9 +159994,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.247)
+(SnakeGame.moveUpNa$ret.553)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.248
+@SnakeGame.moveUpNa$ret.554
 D=A
 @SP
 A=M
@@ -160051,7 +160043,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.248)
+(SnakeGame.moveUpNa$ret.554)
 //or
 @SP
 AM=M-1
@@ -160089,7 +160081,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.249
+@SnakeGame.moveUpNa$ret.555
 D=A
 @SP
 A=M
@@ -160136,7 +160128,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.249)
+(SnakeGame.moveUpNa$ret.555)
 //pop temp 0
 @5
 D=A
@@ -160165,7 +160157,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.lengthen 1
-@SnakeGame.moveUpNa$ret.250
+@SnakeGame.moveUpNa$ret.556
 D=A
 @SP
 A=M
@@ -160212,7 +160204,7 @@ D=M
 M=D
 @Snake.lengthen
 0;JMP
-(SnakeGame.moveUpNa$ret.250)
+(SnakeGame.moveUpNa$ret.556)
 //pop temp 0
 @5
 D=A
@@ -160238,7 +160230,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.hitItself 1
-@SnakeGame.moveUpNa$ret.251
+@SnakeGame.moveUpNa$ret.557
 D=A
 @SP
 A=M
@@ -160285,7 +160277,7 @@ D=M
 M=D
 @Snake.hitItself
 0;JMP
-(SnakeGame.moveUpNa$ret.251)
+(SnakeGame.moveUpNa$ret.557)
 // write if-goto IF_TRUE50
 @SP
 AM=M-1
@@ -160356,7 +160348,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.252
+@SnakeGame.moveUpNa$ret.558
 D=A
 @SP
 A=M
@@ -160403,7 +160395,7 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.252)
+(SnakeGame.moveUpNa$ret.558)
 //push this 0
 @THIS
 D=M
@@ -160416,7 +160408,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.253
+@SnakeGame.moveUpNa$ret.559
 D=A
 @SP
 A=M
@@ -160463,9 +160455,9 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.253)
+(SnakeGame.moveUpNa$ret.559)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.254
+@SnakeGame.moveUpNa$ret.560
 D=A
 @SP
 A=M
@@ -160512,7 +160504,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.254)
+(SnakeGame.moveUpNa$ret.560)
 //push constant 0
 @0
 D=A
@@ -160533,24 +160525,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE158)
+(NORMAL_CASE6172)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE158
+@TRUE6172
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE158
+@CONTINUE6172
 0;JMP
-(TRUE158)
+(TRUE6172)
 @SP
 A=M-1
 M=-1
-(CONTINUE158)
+(CONTINUE6172)
 // write if-goto IF_TRUE51
 @SP
 AM=M-1
@@ -160620,7 +160612,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.255
+@SnakeGame.moveUpNa$ret.561
 D=A
 @SP
 A=M
@@ -160667,7 +160659,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.255)
+(SnakeGame.moveUpNa$ret.561)
 //pop temp 0
 @5
 D=A
@@ -160688,7 +160680,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.256
+@SnakeGame.moveUpNa$ret.562
 D=A
 @SP
 A=M
@@ -160735,7 +160727,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.256)
+(SnakeGame.moveUpNa$ret.562)
 //push constant 71
 @71
 D=A
@@ -160745,7 +160737,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.257
+@SnakeGame.moveUpNa$ret.563
 D=A
 @SP
 A=M
@@ -160792,7 +160784,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.257)
+(SnakeGame.moveUpNa$ret.563)
 //push constant 65
 @65
 D=A
@@ -160802,7 +160794,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.258
+@SnakeGame.moveUpNa$ret.564
 D=A
 @SP
 A=M
@@ -160849,7 +160841,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.258)
+(SnakeGame.moveUpNa$ret.564)
 //push constant 77
 @77
 D=A
@@ -160859,7 +160851,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.259
+@SnakeGame.moveUpNa$ret.565
 D=A
 @SP
 A=M
@@ -160906,7 +160898,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.259)
+(SnakeGame.moveUpNa$ret.565)
 //push constant 69
 @69
 D=A
@@ -160916,7 +160908,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.260
+@SnakeGame.moveUpNa$ret.566
 D=A
 @SP
 A=M
@@ -160963,7 +160955,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.260)
+(SnakeGame.moveUpNa$ret.566)
 //push constant 32
 @32
 D=A
@@ -160973,7 +160965,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.261
+@SnakeGame.moveUpNa$ret.567
 D=A
 @SP
 A=M
@@ -161020,7 +161012,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.261)
+(SnakeGame.moveUpNa$ret.567)
 //push constant 79
 @79
 D=A
@@ -161030,7 +161022,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.262
+@SnakeGame.moveUpNa$ret.568
 D=A
 @SP
 A=M
@@ -161077,7 +161069,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.262)
+(SnakeGame.moveUpNa$ret.568)
 //push constant 86
 @86
 D=A
@@ -161087,7 +161079,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.263
+@SnakeGame.moveUpNa$ret.569
 D=A
 @SP
 A=M
@@ -161134,7 +161126,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.263)
+(SnakeGame.moveUpNa$ret.569)
 //push constant 69
 @69
 D=A
@@ -161144,7 +161136,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.264
+@SnakeGame.moveUpNa$ret.570
 D=A
 @SP
 A=M
@@ -161191,7 +161183,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.264)
+(SnakeGame.moveUpNa$ret.570)
 //push constant 82
 @82
 D=A
@@ -161201,7 +161193,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.265
+@SnakeGame.moveUpNa$ret.571
 D=A
 @SP
 A=M
@@ -161248,9 +161240,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.265)
+(SnakeGame.moveUpNa$ret.571)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.266
+@SnakeGame.moveUpNa$ret.572
 D=A
 @SP
 A=M
@@ -161297,7 +161289,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.266)
+(SnakeGame.moveUpNa$ret.572)
 //pop temp 0
 @5
 D=A
@@ -161326,7 +161318,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.267
+@SnakeGame.moveUpNa$ret.573
 D=A
 @SP
 A=M
@@ -161373,7 +161365,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.267)
+(SnakeGame.moveUpNa$ret.573)
 //pop temp 0
 @5
 D=A
@@ -161394,7 +161386,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.268
+@SnakeGame.moveUpNa$ret.574
 D=A
 @SP
 A=M
@@ -161441,7 +161433,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.268)
+(SnakeGame.moveUpNa$ret.574)
 //push constant 83
 @83
 D=A
@@ -161451,7 +161443,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.269
+@SnakeGame.moveUpNa$ret.575
 D=A
 @SP
 A=M
@@ -161498,7 +161490,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.269)
+(SnakeGame.moveUpNa$ret.575)
 //push constant 67
 @67
 D=A
@@ -161508,7 +161500,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.270
+@SnakeGame.moveUpNa$ret.576
 D=A
 @SP
 A=M
@@ -161555,7 +161547,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.270)
+(SnakeGame.moveUpNa$ret.576)
 //push constant 79
 @79
 D=A
@@ -161565,7 +161557,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.271
+@SnakeGame.moveUpNa$ret.577
 D=A
 @SP
 A=M
@@ -161612,7 +161604,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.271)
+(SnakeGame.moveUpNa$ret.577)
 //push constant 82
 @82
 D=A
@@ -161622,7 +161614,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.272
+@SnakeGame.moveUpNa$ret.578
 D=A
 @SP
 A=M
@@ -161669,7 +161661,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.272)
+(SnakeGame.moveUpNa$ret.578)
 //push constant 69
 @69
 D=A
@@ -161679,7 +161671,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.273
+@SnakeGame.moveUpNa$ret.579
 D=A
 @SP
 A=M
@@ -161726,7 +161718,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.273)
+(SnakeGame.moveUpNa$ret.579)
 //push constant 58
 @58
 D=A
@@ -161736,7 +161728,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.274
+@SnakeGame.moveUpNa$ret.580
 D=A
 @SP
 A=M
@@ -161783,7 +161775,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.274)
+(SnakeGame.moveUpNa$ret.580)
 //push constant 32
 @32
 D=A
@@ -161793,7 +161785,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.275
+@SnakeGame.moveUpNa$ret.581
 D=A
 @SP
 A=M
@@ -161840,9 +161832,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.275)
+(SnakeGame.moveUpNa$ret.581)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.276
+@SnakeGame.moveUpNa$ret.582
 D=A
 @SP
 A=M
@@ -161889,7 +161881,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.276)
+(SnakeGame.moveUpNa$ret.582)
 //pop temp 0
 @5
 D=A
@@ -161913,7 +161905,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printInt 1
-@SnakeGame.moveUpNa$ret.277
+@SnakeGame.moveUpNa$ret.583
 D=A
 @SP
 A=M
@@ -161960,7 +161952,7 @@ D=M
 M=D
 @Output.printInt
 0;JMP
-(SnakeGame.moveUpNa$ret.277)
+(SnakeGame.moveUpNa$ret.583)
 //pop temp 0
 @5
 D=A
@@ -162016,24 +162008,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE160)
+(NORMAL_CASE6174)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE160
+@TRUE6174
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE160
+@CONTINUE6174
 0;JMP
-(TRUE160)
+(TRUE6174)
 @SP
 A=M-1
 M=-1
-(CONTINUE160)
+(CONTINUE6174)
 //not
 @SP
 AM=M-1
@@ -162053,7 +162045,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.278
+@SnakeGame.moveUpNa$ret.584
 D=A
 @SP
 A=M
@@ -162100,7 +162092,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.278)
+(SnakeGame.moveUpNa$ret.584)
 //pop local 0
 @LCL
 D=M
@@ -162121,7 +162113,7 @@ M=D
 // write label WHILE_END16
 (SnakeGame.moveUpNa$WHILE_END16)
 // call function Apple.new 0
-@SnakeGame.moveUpNa$ret.279
+@SnakeGame.moveUpNa$ret.585
 D=A
 @SP
 A=M
@@ -162168,7 +162160,7 @@ D=M
 M=D
 @Apple.new
 0;JMP
-(SnakeGame.moveUpNa$ret.279)
+(SnakeGame.moveUpNa$ret.585)
 //pop this 2
 @THIS
 D=M
@@ -162208,7 +162200,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.280
+@SnakeGame.moveUpNa$ret.586
 D=A
 @SP
 A=M
@@ -162255,7 +162247,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.280)
+(SnakeGame.moveUpNa$ret.586)
 //push this 2
 @THIS
 D=M
@@ -162268,7 +162260,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.281
+@SnakeGame.moveUpNa$ret.587
 D=A
 @SP
 A=M
@@ -162315,9 +162307,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.281)
+(SnakeGame.moveUpNa$ret.587)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.282
+@SnakeGame.moveUpNa$ret.588
 D=A
 @SP
 A=M
@@ -162364,7 +162356,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.282)
+(SnakeGame.moveUpNa$ret.588)
 //push this 0
 @THIS
 D=M
@@ -162388,7 +162380,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.283
+@SnakeGame.moveUpNa$ret.589
 D=A
 @SP
 A=M
@@ -162435,7 +162427,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.283)
+(SnakeGame.moveUpNa$ret.589)
 //push this 2
 @THIS
 D=M
@@ -162448,7 +162440,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.284
+@SnakeGame.moveUpNa$ret.590
 D=A
 @SP
 A=M
@@ -162495,9 +162487,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.284)
+(SnakeGame.moveUpNa$ret.590)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.285
+@SnakeGame.moveUpNa$ret.591
 D=A
 @SP
 A=M
@@ -162544,7 +162536,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.285)
+(SnakeGame.moveUpNa$ret.591)
 //or
 @SP
 AM=M-1
@@ -162582,7 +162574,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.286
+@SnakeGame.moveUpNa$ret.592
 D=A
 @SP
 A=M
@@ -162629,7 +162621,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.286)
+(SnakeGame.moveUpNa$ret.592)
 //pop temp 0
 @5
 D=A
@@ -162689,7 +162681,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.287
+@SnakeGame.moveUpNa$ret.593
 D=A
 @SP
 A=M
@@ -162736,7 +162728,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.287)
+(SnakeGame.moveUpNa$ret.593)
 //pop local 0
 @LCL
 D=M
@@ -162771,24 +162763,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE166)
+(NORMAL_CASE6180)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE166
+@TRUE6180
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE166
+@CONTINUE6180
 0;JMP
-(TRUE166)
+(TRUE6180)
 @SP
 A=M-1
 M=-1
-(CONTINUE166)
+(CONTINUE6180)
 // write if-goto IF_TRUE52
 @SP
 AM=M-1
@@ -162856,24 +162848,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE168)
+(NORMAL_CASE6182)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE168
+@TRUE6182
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE168
+@CONTINUE6182
 0;JMP
-(TRUE168)
+(TRUE6182)
 @SP
 A=M-1
 M=-1
-(CONTINUE168)
+(CONTINUE6182)
 // write if-goto IF_TRUE53
 @SP
 AM=M-1
@@ -162906,24 +162898,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE169)
+(NORMAL_CASE6183)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE169
+@TRUE6183
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE169
+@CONTINUE6183
 0;JMP
-(TRUE169)
+(TRUE6183)
 @SP
 A=M-1
 M=-1
-(CONTINUE169)
+(CONTINUE6183)
 //not
 @SP
 AM=M-1
@@ -162993,24 +162985,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE171)
+(NORMAL_CASE6185)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE171
+@TRUE6185
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE171
+@CONTINUE6185
 0;JMP
-(TRUE171)
+(TRUE6185)
 @SP
 A=M-1
 M=-1
-(CONTINUE171)
+(CONTINUE6185)
 // write if-goto IF_TRUE55
 @SP
 AM=M-1
@@ -163043,24 +163035,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE172)
+(NORMAL_CASE6186)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE172
+@TRUE6186
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE172
+@CONTINUE6186
 0;JMP
-(TRUE172)
+(TRUE6186)
 @SP
 A=M-1
 M=-1
-(CONTINUE172)
+(CONTINUE6186)
 //not
 @SP
 AM=M-1
@@ -163130,24 +163122,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE174)
+(NORMAL_CASE6188)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE174
+@TRUE6188
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE174
+@CONTINUE6188
 0;JMP
-(TRUE174)
+(TRUE6188)
 @SP
 A=M-1
 M=-1
-(CONTINUE174)
+(CONTINUE6188)
 // write if-goto IF_TRUE57
 @SP
 AM=M-1
@@ -163180,24 +163172,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE175)
+(NORMAL_CASE6189)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE175
+@TRUE6189
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE175
+@CONTINUE6189
 0;JMP
-(TRUE175)
+(TRUE6189)
 @SP
 A=M-1
 M=-1
-(CONTINUE175)
+(CONTINUE6189)
 //not
 @SP
 AM=M-1
@@ -163267,24 +163259,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE177)
+(NORMAL_CASE6191)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE177
+@TRUE6191
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE177
+@CONTINUE6191
 0;JMP
-(TRUE177)
+(TRUE6191)
 @SP
 A=M-1
 M=-1
-(CONTINUE177)
+(CONTINUE6191)
 // write if-goto IF_TRUE59
 @SP
 AM=M-1
@@ -163317,24 +163309,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE178)
+(NORMAL_CASE6192)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE178
+@TRUE6192
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE178
+@CONTINUE6192
 0;JMP
-(TRUE178)
+(TRUE6192)
 @SP
 A=M-1
 M=-1
-(CONTINUE178)
+(CONTINUE6192)
 //not
 @SP
 AM=M-1
@@ -163404,24 +163396,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE180)
+(NORMAL_CASE6194)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE180
+@TRUE6194
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE180
+@CONTINUE6194
 0;JMP
-(TRUE180)
+(TRUE6194)
 @SP
 A=M-1
 M=-1
-(CONTINUE180)
+(CONTINUE6194)
 // write if-goto IF_TRUE61
 @SP
 AM=M-1
@@ -163435,7 +163427,7 @@ D;JNE
 // write label IF_TRUE61
 (SnakeGame.moveUpNa$IF_TRUE61)
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.288
+@SnakeGame.moveUpNa$ret.594
 D=A
 @SP
 A=M
@@ -163482,7 +163474,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.288)
+(SnakeGame.moveUpNa$ret.594)
 //pop local 0
 @LCL
 D=M
@@ -163508,7 +163500,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeGame.moveSnake 1
-@SnakeGame.moveUpNa$ret.289
+@SnakeGame.moveUpNa$ret.595
 D=A
 @SP
 A=M
@@ -163555,7 +163547,7 @@ D=M
 M=D
 @SnakeGame.moveSnake
 0;JMP
-(SnakeGame.moveUpNa$ret.289)
+(SnakeGame.moveUpNa$ret.595)
 //pop temp 0
 @5
 D=A
@@ -163601,7 +163593,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.290
+@SnakeGame.moveUpNa$ret.596
 D=A
 @SP
 A=M
@@ -163648,7 +163640,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.290)
+(SnakeGame.moveUpNa$ret.596)
 //push this 0
 @THIS
 D=M
@@ -163661,7 +163653,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.291
+@SnakeGame.moveUpNa$ret.597
 D=A
 @SP
 A=M
@@ -163708,26 +163700,26 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.291)
+(SnakeGame.moveUpNa$ret.597)
 //eq
-(NORMAL_CASE181)
+(NORMAL_CASE6195)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE181
+@TRUE6195
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE181
+@CONTINUE6195
 0;JMP
-(TRUE181)
+(TRUE6195)
 @SP
 A=M-1
 M=-1
-(CONTINUE181)
+(CONTINUE6195)
 //push this 2
 @THIS
 D=M
@@ -163740,7 +163732,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.292
+@SnakeGame.moveUpNa$ret.598
 D=A
 @SP
 A=M
@@ -163787,7 +163779,7 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.292)
+(SnakeGame.moveUpNa$ret.598)
 //push this 0
 @THIS
 D=M
@@ -163800,7 +163792,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.293
+@SnakeGame.moveUpNa$ret.599
 D=A
 @SP
 A=M
@@ -163847,26 +163839,26 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.293)
+(SnakeGame.moveUpNa$ret.599)
 //eq
-(NORMAL_CASE182)
+(NORMAL_CASE6196)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE182
+@TRUE6196
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE182
+@CONTINUE6196
 0;JMP
-(TRUE182)
+(TRUE6196)
 @SP
 A=M-1
 M=-1
-(CONTINUE182)
+(CONTINUE6196)
 //and
 @SP
 AM=M-1
@@ -163937,7 +163929,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.294
+@SnakeGame.moveUpNa$ret.600
 D=A
 @SP
 A=M
@@ -163984,7 +163976,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.294)
+(SnakeGame.moveUpNa$ret.600)
 //pop temp 0
 @5
 D=A
@@ -164021,7 +164013,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.295
+@SnakeGame.moveUpNa$ret.601
 D=A
 @SP
 A=M
@@ -164068,7 +164060,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.295)
+(SnakeGame.moveUpNa$ret.601)
 //push this 2
 @THIS
 D=M
@@ -164081,7 +164073,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.296
+@SnakeGame.moveUpNa$ret.602
 D=A
 @SP
 A=M
@@ -164128,9 +164120,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.296)
+(SnakeGame.moveUpNa$ret.602)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.297
+@SnakeGame.moveUpNa$ret.603
 D=A
 @SP
 A=M
@@ -164177,7 +164169,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.297)
+(SnakeGame.moveUpNa$ret.603)
 //push this 0
 @THIS
 D=M
@@ -164201,7 +164193,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.298
+@SnakeGame.moveUpNa$ret.604
 D=A
 @SP
 A=M
@@ -164248,7 +164240,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.298)
+(SnakeGame.moveUpNa$ret.604)
 //push this 2
 @THIS
 D=M
@@ -164261,7 +164253,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.299
+@SnakeGame.moveUpNa$ret.605
 D=A
 @SP
 A=M
@@ -164308,9 +164300,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.299)
+(SnakeGame.moveUpNa$ret.605)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.300
+@SnakeGame.moveUpNa$ret.606
 D=A
 @SP
 A=M
@@ -164357,7 +164349,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.300)
+(SnakeGame.moveUpNa$ret.606)
 //or
 @SP
 AM=M-1
@@ -164395,7 +164387,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.301
+@SnakeGame.moveUpNa$ret.607
 D=A
 @SP
 A=M
@@ -164442,7 +164434,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.301)
+(SnakeGame.moveUpNa$ret.607)
 //pop temp 0
 @5
 D=A
@@ -164471,7 +164463,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.lengthen 1
-@SnakeGame.moveUpNa$ret.302
+@SnakeGame.moveUpNa$ret.608
 D=A
 @SP
 A=M
@@ -164518,7 +164510,7 @@ D=M
 M=D
 @Snake.lengthen
 0;JMP
-(SnakeGame.moveUpNa$ret.302)
+(SnakeGame.moveUpNa$ret.608)
 //pop temp 0
 @5
 D=A
@@ -164544,7 +164536,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.hitItself 1
-@SnakeGame.moveUpNa$ret.303
+@SnakeGame.moveUpNa$ret.609
 D=A
 @SP
 A=M
@@ -164591,7 +164583,7 @@ D=M
 M=D
 @Snake.hitItself
 0;JMP
-(SnakeGame.moveUpNa$ret.303)
+(SnakeGame.moveUpNa$ret.609)
 // write if-goto IF_TRUE63
 @SP
 AM=M-1
@@ -164662,7 +164654,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.304
+@SnakeGame.moveUpNa$ret.610
 D=A
 @SP
 A=M
@@ -164709,7 +164701,7 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.304)
+(SnakeGame.moveUpNa$ret.610)
 //push this 0
 @THIS
 D=M
@@ -164722,7 +164714,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.305
+@SnakeGame.moveUpNa$ret.611
 D=A
 @SP
 A=M
@@ -164769,9 +164761,9 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.305)
+(SnakeGame.moveUpNa$ret.611)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.306
+@SnakeGame.moveUpNa$ret.612
 D=A
 @SP
 A=M
@@ -164818,7 +164810,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.306)
+(SnakeGame.moveUpNa$ret.612)
 //push constant 0
 @0
 D=A
@@ -164839,24 +164831,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE189)
+(NORMAL_CASE6203)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE189
+@TRUE6203
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE189
+@CONTINUE6203
 0;JMP
-(TRUE189)
+(TRUE6203)
 @SP
 A=M-1
 M=-1
-(CONTINUE189)
+(CONTINUE6203)
 // write if-goto IF_TRUE64
 @SP
 AM=M-1
@@ -164926,7 +164918,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.307
+@SnakeGame.moveUpNa$ret.613
 D=A
 @SP
 A=M
@@ -164973,7 +164965,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.307)
+(SnakeGame.moveUpNa$ret.613)
 //pop temp 0
 @5
 D=A
@@ -164994,7 +164986,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.308
+@SnakeGame.moveUpNa$ret.614
 D=A
 @SP
 A=M
@@ -165041,7 +165033,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.308)
+(SnakeGame.moveUpNa$ret.614)
 //push constant 71
 @71
 D=A
@@ -165051,7 +165043,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.309
+@SnakeGame.moveUpNa$ret.615
 D=A
 @SP
 A=M
@@ -165098,7 +165090,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.309)
+(SnakeGame.moveUpNa$ret.615)
 //push constant 65
 @65
 D=A
@@ -165108,7 +165100,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.310
+@SnakeGame.moveUpNa$ret.616
 D=A
 @SP
 A=M
@@ -165155,7 +165147,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.310)
+(SnakeGame.moveUpNa$ret.616)
 //push constant 77
 @77
 D=A
@@ -165165,7 +165157,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.311
+@SnakeGame.moveUpNa$ret.617
 D=A
 @SP
 A=M
@@ -165212,7 +165204,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.311)
+(SnakeGame.moveUpNa$ret.617)
 //push constant 69
 @69
 D=A
@@ -165222,7 +165214,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.312
+@SnakeGame.moveUpNa$ret.618
 D=A
 @SP
 A=M
@@ -165269,7 +165261,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.312)
+(SnakeGame.moveUpNa$ret.618)
 //push constant 32
 @32
 D=A
@@ -165279,7 +165271,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.313
+@SnakeGame.moveUpNa$ret.619
 D=A
 @SP
 A=M
@@ -165326,7 +165318,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.313)
+(SnakeGame.moveUpNa$ret.619)
 //push constant 79
 @79
 D=A
@@ -165336,7 +165328,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.314
+@SnakeGame.moveUpNa$ret.620
 D=A
 @SP
 A=M
@@ -165383,7 +165375,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.314)
+(SnakeGame.moveUpNa$ret.620)
 //push constant 86
 @86
 D=A
@@ -165393,7 +165385,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.315
+@SnakeGame.moveUpNa$ret.621
 D=A
 @SP
 A=M
@@ -165440,7 +165432,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.315)
+(SnakeGame.moveUpNa$ret.621)
 //push constant 69
 @69
 D=A
@@ -165450,7 +165442,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.316
+@SnakeGame.moveUpNa$ret.622
 D=A
 @SP
 A=M
@@ -165497,7 +165489,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.316)
+(SnakeGame.moveUpNa$ret.622)
 //push constant 82
 @82
 D=A
@@ -165507,7 +165499,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.317
+@SnakeGame.moveUpNa$ret.623
 D=A
 @SP
 A=M
@@ -165554,9 +165546,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.317)
+(SnakeGame.moveUpNa$ret.623)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.318
+@SnakeGame.moveUpNa$ret.624
 D=A
 @SP
 A=M
@@ -165603,7 +165595,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.318)
+(SnakeGame.moveUpNa$ret.624)
 //pop temp 0
 @5
 D=A
@@ -165632,7 +165624,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.319
+@SnakeGame.moveUpNa$ret.625
 D=A
 @SP
 A=M
@@ -165679,7 +165671,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.319)
+(SnakeGame.moveUpNa$ret.625)
 //pop temp 0
 @5
 D=A
@@ -165700,7 +165692,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.320
+@SnakeGame.moveUpNa$ret.626
 D=A
 @SP
 A=M
@@ -165747,7 +165739,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.320)
+(SnakeGame.moveUpNa$ret.626)
 //push constant 83
 @83
 D=A
@@ -165757,7 +165749,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.321
+@SnakeGame.moveUpNa$ret.627
 D=A
 @SP
 A=M
@@ -165804,7 +165796,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.321)
+(SnakeGame.moveUpNa$ret.627)
 //push constant 67
 @67
 D=A
@@ -165814,7 +165806,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.322
+@SnakeGame.moveUpNa$ret.628
 D=A
 @SP
 A=M
@@ -165861,7 +165853,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.322)
+(SnakeGame.moveUpNa$ret.628)
 //push constant 79
 @79
 D=A
@@ -165871,7 +165863,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.323
+@SnakeGame.moveUpNa$ret.629
 D=A
 @SP
 A=M
@@ -165918,7 +165910,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.323)
+(SnakeGame.moveUpNa$ret.629)
 //push constant 82
 @82
 D=A
@@ -165928,7 +165920,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.324
+@SnakeGame.moveUpNa$ret.630
 D=A
 @SP
 A=M
@@ -165975,7 +165967,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.324)
+(SnakeGame.moveUpNa$ret.630)
 //push constant 69
 @69
 D=A
@@ -165985,7 +165977,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.325
+@SnakeGame.moveUpNa$ret.631
 D=A
 @SP
 A=M
@@ -166032,7 +166024,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.325)
+(SnakeGame.moveUpNa$ret.631)
 //push constant 58
 @58
 D=A
@@ -166042,7 +166034,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.326
+@SnakeGame.moveUpNa$ret.632
 D=A
 @SP
 A=M
@@ -166089,7 +166081,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.326)
+(SnakeGame.moveUpNa$ret.632)
 //push constant 32
 @32
 D=A
@@ -166099,7 +166091,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.327
+@SnakeGame.moveUpNa$ret.633
 D=A
 @SP
 A=M
@@ -166146,9 +166138,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.327)
+(SnakeGame.moveUpNa$ret.633)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.328
+@SnakeGame.moveUpNa$ret.634
 D=A
 @SP
 A=M
@@ -166195,7 +166187,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.328)
+(SnakeGame.moveUpNa$ret.634)
 //pop temp 0
 @5
 D=A
@@ -166219,7 +166211,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printInt 1
-@SnakeGame.moveUpNa$ret.329
+@SnakeGame.moveUpNa$ret.635
 D=A
 @SP
 A=M
@@ -166266,7 +166258,7 @@ D=M
 M=D
 @Output.printInt
 0;JMP
-(SnakeGame.moveUpNa$ret.329)
+(SnakeGame.moveUpNa$ret.635)
 //pop temp 0
 @5
 D=A
@@ -166322,24 +166314,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE191)
+(NORMAL_CASE6205)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE191
+@TRUE6205
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE191
+@CONTINUE6205
 0;JMP
-(TRUE191)
+(TRUE6205)
 @SP
 A=M-1
 M=-1
-(CONTINUE191)
+(CONTINUE6205)
 //not
 @SP
 AM=M-1
@@ -166359,7 +166351,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.330
+@SnakeGame.moveUpNa$ret.636
 D=A
 @SP
 A=M
@@ -166406,7 +166398,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.330)
+(SnakeGame.moveUpNa$ret.636)
 //pop local 0
 @LCL
 D=M
@@ -166427,7 +166419,7 @@ M=D
 // write label WHILE_END20
 (SnakeGame.moveUpNa$WHILE_END20)
 // call function Apple.new 0
-@SnakeGame.moveUpNa$ret.331
+@SnakeGame.moveUpNa$ret.637
 D=A
 @SP
 A=M
@@ -166474,7 +166466,7 @@ D=M
 M=D
 @Apple.new
 0;JMP
-(SnakeGame.moveUpNa$ret.331)
+(SnakeGame.moveUpNa$ret.637)
 //pop this 2
 @THIS
 D=M
@@ -166514,7 +166506,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.332
+@SnakeGame.moveUpNa$ret.638
 D=A
 @SP
 A=M
@@ -166561,7 +166553,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.332)
+(SnakeGame.moveUpNa$ret.638)
 //push this 2
 @THIS
 D=M
@@ -166574,7 +166566,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.333
+@SnakeGame.moveUpNa$ret.639
 D=A
 @SP
 A=M
@@ -166621,9 +166613,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.333)
+(SnakeGame.moveUpNa$ret.639)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.334
+@SnakeGame.moveUpNa$ret.640
 D=A
 @SP
 A=M
@@ -166670,7 +166662,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.334)
+(SnakeGame.moveUpNa$ret.640)
 //push this 0
 @THIS
 D=M
@@ -166694,7 +166686,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.335
+@SnakeGame.moveUpNa$ret.641
 D=A
 @SP
 A=M
@@ -166741,7 +166733,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.335)
+(SnakeGame.moveUpNa$ret.641)
 //push this 2
 @THIS
 D=M
@@ -166754,7 +166746,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.336
+@SnakeGame.moveUpNa$ret.642
 D=A
 @SP
 A=M
@@ -166801,9 +166793,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.336)
+(SnakeGame.moveUpNa$ret.642)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.337
+@SnakeGame.moveUpNa$ret.643
 D=A
 @SP
 A=M
@@ -166850,7 +166842,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.337)
+(SnakeGame.moveUpNa$ret.643)
 //or
 @SP
 AM=M-1
@@ -166888,7 +166880,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.338
+@SnakeGame.moveUpNa$ret.644
 D=A
 @SP
 A=M
@@ -166935,7 +166927,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.338)
+(SnakeGame.moveUpNa$ret.644)
 //pop temp 0
 @5
 D=A
@@ -166995,7 +166987,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.339
+@SnakeGame.moveUpNa$ret.645
 D=A
 @SP
 A=M
@@ -167042,7 +167034,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.339)
+(SnakeGame.moveUpNa$ret.645)
 //pop local 0
 @LCL
 D=M
@@ -167077,24 +167069,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE197)
+(NORMAL_CASE6211)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE197
+@TRUE6211
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE197
+@CONTINUE6211
 0;JMP
-(TRUE197)
+(TRUE6211)
 @SP
 A=M-1
 M=-1
-(CONTINUE197)
+(CONTINUE6211)
 // write if-goto IF_TRUE65
 @SP
 AM=M-1
@@ -167162,24 +167154,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE199)
+(NORMAL_CASE6213)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE199
+@TRUE6213
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE199
+@CONTINUE6213
 0;JMP
-(TRUE199)
+(TRUE6213)
 @SP
 A=M-1
 M=-1
-(CONTINUE199)
+(CONTINUE6213)
 // write if-goto IF_TRUE66
 @SP
 AM=M-1
@@ -167212,24 +167204,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE200)
+(NORMAL_CASE6214)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE200
+@TRUE6214
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE200
+@CONTINUE6214
 0;JMP
-(TRUE200)
+(TRUE6214)
 @SP
 A=M-1
 M=-1
-(CONTINUE200)
+(CONTINUE6214)
 //not
 @SP
 AM=M-1
@@ -167299,24 +167291,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE202)
+(NORMAL_CASE6216)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE202
+@TRUE6216
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE202
+@CONTINUE6216
 0;JMP
-(TRUE202)
+(TRUE6216)
 @SP
 A=M-1
 M=-1
-(CONTINUE202)
+(CONTINUE6216)
 // write if-goto IF_TRUE68
 @SP
 AM=M-1
@@ -167349,24 +167341,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE203)
+(NORMAL_CASE6217)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE203
+@TRUE6217
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE203
+@CONTINUE6217
 0;JMP
-(TRUE203)
+(TRUE6217)
 @SP
 A=M-1
 M=-1
-(CONTINUE203)
+(CONTINUE6217)
 //not
 @SP
 AM=M-1
@@ -167436,24 +167428,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE205)
+(NORMAL_CASE6219)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE205
+@TRUE6219
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE205
+@CONTINUE6219
 0;JMP
-(TRUE205)
+(TRUE6219)
 @SP
 A=M-1
 M=-1
-(CONTINUE205)
+(CONTINUE6219)
 // write if-goto IF_TRUE70
 @SP
 AM=M-1
@@ -167486,24 +167478,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE206)
+(NORMAL_CASE6220)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE206
+@TRUE6220
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE206
+@CONTINUE6220
 0;JMP
-(TRUE206)
+(TRUE6220)
 @SP
 A=M-1
 M=-1
-(CONTINUE206)
+(CONTINUE6220)
 //not
 @SP
 AM=M-1
@@ -167573,24 +167565,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE208)
+(NORMAL_CASE6222)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE208
+@TRUE6222
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE208
+@CONTINUE6222
 0;JMP
-(TRUE208)
+(TRUE6222)
 @SP
 A=M-1
 M=-1
-(CONTINUE208)
+(CONTINUE6222)
 // write if-goto IF_TRUE72
 @SP
 AM=M-1
@@ -167623,24 +167615,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE209)
+(NORMAL_CASE6223)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE209
+@TRUE6223
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE209
+@CONTINUE6223
 0;JMP
-(TRUE209)
+(TRUE6223)
 @SP
 A=M-1
 M=-1
-(CONTINUE209)
+(CONTINUE6223)
 //not
 @SP
 AM=M-1
@@ -167710,24 +167702,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE211)
+(NORMAL_CASE6225)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE211
+@TRUE6225
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE211
+@CONTINUE6225
 0;JMP
-(TRUE211)
+(TRUE6225)
 @SP
 A=M-1
 M=-1
-(CONTINUE211)
+(CONTINUE6225)
 // write if-goto IF_TRUE74
 @SP
 AM=M-1
@@ -167741,7 +167733,7 @@ D;JNE
 // write label IF_TRUE74
 (SnakeGame.moveUpNa$IF_TRUE74)
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.340
+@SnakeGame.moveUpNa$ret.646
 D=A
 @SP
 A=M
@@ -167788,7 +167780,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.340)
+(SnakeGame.moveUpNa$ret.646)
 //pop local 0
 @LCL
 D=M
@@ -167814,7 +167806,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeGame.moveSnake 1
-@SnakeGame.moveUpNa$ret.341
+@SnakeGame.moveUpNa$ret.647
 D=A
 @SP
 A=M
@@ -167861,7 +167853,7 @@ D=M
 M=D
 @SnakeGame.moveSnake
 0;JMP
-(SnakeGame.moveUpNa$ret.341)
+(SnakeGame.moveUpNa$ret.647)
 //pop temp 0
 @5
 D=A
@@ -167907,7 +167899,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.342
+@SnakeGame.moveUpNa$ret.648
 D=A
 @SP
 A=M
@@ -167954,7 +167946,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.342)
+(SnakeGame.moveUpNa$ret.648)
 //push this 0
 @THIS
 D=M
@@ -167967,7 +167959,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.343
+@SnakeGame.moveUpNa$ret.649
 D=A
 @SP
 A=M
@@ -168014,26 +168006,26 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.343)
+(SnakeGame.moveUpNa$ret.649)
 //eq
-(NORMAL_CASE212)
+(NORMAL_CASE6226)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE212
+@TRUE6226
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE212
+@CONTINUE6226
 0;JMP
-(TRUE212)
+(TRUE6226)
 @SP
 A=M-1
 M=-1
-(CONTINUE212)
+(CONTINUE6226)
 //push this 2
 @THIS
 D=M
@@ -168046,7 +168038,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.344
+@SnakeGame.moveUpNa$ret.650
 D=A
 @SP
 A=M
@@ -168093,7 +168085,7 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.344)
+(SnakeGame.moveUpNa$ret.650)
 //push this 0
 @THIS
 D=M
@@ -168106,7 +168098,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.345
+@SnakeGame.moveUpNa$ret.651
 D=A
 @SP
 A=M
@@ -168153,26 +168145,26 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.345)
+(SnakeGame.moveUpNa$ret.651)
 //eq
-(NORMAL_CASE213)
+(NORMAL_CASE6227)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE213
+@TRUE6227
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE213
+@CONTINUE6227
 0;JMP
-(TRUE213)
+(TRUE6227)
 @SP
 A=M-1
 M=-1
-(CONTINUE213)
+(CONTINUE6227)
 //and
 @SP
 AM=M-1
@@ -168243,7 +168235,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.346
+@SnakeGame.moveUpNa$ret.652
 D=A
 @SP
 A=M
@@ -168290,7 +168282,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.346)
+(SnakeGame.moveUpNa$ret.652)
 //pop temp 0
 @5
 D=A
@@ -168327,7 +168319,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.347
+@SnakeGame.moveUpNa$ret.653
 D=A
 @SP
 A=M
@@ -168374,7 +168366,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.347)
+(SnakeGame.moveUpNa$ret.653)
 //push this 2
 @THIS
 D=M
@@ -168387,7 +168379,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.348
+@SnakeGame.moveUpNa$ret.654
 D=A
 @SP
 A=M
@@ -168434,9 +168426,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.348)
+(SnakeGame.moveUpNa$ret.654)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.349
+@SnakeGame.moveUpNa$ret.655
 D=A
 @SP
 A=M
@@ -168483,7 +168475,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.349)
+(SnakeGame.moveUpNa$ret.655)
 //push this 0
 @THIS
 D=M
@@ -168507,7 +168499,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.350
+@SnakeGame.moveUpNa$ret.656
 D=A
 @SP
 A=M
@@ -168554,7 +168546,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.350)
+(SnakeGame.moveUpNa$ret.656)
 //push this 2
 @THIS
 D=M
@@ -168567,7 +168559,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.351
+@SnakeGame.moveUpNa$ret.657
 D=A
 @SP
 A=M
@@ -168614,9 +168606,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.351)
+(SnakeGame.moveUpNa$ret.657)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.352
+@SnakeGame.moveUpNa$ret.658
 D=A
 @SP
 A=M
@@ -168663,7 +168655,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.352)
+(SnakeGame.moveUpNa$ret.658)
 //or
 @SP
 AM=M-1
@@ -168701,7 +168693,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.353
+@SnakeGame.moveUpNa$ret.659
 D=A
 @SP
 A=M
@@ -168748,7 +168740,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.353)
+(SnakeGame.moveUpNa$ret.659)
 //pop temp 0
 @5
 D=A
@@ -168777,7 +168769,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.lengthen 1
-@SnakeGame.moveUpNa$ret.354
+@SnakeGame.moveUpNa$ret.660
 D=A
 @SP
 A=M
@@ -168824,7 +168816,7 @@ D=M
 M=D
 @Snake.lengthen
 0;JMP
-(SnakeGame.moveUpNa$ret.354)
+(SnakeGame.moveUpNa$ret.660)
 //pop temp 0
 @5
 D=A
@@ -168850,7 +168842,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.hitItself 1
-@SnakeGame.moveUpNa$ret.355
+@SnakeGame.moveUpNa$ret.661
 D=A
 @SP
 A=M
@@ -168897,7 +168889,7 @@ D=M
 M=D
 @Snake.hitItself
 0;JMP
-(SnakeGame.moveUpNa$ret.355)
+(SnakeGame.moveUpNa$ret.661)
 // write if-goto IF_TRUE76
 @SP
 AM=M-1
@@ -168968,7 +168960,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.356
+@SnakeGame.moveUpNa$ret.662
 D=A
 @SP
 A=M
@@ -169015,7 +169007,7 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.356)
+(SnakeGame.moveUpNa$ret.662)
 //push this 0
 @THIS
 D=M
@@ -169028,7 +169020,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.357
+@SnakeGame.moveUpNa$ret.663
 D=A
 @SP
 A=M
@@ -169075,9 +169067,9 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.357)
+(SnakeGame.moveUpNa$ret.663)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.358
+@SnakeGame.moveUpNa$ret.664
 D=A
 @SP
 A=M
@@ -169124,7 +169116,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.358)
+(SnakeGame.moveUpNa$ret.664)
 //push constant 0
 @0
 D=A
@@ -169145,24 +169137,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE220)
+(NORMAL_CASE6234)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE220
+@TRUE6234
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE220
+@CONTINUE6234
 0;JMP
-(TRUE220)
+(TRUE6234)
 @SP
 A=M-1
 M=-1
-(CONTINUE220)
+(CONTINUE6234)
 // write if-goto IF_TRUE77
 @SP
 AM=M-1
@@ -169232,7 +169224,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.359
+@SnakeGame.moveUpNa$ret.665
 D=A
 @SP
 A=M
@@ -169279,7 +169271,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.359)
+(SnakeGame.moveUpNa$ret.665)
 //pop temp 0
 @5
 D=A
@@ -169300,7 +169292,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.360
+@SnakeGame.moveUpNa$ret.666
 D=A
 @SP
 A=M
@@ -169347,7 +169339,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.360)
+(SnakeGame.moveUpNa$ret.666)
 //push constant 71
 @71
 D=A
@@ -169357,7 +169349,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.361
+@SnakeGame.moveUpNa$ret.667
 D=A
 @SP
 A=M
@@ -169404,7 +169396,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.361)
+(SnakeGame.moveUpNa$ret.667)
 //push constant 65
 @65
 D=A
@@ -169414,7 +169406,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.362
+@SnakeGame.moveUpNa$ret.668
 D=A
 @SP
 A=M
@@ -169461,7 +169453,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.362)
+(SnakeGame.moveUpNa$ret.668)
 //push constant 77
 @77
 D=A
@@ -169471,7 +169463,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.363
+@SnakeGame.moveUpNa$ret.669
 D=A
 @SP
 A=M
@@ -169518,7 +169510,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.363)
+(SnakeGame.moveUpNa$ret.669)
 //push constant 69
 @69
 D=A
@@ -169528,7 +169520,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.364
+@SnakeGame.moveUpNa$ret.670
 D=A
 @SP
 A=M
@@ -169575,7 +169567,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.364)
+(SnakeGame.moveUpNa$ret.670)
 //push constant 32
 @32
 D=A
@@ -169585,7 +169577,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.365
+@SnakeGame.moveUpNa$ret.671
 D=A
 @SP
 A=M
@@ -169632,7 +169624,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.365)
+(SnakeGame.moveUpNa$ret.671)
 //push constant 79
 @79
 D=A
@@ -169642,7 +169634,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.366
+@SnakeGame.moveUpNa$ret.672
 D=A
 @SP
 A=M
@@ -169689,7 +169681,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.366)
+(SnakeGame.moveUpNa$ret.672)
 //push constant 86
 @86
 D=A
@@ -169699,7 +169691,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.367
+@SnakeGame.moveUpNa$ret.673
 D=A
 @SP
 A=M
@@ -169746,7 +169738,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.367)
+(SnakeGame.moveUpNa$ret.673)
 //push constant 69
 @69
 D=A
@@ -169756,7 +169748,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.368
+@SnakeGame.moveUpNa$ret.674
 D=A
 @SP
 A=M
@@ -169803,7 +169795,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.368)
+(SnakeGame.moveUpNa$ret.674)
 //push constant 82
 @82
 D=A
@@ -169813,7 +169805,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.369
+@SnakeGame.moveUpNa$ret.675
 D=A
 @SP
 A=M
@@ -169860,9 +169852,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.369)
+(SnakeGame.moveUpNa$ret.675)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.370
+@SnakeGame.moveUpNa$ret.676
 D=A
 @SP
 A=M
@@ -169909,7 +169901,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.370)
+(SnakeGame.moveUpNa$ret.676)
 //pop temp 0
 @5
 D=A
@@ -169938,7 +169930,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.371
+@SnakeGame.moveUpNa$ret.677
 D=A
 @SP
 A=M
@@ -169985,7 +169977,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.371)
+(SnakeGame.moveUpNa$ret.677)
 //pop temp 0
 @5
 D=A
@@ -170006,7 +169998,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.372
+@SnakeGame.moveUpNa$ret.678
 D=A
 @SP
 A=M
@@ -170053,7 +170045,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.372)
+(SnakeGame.moveUpNa$ret.678)
 //push constant 83
 @83
 D=A
@@ -170063,7 +170055,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.373
+@SnakeGame.moveUpNa$ret.679
 D=A
 @SP
 A=M
@@ -170110,7 +170102,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.373)
+(SnakeGame.moveUpNa$ret.679)
 //push constant 67
 @67
 D=A
@@ -170120,7 +170112,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.374
+@SnakeGame.moveUpNa$ret.680
 D=A
 @SP
 A=M
@@ -170167,7 +170159,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.374)
+(SnakeGame.moveUpNa$ret.680)
 //push constant 79
 @79
 D=A
@@ -170177,7 +170169,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.375
+@SnakeGame.moveUpNa$ret.681
 D=A
 @SP
 A=M
@@ -170224,7 +170216,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.375)
+(SnakeGame.moveUpNa$ret.681)
 //push constant 82
 @82
 D=A
@@ -170234,7 +170226,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.376
+@SnakeGame.moveUpNa$ret.682
 D=A
 @SP
 A=M
@@ -170281,7 +170273,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.376)
+(SnakeGame.moveUpNa$ret.682)
 //push constant 69
 @69
 D=A
@@ -170291,7 +170283,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.377
+@SnakeGame.moveUpNa$ret.683
 D=A
 @SP
 A=M
@@ -170338,7 +170330,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.377)
+(SnakeGame.moveUpNa$ret.683)
 //push constant 58
 @58
 D=A
@@ -170348,7 +170340,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.378
+@SnakeGame.moveUpNa$ret.684
 D=A
 @SP
 A=M
@@ -170395,7 +170387,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.378)
+(SnakeGame.moveUpNa$ret.684)
 //push constant 32
 @32
 D=A
@@ -170405,7 +170397,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.379
+@SnakeGame.moveUpNa$ret.685
 D=A
 @SP
 A=M
@@ -170452,9 +170444,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.379)
+(SnakeGame.moveUpNa$ret.685)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.380
+@SnakeGame.moveUpNa$ret.686
 D=A
 @SP
 A=M
@@ -170501,7 +170493,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.380)
+(SnakeGame.moveUpNa$ret.686)
 //pop temp 0
 @5
 D=A
@@ -170525,7 +170517,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printInt 1
-@SnakeGame.moveUpNa$ret.381
+@SnakeGame.moveUpNa$ret.687
 D=A
 @SP
 A=M
@@ -170572,7 +170564,7 @@ D=M
 M=D
 @Output.printInt
 0;JMP
-(SnakeGame.moveUpNa$ret.381)
+(SnakeGame.moveUpNa$ret.687)
 //pop temp 0
 @5
 D=A
@@ -170628,24 +170620,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE222)
+(NORMAL_CASE6236)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE222
+@TRUE6236
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE222
+@CONTINUE6236
 0;JMP
-(TRUE222)
+(TRUE6236)
 @SP
 A=M-1
 M=-1
-(CONTINUE222)
+(CONTINUE6236)
 //not
 @SP
 AM=M-1
@@ -170665,7 +170657,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.382
+@SnakeGame.moveUpNa$ret.688
 D=A
 @SP
 A=M
@@ -170712,7 +170704,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.382)
+(SnakeGame.moveUpNa$ret.688)
 //pop local 0
 @LCL
 D=M
@@ -170733,7 +170725,7 @@ M=D
 // write label WHILE_END24
 (SnakeGame.moveUpNa$WHILE_END24)
 // call function Apple.new 0
-@SnakeGame.moveUpNa$ret.383
+@SnakeGame.moveUpNa$ret.689
 D=A
 @SP
 A=M
@@ -170780,7 +170772,7 @@ D=M
 M=D
 @Apple.new
 0;JMP
-(SnakeGame.moveUpNa$ret.383)
+(SnakeGame.moveUpNa$ret.689)
 //pop this 2
 @THIS
 D=M
@@ -170820,7 +170812,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.384
+@SnakeGame.moveUpNa$ret.690
 D=A
 @SP
 A=M
@@ -170867,7 +170859,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.384)
+(SnakeGame.moveUpNa$ret.690)
 //push this 2
 @THIS
 D=M
@@ -170880,7 +170872,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.385
+@SnakeGame.moveUpNa$ret.691
 D=A
 @SP
 A=M
@@ -170927,9 +170919,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.385)
+(SnakeGame.moveUpNa$ret.691)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.386
+@SnakeGame.moveUpNa$ret.692
 D=A
 @SP
 A=M
@@ -170976,7 +170968,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.386)
+(SnakeGame.moveUpNa$ret.692)
 //push this 0
 @THIS
 D=M
@@ -171000,7 +170992,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.387
+@SnakeGame.moveUpNa$ret.693
 D=A
 @SP
 A=M
@@ -171047,7 +171039,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.387)
+(SnakeGame.moveUpNa$ret.693)
 //push this 2
 @THIS
 D=M
@@ -171060,7 +171052,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.388
+@SnakeGame.moveUpNa$ret.694
 D=A
 @SP
 A=M
@@ -171107,9 +171099,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.388)
+(SnakeGame.moveUpNa$ret.694)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.389
+@SnakeGame.moveUpNa$ret.695
 D=A
 @SP
 A=M
@@ -171156,7 +171148,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.389)
+(SnakeGame.moveUpNa$ret.695)
 //or
 @SP
 AM=M-1
@@ -171194,7 +171186,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.390
+@SnakeGame.moveUpNa$ret.696
 D=A
 @SP
 A=M
@@ -171241,7 +171233,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.390)
+(SnakeGame.moveUpNa$ret.696)
 //pop temp 0
 @5
 D=A
@@ -171301,7 +171293,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.391
+@SnakeGame.moveUpNa$ret.697
 D=A
 @SP
 A=M
@@ -171348,7 +171340,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.391)
+(SnakeGame.moveUpNa$ret.697)
 //pop local 0
 @LCL
 D=M
@@ -171383,24 +171375,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE228)
+(NORMAL_CASE6242)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE228
+@TRUE6242
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE228
+@CONTINUE6242
 0;JMP
-(TRUE228)
+(TRUE6242)
 @SP
 A=M-1
 M=-1
-(CONTINUE228)
+(CONTINUE6242)
 // write if-goto IF_TRUE78
 @SP
 AM=M-1
@@ -171468,24 +171460,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE230)
+(NORMAL_CASE6244)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE230
+@TRUE6244
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE230
+@CONTINUE6244
 0;JMP
-(TRUE230)
+(TRUE6244)
 @SP
 A=M-1
 M=-1
-(CONTINUE230)
+(CONTINUE6244)
 // write if-goto IF_TRUE79
 @SP
 AM=M-1
@@ -171518,24 +171510,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE231)
+(NORMAL_CASE6245)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE231
+@TRUE6245
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE231
+@CONTINUE6245
 0;JMP
-(TRUE231)
+(TRUE6245)
 @SP
 A=M-1
 M=-1
-(CONTINUE231)
+(CONTINUE6245)
 //not
 @SP
 AM=M-1
@@ -171605,24 +171597,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE233)
+(NORMAL_CASE6247)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE233
+@TRUE6247
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE233
+@CONTINUE6247
 0;JMP
-(TRUE233)
+(TRUE6247)
 @SP
 A=M-1
 M=-1
-(CONTINUE233)
+(CONTINUE6247)
 // write if-goto IF_TRUE81
 @SP
 AM=M-1
@@ -171655,24 +171647,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE234)
+(NORMAL_CASE6248)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE234
+@TRUE6248
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE234
+@CONTINUE6248
 0;JMP
-(TRUE234)
+(TRUE6248)
 @SP
 A=M-1
 M=-1
-(CONTINUE234)
+(CONTINUE6248)
 //not
 @SP
 AM=M-1
@@ -171742,24 +171734,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE236)
+(NORMAL_CASE6250)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE236
+@TRUE6250
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE236
+@CONTINUE6250
 0;JMP
-(TRUE236)
+(TRUE6250)
 @SP
 A=M-1
 M=-1
-(CONTINUE236)
+(CONTINUE6250)
 // write if-goto IF_TRUE83
 @SP
 AM=M-1
@@ -171792,24 +171784,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE237)
+(NORMAL_CASE6251)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE237
+@TRUE6251
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE237
+@CONTINUE6251
 0;JMP
-(TRUE237)
+(TRUE6251)
 @SP
 A=M-1
 M=-1
-(CONTINUE237)
+(CONTINUE6251)
 //not
 @SP
 AM=M-1
@@ -171879,24 +171871,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE239)
+(NORMAL_CASE6253)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE239
+@TRUE6253
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE239
+@CONTINUE6253
 0;JMP
-(TRUE239)
+(TRUE6253)
 @SP
 A=M-1
 M=-1
-(CONTINUE239)
+(CONTINUE6253)
 // write if-goto IF_TRUE85
 @SP
 AM=M-1
@@ -171929,24 +171921,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE240)
+(NORMAL_CASE6254)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE240
+@TRUE6254
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE240
+@CONTINUE6254
 0;JMP
-(TRUE240)
+(TRUE6254)
 @SP
 A=M-1
 M=-1
-(CONTINUE240)
+(CONTINUE6254)
 //not
 @SP
 AM=M-1
@@ -172016,24 +172008,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE242)
+(NORMAL_CASE6256)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE242
+@TRUE6256
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE242
+@CONTINUE6256
 0;JMP
-(TRUE242)
+(TRUE6256)
 @SP
 A=M-1
 M=-1
-(CONTINUE242)
+(CONTINUE6256)
 // write if-goto IF_TRUE87
 @SP
 AM=M-1
@@ -172047,7 +172039,7 @@ D;JNE
 // write label IF_TRUE87
 (SnakeGame.moveUpNa$IF_TRUE87)
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.392
+@SnakeGame.moveUpNa$ret.698
 D=A
 @SP
 A=M
@@ -172094,7 +172086,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.392)
+(SnakeGame.moveUpNa$ret.698)
 //pop local 0
 @LCL
 D=M
@@ -172120,7 +172112,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeGame.moveSnake 1
-@SnakeGame.moveUpNa$ret.393
+@SnakeGame.moveUpNa$ret.699
 D=A
 @SP
 A=M
@@ -172167,7 +172159,7 @@ D=M
 M=D
 @SnakeGame.moveSnake
 0;JMP
-(SnakeGame.moveUpNa$ret.393)
+(SnakeGame.moveUpNa$ret.699)
 //pop temp 0
 @5
 D=A
@@ -172213,7 +172205,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.394
+@SnakeGame.moveUpNa$ret.700
 D=A
 @SP
 A=M
@@ -172260,7 +172252,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.394)
+(SnakeGame.moveUpNa$ret.700)
 //push this 0
 @THIS
 D=M
@@ -172273,7 +172265,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.395
+@SnakeGame.moveUpNa$ret.701
 D=A
 @SP
 A=M
@@ -172320,26 +172312,26 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.395)
+(SnakeGame.moveUpNa$ret.701)
 //eq
-(NORMAL_CASE243)
+(NORMAL_CASE6257)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE243
+@TRUE6257
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE243
+@CONTINUE6257
 0;JMP
-(TRUE243)
+(TRUE6257)
 @SP
 A=M-1
 M=-1
-(CONTINUE243)
+(CONTINUE6257)
 //push this 2
 @THIS
 D=M
@@ -172352,7 +172344,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.396
+@SnakeGame.moveUpNa$ret.702
 D=A
 @SP
 A=M
@@ -172399,7 +172391,7 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.396)
+(SnakeGame.moveUpNa$ret.702)
 //push this 0
 @THIS
 D=M
@@ -172412,7 +172404,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.397
+@SnakeGame.moveUpNa$ret.703
 D=A
 @SP
 A=M
@@ -172459,26 +172451,26 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.397)
+(SnakeGame.moveUpNa$ret.703)
 //eq
-(NORMAL_CASE244)
+(NORMAL_CASE6258)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE244
+@TRUE6258
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE244
+@CONTINUE6258
 0;JMP
-(TRUE244)
+(TRUE6258)
 @SP
 A=M-1
 M=-1
-(CONTINUE244)
+(CONTINUE6258)
 //and
 @SP
 AM=M-1
@@ -172549,7 +172541,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.398
+@SnakeGame.moveUpNa$ret.704
 D=A
 @SP
 A=M
@@ -172596,7 +172588,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.398)
+(SnakeGame.moveUpNa$ret.704)
 //pop temp 0
 @5
 D=A
@@ -172633,7 +172625,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.399
+@SnakeGame.moveUpNa$ret.705
 D=A
 @SP
 A=M
@@ -172680,7 +172672,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.399)
+(SnakeGame.moveUpNa$ret.705)
 //push this 2
 @THIS
 D=M
@@ -172693,7 +172685,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.400
+@SnakeGame.moveUpNa$ret.706
 D=A
 @SP
 A=M
@@ -172740,9 +172732,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.400)
+(SnakeGame.moveUpNa$ret.706)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.401
+@SnakeGame.moveUpNa$ret.707
 D=A
 @SP
 A=M
@@ -172789,7 +172781,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.401)
+(SnakeGame.moveUpNa$ret.707)
 //push this 0
 @THIS
 D=M
@@ -172813,7 +172805,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.402
+@SnakeGame.moveUpNa$ret.708
 D=A
 @SP
 A=M
@@ -172860,7 +172852,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.402)
+(SnakeGame.moveUpNa$ret.708)
 //push this 2
 @THIS
 D=M
@@ -172873,7 +172865,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.403
+@SnakeGame.moveUpNa$ret.709
 D=A
 @SP
 A=M
@@ -172920,9 +172912,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.403)
+(SnakeGame.moveUpNa$ret.709)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.404
+@SnakeGame.moveUpNa$ret.710
 D=A
 @SP
 A=M
@@ -172969,7 +172961,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.404)
+(SnakeGame.moveUpNa$ret.710)
 //or
 @SP
 AM=M-1
@@ -173007,7 +172999,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.405
+@SnakeGame.moveUpNa$ret.711
 D=A
 @SP
 A=M
@@ -173054,7 +173046,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.405)
+(SnakeGame.moveUpNa$ret.711)
 //pop temp 0
 @5
 D=A
@@ -173083,7 +173075,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.lengthen 1
-@SnakeGame.moveUpNa$ret.406
+@SnakeGame.moveUpNa$ret.712
 D=A
 @SP
 A=M
@@ -173130,7 +173122,7 @@ D=M
 M=D
 @Snake.lengthen
 0;JMP
-(SnakeGame.moveUpNa$ret.406)
+(SnakeGame.moveUpNa$ret.712)
 //pop temp 0
 @5
 D=A
@@ -173156,7 +173148,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.hitItself 1
-@SnakeGame.moveUpNa$ret.407
+@SnakeGame.moveUpNa$ret.713
 D=A
 @SP
 A=M
@@ -173203,7 +173195,7 @@ D=M
 M=D
 @Snake.hitItself
 0;JMP
-(SnakeGame.moveUpNa$ret.407)
+(SnakeGame.moveUpNa$ret.713)
 // write if-goto IF_TRUE89
 @SP
 AM=M-1
@@ -173274,7 +173266,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.408
+@SnakeGame.moveUpNa$ret.714
 D=A
 @SP
 A=M
@@ -173321,7 +173313,7 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.408)
+(SnakeGame.moveUpNa$ret.714)
 //push this 0
 @THIS
 D=M
@@ -173334,7 +173326,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.409
+@SnakeGame.moveUpNa$ret.715
 D=A
 @SP
 A=M
@@ -173381,9 +173373,9 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.409)
+(SnakeGame.moveUpNa$ret.715)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.410
+@SnakeGame.moveUpNa$ret.716
 D=A
 @SP
 A=M
@@ -173430,7 +173422,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.410)
+(SnakeGame.moveUpNa$ret.716)
 //push constant 0
 @0
 D=A
@@ -173451,24 +173443,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE251)
+(NORMAL_CASE6265)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE251
+@TRUE6265
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE251
+@CONTINUE6265
 0;JMP
-(TRUE251)
+(TRUE6265)
 @SP
 A=M-1
 M=-1
-(CONTINUE251)
+(CONTINUE6265)
 // write if-goto IF_TRUE90
 @SP
 AM=M-1
@@ -173538,7 +173530,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.411
+@SnakeGame.moveUpNa$ret.717
 D=A
 @SP
 A=M
@@ -173585,7 +173577,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.411)
+(SnakeGame.moveUpNa$ret.717)
 //pop temp 0
 @5
 D=A
@@ -173606,7 +173598,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.412
+@SnakeGame.moveUpNa$ret.718
 D=A
 @SP
 A=M
@@ -173653,7 +173645,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.412)
+(SnakeGame.moveUpNa$ret.718)
 //push constant 71
 @71
 D=A
@@ -173663,7 +173655,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.413
+@SnakeGame.moveUpNa$ret.719
 D=A
 @SP
 A=M
@@ -173710,7 +173702,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.413)
+(SnakeGame.moveUpNa$ret.719)
 //push constant 65
 @65
 D=A
@@ -173720,7 +173712,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.414
+@SnakeGame.moveUpNa$ret.720
 D=A
 @SP
 A=M
@@ -173767,7 +173759,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.414)
+(SnakeGame.moveUpNa$ret.720)
 //push constant 77
 @77
 D=A
@@ -173777,7 +173769,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.415
+@SnakeGame.moveUpNa$ret.721
 D=A
 @SP
 A=M
@@ -173824,7 +173816,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.415)
+(SnakeGame.moveUpNa$ret.721)
 //push constant 69
 @69
 D=A
@@ -173834,7 +173826,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.416
+@SnakeGame.moveUpNa$ret.722
 D=A
 @SP
 A=M
@@ -173881,7 +173873,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.416)
+(SnakeGame.moveUpNa$ret.722)
 //push constant 32
 @32
 D=A
@@ -173891,7 +173883,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.417
+@SnakeGame.moveUpNa$ret.723
 D=A
 @SP
 A=M
@@ -173938,7 +173930,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.417)
+(SnakeGame.moveUpNa$ret.723)
 //push constant 79
 @79
 D=A
@@ -173948,7 +173940,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.418
+@SnakeGame.moveUpNa$ret.724
 D=A
 @SP
 A=M
@@ -173995,7 +173987,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.418)
+(SnakeGame.moveUpNa$ret.724)
 //push constant 86
 @86
 D=A
@@ -174005,7 +173997,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.419
+@SnakeGame.moveUpNa$ret.725
 D=A
 @SP
 A=M
@@ -174052,7 +174044,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.419)
+(SnakeGame.moveUpNa$ret.725)
 //push constant 69
 @69
 D=A
@@ -174062,7 +174054,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.420
+@SnakeGame.moveUpNa$ret.726
 D=A
 @SP
 A=M
@@ -174109,7 +174101,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.420)
+(SnakeGame.moveUpNa$ret.726)
 //push constant 82
 @82
 D=A
@@ -174119,7 +174111,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.421
+@SnakeGame.moveUpNa$ret.727
 D=A
 @SP
 A=M
@@ -174166,9 +174158,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.421)
+(SnakeGame.moveUpNa$ret.727)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.422
+@SnakeGame.moveUpNa$ret.728
 D=A
 @SP
 A=M
@@ -174215,7 +174207,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.422)
+(SnakeGame.moveUpNa$ret.728)
 //pop temp 0
 @5
 D=A
@@ -174244,7 +174236,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.423
+@SnakeGame.moveUpNa$ret.729
 D=A
 @SP
 A=M
@@ -174291,7 +174283,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.423)
+(SnakeGame.moveUpNa$ret.729)
 //pop temp 0
 @5
 D=A
@@ -174312,7 +174304,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.424
+@SnakeGame.moveUpNa$ret.730
 D=A
 @SP
 A=M
@@ -174359,7 +174351,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.424)
+(SnakeGame.moveUpNa$ret.730)
 //push constant 83
 @83
 D=A
@@ -174369,7 +174361,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.425
+@SnakeGame.moveUpNa$ret.731
 D=A
 @SP
 A=M
@@ -174416,7 +174408,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.425)
+(SnakeGame.moveUpNa$ret.731)
 //push constant 67
 @67
 D=A
@@ -174426,7 +174418,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.426
+@SnakeGame.moveUpNa$ret.732
 D=A
 @SP
 A=M
@@ -174473,7 +174465,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.426)
+(SnakeGame.moveUpNa$ret.732)
 //push constant 79
 @79
 D=A
@@ -174483,7 +174475,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.427
+@SnakeGame.moveUpNa$ret.733
 D=A
 @SP
 A=M
@@ -174530,7 +174522,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.427)
+(SnakeGame.moveUpNa$ret.733)
 //push constant 82
 @82
 D=A
@@ -174540,7 +174532,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.428
+@SnakeGame.moveUpNa$ret.734
 D=A
 @SP
 A=M
@@ -174587,7 +174579,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.428)
+(SnakeGame.moveUpNa$ret.734)
 //push constant 69
 @69
 D=A
@@ -174597,7 +174589,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.429
+@SnakeGame.moveUpNa$ret.735
 D=A
 @SP
 A=M
@@ -174644,7 +174636,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.429)
+(SnakeGame.moveUpNa$ret.735)
 //push constant 58
 @58
 D=A
@@ -174654,7 +174646,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.430
+@SnakeGame.moveUpNa$ret.736
 D=A
 @SP
 A=M
@@ -174701,7 +174693,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.430)
+(SnakeGame.moveUpNa$ret.736)
 //push constant 32
 @32
 D=A
@@ -174711,7 +174703,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.431
+@SnakeGame.moveUpNa$ret.737
 D=A
 @SP
 A=M
@@ -174758,9 +174750,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.431)
+(SnakeGame.moveUpNa$ret.737)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.432
+@SnakeGame.moveUpNa$ret.738
 D=A
 @SP
 A=M
@@ -174807,7 +174799,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.432)
+(SnakeGame.moveUpNa$ret.738)
 //pop temp 0
 @5
 D=A
@@ -174831,7 +174823,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printInt 1
-@SnakeGame.moveUpNa$ret.433
+@SnakeGame.moveUpNa$ret.739
 D=A
 @SP
 A=M
@@ -174878,7 +174870,7 @@ D=M
 M=D
 @Output.printInt
 0;JMP
-(SnakeGame.moveUpNa$ret.433)
+(SnakeGame.moveUpNa$ret.739)
 //pop temp 0
 @5
 D=A
@@ -174934,24 +174926,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE253)
+(NORMAL_CASE6267)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE253
+@TRUE6267
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE253
+@CONTINUE6267
 0;JMP
-(TRUE253)
+(TRUE6267)
 @SP
 A=M-1
 M=-1
-(CONTINUE253)
+(CONTINUE6267)
 //not
 @SP
 AM=M-1
@@ -174971,7 +174963,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.434
+@SnakeGame.moveUpNa$ret.740
 D=A
 @SP
 A=M
@@ -175018,7 +175010,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.434)
+(SnakeGame.moveUpNa$ret.740)
 //pop local 0
 @LCL
 D=M
@@ -175039,7 +175031,7 @@ M=D
 // write label WHILE_END28
 (SnakeGame.moveUpNa$WHILE_END28)
 // call function Apple.new 0
-@SnakeGame.moveUpNa$ret.435
+@SnakeGame.moveUpNa$ret.741
 D=A
 @SP
 A=M
@@ -175086,7 +175078,7 @@ D=M
 M=D
 @Apple.new
 0;JMP
-(SnakeGame.moveUpNa$ret.435)
+(SnakeGame.moveUpNa$ret.741)
 //pop this 2
 @THIS
 D=M
@@ -175126,7 +175118,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.436
+@SnakeGame.moveUpNa$ret.742
 D=A
 @SP
 A=M
@@ -175173,7 +175165,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.436)
+(SnakeGame.moveUpNa$ret.742)
 //push this 2
 @THIS
 D=M
@@ -175186,7 +175178,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.437
+@SnakeGame.moveUpNa$ret.743
 D=A
 @SP
 A=M
@@ -175233,9 +175225,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.437)
+(SnakeGame.moveUpNa$ret.743)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.438
+@SnakeGame.moveUpNa$ret.744
 D=A
 @SP
 A=M
@@ -175282,7 +175274,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.438)
+(SnakeGame.moveUpNa$ret.744)
 //push this 0
 @THIS
 D=M
@@ -175306,7 +175298,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.439
+@SnakeGame.moveUpNa$ret.745
 D=A
 @SP
 A=M
@@ -175353,7 +175345,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.439)
+(SnakeGame.moveUpNa$ret.745)
 //push this 2
 @THIS
 D=M
@@ -175366,7 +175358,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.440
+@SnakeGame.moveUpNa$ret.746
 D=A
 @SP
 A=M
@@ -175413,9 +175405,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.440)
+(SnakeGame.moveUpNa$ret.746)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.441
+@SnakeGame.moveUpNa$ret.747
 D=A
 @SP
 A=M
@@ -175462,7 +175454,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.441)
+(SnakeGame.moveUpNa$ret.747)
 //or
 @SP
 AM=M-1
@@ -175500,7 +175492,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.442
+@SnakeGame.moveUpNa$ret.748
 D=A
 @SP
 A=M
@@ -175547,7 +175539,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.442)
+(SnakeGame.moveUpNa$ret.748)
 //pop temp 0
 @5
 D=A
@@ -175607,7 +175599,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.443
+@SnakeGame.moveUpNa$ret.749
 D=A
 @SP
 A=M
@@ -175654,7 +175646,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.443)
+(SnakeGame.moveUpNa$ret.749)
 //pop local 0
 @LCL
 D=M
@@ -175689,24 +175681,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE259)
+(NORMAL_CASE6273)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE259
+@TRUE6273
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE259
+@CONTINUE6273
 0;JMP
-(TRUE259)
+(TRUE6273)
 @SP
 A=M-1
 M=-1
-(CONTINUE259)
+(CONTINUE6273)
 // write if-goto IF_TRUE91
 @SP
 AM=M-1
@@ -175774,24 +175766,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE261)
+(NORMAL_CASE6275)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE261
+@TRUE6275
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE261
+@CONTINUE6275
 0;JMP
-(TRUE261)
+(TRUE6275)
 @SP
 A=M-1
 M=-1
-(CONTINUE261)
+(CONTINUE6275)
 // write if-goto IF_TRUE92
 @SP
 AM=M-1
@@ -175824,24 +175816,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE262)
+(NORMAL_CASE6276)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE262
+@TRUE6276
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE262
+@CONTINUE6276
 0;JMP
-(TRUE262)
+(TRUE6276)
 @SP
 A=M-1
 M=-1
-(CONTINUE262)
+(CONTINUE6276)
 //not
 @SP
 AM=M-1
@@ -175911,24 +175903,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE264)
+(NORMAL_CASE6278)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE264
+@TRUE6278
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE264
+@CONTINUE6278
 0;JMP
-(TRUE264)
+(TRUE6278)
 @SP
 A=M-1
 M=-1
-(CONTINUE264)
+(CONTINUE6278)
 // write if-goto IF_TRUE94
 @SP
 AM=M-1
@@ -175961,24 +175953,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE265)
+(NORMAL_CASE6279)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE265
+@TRUE6279
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE265
+@CONTINUE6279
 0;JMP
-(TRUE265)
+(TRUE6279)
 @SP
 A=M-1
 M=-1
-(CONTINUE265)
+(CONTINUE6279)
 //not
 @SP
 AM=M-1
@@ -176048,24 +176040,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE267)
+(NORMAL_CASE6281)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE267
+@TRUE6281
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE267
+@CONTINUE6281
 0;JMP
-(TRUE267)
+(TRUE6281)
 @SP
 A=M-1
 M=-1
-(CONTINUE267)
+(CONTINUE6281)
 // write if-goto IF_TRUE96
 @SP
 AM=M-1
@@ -176098,24 +176090,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE268)
+(NORMAL_CASE6282)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE268
+@TRUE6282
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE268
+@CONTINUE6282
 0;JMP
-(TRUE268)
+(TRUE6282)
 @SP
 A=M-1
 M=-1
-(CONTINUE268)
+(CONTINUE6282)
 //not
 @SP
 AM=M-1
@@ -176185,24 +176177,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE270)
+(NORMAL_CASE6284)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE270
+@TRUE6284
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE270
+@CONTINUE6284
 0;JMP
-(TRUE270)
+(TRUE6284)
 @SP
 A=M-1
 M=-1
-(CONTINUE270)
+(CONTINUE6284)
 // write if-goto IF_TRUE98
 @SP
 AM=M-1
@@ -176235,24 +176227,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE271)
+(NORMAL_CASE6285)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE271
+@TRUE6285
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE271
+@CONTINUE6285
 0;JMP
-(TRUE271)
+(TRUE6285)
 @SP
 A=M-1
 M=-1
-(CONTINUE271)
+(CONTINUE6285)
 //not
 @SP
 AM=M-1
@@ -176322,24 +176314,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE273)
+(NORMAL_CASE6287)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE273
+@TRUE6287
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE273
+@CONTINUE6287
 0;JMP
-(TRUE273)
+(TRUE6287)
 @SP
 A=M-1
 M=-1
-(CONTINUE273)
+(CONTINUE6287)
 // write if-goto IF_TRUE100
 @SP
 AM=M-1
@@ -176353,7 +176345,7 @@ D;JNE
 // write label IF_TRUE100
 (SnakeGame.moveUpNa$IF_TRUE100)
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.444
+@SnakeGame.moveUpNa$ret.750
 D=A
 @SP
 A=M
@@ -176400,7 +176392,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.444)
+(SnakeGame.moveUpNa$ret.750)
 //pop local 0
 @LCL
 D=M
@@ -176426,7 +176418,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeGame.moveSnake 1
-@SnakeGame.moveUpNa$ret.445
+@SnakeGame.moveUpNa$ret.751
 D=A
 @SP
 A=M
@@ -176473,7 +176465,7 @@ D=M
 M=D
 @SnakeGame.moveSnake
 0;JMP
-(SnakeGame.moveUpNa$ret.445)
+(SnakeGame.moveUpNa$ret.751)
 //pop temp 0
 @5
 D=A
@@ -176519,7 +176511,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.446
+@SnakeGame.moveUpNa$ret.752
 D=A
 @SP
 A=M
@@ -176566,7 +176558,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.446)
+(SnakeGame.moveUpNa$ret.752)
 //push this 0
 @THIS
 D=M
@@ -176579,7 +176571,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.447
+@SnakeGame.moveUpNa$ret.753
 D=A
 @SP
 A=M
@@ -176626,26 +176618,26 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.447)
+(SnakeGame.moveUpNa$ret.753)
 //eq
-(NORMAL_CASE274)
+(NORMAL_CASE6288)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE274
+@TRUE6288
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE274
+@CONTINUE6288
 0;JMP
-(TRUE274)
+(TRUE6288)
 @SP
 A=M-1
 M=-1
-(CONTINUE274)
+(CONTINUE6288)
 //push this 2
 @THIS
 D=M
@@ -176658,7 +176650,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.448
+@SnakeGame.moveUpNa$ret.754
 D=A
 @SP
 A=M
@@ -176705,7 +176697,7 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.448)
+(SnakeGame.moveUpNa$ret.754)
 //push this 0
 @THIS
 D=M
@@ -176718,7 +176710,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.449
+@SnakeGame.moveUpNa$ret.755
 D=A
 @SP
 A=M
@@ -176765,26 +176757,26 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.449)
+(SnakeGame.moveUpNa$ret.755)
 //eq
-(NORMAL_CASE275)
+(NORMAL_CASE6289)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE275
+@TRUE6289
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE275
+@CONTINUE6289
 0;JMP
-(TRUE275)
+(TRUE6289)
 @SP
 A=M-1
 M=-1
-(CONTINUE275)
+(CONTINUE6289)
 //and
 @SP
 AM=M-1
@@ -176855,7 +176847,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.450
+@SnakeGame.moveUpNa$ret.756
 D=A
 @SP
 A=M
@@ -176902,7 +176894,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.450)
+(SnakeGame.moveUpNa$ret.756)
 //pop temp 0
 @5
 D=A
@@ -176939,7 +176931,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.451
+@SnakeGame.moveUpNa$ret.757
 D=A
 @SP
 A=M
@@ -176986,7 +176978,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.451)
+(SnakeGame.moveUpNa$ret.757)
 //push this 2
 @THIS
 D=M
@@ -176999,7 +176991,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.452
+@SnakeGame.moveUpNa$ret.758
 D=A
 @SP
 A=M
@@ -177046,9 +177038,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.452)
+(SnakeGame.moveUpNa$ret.758)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.453
+@SnakeGame.moveUpNa$ret.759
 D=A
 @SP
 A=M
@@ -177095,7 +177087,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.453)
+(SnakeGame.moveUpNa$ret.759)
 //push this 0
 @THIS
 D=M
@@ -177119,7 +177111,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.454
+@SnakeGame.moveUpNa$ret.760
 D=A
 @SP
 A=M
@@ -177166,7 +177158,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.454)
+(SnakeGame.moveUpNa$ret.760)
 //push this 2
 @THIS
 D=M
@@ -177179,7 +177171,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.455
+@SnakeGame.moveUpNa$ret.761
 D=A
 @SP
 A=M
@@ -177226,9 +177218,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.455)
+(SnakeGame.moveUpNa$ret.761)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.456
+@SnakeGame.moveUpNa$ret.762
 D=A
 @SP
 A=M
@@ -177275,7 +177267,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.456)
+(SnakeGame.moveUpNa$ret.762)
 //or
 @SP
 AM=M-1
@@ -177313,7 +177305,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.457
+@SnakeGame.moveUpNa$ret.763
 D=A
 @SP
 A=M
@@ -177360,7 +177352,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.457)
+(SnakeGame.moveUpNa$ret.763)
 //pop temp 0
 @5
 D=A
@@ -177389,7 +177381,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.lengthen 1
-@SnakeGame.moveUpNa$ret.458
+@SnakeGame.moveUpNa$ret.764
 D=A
 @SP
 A=M
@@ -177436,7 +177428,7 @@ D=M
 M=D
 @Snake.lengthen
 0;JMP
-(SnakeGame.moveUpNa$ret.458)
+(SnakeGame.moveUpNa$ret.764)
 //pop temp 0
 @5
 D=A
@@ -177462,7 +177454,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.hitItself 1
-@SnakeGame.moveUpNa$ret.459
+@SnakeGame.moveUpNa$ret.765
 D=A
 @SP
 A=M
@@ -177509,7 +177501,7 @@ D=M
 M=D
 @Snake.hitItself
 0;JMP
-(SnakeGame.moveUpNa$ret.459)
+(SnakeGame.moveUpNa$ret.765)
 // write if-goto IF_TRUE102
 @SP
 AM=M-1
@@ -177580,7 +177572,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.460
+@SnakeGame.moveUpNa$ret.766
 D=A
 @SP
 A=M
@@ -177627,7 +177619,7 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.460)
+(SnakeGame.moveUpNa$ret.766)
 //push this 0
 @THIS
 D=M
@@ -177640,7 +177632,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.461
+@SnakeGame.moveUpNa$ret.767
 D=A
 @SP
 A=M
@@ -177687,9 +177679,9 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.461)
+(SnakeGame.moveUpNa$ret.767)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.462
+@SnakeGame.moveUpNa$ret.768
 D=A
 @SP
 A=M
@@ -177736,7 +177728,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.462)
+(SnakeGame.moveUpNa$ret.768)
 //push constant 0
 @0
 D=A
@@ -177757,24 +177749,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE282)
+(NORMAL_CASE6296)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE282
+@TRUE6296
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE282
+@CONTINUE6296
 0;JMP
-(TRUE282)
+(TRUE6296)
 @SP
 A=M-1
 M=-1
-(CONTINUE282)
+(CONTINUE6296)
 // write if-goto IF_TRUE103
 @SP
 AM=M-1
@@ -177844,7 +177836,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.463
+@SnakeGame.moveUpNa$ret.769
 D=A
 @SP
 A=M
@@ -177891,7 +177883,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.463)
+(SnakeGame.moveUpNa$ret.769)
 //pop temp 0
 @5
 D=A
@@ -177912,7 +177904,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.464
+@SnakeGame.moveUpNa$ret.770
 D=A
 @SP
 A=M
@@ -177959,7 +177951,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.464)
+(SnakeGame.moveUpNa$ret.770)
 //push constant 71
 @71
 D=A
@@ -177969,7 +177961,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.465
+@SnakeGame.moveUpNa$ret.771
 D=A
 @SP
 A=M
@@ -178016,7 +178008,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.465)
+(SnakeGame.moveUpNa$ret.771)
 //push constant 65
 @65
 D=A
@@ -178026,7 +178018,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.466
+@SnakeGame.moveUpNa$ret.772
 D=A
 @SP
 A=M
@@ -178073,7 +178065,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.466)
+(SnakeGame.moveUpNa$ret.772)
 //push constant 77
 @77
 D=A
@@ -178083,7 +178075,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.467
+@SnakeGame.moveUpNa$ret.773
 D=A
 @SP
 A=M
@@ -178130,7 +178122,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.467)
+(SnakeGame.moveUpNa$ret.773)
 //push constant 69
 @69
 D=A
@@ -178140,7 +178132,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.468
+@SnakeGame.moveUpNa$ret.774
 D=A
 @SP
 A=M
@@ -178187,7 +178179,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.468)
+(SnakeGame.moveUpNa$ret.774)
 //push constant 32
 @32
 D=A
@@ -178197,7 +178189,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.469
+@SnakeGame.moveUpNa$ret.775
 D=A
 @SP
 A=M
@@ -178244,7 +178236,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.469)
+(SnakeGame.moveUpNa$ret.775)
 //push constant 79
 @79
 D=A
@@ -178254,7 +178246,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.470
+@SnakeGame.moveUpNa$ret.776
 D=A
 @SP
 A=M
@@ -178301,7 +178293,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.470)
+(SnakeGame.moveUpNa$ret.776)
 //push constant 86
 @86
 D=A
@@ -178311,7 +178303,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.471
+@SnakeGame.moveUpNa$ret.777
 D=A
 @SP
 A=M
@@ -178358,7 +178350,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.471)
+(SnakeGame.moveUpNa$ret.777)
 //push constant 69
 @69
 D=A
@@ -178368,7 +178360,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.472
+@SnakeGame.moveUpNa$ret.778
 D=A
 @SP
 A=M
@@ -178415,7 +178407,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.472)
+(SnakeGame.moveUpNa$ret.778)
 //push constant 82
 @82
 D=A
@@ -178425,7 +178417,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.473
+@SnakeGame.moveUpNa$ret.779
 D=A
 @SP
 A=M
@@ -178472,9 +178464,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.473)
+(SnakeGame.moveUpNa$ret.779)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.474
+@SnakeGame.moveUpNa$ret.780
 D=A
 @SP
 A=M
@@ -178521,7 +178513,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.474)
+(SnakeGame.moveUpNa$ret.780)
 //pop temp 0
 @5
 D=A
@@ -178550,7 +178542,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.475
+@SnakeGame.moveUpNa$ret.781
 D=A
 @SP
 A=M
@@ -178597,7 +178589,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.475)
+(SnakeGame.moveUpNa$ret.781)
 //pop temp 0
 @5
 D=A
@@ -178618,7 +178610,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.476
+@SnakeGame.moveUpNa$ret.782
 D=A
 @SP
 A=M
@@ -178665,7 +178657,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.476)
+(SnakeGame.moveUpNa$ret.782)
 //push constant 83
 @83
 D=A
@@ -178675,7 +178667,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.477
+@SnakeGame.moveUpNa$ret.783
 D=A
 @SP
 A=M
@@ -178722,7 +178714,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.477)
+(SnakeGame.moveUpNa$ret.783)
 //push constant 67
 @67
 D=A
@@ -178732,7 +178724,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.478
+@SnakeGame.moveUpNa$ret.784
 D=A
 @SP
 A=M
@@ -178779,7 +178771,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.478)
+(SnakeGame.moveUpNa$ret.784)
 //push constant 79
 @79
 D=A
@@ -178789,7 +178781,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.479
+@SnakeGame.moveUpNa$ret.785
 D=A
 @SP
 A=M
@@ -178836,7 +178828,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.479)
+(SnakeGame.moveUpNa$ret.785)
 //push constant 82
 @82
 D=A
@@ -178846,7 +178838,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.480
+@SnakeGame.moveUpNa$ret.786
 D=A
 @SP
 A=M
@@ -178893,7 +178885,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.480)
+(SnakeGame.moveUpNa$ret.786)
 //push constant 69
 @69
 D=A
@@ -178903,7 +178895,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.481
+@SnakeGame.moveUpNa$ret.787
 D=A
 @SP
 A=M
@@ -178950,7 +178942,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.481)
+(SnakeGame.moveUpNa$ret.787)
 //push constant 58
 @58
 D=A
@@ -178960,7 +178952,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.482
+@SnakeGame.moveUpNa$ret.788
 D=A
 @SP
 A=M
@@ -179007,7 +178999,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.482)
+(SnakeGame.moveUpNa$ret.788)
 //push constant 32
 @32
 D=A
@@ -179017,7 +179009,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.483
+@SnakeGame.moveUpNa$ret.789
 D=A
 @SP
 A=M
@@ -179064,9 +179056,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.483)
+(SnakeGame.moveUpNa$ret.789)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.484
+@SnakeGame.moveUpNa$ret.790
 D=A
 @SP
 A=M
@@ -179113,7 +179105,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.484)
+(SnakeGame.moveUpNa$ret.790)
 //pop temp 0
 @5
 D=A
@@ -179137,7 +179129,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printInt 1
-@SnakeGame.moveUpNa$ret.485
+@SnakeGame.moveUpNa$ret.791
 D=A
 @SP
 A=M
@@ -179184,7 +179176,7 @@ D=M
 M=D
 @Output.printInt
 0;JMP
-(SnakeGame.moveUpNa$ret.485)
+(SnakeGame.moveUpNa$ret.791)
 //pop temp 0
 @5
 D=A
@@ -179240,24 +179232,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE284)
+(NORMAL_CASE6298)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE284
+@TRUE6298
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE284
+@CONTINUE6298
 0;JMP
-(TRUE284)
+(TRUE6298)
 @SP
 A=M-1
 M=-1
-(CONTINUE284)
+(CONTINUE6298)
 //not
 @SP
 AM=M-1
@@ -179277,7 +179269,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.486
+@SnakeGame.moveUpNa$ret.792
 D=A
 @SP
 A=M
@@ -179324,7 +179316,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.486)
+(SnakeGame.moveUpNa$ret.792)
 //pop local 0
 @LCL
 D=M
@@ -179345,7 +179337,7 @@ M=D
 // write label WHILE_END32
 (SnakeGame.moveUpNa$WHILE_END32)
 // call function Apple.new 0
-@SnakeGame.moveUpNa$ret.487
+@SnakeGame.moveUpNa$ret.793
 D=A
 @SP
 A=M
@@ -179392,7 +179384,7 @@ D=M
 M=D
 @Apple.new
 0;JMP
-(SnakeGame.moveUpNa$ret.487)
+(SnakeGame.moveUpNa$ret.793)
 //pop this 2
 @THIS
 D=M
@@ -179432,7 +179424,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.488
+@SnakeGame.moveUpNa$ret.794
 D=A
 @SP
 A=M
@@ -179479,7 +179471,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.488)
+(SnakeGame.moveUpNa$ret.794)
 //push this 2
 @THIS
 D=M
@@ -179492,7 +179484,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.489
+@SnakeGame.moveUpNa$ret.795
 D=A
 @SP
 A=M
@@ -179539,9 +179531,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.489)
+(SnakeGame.moveUpNa$ret.795)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.490
+@SnakeGame.moveUpNa$ret.796
 D=A
 @SP
 A=M
@@ -179588,7 +179580,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.490)
+(SnakeGame.moveUpNa$ret.796)
 //push this 0
 @THIS
 D=M
@@ -179612,7 +179604,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.491
+@SnakeGame.moveUpNa$ret.797
 D=A
 @SP
 A=M
@@ -179659,7 +179651,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.491)
+(SnakeGame.moveUpNa$ret.797)
 //push this 2
 @THIS
 D=M
@@ -179672,7 +179664,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.492
+@SnakeGame.moveUpNa$ret.798
 D=A
 @SP
 A=M
@@ -179719,9 +179711,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.492)
+(SnakeGame.moveUpNa$ret.798)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.493
+@SnakeGame.moveUpNa$ret.799
 D=A
 @SP
 A=M
@@ -179768,7 +179760,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.493)
+(SnakeGame.moveUpNa$ret.799)
 //or
 @SP
 AM=M-1
@@ -179806,7 +179798,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.494
+@SnakeGame.moveUpNa$ret.800
 D=A
 @SP
 A=M
@@ -179853,7 +179845,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.494)
+(SnakeGame.moveUpNa$ret.800)
 //pop temp 0
 @5
 D=A
@@ -179913,7 +179905,7 @@ D=M
 
 D;JNE
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.495
+@SnakeGame.moveUpNa$ret.801
 D=A
 @SP
 A=M
@@ -179960,7 +179952,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.495)
+(SnakeGame.moveUpNa$ret.801)
 //pop local 0
 @LCL
 D=M
@@ -179995,24 +179987,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE290)
+(NORMAL_CASE6304)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE290
+@TRUE6304
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE290
+@CONTINUE6304
 0;JMP
-(TRUE290)
+(TRUE6304)
 @SP
 A=M-1
 M=-1
-(CONTINUE290)
+(CONTINUE6304)
 // write if-goto IF_TRUE104
 @SP
 AM=M-1
@@ -180080,24 +180072,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE292)
+(NORMAL_CASE6306)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE292
+@TRUE6306
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE292
+@CONTINUE6306
 0;JMP
-(TRUE292)
+(TRUE6306)
 @SP
 A=M-1
 M=-1
-(CONTINUE292)
+(CONTINUE6306)
 // write if-goto IF_TRUE105
 @SP
 AM=M-1
@@ -180130,24 +180122,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE293)
+(NORMAL_CASE6307)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE293
+@TRUE6307
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE293
+@CONTINUE6307
 0;JMP
-(TRUE293)
+(TRUE6307)
 @SP
 A=M-1
 M=-1
-(CONTINUE293)
+(CONTINUE6307)
 //not
 @SP
 AM=M-1
@@ -180217,24 +180209,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE295)
+(NORMAL_CASE6309)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE295
+@TRUE6309
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE295
+@CONTINUE6309
 0;JMP
-(TRUE295)
+(TRUE6309)
 @SP
 A=M-1
 M=-1
-(CONTINUE295)
+(CONTINUE6309)
 // write if-goto IF_TRUE107
 @SP
 AM=M-1
@@ -180267,24 +180259,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE296)
+(NORMAL_CASE6310)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE296
+@TRUE6310
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE296
+@CONTINUE6310
 0;JMP
-(TRUE296)
+(TRUE6310)
 @SP
 A=M-1
 M=-1
-(CONTINUE296)
+(CONTINUE6310)
 //not
 @SP
 AM=M-1
@@ -180354,24 +180346,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE298)
+(NORMAL_CASE6312)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE298
+@TRUE6312
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE298
+@CONTINUE6312
 0;JMP
-(TRUE298)
+(TRUE6312)
 @SP
 A=M-1
 M=-1
-(CONTINUE298)
+(CONTINUE6312)
 // write if-goto IF_TRUE109
 @SP
 AM=M-1
@@ -180404,24 +180396,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE299)
+(NORMAL_CASE6313)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE299
+@TRUE6313
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE299
+@CONTINUE6313
 0;JMP
-(TRUE299)
+(TRUE6313)
 @SP
 A=M-1
 M=-1
-(CONTINUE299)
+(CONTINUE6313)
 //not
 @SP
 AM=M-1
@@ -180491,24 +180483,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE301)
+(NORMAL_CASE6315)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE301
+@TRUE6315
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE301
+@CONTINUE6315
 0;JMP
-(TRUE301)
+(TRUE6315)
 @SP
 A=M-1
 M=-1
-(CONTINUE301)
+(CONTINUE6315)
 // write if-goto IF_TRUE111
 @SP
 AM=M-1
@@ -180541,24 +180533,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE302)
+(NORMAL_CASE6316)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE302
+@TRUE6316
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE302
+@CONTINUE6316
 0;JMP
-(TRUE302)
+(TRUE6316)
 @SP
 A=M-1
 M=-1
-(CONTINUE302)
+(CONTINUE6316)
 //not
 @SP
 AM=M-1
@@ -180628,24 +180620,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE304)
+(NORMAL_CASE6318)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE304
+@TRUE6318
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE304
+@CONTINUE6318
 0;JMP
-(TRUE304)
+(TRUE6318)
 @SP
 A=M-1
 M=-1
-(CONTINUE304)
+(CONTINUE6318)
 // write if-goto IF_TRUE113
 @SP
 AM=M-1
@@ -180659,7 +180651,7 @@ D;JNE
 // write label IF_TRUE113
 (SnakeGame.moveUpNa$IF_TRUE113)
 // call function Keyboard.keyPressed 0
-@SnakeGame.moveUpNa$ret.496
+@SnakeGame.moveUpNa$ret.802
 D=A
 @SP
 A=M
@@ -180706,7 +180698,7 @@ D=M
 M=D
 @Keyboard.keyPressed
 0;JMP
-(SnakeGame.moveUpNa$ret.496)
+(SnakeGame.moveUpNa$ret.802)
 //pop local 0
 @LCL
 D=M
@@ -180732,7 +180724,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeGame.moveSnake 1
-@SnakeGame.moveUpNa$ret.497
+@SnakeGame.moveUpNa$ret.803
 D=A
 @SP
 A=M
@@ -180779,7 +180771,7 @@ D=M
 M=D
 @SnakeGame.moveSnake
 0;JMP
-(SnakeGame.moveUpNa$ret.497)
+(SnakeGame.moveUpNa$ret.803)
 //pop temp 0
 @5
 D=A
@@ -180825,7 +180817,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.498
+@SnakeGame.moveUpNa$ret.804
 D=A
 @SP
 A=M
@@ -180872,7 +180864,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.498)
+(SnakeGame.moveUpNa$ret.804)
 //push this 0
 @THIS
 D=M
@@ -180885,7 +180877,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.499
+@SnakeGame.moveUpNa$ret.805
 D=A
 @SP
 A=M
@@ -180932,26 +180924,26 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.499)
+(SnakeGame.moveUpNa$ret.805)
 //eq
-(NORMAL_CASE305)
+(NORMAL_CASE6319)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE305
+@TRUE6319
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE305
+@CONTINUE6319
 0;JMP
-(TRUE305)
+(TRUE6319)
 @SP
 A=M-1
 M=-1
-(CONTINUE305)
+(CONTINUE6319)
 //push this 2
 @THIS
 D=M
@@ -180964,7 +180956,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.500
+@SnakeGame.moveUpNa$ret.806
 D=A
 @SP
 A=M
@@ -181011,7 +181003,7 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.500)
+(SnakeGame.moveUpNa$ret.806)
 //push this 0
 @THIS
 D=M
@@ -181024,7 +181016,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.501
+@SnakeGame.moveUpNa$ret.807
 D=A
 @SP
 A=M
@@ -181071,26 +181063,26 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.501)
+(SnakeGame.moveUpNa$ret.807)
 //eq
-(NORMAL_CASE306)
+(NORMAL_CASE6320)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE306
+@TRUE6320
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE306
+@CONTINUE6320
 0;JMP
-(TRUE306)
+(TRUE6320)
 @SP
 A=M-1
 M=-1
-(CONTINUE306)
+(CONTINUE6320)
 //and
 @SP
 AM=M-1
@@ -181161,7 +181153,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.502
+@SnakeGame.moveUpNa$ret.808
 D=A
 @SP
 A=M
@@ -181208,7 +181200,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.502)
+(SnakeGame.moveUpNa$ret.808)
 //pop temp 0
 @5
 D=A
@@ -181245,7 +181237,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.503
+@SnakeGame.moveUpNa$ret.809
 D=A
 @SP
 A=M
@@ -181292,7 +181284,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.503)
+(SnakeGame.moveUpNa$ret.809)
 //push this 2
 @THIS
 D=M
@@ -181305,7 +181297,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.504
+@SnakeGame.moveUpNa$ret.810
 D=A
 @SP
 A=M
@@ -181352,9 +181344,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.504)
+(SnakeGame.moveUpNa$ret.810)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.505
+@SnakeGame.moveUpNa$ret.811
 D=A
 @SP
 A=M
@@ -181401,7 +181393,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.505)
+(SnakeGame.moveUpNa$ret.811)
 //push this 0
 @THIS
 D=M
@@ -181425,7 +181417,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getX 1
-@SnakeGame.moveUpNa$ret.506
+@SnakeGame.moveUpNa$ret.812
 D=A
 @SP
 A=M
@@ -181472,7 +181464,7 @@ D=M
 M=D
 @Apple.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.506)
+(SnakeGame.moveUpNa$ret.812)
 //push this 2
 @THIS
 D=M
@@ -181485,7 +181477,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.getY 1
-@SnakeGame.moveUpNa$ret.507
+@SnakeGame.moveUpNa$ret.813
 D=A
 @SP
 A=M
@@ -181532,9 +181524,9 @@ D=M
 M=D
 @Apple.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.507)
+(SnakeGame.moveUpNa$ret.813)
 // call function Snake.atPosition 3
-@SnakeGame.moveUpNa$ret.508
+@SnakeGame.moveUpNa$ret.814
 D=A
 @SP
 A=M
@@ -181581,7 +181573,7 @@ D=M
 M=D
 @Snake.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.508)
+(SnakeGame.moveUpNa$ret.814)
 //or
 @SP
 AM=M-1
@@ -181619,7 +181611,7 @@ M=D
 @SP
 M=M+1
 // call function Apple.generate 1
-@SnakeGame.moveUpNa$ret.509
+@SnakeGame.moveUpNa$ret.815
 D=A
 @SP
 A=M
@@ -181666,7 +181658,7 @@ D=M
 M=D
 @Apple.generate
 0;JMP
-(SnakeGame.moveUpNa$ret.509)
+(SnakeGame.moveUpNa$ret.815)
 //pop temp 0
 @5
 D=A
@@ -181695,7 +181687,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.lengthen 1
-@SnakeGame.moveUpNa$ret.510
+@SnakeGame.moveUpNa$ret.816
 D=A
 @SP
 A=M
@@ -181742,7 +181734,7 @@ D=M
 M=D
 @Snake.lengthen
 0;JMP
-(SnakeGame.moveUpNa$ret.510)
+(SnakeGame.moveUpNa$ret.816)
 //pop temp 0
 @5
 D=A
@@ -181768,7 +181760,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.hitItself 1
-@SnakeGame.moveUpNa$ret.511
+@SnakeGame.moveUpNa$ret.817
 D=A
 @SP
 A=M
@@ -181815,7 +181807,7 @@ D=M
 M=D
 @Snake.hitItself
 0;JMP
-(SnakeGame.moveUpNa$ret.511)
+(SnakeGame.moveUpNa$ret.817)
 // write if-goto IF_TRUE115
 @SP
 AM=M-1
@@ -181886,7 +181878,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getX 1
-@SnakeGame.moveUpNa$ret.512
+@SnakeGame.moveUpNa$ret.818
 D=A
 @SP
 A=M
@@ -181933,7 +181925,7 @@ D=M
 M=D
 @Snake.getX
 0;JMP
-(SnakeGame.moveUpNa$ret.512)
+(SnakeGame.moveUpNa$ret.818)
 //push this 0
 @THIS
 D=M
@@ -181946,7 +181938,7 @@ M=D
 @SP
 M=M+1
 // call function Snake.getY 1
-@SnakeGame.moveUpNa$ret.513
+@SnakeGame.moveUpNa$ret.819
 D=A
 @SP
 A=M
@@ -181993,9 +181985,9 @@ D=M
 M=D
 @Snake.getY
 0;JMP
-(SnakeGame.moveUpNa$ret.513)
+(SnakeGame.moveUpNa$ret.819)
 // call function Wall.atPosition 3
-@SnakeGame.moveUpNa$ret.514
+@SnakeGame.moveUpNa$ret.820
 D=A
 @SP
 A=M
@@ -182042,7 +182034,7 @@ D=M
 M=D
 @Wall.atPosition
 0;JMP
-(SnakeGame.moveUpNa$ret.514)
+(SnakeGame.moveUpNa$ret.820)
 //push constant 0
 @0
 D=A
@@ -182063,24 +182055,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE313)
+(NORMAL_CASE6327)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE313
+@TRUE6327
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE313
+@CONTINUE6327
 0;JMP
-(TRUE313)
+(TRUE6327)
 @SP
 A=M-1
 M=-1
-(CONTINUE313)
+(CONTINUE6327)
 // write if-goto IF_TRUE116
 @SP
 AM=M-1
@@ -182150,7 +182142,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.515
+@SnakeGame.moveUpNa$ret.821
 D=A
 @SP
 A=M
@@ -182197,7 +182189,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.515)
+(SnakeGame.moveUpNa$ret.821)
 //pop temp 0
 @5
 D=A
@@ -182218,7 +182210,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.516
+@SnakeGame.moveUpNa$ret.822
 D=A
 @SP
 A=M
@@ -182265,7 +182257,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.516)
+(SnakeGame.moveUpNa$ret.822)
 //push constant 71
 @71
 D=A
@@ -182275,7 +182267,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.517
+@SnakeGame.moveUpNa$ret.823
 D=A
 @SP
 A=M
@@ -182322,7 +182314,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.517)
+(SnakeGame.moveUpNa$ret.823)
 //push constant 65
 @65
 D=A
@@ -182332,7 +182324,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.518
+@SnakeGame.moveUpNa$ret.824
 D=A
 @SP
 A=M
@@ -182379,7 +182371,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.518)
+(SnakeGame.moveUpNa$ret.824)
 //push constant 77
 @77
 D=A
@@ -182389,7 +182381,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.519
+@SnakeGame.moveUpNa$ret.825
 D=A
 @SP
 A=M
@@ -182436,7 +182428,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.519)
+(SnakeGame.moveUpNa$ret.825)
 //push constant 69
 @69
 D=A
@@ -182446,7 +182438,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.520
+@SnakeGame.moveUpNa$ret.826
 D=A
 @SP
 A=M
@@ -182493,7 +182485,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.520)
+(SnakeGame.moveUpNa$ret.826)
 //push constant 32
 @32
 D=A
@@ -182503,7 +182495,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.521
+@SnakeGame.moveUpNa$ret.827
 D=A
 @SP
 A=M
@@ -182550,7 +182542,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.521)
+(SnakeGame.moveUpNa$ret.827)
 //push constant 79
 @79
 D=A
@@ -182560,7 +182552,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.522
+@SnakeGame.moveUpNa$ret.828
 D=A
 @SP
 A=M
@@ -182607,7 +182599,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.522)
+(SnakeGame.moveUpNa$ret.828)
 //push constant 86
 @86
 D=A
@@ -182617,7 +182609,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.523
+@SnakeGame.moveUpNa$ret.829
 D=A
 @SP
 A=M
@@ -182664,7 +182656,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.523)
+(SnakeGame.moveUpNa$ret.829)
 //push constant 69
 @69
 D=A
@@ -182674,7 +182666,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.524
+@SnakeGame.moveUpNa$ret.830
 D=A
 @SP
 A=M
@@ -182721,7 +182713,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.524)
+(SnakeGame.moveUpNa$ret.830)
 //push constant 82
 @82
 D=A
@@ -182731,7 +182723,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.525
+@SnakeGame.moveUpNa$ret.831
 D=A
 @SP
 A=M
@@ -182778,9 +182770,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.525)
+(SnakeGame.moveUpNa$ret.831)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.526
+@SnakeGame.moveUpNa$ret.832
 D=A
 @SP
 A=M
@@ -182827,7 +182819,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.526)
+(SnakeGame.moveUpNa$ret.832)
 //pop temp 0
 @5
 D=A
@@ -182856,7 +182848,7 @@ M=D
 @SP
 M=M+1
 // call function Output.moveCursor 2
-@SnakeGame.moveUpNa$ret.527
+@SnakeGame.moveUpNa$ret.833
 D=A
 @SP
 A=M
@@ -182903,7 +182895,7 @@ D=M
 M=D
 @Output.moveCursor
 0;JMP
-(SnakeGame.moveUpNa$ret.527)
+(SnakeGame.moveUpNa$ret.833)
 //pop temp 0
 @5
 D=A
@@ -182924,7 +182916,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@SnakeGame.moveUpNa$ret.528
+@SnakeGame.moveUpNa$ret.834
 D=A
 @SP
 A=M
@@ -182971,7 +182963,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(SnakeGame.moveUpNa$ret.528)
+(SnakeGame.moveUpNa$ret.834)
 //push constant 83
 @83
 D=A
@@ -182981,7 +182973,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.529
+@SnakeGame.moveUpNa$ret.835
 D=A
 @SP
 A=M
@@ -183028,7 +183020,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.529)
+(SnakeGame.moveUpNa$ret.835)
 //push constant 67
 @67
 D=A
@@ -183038,7 +183030,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.530
+@SnakeGame.moveUpNa$ret.836
 D=A
 @SP
 A=M
@@ -183085,7 +183077,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.530)
+(SnakeGame.moveUpNa$ret.836)
 //push constant 79
 @79
 D=A
@@ -183095,7 +183087,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.531
+@SnakeGame.moveUpNa$ret.837
 D=A
 @SP
 A=M
@@ -183142,7 +183134,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.531)
+(SnakeGame.moveUpNa$ret.837)
 //push constant 82
 @82
 D=A
@@ -183152,7 +183144,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.532
+@SnakeGame.moveUpNa$ret.838
 D=A
 @SP
 A=M
@@ -183199,7 +183191,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.532)
+(SnakeGame.moveUpNa$ret.838)
 //push constant 69
 @69
 D=A
@@ -183209,7 +183201,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.533
+@SnakeGame.moveUpNa$ret.839
 D=A
 @SP
 A=M
@@ -183256,7 +183248,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.533)
+(SnakeGame.moveUpNa$ret.839)
 //push constant 58
 @58
 D=A
@@ -183266,7 +183258,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.534
+@SnakeGame.moveUpNa$ret.840
 D=A
 @SP
 A=M
@@ -183313,7 +183305,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.534)
+(SnakeGame.moveUpNa$ret.840)
 //push constant 32
 @32
 D=A
@@ -183323,7 +183315,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@SnakeGame.moveUpNa$ret.535
+@SnakeGame.moveUpNa$ret.841
 D=A
 @SP
 A=M
@@ -183370,9 +183362,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(SnakeGame.moveUpNa$ret.535)
+(SnakeGame.moveUpNa$ret.841)
 // call function Output.printString 1
-@SnakeGame.moveUpNa$ret.536
+@SnakeGame.moveUpNa$ret.842
 D=A
 @SP
 A=M
@@ -183419,7 +183411,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(SnakeGame.moveUpNa$ret.536)
+(SnakeGame.moveUpNa$ret.842)
 //pop temp 0
 @5
 D=A
@@ -183443,7 +183435,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printInt 1
-@SnakeGame.moveUpNa$ret.537
+@SnakeGame.moveUpNa$ret.843
 D=A
 @SP
 A=M
@@ -183490,7 +183482,7 @@ D=M
 M=D
 @Output.printInt
 0;JMP
-(SnakeGame.moveUpNa$ret.537)
+(SnakeGame.moveUpNa$ret.843)
 //pop temp 0
 @5
 D=A
@@ -183513,9 +183505,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -183533,28 +183525,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -183596,9 +183588,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -183616,28 +183608,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -183682,7 +183674,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeScreen.width 0
-@SnakeScreen.clear$ret.1
+@SnakeScreen.clear$ret.844
 D=A
 @SP
 A=M
@@ -183729,7 +183721,7 @@ D=M
 M=D
 @SnakeScreen.width
 0;JMP
-(SnakeScreen.clear$ret.1)
+(SnakeScreen.clear$ret.844)
 //pop local 2
 @LCL
 D=M
@@ -183745,7 +183737,7 @@ D=M
 A=M
 M=D
 // call function SnakeScreen.height 0
-@SnakeScreen.clear$ret.2
+@SnakeScreen.clear$ret.845
 D=A
 @SP
 A=M
@@ -183792,7 +183784,7 @@ D=M
 M=D
 @SnakeScreen.height
 0;JMP
-(SnakeScreen.clear$ret.2)
+(SnakeScreen.clear$ret.845)
 //pop local 3
 @LCL
 D=M
@@ -183858,63 +183850,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE1
+@y_POSITIVE6329
 D;JGT
-@y_NEGATIVE1
+@y_NEGATIVE6329
 D;JLT
-@NORMAL_CASE1
+@NORMAL_CASE6329
 0;JMP
-(y_POSITIVE1)
+(y_POSITIVE6329)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE1
+@NEGATIVE_POSITIVE6329
 D;JLT
-@NORMAL_CASE1
+@NORMAL_CASE6329
 0;JMP
-(NEGATIVE_POSITIVE1)
+(NEGATIVE_POSITIVE6329)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE1
+@CONTINUE6329
 0;JMP
-(y_NEGATIVE1)
+(y_NEGATIVE6329)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE1
+@POSITIVE_NEGATIVE6329
 D;JGT
-@NORMAL_CASE1
+@NORMAL_CASE6329
 0;JMP
-(POSITIVE_NEGATIVE1)
+(POSITIVE_NEGATIVE6329)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE1
+@CONTINUE6329
 0;JMP
-(NORMAL_CASE1)
+(NORMAL_CASE6329)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE1
+@TRUE6329
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE1
+@CONTINUE6329
 0;JMP
-(TRUE1)
+(TRUE6329)
 @SP
 A=M-1
 M=-1
-(CONTINUE1)
+(CONTINUE6329)
 //not
 @SP
 AM=M-1
@@ -183984,63 +183976,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE3
+@y_POSITIVE6331
 D;JGT
-@y_NEGATIVE3
+@y_NEGATIVE6331
 D;JLT
-@NORMAL_CASE3
+@NORMAL_CASE6331
 0;JMP
-(y_POSITIVE3)
+(y_POSITIVE6331)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE3
+@NEGATIVE_POSITIVE6331
 D;JLT
-@NORMAL_CASE3
+@NORMAL_CASE6331
 0;JMP
-(NEGATIVE_POSITIVE3)
+(NEGATIVE_POSITIVE6331)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE3
+@CONTINUE6331
 0;JMP
-(y_NEGATIVE3)
+(y_NEGATIVE6331)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE3
+@POSITIVE_NEGATIVE6331
 D;JGT
-@NORMAL_CASE3
+@NORMAL_CASE6331
 0;JMP
-(POSITIVE_NEGATIVE3)
+(POSITIVE_NEGATIVE6331)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE3
+@CONTINUE6331
 0;JMP
-(NORMAL_CASE3)
+(NORMAL_CASE6331)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE3
+@TRUE6331
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE3
+@CONTINUE6331
 0;JMP
-(TRUE3)
+(TRUE6331)
 @SP
 A=M-1
 M=-1
-(CONTINUE3)
+(CONTINUE6331)
 //not
 @SP
 AM=M-1
@@ -184082,7 +184074,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeScreen.clearPixel 2
-@SnakeScreen.clear$ret.3
+@SnakeScreen.clear$ret.846
 D=A
 @SP
 A=M
@@ -184129,7 +184121,7 @@ D=M
 M=D
 @SnakeScreen.clearPixel
 0;JMP
-(SnakeScreen.clear$ret.3)
+(SnakeScreen.clear$ret.846)
 //pop temp 0
 @5
 D=A
@@ -184240,9 +184232,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -184260,28 +184252,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -184313,7 +184305,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.setColor 1
-@SnakeScreen.drawPixel$ret.4
+@SnakeScreen.drawPixel$ret.847
 D=A
 @SP
 A=M
@@ -184360,7 +184352,7 @@ D=M
 M=D
 @Screen.setColor
 0;JMP
-(SnakeScreen.drawPixel$ret.4)
+(SnakeScreen.drawPixel$ret.847)
 //pop temp 0
 @5
 D=A
@@ -184392,7 +184384,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@SnakeScreen.drawPixel$ret.5
+@SnakeScreen.drawPixel$ret.848
 D=A
 @SP
 A=M
@@ -184439,7 +184431,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(SnakeScreen.drawPixel$ret.5)
+(SnakeScreen.drawPixel$ret.848)
 //push argument 1
 @ARG
 D=M
@@ -184460,7 +184452,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@SnakeScreen.drawPixel$ret.6
+@SnakeScreen.drawPixel$ret.849
 D=A
 @SP
 A=M
@@ -184507,7 +184499,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(SnakeScreen.drawPixel$ret.6)
+(SnakeScreen.drawPixel$ret.849)
 //push argument 0
 @ARG
 D=M
@@ -184528,7 +184520,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@SnakeScreen.drawPixel$ret.7
+@SnakeScreen.drawPixel$ret.850
 D=A
 @SP
 A=M
@@ -184575,7 +184567,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(SnakeScreen.drawPixel$ret.7)
+(SnakeScreen.drawPixel$ret.850)
 //push constant 7
 @7
 D=A
@@ -184610,7 +184602,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@SnakeScreen.drawPixel$ret.8
+@SnakeScreen.drawPixel$ret.851
 D=A
 @SP
 A=M
@@ -184657,7 +184649,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(SnakeScreen.drawPixel$ret.8)
+(SnakeScreen.drawPixel$ret.851)
 //push constant 7
 @7
 D=A
@@ -184673,7 +184665,7 @@ D=M
 A=A-1
 M=M+D
 // call function Screen.drawRectangle 4
-@SnakeScreen.drawPixel$ret.9
+@SnakeScreen.drawPixel$ret.852
 D=A
 @SP
 A=M
@@ -184720,7 +184712,7 @@ D=M
 M=D
 @Screen.drawRectangle
 0;JMP
-(SnakeScreen.drawPixel$ret.9)
+(SnakeScreen.drawPixel$ret.852)
 //pop temp 0
 @5
 D=A
@@ -184743,9 +184735,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -184763,28 +184755,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -184805,7 +184797,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.setColor 1
-@SnakeScreen.clearPixel$ret.10
+@SnakeScreen.clearPixel$ret.853
 D=A
 @SP
 A=M
@@ -184852,7 +184844,7 @@ D=M
 M=D
 @Screen.setColor
 0;JMP
-(SnakeScreen.clearPixel$ret.10)
+(SnakeScreen.clearPixel$ret.853)
 //pop temp 0
 @5
 D=A
@@ -184884,7 +184876,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@SnakeScreen.clearPixel$ret.11
+@SnakeScreen.clearPixel$ret.854
 D=A
 @SP
 A=M
@@ -184931,7 +184923,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(SnakeScreen.clearPixel$ret.11)
+(SnakeScreen.clearPixel$ret.854)
 //push argument 1
 @ARG
 D=M
@@ -184952,7 +184944,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@SnakeScreen.clearPixel$ret.12
+@SnakeScreen.clearPixel$ret.855
 D=A
 @SP
 A=M
@@ -184999,7 +184991,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(SnakeScreen.clearPixel$ret.12)
+(SnakeScreen.clearPixel$ret.855)
 //push argument 0
 @ARG
 D=M
@@ -185020,7 +185012,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@SnakeScreen.clearPixel$ret.13
+@SnakeScreen.clearPixel$ret.856
 D=A
 @SP
 A=M
@@ -185067,7 +185059,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(SnakeScreen.clearPixel$ret.13)
+(SnakeScreen.clearPixel$ret.856)
 //push constant 7
 @7
 D=A
@@ -185102,7 +185094,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@SnakeScreen.clearPixel$ret.14
+@SnakeScreen.clearPixel$ret.857
 D=A
 @SP
 A=M
@@ -185149,7 +185141,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(SnakeScreen.clearPixel$ret.14)
+(SnakeScreen.clearPixel$ret.857)
 //push constant 7
 @7
 D=A
@@ -185165,7 +185157,7 @@ D=M
 A=A-1
 M=M+D
 // call function Screen.drawRectangle 4
-@SnakeScreen.clearPixel$ret.15
+@SnakeScreen.clearPixel$ret.858
 D=A
 @SP
 A=M
@@ -185212,7 +185204,7 @@ D=M
 M=D
 @Screen.drawRectangle
 0;JMP
-(SnakeScreen.clearPixel$ret.15)
+(SnakeScreen.clearPixel$ret.858)
 //pop temp 0
 @5
 D=A
@@ -185235,9 +185227,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -185255,28 +185247,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -185308,7 +185300,7 @@ M=D
 @SP
 M=M+1
 // call function Screen.setColor 1
-@SnakeScreen.drawLine$ret.16
+@SnakeScreen.drawLine$ret.859
 D=A
 @SP
 A=M
@@ -185355,7 +185347,7 @@ D=M
 M=D
 @Screen.setColor
 0;JMP
-(SnakeScreen.drawLine$ret.16)
+(SnakeScreen.drawLine$ret.859)
 //pop temp 0
 @5
 D=A
@@ -185387,7 +185379,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@SnakeScreen.drawLine$ret.17
+@SnakeScreen.drawLine$ret.860
 D=A
 @SP
 A=M
@@ -185434,7 +185426,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(SnakeScreen.drawLine$ret.17)
+(SnakeScreen.drawLine$ret.860)
 //push argument 1
 @ARG
 D=M
@@ -185455,7 +185447,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@SnakeScreen.drawLine$ret.18
+@SnakeScreen.drawLine$ret.861
 D=A
 @SP
 A=M
@@ -185502,7 +185494,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(SnakeScreen.drawLine$ret.18)
+(SnakeScreen.drawLine$ret.861)
 //push argument 2
 @ARG
 D=M
@@ -185523,7 +185515,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@SnakeScreen.drawLine$ret.19
+@SnakeScreen.drawLine$ret.862
 D=A
 @SP
 A=M
@@ -185570,7 +185562,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(SnakeScreen.drawLine$ret.19)
+(SnakeScreen.drawLine$ret.862)
 //push constant 7
 @7
 D=A
@@ -185605,7 +185597,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@SnakeScreen.drawLine$ret.20
+@SnakeScreen.drawLine$ret.863
 D=A
 @SP
 A=M
@@ -185652,7 +185644,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(SnakeScreen.drawLine$ret.20)
+(SnakeScreen.drawLine$ret.863)
 //push constant 7
 @7
 D=A
@@ -185668,7 +185660,7 @@ D=M
 A=A-1
 M=M+D
 // call function Screen.drawRectangle 4
-@SnakeScreen.drawLine$ret.21
+@SnakeScreen.drawLine$ret.864
 D=A
 @SP
 A=M
@@ -185715,7 +185707,7 @@ D=M
 M=D
 @Screen.drawRectangle
 0;JMP
-(SnakeScreen.drawLine$ret.21)
+(SnakeScreen.drawLine$ret.864)
 //pop temp 0
 @5
 D=A
@@ -185738,9 +185730,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -185758,28 +185750,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -185808,7 +185800,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@SnakeScreen.width$ret.22
+@SnakeScreen.width$ret.865
 D=A
 @SP
 A=M
@@ -185855,13 +185847,13 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(SnakeScreen.width$ret.22)
+(SnakeScreen.width$ret.865)
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -185879,28 +185871,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -185929,7 +185921,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@SnakeScreen.height$ret.23
+@SnakeScreen.height$ret.866
 D=A
 @SP
 A=M
@@ -185976,13 +185968,13 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(SnakeScreen.height$ret.23)
+(SnakeScreen.height$ret.866)
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -186000,28 +185992,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -186042,7 +186034,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.alloc 1
-@String.new$ret.1
+@String.new$ret.867
 D=A
 @SP
 A=M
@@ -186089,7 +186081,7 @@ D=M
 M=D
 @Memory.alloc
 0;JMP
-(String.new$ret.1)
+(String.new$ret.867)
 //pop pointer 0
 @3
 D=A
@@ -186125,63 +186117,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE1
+@y_POSITIVE6343
 D;JGT
-@y_NEGATIVE1
+@y_NEGATIVE6343
 D;JLT
-@NORMAL_CASE1
+@NORMAL_CASE6343
 0;JMP
-(y_POSITIVE1)
+(y_POSITIVE6343)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE1
+@NEGATIVE_POSITIVE6343
 D;JLT
-@NORMAL_CASE1
+@NORMAL_CASE6343
 0;JMP
-(NEGATIVE_POSITIVE1)
+(NEGATIVE_POSITIVE6343)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE1
+@CONTINUE6343
 0;JMP
-(y_NEGATIVE1)
+(y_NEGATIVE6343)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE1
+@POSITIVE_NEGATIVE6343
 D;JGT
-@NORMAL_CASE1
+@NORMAL_CASE6343
 0;JMP
-(POSITIVE_NEGATIVE1)
+(POSITIVE_NEGATIVE6343)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE1
+@CONTINUE6343
 0;JMP
-(NORMAL_CASE1)
+(NORMAL_CASE6343)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE1
+@TRUE6343
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE1
+@CONTINUE6343
 0;JMP
-(TRUE1)
+(TRUE6343)
 @SP
 A=M-1
 M=-1
-(CONTINUE1)
+(CONTINUE6343)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -186203,7 +186195,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@String.new$ret.2
+@String.new$ret.868
 D=A
 @SP
 A=M
@@ -186250,7 +186242,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(String.new$ret.2)
+(String.new$ret.868)
 //pop temp 0
 @5
 D=A
@@ -186288,63 +186280,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE2
+@y_POSITIVE6344
 D;JGT
-@y_NEGATIVE2
+@y_NEGATIVE6344
 D;JLT
-@NORMAL_CASE2
+@NORMAL_CASE6344
 0;JMP
-(y_POSITIVE2)
+(y_POSITIVE6344)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE2
+@NEGATIVE_POSITIVE6344
 D;JLT
-@NORMAL_CASE2
+@NORMAL_CASE6344
 0;JMP
-(NEGATIVE_POSITIVE2)
+(NEGATIVE_POSITIVE6344)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE2
+@CONTINUE6344
 0;JMP
-(y_NEGATIVE2)
+(y_NEGATIVE6344)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE2
+@POSITIVE_NEGATIVE6344
 D;JGT
-@NORMAL_CASE2
+@NORMAL_CASE6344
 0;JMP
-(POSITIVE_NEGATIVE2)
+(POSITIVE_NEGATIVE6344)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE2
+@CONTINUE6344
 0;JMP
-(NORMAL_CASE2)
+(NORMAL_CASE6344)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE2
+@TRUE6344
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE2
+@CONTINUE6344
 0;JMP
-(TRUE2)
+(TRUE6344)
 @SP
 A=M-1
 M=-1
-(CONTINUE2)
+(CONTINUE6344)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -186369,7 +186361,7 @@ M=D
 @SP
 M=M+1
 // call function Array.new 1
-@String.new$ret.3
+@String.new$ret.869
 D=A
 @SP
 A=M
@@ -186416,7 +186408,7 @@ D=M
 M=D
 @Array.new
 0;JMP
-(String.new$ret.3)
+(String.new$ret.869)
 //pop this 1
 @THIS
 D=M
@@ -186491,9 +186483,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -186511,28 +186503,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -186590,63 +186582,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE3
+@y_POSITIVE6345
 D;JGT
-@y_NEGATIVE3
+@y_NEGATIVE6345
 D;JLT
-@NORMAL_CASE3
+@NORMAL_CASE6345
 0;JMP
-(y_POSITIVE3)
+(y_POSITIVE6345)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE3
+@NEGATIVE_POSITIVE6345
 D;JLT
-@NORMAL_CASE3
+@NORMAL_CASE6345
 0;JMP
-(NEGATIVE_POSITIVE3)
+(NEGATIVE_POSITIVE6345)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE3
+@CONTINUE6345
 0;JMP
-(y_NEGATIVE3)
+(y_NEGATIVE6345)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE3
+@POSITIVE_NEGATIVE6345
 D;JGT
-@NORMAL_CASE3
+@NORMAL_CASE6345
 0;JMP
-(POSITIVE_NEGATIVE3)
+(POSITIVE_NEGATIVE6345)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE3
+@CONTINUE6345
 0;JMP
-(NORMAL_CASE3)
+(NORMAL_CASE6345)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE3
+@TRUE6345
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE3
+@CONTINUE6345
 0;JMP
-(TRUE3)
+(TRUE6345)
 @SP
 A=M-1
 M=-1
-(CONTINUE3)
+(CONTINUE6345)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -186671,7 +186663,7 @@ M=D
 @SP
 M=M+1
 // call function Array.dispose 1
-@String.dispose$ret.4
+@String.dispose$ret.870
 D=A
 @SP
 A=M
@@ -186718,7 +186710,7 @@ D=M
 M=D
 @Array.dispose
 0;JMP
-(String.dispose$ret.4)
+(String.dispose$ret.870)
 //pop temp 0
 @5
 D=A
@@ -186741,7 +186733,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.deAlloc 1
-@String.dispose$ret.5
+@String.dispose$ret.871
 D=A
 @SP
 A=M
@@ -186788,7 +186780,7 @@ D=M
 M=D
 @Memory.deAlloc
 0;JMP
-(String.dispose$ret.5)
+(String.dispose$ret.871)
 //pop temp 0
 @5
 D=A
@@ -186811,9 +186803,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -186831,28 +186823,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -186900,9 +186892,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -186920,28 +186912,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -186999,63 +186991,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE4
+@y_POSITIVE6346
 D;JGT
-@y_NEGATIVE4
+@y_NEGATIVE6346
 D;JLT
-@NORMAL_CASE4
+@NORMAL_CASE6346
 0;JMP
-(y_POSITIVE4)
+(y_POSITIVE6346)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE4
+@NEGATIVE_POSITIVE6346
 D;JLT
-@NORMAL_CASE4
+@NORMAL_CASE6346
 0;JMP
-(NEGATIVE_POSITIVE4)
+(NEGATIVE_POSITIVE6346)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE4
+@CONTINUE6346
 0;JMP
-(y_NEGATIVE4)
+(y_NEGATIVE6346)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE4
+@POSITIVE_NEGATIVE6346
 D;JGT
-@NORMAL_CASE4
+@NORMAL_CASE6346
 0;JMP
-(POSITIVE_NEGATIVE4)
+(POSITIVE_NEGATIVE6346)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE4
+@CONTINUE6346
 0;JMP
-(NORMAL_CASE4)
+(NORMAL_CASE6346)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE4
+@TRUE6346
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE4
+@CONTINUE6346
 0;JMP
-(TRUE4)
+(TRUE6346)
 @SP
 A=M-1
 M=-1
-(CONTINUE4)
+(CONTINUE6346)
 //push argument 1
 @ARG
 D=M
@@ -187083,63 +187075,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE5
+@y_POSITIVE6347
 D;JGT
-@y_NEGATIVE5
+@y_NEGATIVE6347
 D;JLT
-@NORMAL_CASE5
+@NORMAL_CASE6347
 0;JMP
-(y_POSITIVE5)
+(y_POSITIVE6347)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE5
+@NEGATIVE_POSITIVE6347
 D;JLT
-@NORMAL_CASE5
+@NORMAL_CASE6347
 0;JMP
-(NEGATIVE_POSITIVE5)
+(NEGATIVE_POSITIVE6347)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE5
+@CONTINUE6347
 0;JMP
-(y_NEGATIVE5)
+(y_NEGATIVE6347)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE5
+@POSITIVE_NEGATIVE6347
 D;JGT
-@NORMAL_CASE5
+@NORMAL_CASE6347
 0;JMP
-(POSITIVE_NEGATIVE5)
+(POSITIVE_NEGATIVE6347)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE5
+@CONTINUE6347
 0;JMP
-(NORMAL_CASE5)
+(NORMAL_CASE6347)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE5
+@TRUE6347
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE5
+@CONTINUE6347
 0;JMP
-(TRUE5)
+(TRUE6347)
 @SP
 A=M-1
 M=-1
-(CONTINUE5)
+(CONTINUE6347)
 //or
 @SP
 AM=M-1
@@ -187170,24 +187162,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE7)
+(NORMAL_CASE6349)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE7
+@TRUE6349
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE7
+@CONTINUE6349
 0;JMP
-(TRUE7)
+(TRUE6349)
 @SP
 A=M-1
 M=-1
-(CONTINUE7)
+(CONTINUE6349)
 //or
 @SP
 AM=M-1
@@ -187216,7 +187208,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@String.charAt$ret.6
+@String.charAt$ret.872
 D=A
 @SP
 A=M
@@ -187263,7 +187255,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(String.charAt$ret.6)
+(String.charAt$ret.872)
 //pop temp 0
 @5
 D=A
@@ -187330,9 +187322,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -187350,28 +187342,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -187429,63 +187421,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE10
+@y_POSITIVE6352
 D;JGT
-@y_NEGATIVE10
+@y_NEGATIVE6352
 D;JLT
-@NORMAL_CASE10
+@NORMAL_CASE6352
 0;JMP
-(y_POSITIVE10)
+(y_POSITIVE6352)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE10
+@NEGATIVE_POSITIVE6352
 D;JLT
-@NORMAL_CASE10
+@NORMAL_CASE6352
 0;JMP
-(NEGATIVE_POSITIVE10)
+(NEGATIVE_POSITIVE6352)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE10
+@CONTINUE6352
 0;JMP
-(y_NEGATIVE10)
+(y_NEGATIVE6352)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE10
+@POSITIVE_NEGATIVE6352
 D;JGT
-@NORMAL_CASE10
+@NORMAL_CASE6352
 0;JMP
-(POSITIVE_NEGATIVE10)
+(POSITIVE_NEGATIVE6352)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE10
+@CONTINUE6352
 0;JMP
-(NORMAL_CASE10)
+(NORMAL_CASE6352)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE10
+@TRUE6352
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE10
+@CONTINUE6352
 0;JMP
-(TRUE10)
+(TRUE6352)
 @SP
 A=M-1
 M=-1
-(CONTINUE10)
+(CONTINUE6352)
 //push argument 1
 @ARG
 D=M
@@ -187513,63 +187505,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE11
+@y_POSITIVE6353
 D;JGT
-@y_NEGATIVE11
+@y_NEGATIVE6353
 D;JLT
-@NORMAL_CASE11
+@NORMAL_CASE6353
 0;JMP
-(y_POSITIVE11)
+(y_POSITIVE6353)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE11
+@NEGATIVE_POSITIVE6353
 D;JLT
-@NORMAL_CASE11
+@NORMAL_CASE6353
 0;JMP
-(NEGATIVE_POSITIVE11)
+(NEGATIVE_POSITIVE6353)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE11
+@CONTINUE6353
 0;JMP
-(y_NEGATIVE11)
+(y_NEGATIVE6353)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE11
+@POSITIVE_NEGATIVE6353
 D;JGT
-@NORMAL_CASE11
+@NORMAL_CASE6353
 0;JMP
-(POSITIVE_NEGATIVE11)
+(POSITIVE_NEGATIVE6353)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE11
+@CONTINUE6353
 0;JMP
-(NORMAL_CASE11)
+(NORMAL_CASE6353)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE11
+@TRUE6353
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE11
+@CONTINUE6353
 0;JMP
-(TRUE11)
+(TRUE6353)
 @SP
 A=M-1
 M=-1
-(CONTINUE11)
+(CONTINUE6353)
 //or
 @SP
 AM=M-1
@@ -187600,24 +187592,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE13)
+(NORMAL_CASE6355)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE13
+@TRUE6355
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE13
+@CONTINUE6355
 0;JMP
-(TRUE13)
+(TRUE6355)
 @SP
 A=M-1
 M=-1
-(CONTINUE13)
+(CONTINUE6355)
 //or
 @SP
 AM=M-1
@@ -187646,7 +187638,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@String.setCharAt$ret.7
+@String.setCharAt$ret.873
 D=A
 @SP
 A=M
@@ -187693,7 +187685,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(String.setCharAt$ret.7)
+(String.setCharAt$ret.873)
 //pop temp 0
 @5
 D=A
@@ -187801,9 +187793,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -187821,28 +187813,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -187899,24 +187891,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE16)
+(NORMAL_CASE6358)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE16
+@TRUE6358
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE16
+@CONTINUE6358
 0;JMP
-(TRUE16)
+(TRUE6358)
 @SP
 A=M-1
 M=-1
-(CONTINUE16)
+(CONTINUE6358)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -187938,7 +187930,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@String.appendChar$ret.8
+@String.appendChar$ret.874
 D=A
 @SP
 A=M
@@ -187985,7 +187977,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(String.appendChar$ret.8)
+(String.appendChar$ret.874)
 //pop temp 0
 @5
 D=A
@@ -188132,9 +188124,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -188152,28 +188144,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -188227,24 +188219,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE19)
+(NORMAL_CASE6361)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE19
+@TRUE6361
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE19
+@CONTINUE6361
 0;JMP
-(TRUE19)
+(TRUE6361)
 @SP
 A=M-1
 M=-1
-(CONTINUE19)
+(CONTINUE6361)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -188266,7 +188258,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@String.eraseLastChar$ret.9
+@String.eraseLastChar$ret.875
 D=A
 @SP
 A=M
@@ -188313,7 +188305,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(String.eraseLastChar$ret.9)
+(String.eraseLastChar$ret.875)
 //pop temp 0
 @5
 D=A
@@ -188377,9 +188369,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -188397,28 +188389,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -188512,24 +188504,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE21)
+(NORMAL_CASE6363)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE21
+@TRUE6363
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE21
+@CONTINUE6363
 0;JMP
-(TRUE21)
+(TRUE6363)
 @SP
 A=M-1
 M=-1
-(CONTINUE21)
+(CONTINUE6363)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -188553,9 +188545,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -188573,28 +188565,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -188695,24 +188687,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE24)
+(NORMAL_CASE6366)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE24
+@TRUE6366
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE24
+@CONTINUE6366
 0;JMP
-(TRUE24)
+(TRUE6366)
 @SP
 A=M-1
 M=-1
-(CONTINUE24)
+(CONTINUE6366)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -188811,63 +188803,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE26
+@y_POSITIVE6368
 D;JGT
-@y_NEGATIVE26
+@y_NEGATIVE6368
 D;JLT
-@NORMAL_CASE26
+@NORMAL_CASE6368
 0;JMP
-(y_POSITIVE26)
+(y_POSITIVE6368)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE26
+@NEGATIVE_POSITIVE6368
 D;JLT
-@NORMAL_CASE26
+@NORMAL_CASE6368
 0;JMP
-(NEGATIVE_POSITIVE26)
+(NEGATIVE_POSITIVE6368)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE26
+@CONTINUE6368
 0;JMP
-(y_NEGATIVE26)
+(y_NEGATIVE6368)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE26
+@POSITIVE_NEGATIVE6368
 D;JGT
-@NORMAL_CASE26
+@NORMAL_CASE6368
 0;JMP
-(POSITIVE_NEGATIVE26)
+(POSITIVE_NEGATIVE6368)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE26
+@CONTINUE6368
 0;JMP
-(NORMAL_CASE26)
+(NORMAL_CASE6368)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE26
+@TRUE6368
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE26
+@CONTINUE6368
 0;JMP
-(TRUE26)
+(TRUE6368)
 @SP
 A=M-1
 M=-1
-(CONTINUE26)
+(CONTINUE6368)
 //push local 3
 @LCL
 D=M
@@ -189006,63 +188998,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE31
+@y_POSITIVE6373
 D;JGT
-@y_NEGATIVE31
+@y_NEGATIVE6373
 D;JLT
-@NORMAL_CASE31
+@NORMAL_CASE6373
 0;JMP
-(y_POSITIVE31)
+(y_POSITIVE6373)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE31
+@NEGATIVE_POSITIVE6373
 D;JLT
-@NORMAL_CASE31
+@NORMAL_CASE6373
 0;JMP
-(NEGATIVE_POSITIVE31)
+(NEGATIVE_POSITIVE6373)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE31
+@CONTINUE6373
 0;JMP
-(y_NEGATIVE31)
+(y_NEGATIVE6373)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE31
+@POSITIVE_NEGATIVE6373
 D;JGT
-@NORMAL_CASE31
+@NORMAL_CASE6373
 0;JMP
-(POSITIVE_NEGATIVE31)
+(POSITIVE_NEGATIVE6373)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE31
+@CONTINUE6373
 0;JMP
-(NORMAL_CASE31)
+(NORMAL_CASE6373)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE31
+@TRUE6373
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE31
+@CONTINUE6373
 0;JMP
-(TRUE31)
+(TRUE6373)
 @SP
 A=M-1
 M=-1
-(CONTINUE31)
+(CONTINUE6373)
 //push local 2
 @LCL
 D=M
@@ -189087,63 +189079,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE32
+@y_POSITIVE6374
 D;JGT
-@y_NEGATIVE32
+@y_NEGATIVE6374
 D;JLT
-@NORMAL_CASE32
+@NORMAL_CASE6374
 0;JMP
-(y_POSITIVE32)
+(y_POSITIVE6374)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE32
+@NEGATIVE_POSITIVE6374
 D;JLT
-@NORMAL_CASE32
+@NORMAL_CASE6374
 0;JMP
-(NEGATIVE_POSITIVE32)
+(NEGATIVE_POSITIVE6374)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE32
+@CONTINUE6374
 0;JMP
-(y_NEGATIVE32)
+(y_NEGATIVE6374)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE32
+@POSITIVE_NEGATIVE6374
 D;JGT
-@NORMAL_CASE32
+@NORMAL_CASE6374
 0;JMP
-(POSITIVE_NEGATIVE32)
+(POSITIVE_NEGATIVE6374)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE32
+@CONTINUE6374
 0;JMP
-(NORMAL_CASE32)
+(NORMAL_CASE6374)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE32
+@TRUE6374
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE32
+@CONTINUE6374
 0;JMP
-(TRUE32)
+(TRUE6374)
 @SP
 A=M-1
 M=-1
-(CONTINUE32)
+(CONTINUE6374)
 //or
 @SP
 AM=M-1
@@ -189219,7 +189211,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@String.intValue$ret.10
+@String.intValue$ret.876
 D=A
 @SP
 A=M
@@ -189266,7 +189258,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(String.intValue$ret.10)
+(String.intValue$ret.876)
 //push local 2
 @LCL
 D=M
@@ -189412,9 +189404,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -189432,28 +189424,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -189539,24 +189531,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE38)
+(NORMAL_CASE6380)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE38
+@TRUE6380
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE38
+@CONTINUE6380
 0;JMP
-(TRUE38)
+(TRUE6380)
 @SP
 A=M-1
 M=-1
-(CONTINUE38)
+(CONTINUE6380)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -189578,7 +189570,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@String.setInt$ret.11
+@String.setInt$ret.877
 D=A
 @SP
 A=M
@@ -189625,7 +189617,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(String.setInt$ret.11)
+(String.setInt$ret.877)
 //pop temp 0
 @5
 D=A
@@ -189648,7 +189640,7 @@ M=D
 @SP
 M=M+1
 // call function Array.new 1
-@String.setInt$ret.12
+@String.setInt$ret.878
 D=A
 @SP
 A=M
@@ -189695,7 +189687,7 @@ D=M
 M=D
 @Array.new
 0;JMP
-(String.setInt$ret.12)
+(String.setInt$ret.878)
 //pop local 2
 @LCL
 D=M
@@ -189734,63 +189726,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE39
+@y_POSITIVE6381
 D;JGT
-@y_NEGATIVE39
+@y_NEGATIVE6381
 D;JLT
-@NORMAL_CASE39
+@NORMAL_CASE6381
 0;JMP
-(y_POSITIVE39)
+(y_POSITIVE6381)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE39
+@NEGATIVE_POSITIVE6381
 D;JLT
-@NORMAL_CASE39
+@NORMAL_CASE6381
 0;JMP
-(NEGATIVE_POSITIVE39)
+(NEGATIVE_POSITIVE6381)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE39
+@CONTINUE6381
 0;JMP
-(y_NEGATIVE39)
+(y_NEGATIVE6381)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE39
+@POSITIVE_NEGATIVE6381
 D;JGT
-@NORMAL_CASE39
+@NORMAL_CASE6381
 0;JMP
-(POSITIVE_NEGATIVE39)
+(POSITIVE_NEGATIVE6381)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE39
+@CONTINUE6381
 0;JMP
-(NORMAL_CASE39)
+(NORMAL_CASE6381)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE39
+@TRUE6381
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE39
+@CONTINUE6381
 0;JMP
-(TRUE39)
+(TRUE6381)
 @SP
 A=M-1
 M=-1
-(CONTINUE39)
+(CONTINUE6381)
 // write if-goto IF_TRUE1
 @SP
 AM=M-1
@@ -189918,63 +189910,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE42
+@y_POSITIVE6384
 D;JGT
-@y_NEGATIVE42
+@y_NEGATIVE6384
 D;JLT
-@NORMAL_CASE42
+@NORMAL_CASE6384
 0;JMP
-(y_POSITIVE42)
+(y_POSITIVE6384)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE42
+@NEGATIVE_POSITIVE6384
 D;JLT
-@NORMAL_CASE42
+@NORMAL_CASE6384
 0;JMP
-(NEGATIVE_POSITIVE42)
+(NEGATIVE_POSITIVE6384)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE42
+@CONTINUE6384
 0;JMP
-(y_NEGATIVE42)
+(y_NEGATIVE6384)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE42
+@POSITIVE_NEGATIVE6384
 D;JGT
-@NORMAL_CASE42
+@NORMAL_CASE6384
 0;JMP
-(POSITIVE_NEGATIVE42)
+(POSITIVE_NEGATIVE6384)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE42
+@CONTINUE6384
 0;JMP
-(NORMAL_CASE42)
+(NORMAL_CASE6384)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE42
+@TRUE6384
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE42
+@CONTINUE6384
 0;JMP
-(TRUE42)
+(TRUE6384)
 @SP
 A=M-1
 M=-1
-(CONTINUE42)
+(CONTINUE6384)
 //not
 @SP
 AM=M-1
@@ -190013,7 +190005,7 @@ M=D
 @SP
 M=M+1
 // call function Math.divide 2
-@String.setInt$ret.13
+@String.setInt$ret.879
 D=A
 @SP
 A=M
@@ -190060,7 +190052,7 @@ D=M
 M=D
 @Math.divide
 0;JMP
-(String.setInt$ret.13)
+(String.setInt$ret.879)
 //pop local 1
 @LCL
 D=M
@@ -190142,7 +190134,7 @@ M=D
 @SP
 M=M+1
 // call function Math.multiply 2
-@String.setInt$ret.14
+@String.setInt$ret.880
 D=A
 @SP
 A=M
@@ -190189,7 +190181,7 @@ D=M
 M=D
 @Math.multiply
 0;JMP
-(String.setInt$ret.14)
+(String.setInt$ret.880)
 //sub
 @SP
 AM=M-1
@@ -190486,63 +190478,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE50
+@y_POSITIVE6392
 D;JGT
-@y_NEGATIVE50
+@y_NEGATIVE6392
 D;JLT
-@NORMAL_CASE50
+@NORMAL_CASE6392
 0;JMP
-(y_POSITIVE50)
+(y_POSITIVE6392)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE50
+@NEGATIVE_POSITIVE6392
 D;JLT
-@NORMAL_CASE50
+@NORMAL_CASE6392
 0;JMP
-(NEGATIVE_POSITIVE50)
+(NEGATIVE_POSITIVE6392)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE50
+@CONTINUE6392
 0;JMP
-(y_NEGATIVE50)
+(y_NEGATIVE6392)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE50
+@POSITIVE_NEGATIVE6392
 D;JGT
-@NORMAL_CASE50
+@NORMAL_CASE6392
 0;JMP
-(POSITIVE_NEGATIVE50)
+(POSITIVE_NEGATIVE6392)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE50
+@CONTINUE6392
 0;JMP
-(NORMAL_CASE50)
+(NORMAL_CASE6392)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE50
+@TRUE6392
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE50
+@CONTINUE6392
 0;JMP
-(TRUE50)
+(TRUE6392)
 @SP
 A=M-1
 M=-1
-(CONTINUE50)
+(CONTINUE6392)
 // write if-goto IF_TRUE3
 @SP
 AM=M-1
@@ -190564,7 +190556,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@String.setInt$ret.15
+@String.setInt$ret.881
 D=A
 @SP
 A=M
@@ -190611,7 +190603,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(String.setInt$ret.15)
+(String.setInt$ret.881)
 //pop temp 0
 @5
 D=A
@@ -190645,24 +190637,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE51)
+(NORMAL_CASE6393)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE51
+@TRUE6393
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE51
+@CONTINUE6393
 0;JMP
-(TRUE51)
+(TRUE6393)
 @SP
 A=M-1
 M=-1
-(CONTINUE51)
+(CONTINUE6393)
 // write if-goto IF_TRUE4
 @SP
 AM=M-1
@@ -190830,63 +190822,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE53
+@y_POSITIVE6395
 D;JGT
-@y_NEGATIVE53
+@y_NEGATIVE6395
 D;JLT
-@NORMAL_CASE53
+@NORMAL_CASE6395
 0;JMP
-(y_POSITIVE53)
+(y_POSITIVE6395)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE53
+@NEGATIVE_POSITIVE6395
 D;JLT
-@NORMAL_CASE53
+@NORMAL_CASE6395
 0;JMP
-(NEGATIVE_POSITIVE53)
+(NEGATIVE_POSITIVE6395)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE53
+@CONTINUE6395
 0;JMP
-(y_NEGATIVE53)
+(y_NEGATIVE6395)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE53
+@POSITIVE_NEGATIVE6395
 D;JGT
-@NORMAL_CASE53
+@NORMAL_CASE6395
 0;JMP
-(POSITIVE_NEGATIVE53)
+(POSITIVE_NEGATIVE6395)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE53
+@CONTINUE6395
 0;JMP
-(NORMAL_CASE53)
+(NORMAL_CASE6395)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE53
+@TRUE6395
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE53
+@CONTINUE6395
 0;JMP
-(TRUE53)
+(TRUE6395)
 @SP
 A=M-1
 M=-1
-(CONTINUE53)
+(CONTINUE6395)
 //not
 @SP
 AM=M-1
@@ -191116,7 +191108,7 @@ M=D
 @SP
 M=M+1
 // call function Array.dispose 1
-@String.setInt$ret.16
+@String.setInt$ret.882
 D=A
 @SP
 A=M
@@ -191163,7 +191155,7 @@ D=M
 M=D
 @Array.dispose
 0;JMP
-(String.setInt$ret.16)
+(String.setInt$ret.882)
 //pop temp 0
 @5
 D=A
@@ -191186,9 +191178,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -191206,28 +191198,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -191250,9 +191242,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -191270,28 +191262,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -191314,9 +191306,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -191334,28 +191326,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -191378,9 +191370,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -191398,28 +191390,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -191432,7 +191424,7 @@ A=M
 // write function Sys.init 0
 (Sys.init)
 // call function Memory.init 0
-@Sys.init$ret.1
+@Sys.init$ret.883
 D=A
 @SP
 A=M
@@ -191479,7 +191471,7 @@ D=M
 M=D
 @Memory.init
 0;JMP
-(Sys.init$ret.1)
+(Sys.init$ret.883)
 //pop temp 0
 @5
 D=A
@@ -191492,7 +191484,7 @@ D=M
 A=M
 M=D
 // call function Math.init 0
-@Sys.init$ret.2
+@Sys.init$ret.884
 D=A
 @SP
 A=M
@@ -191539,7 +191531,7 @@ D=M
 M=D
 @Math.init
 0;JMP
-(Sys.init$ret.2)
+(Sys.init$ret.884)
 //pop temp 0
 @5
 D=A
@@ -191552,7 +191544,7 @@ D=M
 A=M
 M=D
 // call function Screen.init 0
-@Sys.init$ret.3
+@Sys.init$ret.885
 D=A
 @SP
 A=M
@@ -191599,7 +191591,7 @@ D=M
 M=D
 @Screen.init
 0;JMP
-(Sys.init$ret.3)
+(Sys.init$ret.885)
 //pop temp 0
 @5
 D=A
@@ -191612,7 +191604,7 @@ D=M
 A=M
 M=D
 // call function Output.init 0
-@Sys.init$ret.4
+@Sys.init$ret.886
 D=A
 @SP
 A=M
@@ -191659,7 +191651,7 @@ D=M
 M=D
 @Output.init
 0;JMP
-(Sys.init$ret.4)
+(Sys.init$ret.886)
 //pop temp 0
 @5
 D=A
@@ -191672,7 +191664,7 @@ D=M
 A=M
 M=D
 // call function Keyboard.init 0
-@Sys.init$ret.5
+@Sys.init$ret.887
 D=A
 @SP
 A=M
@@ -191719,7 +191711,7 @@ D=M
 M=D
 @Keyboard.init
 0;JMP
-(Sys.init$ret.5)
+(Sys.init$ret.887)
 //pop temp 0
 @5
 D=A
@@ -191732,7 +191724,7 @@ D=M
 A=M
 M=D
 // call function Main.main 0
-@Sys.init$ret.6
+@Sys.init$ret.888
 D=A
 @SP
 A=M
@@ -191779,7 +191771,7 @@ D=M
 M=D
 @Main.main
 0;JMP
-(Sys.init$ret.6)
+(Sys.init$ret.888)
 //pop temp 0
 @5
 D=A
@@ -191792,7 +191784,7 @@ D=M
 A=M
 M=D
 // call function Sys.halt 0
-@Sys.init$ret.7
+@Sys.init$ret.889
 D=A
 @SP
 A=M
@@ -191839,7 +191831,7 @@ D=M
 M=D
 @Sys.halt
 0;JMP
-(Sys.init$ret.7)
+(Sys.init$ret.889)
 //pop temp 0
 @5
 D=A
@@ -191862,9 +191854,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -191882,28 +191874,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -191970,9 +191962,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -191990,28 +191982,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -192055,63 +192047,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE3
+@y_POSITIVE6404
 D;JGT
-@y_NEGATIVE3
+@y_NEGATIVE6404
 D;JLT
-@NORMAL_CASE3
+@NORMAL_CASE6404
 0;JMP
-(y_POSITIVE3)
+(y_POSITIVE6404)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE3
+@NEGATIVE_POSITIVE6404
 D;JLT
-@NORMAL_CASE3
+@NORMAL_CASE6404
 0;JMP
-(NEGATIVE_POSITIVE3)
+(NEGATIVE_POSITIVE6404)
 @SP
 M=M-1
 A=M-1
 M=-1
-@CONTINUE3
+@CONTINUE6404
 0;JMP
-(y_NEGATIVE3)
+(y_NEGATIVE6404)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE3
+@POSITIVE_NEGATIVE6404
 D;JGT
-@NORMAL_CASE3
+@NORMAL_CASE6404
 0;JMP
-(POSITIVE_NEGATIVE3)
+(POSITIVE_NEGATIVE6404)
 @SP
 M=M-1
 @SP
 A=M-1
 M=0
-@CONTINUE3
+@CONTINUE6404
 0;JMP
-(NORMAL_CASE3)
+(NORMAL_CASE6404)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE3
+@TRUE6404
 D;JLT
 @SP
 A=M-1
 M=0
-@CONTINUE3
+@CONTINUE6404
 0;JMP
-(TRUE3)
+(TRUE6404)
 @SP
 A=M-1
 M=-1
-(CONTINUE3)
+(CONTINUE6404)
 // write if-goto IF_TRUE0
 @SP
 AM=M-1
@@ -192133,7 +192125,7 @@ M=D
 @SP
 M=M+1
 // call function Sys.error 1
-@Sys.wait$ret.8
+@Sys.wait$ret.890
 D=A
 @SP
 A=M
@@ -192180,7 +192172,7 @@ D=M
 M=D
 @Sys.error
 0;JMP
-(Sys.wait$ret.8)
+(Sys.wait$ret.890)
 //pop temp 0
 @5
 D=A
@@ -192220,63 +192212,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE4
+@y_POSITIVE6405
 D;JGT
-@y_NEGATIVE4
+@y_NEGATIVE6405
 D;JLT
-@NORMAL_CASE4
+@NORMAL_CASE6405
 0;JMP
-(y_POSITIVE4)
+(y_POSITIVE6405)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE4
+@NEGATIVE_POSITIVE6405
 D;JLT
-@NORMAL_CASE4
+@NORMAL_CASE6405
 0;JMP
-(NEGATIVE_POSITIVE4)
+(NEGATIVE_POSITIVE6405)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE4
+@CONTINUE6405
 0;JMP
-(y_NEGATIVE4)
+(y_NEGATIVE6405)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE4
+@POSITIVE_NEGATIVE6405
 D;JGT
-@NORMAL_CASE4
+@NORMAL_CASE6405
 0;JMP
-(POSITIVE_NEGATIVE4)
+(POSITIVE_NEGATIVE6405)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE4
+@CONTINUE6405
 0;JMP
-(NORMAL_CASE4)
+(NORMAL_CASE6405)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE4
+@TRUE6405
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE4
+@CONTINUE6405
 0;JMP
-(TRUE4)
+(TRUE6405)
 @SP
 A=M-1
 M=-1
-(CONTINUE4)
+(CONTINUE6405)
 //not
 @SP
 AM=M-1
@@ -192343,63 +192335,63 @@ M=M+1
 A=M-1
 D=M
 
-@y_POSITIVE6
+@y_POSITIVE6407
 D;JGT
-@y_NEGATIVE6
+@y_NEGATIVE6407
 D;JLT
-@NORMAL_CASE6
+@NORMAL_CASE6407
 0;JMP
-(y_POSITIVE6)
+(y_POSITIVE6407)
 @SP
 A=M-1
 A=A-1
 D=M
-@NEGATIVE_POSITIVE6
+@NEGATIVE_POSITIVE6407
 D;JLT
-@NORMAL_CASE6
+@NORMAL_CASE6407
 0;JMP
-(NEGATIVE_POSITIVE6)
+(NEGATIVE_POSITIVE6407)
 @SP
 M=M-1
 A=M-1
 M=0
-@CONTINUE6
+@CONTINUE6407
 0;JMP
-(y_NEGATIVE6)
+(y_NEGATIVE6407)
 @SP
 A=M-1
 A=A-1
 D=M
-@POSITIVE_NEGATIVE6
+@POSITIVE_NEGATIVE6407
 D;JGT
-@NORMAL_CASE6
+@NORMAL_CASE6407
 0;JMP
-(POSITIVE_NEGATIVE6)
+(POSITIVE_NEGATIVE6407)
 @SP
 M=M-1
 @SP
 A=M-1
 M=-1
-@CONTINUE6
+@CONTINUE6407
 0;JMP
-(NORMAL_CASE6)
+(NORMAL_CASE6407)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE6
+@TRUE6407
 D;JGT
 @SP
 A=M-1
 M=0
-@CONTINUE6
+@CONTINUE6407
 0;JMP
-(TRUE6)
+(TRUE6407)
 @SP
 A=M-1
 M=-1
-(CONTINUE6)
+(CONTINUE6407)
 //not
 @SP
 AM=M-1
@@ -192517,9 +192509,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -192537,28 +192529,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -192579,7 +192571,7 @@ M=D
 @SP
 M=M+1
 // call function String.new 1
-@Sys.error$ret.9
+@Sys.error$ret.891
 D=A
 @SP
 A=M
@@ -192626,7 +192618,7 @@ D=M
 M=D
 @String.new
 0;JMP
-(Sys.error$ret.9)
+(Sys.error$ret.891)
 //push constant 69
 @69
 D=A
@@ -192636,7 +192628,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@Sys.error$ret.10
+@Sys.error$ret.892
 D=A
 @SP
 A=M
@@ -192683,7 +192675,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(Sys.error$ret.10)
+(Sys.error$ret.892)
 //push constant 82
 @82
 D=A
@@ -192693,7 +192685,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@Sys.error$ret.11
+@Sys.error$ret.893
 D=A
 @SP
 A=M
@@ -192740,7 +192732,7 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(Sys.error$ret.11)
+(Sys.error$ret.893)
 //push constant 82
 @82
 D=A
@@ -192750,7 +192742,7 @@ M=D
 @SP
 M=M+1
 // call function String.appendChar 2
-@Sys.error$ret.12
+@Sys.error$ret.894
 D=A
 @SP
 A=M
@@ -192797,9 +192789,9 @@ D=M
 M=D
 @String.appendChar
 0;JMP
-(Sys.error$ret.12)
+(Sys.error$ret.894)
 // call function Output.printString 1
-@Sys.error$ret.13
+@Sys.error$ret.895
 D=A
 @SP
 A=M
@@ -192846,7 +192838,7 @@ D=M
 M=D
 @Output.printString
 0;JMP
-(Sys.error$ret.13)
+(Sys.error$ret.895)
 //pop temp 0
 @5
 D=A
@@ -192870,7 +192862,7 @@ M=D
 @SP
 M=M+1
 // call function Output.printInt 1
-@Sys.error$ret.14
+@Sys.error$ret.896
 D=A
 @SP
 A=M
@@ -192917,7 +192909,7 @@ D=M
 M=D
 @Output.printInt
 0;JMP
-(Sys.error$ret.14)
+(Sys.error$ret.896)
 //pop temp 0
 @5
 D=A
@@ -192930,7 +192922,7 @@ D=M
 A=M
 M=D
 // call function Sys.halt 0
-@Sys.error$ret.15
+@Sys.error$ret.897
 D=A
 @SP
 A=M
@@ -192977,7 +192969,7 @@ D=M
 M=D
 @Sys.halt
 0;JMP
-(Sys.error$ret.15)
+(Sys.error$ret.897)
 //pop temp 0
 @5
 D=A
@@ -193000,9 +192992,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -193020,28 +193012,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -193062,7 +193054,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.alloc 1
-@Wall.new$ret.1
+@Wall.new$ret.898
 D=A
 @SP
 A=M
@@ -193109,7 +193101,7 @@ D=M
 M=D
 @Memory.alloc
 0;JMP
-(Wall.new$ret.1)
+(Wall.new$ret.898)
 //pop pointer 0
 @3
 D=A
@@ -193122,7 +193114,7 @@ D=M
 A=M
 M=D
 // call function SnakeScreen.width 0
-@Wall.new$ret.2
+@Wall.new$ret.899
 D=A
 @SP
 A=M
@@ -193169,7 +193161,7 @@ D=M
 M=D
 @SnakeScreen.width
 0;JMP
-(Wall.new$ret.2)
+(Wall.new$ret.899)
 //pop this 0
 @THIS
 D=M
@@ -193185,7 +193177,7 @@ D=M
 A=M
 M=D
 // call function SnakeScreen.height 0
-@Wall.new$ret.3
+@Wall.new$ret.900
 D=A
 @SP
 A=M
@@ -193232,7 +193224,7 @@ D=M
 M=D
 @SnakeScreen.height
 0;JMP
-(Wall.new$ret.3)
+(Wall.new$ret.900)
 //pop this 1
 @THIS
 D=M
@@ -193297,7 +193289,7 @@ M=D
 @SP
 M=M+1
 // call function SnakeScreen.drawLine 4
-@Wall.new$ret.4
+@Wall.new$ret.901
 D=A
 @SP
 A=M
@@ -193344,7 +193336,7 @@ D=M
 M=D
 @SnakeScreen.drawLine
 0;JMP
-(Wall.new$ret.4)
+(Wall.new$ret.901)
 //pop temp 0
 @5
 D=A
@@ -193440,7 +193432,7 @@ D=M
 A=A-1
 M=M-D
 // call function SnakeScreen.drawLine 4
-@Wall.new$ret.5
+@Wall.new$ret.902
 D=A
 @SP
 A=M
@@ -193487,7 +193479,7 @@ D=M
 M=D
 @SnakeScreen.drawLine
 0;JMP
-(Wall.new$ret.5)
+(Wall.new$ret.902)
 //pop temp 0
 @5
 D=A
@@ -193549,7 +193541,7 @@ D=M
 A=A-1
 M=M-D
 // call function SnakeScreen.drawLine 4
-@Wall.new$ret.6
+@Wall.new$ret.903
 D=A
 @SP
 A=M
@@ -193596,7 +193588,7 @@ D=M
 M=D
 @SnakeScreen.drawLine
 0;JMP
-(Wall.new$ret.6)
+(Wall.new$ret.903)
 //pop temp 0
 @5
 D=A
@@ -193692,7 +193684,7 @@ D=M
 A=A-1
 M=M-D
 // call function SnakeScreen.drawLine 4
-@Wall.new$ret.7
+@Wall.new$ret.904
 D=A
 @SP
 A=M
@@ -193739,7 +193731,7 @@ D=M
 M=D
 @SnakeScreen.drawLine
 0;JMP
-(Wall.new$ret.7)
+(Wall.new$ret.904)
 //pop temp 0
 @5
 D=A
@@ -193762,9 +193754,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -193782,28 +193774,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -193846,7 +193838,7 @@ M=D
 @SP
 M=M+1
 // call function Memory.deAlloc 1
-@Wall.dispose$ret.8
+@Wall.dispose$ret.905
 D=A
 @SP
 A=M
@@ -193893,7 +193885,7 @@ D=M
 M=D
 @Memory.deAlloc
 0;JMP
-(Wall.dispose$ret.8)
+(Wall.dispose$ret.905)
 //pop temp 0
 @5
 D=A
@@ -193916,9 +193908,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -193936,28 +193928,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -194011,24 +194003,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE9)
+(NORMAL_CASE6419)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE9
+@TRUE6419
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE9
+@CONTINUE6419
 0;JMP
-(TRUE9)
+(TRUE6419)
 @SP
 A=M-1
 M=-1
-(CONTINUE9)
+(CONTINUE6419)
 //push argument 2
 @ARG
 D=M
@@ -194049,24 +194041,24 @@ M=D
 @SP
 M=M+1
 //eq
-(NORMAL_CASE10)
+(NORMAL_CASE6420)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE10
+@TRUE6420
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE10
+@CONTINUE6420
 0;JMP
-(TRUE10)
+(TRUE6420)
 @SP
 A=M-1
 M=-1
-(CONTINUE10)
+(CONTINUE6420)
 //or
 @SP
 AM=M-1
@@ -194111,24 +194103,24 @@ D=M
 A=A-1
 M=M-D
 //eq
-(NORMAL_CASE13)
+(NORMAL_CASE6423)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE13
+@TRUE6423
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE13
+@CONTINUE6423
 0;JMP
-(TRUE13)
+(TRUE6423)
 @SP
 A=M-1
 M=-1
-(CONTINUE13)
+(CONTINUE6423)
 //or
 @SP
 AM=M-1
@@ -194173,24 +194165,24 @@ D=M
 A=A-1
 M=M-D
 //eq
-(NORMAL_CASE16)
+(NORMAL_CASE6426)
 @SP
 AM=M-1
 D=M
 A=A-1
 D=M-D
-@TRUE16
+@TRUE6426
 D;JEQ
 @SP
 A=M-1
 M=0
-@CONTINUE16
+@CONTINUE6426
 0;JMP
-(TRUE16)
+(TRUE6426)
 @SP
 A=M-1
 M=-1
-(CONTINUE16)
+(CONTINUE6426)
 //or
 @SP
 AM=M-1
@@ -194232,9 +194224,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -194252,28 +194244,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A
@@ -194296,9 +194288,9 @@ M=M+1
 // write return
 @LCL
 D=M
-@frame
+@R14
 M=D
-@frame
+@R14
 D=M
 @5
 A=D-A
@@ -194316,28 +194308,28 @@ D=M
 D=D+1
 @SP
 M=D
-@frame
+@R14
 D=M
 @1
 A=D-A
 D=M
 @THAT
 M=D
-@frame
+@R14
 D=M
 @2
 A=D-A
 D=M
 @THIS
 M=D
-@frame
+@R14
 D=M
 @3
 A=D-A
 D=M
 @ARG
 M=D
-@frame
+@R14
 D=M
 @4
 A=D-A

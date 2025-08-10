@@ -442,7 +442,7 @@ M=D
 @SP
 M=M+1
 // call function Class1.set 2
-@Sys.init$ret.1
+@Sys.init$ret.2
 D=A
 @SP
 A=M
@@ -489,7 +489,7 @@ D=M
 M=D
 @Class1.set
 0;JMP
-(Sys.init$ret.1)
+(Sys.init$ret.2)
 //pop temp 0
 @5
 D=A
@@ -518,7 +518,7 @@ M=D
 @SP
 M=M+1
 // call function Class2.set 2
-@Sys.init$ret.2
+@Sys.init$ret.3
 D=A
 @SP
 A=M
@@ -565,7 +565,7 @@ D=M
 M=D
 @Class2.set
 0;JMP
-(Sys.init$ret.2)
+(Sys.init$ret.3)
 //pop temp 0
 @5
 D=A
@@ -578,7 +578,7 @@ D=M
 A=M
 M=D
 // call function Class1.get 0
-@Sys.init$ret.3
+@Sys.init$ret.4
 D=A
 @SP
 A=M
@@ -625,9 +625,9 @@ D=M
 M=D
 @Class1.get
 0;JMP
-(Sys.init$ret.3)
+(Sys.init$ret.4)
 // call function Class2.get 0
-@Sys.init$ret.4
+@Sys.init$ret.5
 D=A
 @SP
 A=M
@@ -674,7 +674,7 @@ D=M
 M=D
 @Class2.get
 0;JMP
-(Sys.init$ret.4)
+(Sys.init$ret.5)
 // write label WHILE
 (Sys.init$WHILE)
 // write goto WHILE

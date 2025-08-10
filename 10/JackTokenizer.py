@@ -5,7 +5,14 @@ was written by Aviv Yaish. It is an extension to the specifications given
 as allowed by the Creative Common Attribution-NonCommercial-ShareAlike 3.0
 Unported [License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
 """
+import re
 import typing
+from typing import List
+SYMBOLS = r'()[\]{}.,;+\-*/&|<>=~^#'
+KEYWORDS = ["class", "constructor", "function", "method", "field",
+                        "static", "var", "int", "char", "boolean", "void",
+                        "true", "false", "null", "this", "let", "do", "if",
+                        "else", "while", "return"]
 
 
 class JackTokenizer:
@@ -100,8 +107,19 @@ class JackTokenizer:
         """
         # Your code goes here!
         # A good place to start is to read all the lines of the input:
-        # input_lines = input_stream.read().splitlines()
-        pass
+        input_lines = input_stream.read()
+        input_lines = self._remove_comments(input_lines)
+
+
+        # for line in input_lines:
+        #     line = self._remove_comments(line)
+        self.tokens = self._tokenize(input_lines)
+        print(self.tokens)
+        # self.current_token_idx = -1
+
+
+
+
 
     def has_more_tokens(self) -> bool:
         """Do we have more tokens in the input?
@@ -110,15 +128,14 @@ class JackTokenizer:
             bool: True if there are more tokens, False otherwise.
         """
         # Your code goes here!
-        pass
+        return self.current_token_idx < len(self.tokens) - 1
 
     def advance(self) -> None:
-        """Gets the next token from the input and makes it the current token. 
+        """Gets the next token from the input and makes it the current token.
         This method should be called if has_more_tokens() is true. 
         Initially there is no current token.
         """
-        # Your code goes here!
-        pass
+        self.current_token_idx += 1
 
     def token_type(self) -> str:
         """
@@ -126,8 +143,20 @@ class JackTokenizer:
             str: the type of the current token, can be
             "KEYWORD", "SYMBOL", "IDENTIFIER", "INT_CONST", "STRING_CONST"
         """
-        # Your code goes here!
-        pass
+        token = self.tokens[self.current_token_idx]
+        if token in SYMBOLS:
+            return "SYMBOL"
+        if token.isdigit():
+            return "INT_CONST"
+        if token.startswith('"') and token.endswith('"'):
+            return "STRING_CONST"
+        if token in KEYWORDS :
+                return "KEYWORD"
+        # else it must be an identifier
+        return "IDENTIFIER"
+
+
+
 
     def keyword(self) -> str:
         """
@@ -138,8 +167,8 @@ class JackTokenizer:
             "BOOLEAN", "CHAR", "VOID", "VAR", "STATIC", "FIELD", "LET", "DO", 
             "IF", "ELSE", "WHILE", "RETURN", "TRUE", "FALSE", "NULL", "THIS"
         """
-        # Your code goes here!
-        pass
+        token = self.tokens[self.current_token_idx]
+        return token.upper()
 
     def symbol(self) -> str:
         """
@@ -150,8 +179,7 @@ class JackTokenizer:
             symbol: '{' | '}' | '(' | ')' | '[' | ']' | '.' | ',' | ';' | '+' | 
               '-' | '*' | '/' | '&' | '|' | '<' | '>' | '=' | '~' | '^' | '#'
         """
-        # Your code goes here!
-        pass
+        return self.tokens[self.current_token_idx]
 
     def identifier(self) -> str:
         """
@@ -163,8 +191,7 @@ class JackTokenizer:
                   starting with a digit. You can assume keywords cannot be
                   identifiers, so 'self' cannot be an identifier, etc'.
         """
-        # Your code goes here!
-        pass
+        return self.tokens[self.current_token_idx]
 
     def int_val(self) -> int:
         """
@@ -174,8 +201,7 @@ class JackTokenizer:
             Recall that integerConstant was defined in the grammar like so:
             integerConstant: A decimal number in the range 0-32767.
         """
-        # Your code goes here!
-        pass
+        return int(self.tokens[self.current_token_idx])
 
     def string_val(self) -> str:
         """
@@ -186,5 +212,56 @@ class JackTokenizer:
             StringConstant: '"' A sequence of Unicode characters not including 
                       double quote or newline '"'
         """
-        # Your code goes here!
-        pass
+        return self.tokens[self.current_token_idx][1:-1]
+
+    def _remove_comments(self, stream: str) -> str:
+        while "/*" in stream and "*/" in stream:
+            start = stream.index("/*")
+            end = stream.index("*/", start) + 2
+            stream = stream[:start] + stream[end:]
+        while "//" in stream:
+            start = stream.index("//")
+            end = stream.index("\n", start)
+            stream = stream[:start] + stream[end:]
+        while "/**" in stream and "*/" in stream:
+            start = stream.index("/**")
+            end = stream.index("*/", start) + 2
+            stream = stream[:start] + stream[end:]
+        return stream.strip()
+
+
+    def _tokenize(self, input_stream: str) -> List[str]:
+        tokens = []
+        stream = "".join(input_stream)
+        stream = stream.split()
+        stream = self._join_string_constants(stream)
+        pattern = f"([{re.escape(SYMBOLS)}])"
+        for batch in stream:
+            tokens.extend([t for t in re.split(pattern, batch) if t])
+        tokens = self._join_string_constants(tokens)
+        print(tokens)
+        return tokens
+
+    def _join_string_constants(self, tokens):
+        final_tokens = []
+        s = ""
+        is_string = False
+        for token in tokens:
+            if token.startswith('"') and not token.endswith('"'):
+                is_string = True
+                s = token + ' '
+                continue
+            if is_string:
+                if token.endswith('"'):
+                    final_tokens.append(s + token)
+                    is_string = False
+                    s = ""
+                    continue
+                s += token + ' '
+                continue
+            final_tokens.append(token)
+        return final_tokens
+
+tokenizer = JackTokenizer(open(r"Square/Main.jack", "r"))
+
+
