@@ -22,9 +22,13 @@ def analyze_file(
     """
     # Your code goes here!
     # It might be good to start by creating a new JackTokenizer and CompilationEngine:
-    # tokenizer = JackTokenizer(input_file)
-    # engine = CompilationEngine(tokenizer, output_file)
-    pass
+    tokenizer = JackTokenizer(input_file)
+    engine = CompilationEngine(tokenizer, output_file)
+    while tokenizer.has_more_tokens():
+        tokenizer.advance()
+        if tokenizer.token_type() == "" and \
+                tokenizer.keyword() == JackTokenizer.KEYWORD_CLASS:
+            engine.compile_class()
 
 
 if "__main__" == __name__:

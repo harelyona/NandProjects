@@ -6,11 +6,14 @@ as allowed by the Creative Common Attribution-NonCommercial-ShareAlike 3.0
 Unported [License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
 """
 import typing
+from asyncore import write
+
 from JackTokenizer import JackTokenizer
 
 IDENTIFIER = "<identifier>{}</identifier>\n"
 KEYWORD = "<keyword>{}</keyword>\n"
 SYMBOL = "<symbol>{}</symbol>\n"
+OP = ['+', '-', '*', '/', '&', '|', '<', '>', '=']
 
 class CompilationEngine:
     """Gets input from a JackTokenizer and emits its parsed structure into an
@@ -51,6 +54,7 @@ class CompilationEngine:
         self._write_keyword()
         self._write_type()
         self._write_identifier()
+        self.output_stream.write("</classVarDec>\n")
 
         # Write the rest of the variables
         while self.input_stream.symbol() == ',':
@@ -80,49 +84,119 @@ class CompilationEngine:
         """Compiles a (possibly empty) parameter list, not including the 
         enclosing "()".
         """
-        # Your code goes here!
-        pass
+        self.output_stream.write("<parameterList>\n")
+        # If not parameters
+        if self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ")":
+            return
+        # write type var_name
+        self._write_type()
+        self._write_identifier()
 
+        # Write the rest of the parameters
+        while self.input_stream.symbol() == ",":
+            self._write_type()
+            self._write_identifier()
+        self.output_stream.write("</parameterList>\n")
     def compile_var_dec(self) -> None:
         """Compiles a var declaration."""
-        # Your code goes here!
-        pass
+        self.output_stream.write("<varDec>\n")
+        self._write_keyword()
+        self._write_type()
+        self._write_identifier()
+
+        # Write the rest of the variables
+        while self.input_stream.symbol() == ',':
+            self._write_symbol()
+            self._write_identifier()
+
+        self._write_symbol() # Write the closing ;
+        self.output_stream.write("</varDec>\n")
 
     def compile_statements(self) -> None:
         """Compiles a sequence of statements, not including the enclosing 
         "{}".
         """
-        # Your code goes here!
-        pass
+        self.output_stream.write("<statements>\n")
+        while self.input_stream.keyword() in ["LET", "IF", "WHILE", "DO", "RETURN"]:
+            if self.input_stream.keyword() == "LET":
+                self.compile_let()
+            elif self.input_stream.keyword() == "IF":
+                self.compile_if()
+            elif self.input_stream.keyword() == "WHILE":
+                self.compile_while()
+            elif self.input_stream.keyword() == "DO":
+                self.compile_do()
+            elif self.input_stream.keyword() == "RETURN":
+                self.compile_return()
+        self.output_stream.write("</statements>\n")
 
     def compile_do(self) -> None:
         """Compiles a do statement."""
-        # Your code goes here!
-        pass
+        self.output_stream.write("<dostatement>\n")
+        self._write_keyword()  # Write the do keyword
+        self._write_subroutine_call()
+        self._write_symbol()  # Write the semicolon
+
+
 
     def compile_let(self) -> None:
         """Compiles a let statement."""
-        # Your code goes here!
-        pass
+        self.output_stream.write("<letStatement>\n")
+        self._write_keyword()
+        self._write_identifier()
+        # If the next symbol is [ then it's an array assignment,
+        if self.input_stream.symbol() == "[":
+            # Write [expression]
+            self._write_symbol()
+            self.compile_expression()
+            self._write_symbol()
+        self._write_symbol() # Write =
+        self.compile_expression()
+        self._write_symbol() # Write the semicolon
+        self.output_stream.write("</letStatement>\n")
 
     def compile_while(self) -> None:
         """Compiles a while statement."""
-        # Your code goes here!
-        pass
-
+        self.output_stream.write("<whileStatement>\n")
+        self._write_expressions_and_statements()
+        self.output_stream.write("</whileStatement>\n")
     def compile_return(self) -> None:
         """Compiles a return statement."""
-        # Your code goes here!
-        pass
+        self.output_stream.write("<returnStatement>\n")
+        self._write_keyword()
+        # If the next token is a semicolon, return without an expression
+        if self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ";":
+            self._write_symbol()
+        else:
+            # Write expression
+            self.compile_expression()
+            self._write_symbol()
+        self.output_stream.write("</returnStatement>\n")
+
 
     def compile_if(self) -> None:
         """Compiles a if statement, possibly with a trailing else clause."""
-        # Your code goes here!
+        self.output_stream.write("<ifStatement>\n")
+        self._write_keyword()
+        self._write_expressions_and_statements()
+        # If else clause is present, compile it
+        if self.input_stream.token_type() == "KEYWORD" and self.input_stream.keyword() == "ELSE":
+            # Write else {statements}
+            self._write_keyword()
+            self._write_symbol()
+            self.compile_statements()
+            self._write_symbol()
+        self.output_stream.write("</ifStatement>\n")
 
     def compile_expression(self) -> None:
         """Compiles an expression."""
-        # Your code goes here!
-        pass
+        self.output_stream.write("<expression>\n")
+        self.compile_term()
+        while  self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() in ["+", "-", "*", "/", "&", "|", "<", ">", "="]:
+            self._write_symbol()
+            self.compile_term()
+        self.output_stream.write("</expression>\n")
+
 
     def compile_term(self) -> None:
         """Compiles a term. 
@@ -139,8 +213,9 @@ class CompilationEngine:
 
     def compile_expression_list(self) -> None:
         """Compiles a (possibly empty) comma-separated list of expressions."""
-        # Your code goes here!
-        pass
+        self.output_stream.write("<expressionList>\n")
+        self.output_stream.write("</expressionList>\n")
+
 
     def _write_keyword(self):
         keyword = self.input_stream.keyword().lower()
@@ -167,6 +242,7 @@ class CompilationEngine:
         self.input_stream.advance()
 
     def _write_parameter_list(self):
+        self.output_stream.write("<parameterList>\n")
         self._write_symbol() # Write the opening (
         first_parameter = True
         while not (self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ")"):
@@ -177,6 +253,7 @@ class CompilationEngine:
             self._write_identifier()
             first_parameter = False
         self._write_symbol() # Write the closing )
+        self.output_stream.write("</parameterList>\n")
 
     def _write_subroutine_body(self):
         self.output_stream.write("<subroutineBody>\n")
@@ -189,3 +266,34 @@ class CompilationEngine:
 
         self._write_symbol()# Write closing }
         self.output_stream.write("</subroutineBody>\n")
+
+    def _write_subroutine_call(self):
+        """Writes a subroutine call, which can be either a method or a function."""
+        # Write the subroutine name
+        self._write_identifier()
+        # If global function
+        if self.input_stream.token_type() == "SYMBOL":
+            # Write (parameter list)
+            self._write_symbol()
+            self._write_parameter_list()
+            self._write_symbol()
+        # Else it's a method
+        else:
+            # Write (class/var)name.method
+            self._write_identifier()
+            self._write_symbol()
+            self._write_identifier()
+            # Write (parameter list)
+            self._write_symbol()
+            self._write_parameter_list()
+            self._write_symbol()
+
+    def _write_expressions_and_statements(self):
+        # Write (expression)
+        self._write_symbol()
+        self.compile_expression()
+        self._write_symbol()
+        # Write {statements}
+        self._write_symbol()
+        self.compile_statements()
+        self._write_symbol()
