@@ -234,6 +234,8 @@ class JackTokenizer:
         s = ""
         is_string = False
         for token in tokens:
+            if token == "SAILOR":
+                pass
             if token.startswith('"') and not token.endswith('"'):
                 is_string = True
                 s = token + ' '
