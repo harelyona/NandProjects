@@ -6,14 +6,16 @@ as allowed by the Creative Common Attribution-NonCommercial-ShareAlike 3.0
 Unported [License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
 """
 import typing
-from asyncore import write
+
 
 from JackTokenizer import JackTokenizer
 
-IDENTIFIER = "<identifier>{}</identifier>\n"
-KEYWORD = "<keyword>{}</keyword>\n"
-SYMBOL = "<symbol>{}</symbol>\n"
+IDENTIFIER = "<identifier> {} </identifier>\n"
+KEYWORD = "<keyword> {} </keyword>\n"
+SYMBOL = "<symbol> {} </symbol>\n"
 OP = ['+', '-', '*', '/', '&', '|', '<', '>', '=']
+KEYWORD_CONSTANTS = ['true', 'false', 'null', 'this']
+UNARY_OPT = ['-', '~']
 
 class CompilationEngine:
     """Gets input from a JackTokenizer and emits its parsed structure into an
@@ -39,10 +41,11 @@ class CompilationEngine:
         self._write_keyword()
         self._write_identifier()
         self._write_symbol()
-
         # Write class variables and subroutines
-        self.compile_class_var_dec()
-        self.compile_subroutine()
+        while self.input_stream.token_type() == "KEYWORD" and self.input_stream.keyword() in ["STATIC", "FIELD"]:
+            self.compile_class_var_dec()
+        while self.input_stream.token_type() == "KEYWORD" and self.input_stream.keyword() in ["CONSTRUCTOR", "FUNCTION", "METHOD"]:
+            self.compile_subroutine()
 
         # Write closing }
         self._write_symbol()
@@ -54,7 +57,6 @@ class CompilationEngine:
         self._write_keyword()
         self._write_type()
         self._write_identifier()
-        self.output_stream.write("</classVarDec>\n")
 
         # Write the rest of the variables
         while self.input_stream.symbol() == ',':
@@ -76,7 +78,9 @@ class CompilationEngine:
         self._write_keyword()
         self._write_type()
         self._write_identifier()
+        self._write_symbol()
         self._write_parameter_list()
+        self._write_symbol()
         self._write_subroutine_body()
         self.output_stream.write("</subroutineDec>\n")
 
@@ -132,10 +136,11 @@ class CompilationEngine:
 
     def compile_do(self) -> None:
         """Compiles a do statement."""
-        self.output_stream.write("<dostatement>\n")
+        self.output_stream.write("<doStatement>\n")
         self._write_keyword()  # Write the do keyword
         self._write_subroutine_call()
         self._write_symbol()  # Write the semicolon
+        self.output_stream.write("</doStatement>\n")
 
 
 
@@ -158,6 +163,8 @@ class CompilationEngine:
     def compile_while(self) -> None:
         """Compiles a while statement."""
         self.output_stream.write("<whileStatement>\n")
+        self._write_keyword()
+        # Write (expression){statements}
         self._write_expressions_and_statements()
         self.output_stream.write("</whileStatement>\n")
     def compile_return(self) -> None:
@@ -192,7 +199,7 @@ class CompilationEngine:
         """Compiles an expression."""
         self.output_stream.write("<expression>\n")
         self.compile_term()
-        while  self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() in ["+", "-", "*", "/", "&", "|", "<", ">", "="]:
+        while self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() in ["+", "-", "*", "/", "&", "|", "<", ">", "="]:
             self._write_symbol()
             self.compile_term()
         self.output_stream.write("</expression>\n")
@@ -208,12 +215,66 @@ class CompilationEngine:
         to distinguish between the three possibilities. Any other token is not
         part of this term and should not be advanced over.
         """
-        # Your code goes here!
-        pass
+        #self.output_stream.write("starting term\n")
+        self.output_stream.write("<term>\n")
+        if self.input_stream.current_token_idx >= 96:
+            pass
+        token_type = self.input_stream.token_type()
+        if token_type == "INT_CONST":
+            self._write_integer_constant()
+        elif token_type == "STRING_CONST":
+            self._write_string_constant()
+        elif token_type == "KEYWORD":
+            self._write_keyword()
+        elif token_type == "SYMBOL":
+            if self.input_stream.symbol() in UNARY_OPT:
+                self._write_symbol()
+                self.compile_term()
+            elif self.input_stream.symbol() == "(":
+                self._write_symbol()
+                self.compile_expression()
+                self._write_symbol()
+
+
+        elif token_type == "IDENTIFIER":
+            self.input_stream.advance()
+            if self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() in ["(", ".", '[']:
+                # If an array entry
+                if self.input_stream.symbol() == "[":
+                    self.input_stream.backward()
+                    self._write_identifier()
+                    self._write_symbol()
+                    self.compile_expression()
+                    self._write_symbol()
+                # If a subroutine call
+                else:
+                    self.input_stream.backward()
+                    self._write_subroutine_call()
+            else:
+                # If a variable
+                self.input_stream.backward()
+                self._write_identifier()
+        else:
+            self.input_stream.backward()
+        self.output_stream.write("</term>\n")
+        #self.output_stream.write("ending term\n")
+
+    def _write_string_constant(self):
+        self.output_stream.write("<stringConstant> {} </stringConstant>\n".format(self.input_stream.string_val()))
+        self.input_stream.advance()
+
+    def _write_integer_constant(self):
+        self.output_stream.write("<integerConstant> {} </integerConstant>\n".format(self.input_stream.int_val()))
+        self.input_stream.advance()
 
     def compile_expression_list(self) -> None:
         """Compiles a (possibly empty) comma-separated list of expressions."""
         self.output_stream.write("<expressionList>\n")
+        if not(self.input_stream.token_type() == "SYMBOL" and self.input_stream.keyword() == ")"):
+            self.compile_expression()
+            while self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ",":
+                self._write_symbol()
+                self.compile_expression()
         self.output_stream.write("</expressionList>\n")
 
 
@@ -229,7 +290,16 @@ class CompilationEngine:
 
     def _write_symbol(self):
         symbol = self.input_stream.symbol()
-        self.output_stream.write(SYMBOL.format(symbol))
+        if symbol == "<":
+            self.output_stream.write(SYMBOL.format("&lt;"))
+        elif symbol == ">":
+            self.output_stream.write(SYMBOL.format("&gt;"))
+        elif symbol == "&":
+            self.output_stream.write(SYMBOL.format("&amp;"))
+        elif symbol == '"':
+            self.output_stream.write(SYMBOL.format("&quot;"))
+        else:
+            self.output_stream.write(SYMBOL.format(symbol))
         self.input_stream.advance()
 
     def _write_type(self):
@@ -243,17 +313,15 @@ class CompilationEngine:
 
     def _write_parameter_list(self):
         self.output_stream.write("<parameterList>\n")
-        self._write_symbol() # Write the opening (
-        first_parameter = True
-        while not (self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ")"):
-            # Write comma if not the first parameter
-            if not first_parameter:
-                self._write_symbol()
+        if not (self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ")"):
             self._write_type()
             self._write_identifier()
-            first_parameter = False
-        self._write_symbol() # Write the closing )
+            while self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ",":
+                self._write_symbol()
+                self._write_type()
+                self._write_identifier()
         self.output_stream.write("</parameterList>\n")
+
 
     def _write_subroutine_body(self):
         self.output_stream.write("<subroutineBody>\n")
@@ -263,30 +331,23 @@ class CompilationEngine:
             self.compile_var_dec()
         # Write statements
         self.compile_statements()
-
         self._write_symbol()# Write closing }
         self.output_stream.write("</subroutineBody>\n")
 
     def _write_subroutine_call(self):
-        """Writes a subroutine call, which can be either a method or a function."""
-        # Write the subroutine name
+        """Writes a subroutine call: subroutineName(...) or (className|varName).subroutineName(...)."""
+        # First identifier: could be a class name, var name, or subroutine name
         self._write_identifier()
-        # If global function
-        if self.input_stream.token_type() == "SYMBOL":
-            # Write (parameter list)
-            self._write_symbol()
-            self._write_parameter_list()
-            self._write_symbol()
-        # Else it's a method
-        else:
-            # Write (class/var)name.method
-            self._write_identifier()
-            self._write_symbol()
-            self._write_identifier()
-            # Write (parameter list)
-            self._write_symbol()
-            self._write_parameter_list()
-            self._write_symbol()
+
+        # If next token is '.', it's a method or function in another class
+        if self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ".":
+            self._write_symbol()  # Write '.'
+            self._write_identifier()  # subroutine name after the dot
+
+        # Now we must see '('
+        self._write_symbol()  # Write '('
+        self.compile_expression_list()
+        self._write_symbol()  # Write ')'
 
     def _write_expressions_and_statements(self):
         # Write (expression)

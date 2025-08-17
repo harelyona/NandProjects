@@ -261,5 +261,9 @@ class JackTokenizer:
                 res += char
         return res
 
+    def backward(self) -> None:
+        self.current_token_idx -= 1
+
+
 
 
