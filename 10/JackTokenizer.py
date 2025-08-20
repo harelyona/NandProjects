@@ -222,34 +222,11 @@ class JackTokenizer:
             stream = stream[:start] + stream[end:]
         return stream.strip()
 
-
     def _tokenize(self, input_stream: str) -> List[str]:
-        stream = "".join(input_stream)
-        stream = stream.split()
-        tokens = self._join_string_constants(stream)
+        # This regex matches string constants or non-whitespace sequences
+        pattern = r'"[^"\n]*"|[^\s]+'
+        tokens = re.findall(pattern, input_stream)
         return tokens
-
-    def _join_string_constants(self, tokens):
-        final_tokens = []
-        s = ""
-        is_string = False
-        for token in tokens:
-            if token == "SAILOR":
-                pass
-            if token.startswith('"') and not token.endswith('"'):
-                is_string = True
-                s = token + ' '
-                continue
-            if is_string:
-                if token.endswith('"'):
-                    final_tokens.append(s + token)
-                    is_string = False
-                    s = ""
-                    continue
-                s += token + ' '
-                continue
-            final_tokens.append(token)
-        return final_tokens
 
     def _seperate_symbols(self, input_stream: str) -> str:
         res = ""
@@ -265,7 +242,3 @@ class JackTokenizer:
 
     def backward(self) -> None:
         self.current_token_idx -= 1
-
-
-
-

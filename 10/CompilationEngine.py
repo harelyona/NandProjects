@@ -5,9 +5,6 @@ was written by Aviv Yaish. It is an extension to the specifications given
 as allowed by the Creative Common Attribution-NonCommercial-ShareAlike 3.0
 Unported [License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
 """
-import typing
-
-
 from JackTokenizer import JackTokenizer
 
 IDENTIFIER = "<identifier> {} </identifier>\n"
