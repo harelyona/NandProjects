@@ -10,6 +10,8 @@ import sys
 import typing
 from CompilationEngine import CompilationEngine
 from JackTokenizer import JackTokenizer
+from SymbolTable import SymbolTable
+from VMWriter import VMWriter
 
 
 def compile_file(
@@ -20,12 +22,10 @@ def compile_file(
         input_file (typing.TextIO): the file to compile.
         output_file (typing.TextIO): writes all output to this file.
     """
-    tokenizer = JackTokenizer(input_file)
-    tokenizer.advance()
-    engine = CompilationEngine(tokenizer, output_file)
-    
-    # first compile the class
-    engine.compile_class()
+    # Your code goes here!
+    # This function should be relatively similar to "analyze_file" in
+    # JackAnalyzer.py from the previous project.
+    pass
 
 
 if "__main__" == __name__:

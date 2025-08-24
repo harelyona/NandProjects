@@ -8,32 +8,63 @@ Unported [License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
 import typing
 
 
+class Var:
+    """A structure representing a variable with a type, kind and index."""
+    field_counter = 0
+    static_counter = 0
+    arg_counter = 0
+    var_counter = 0
+
+    def __init__(self,name: str, type: str, kind: str) -> None:
+        self.name = name
+        self.type = type
+        self.kind = kind
+        if kind == "FIELD":
+            self.index = Var.field_counter
+            Var.field_counter += 1
+        elif kind == "STATIC":
+            self.index = Var.static_counter
+            Var.static_counter += 1
+        elif kind == "ARG":
+            self.index = Var.arg_counter
+            Var.arg_counter += 1
+        elif kind == "VAR":
+            self.index = Var.var_counter
+            Var.var_counter += 1
+
+    @classmethod
+    def reset_subroutine_counters(cls) -> None:
+        cls.arg_counter = 0
+        cls.var_counter = 0
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, str):
+            return self.name == other
+        return False
+
+    def __repr__(self) -> str:
+        return f"Var(name={self.name}, type={self.type}, kind={self.kind}, index={self.index})"
+
+
 class SymbolTable:
     """A symbol table that associates names with information needed for Jack
     compilation: type, kind and running index. The symbol table has two nested
     scopes (class/subroutine).
     """
-    KINDS = {"STATIC","FIELD","VAR","ARG"}
 
     def __init__(self) -> None:
         """Creates a new empty symbol table."""
-        self.class_table = {}
-        self.subroutine_table = {}
-        
-        self.indices = {
-            "STATIC": 0,
-            "FIELD": 0,
-            "ARG": 0,
-            "VAR": 0
-        }
+        # Your code goes here!
+        self.class_variables = []
+        self.subroutine_variables = []
 
     def start_subroutine(self) -> None:
         """Starts a new subroutine scope (i.e., resets the subroutine's 
         symbol table).
         """
-        self.subroutine_table = {}
-        self.indices["ARG"] = 0
-        self.indices["VAR"] = 0
+        # Your code goes here!
+        self.subroutine_variables = []
+        Var.reset_subroutine_counters()
 
     def define(self, name: str, type: str, kind: str) -> None:
         """Defines a new identifier of a given name, type and kind and assigns 
@@ -46,22 +77,11 @@ class SymbolTable:
             kind (str): the kind of the new identifier, can be:
             "STATIC", "FIELD", "ARG", "VAR".
         """
-        if kind not in SymbolTable.KINDS:
-            raise ValueError("Kind is invalid, should be STATIC,FIELD,VAR,ARG.")
-        
-        entry = {
-            "type": type,
-            "kind": kind,
-            "index": self.indices[kind]
-        }
-        # Increment the index for this kind of variable
-        self.indices[kind] += 1
-        
-        # Add to appropriate scope
+        variable = Var(name, type, kind)
         if kind in ["STATIC", "FIELD"]:
-            self.class_table[name] = entry
-        else:  # kind is "ARG" or "VAR"
-            self.subroutine_table[name] = entry
+            self.class_variables.append(variable)
+        elif kind in ["ARG", "VAR"]:
+            self.subroutine_variables.append(variable)
 
     def var_count(self, kind: str) -> int:
         """
@@ -72,23 +92,17 @@ class SymbolTable:
             int: the number of variables of the given kind already defined in 
             the current scope.
         """
-        if kind not in SymbolTable.KINDS:
-            raise ValueError("Kind is invalid, should be STATIC,FIELD,VAR,ARG.")
-        
-        count = 0
-        # Check appropriate scope based on kind
-        if kind in ["STATIC", "FIELD"]:
-            for entry in self.class_table.values():
-                if entry["kind"] == kind:
-                    count += 1
-        else:  # kind is "ARG" or "VAR"
-            for entry in self.subroutine_table.values():
-                if entry["kind"] == kind:
-                    count += 1
-                    
-        return count
+        if kind == "FIELD":
+            return Var.field_counter
+        elif kind == "STATIC":
+            return Var.static_counter
+        elif kind == "ARG":
+            return Var.arg_counter
+        elif kind == "VAR":
+            return Var.var_counter
+        raise Exception("Invalid kind")
 
-    def kind_of(self, name: str) -> str:
+    def kind_of(self, name: str) -> str|None:
         """
         Args:
             name (str): name of an identifier.
@@ -97,13 +111,16 @@ class SymbolTable:
             str: the kind of the named identifier in the current scope, or None
             if the identifier is unknown in the current scope.
         """
-        if name in self.subroutine_table:
-            return self.subroutine_table[name]["kind"]
-        elif name in self.class_table:
-            return self.class_table[name]["kind"]
+        # Your code goes here!
+        for var in self.subroutine_variables:
+            if var == name:
+                return var.kind
+        for var in self.class_variables:
+            if var == name:
+                return var.kind
         return None
 
-    def type_of(self, name: str) -> str:
+    def type_of(self, name: str) -> str|None:
         """
         Args:
             name (str):  name of an identifier.
@@ -111,13 +128,16 @@ class SymbolTable:
         Returns:
             str: the type of the named identifier in the current scope.
         """
-        if name in self.subroutine_table:
-            return self.subroutine_table[name]["type"]
-        elif name in self.class_table:
-            return self.class_table[name]["type"]
+        # Your code goes here!
+        for var in self.subroutine_variables:
+            if var == name:
+                return var.type
+        for var in self.class_variables:
+            if var == name:
+                return var.type
         return None
 
-    def index_of(self, name: str) -> int:
+    def index_of(self, name: str) -> int|None:
         """
         Args:
             name (str):  name of an identifier.
@@ -125,8 +145,11 @@ class SymbolTable:
         Returns:
             int: the index assigned to the named identifier.
         """
-        if name in self.subroutine_table:
-            return self.subroutine_table[name]["index"]
-        elif name in self.class_table:
-            return self.class_table[name]["index"]
+        # Your code goes here!
+        for var in self.subroutine_variables:
+            if var == name:
+                return var.index
+        for var in self.class_variables:
+            if var == name:
+                return var.index
         return None
