@@ -5,8 +5,14 @@ was written by Aviv Yaish. It is an extension to the specifications given
 as allowed by the Creative Common Attribution-NonCommercial-ShareAlike 3.0
 Unported [License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
 """
-import typing
 import re
+import typing
+from typing import List
+SYMBOLS = r'()[\]{}.,;+\-*/&|<>=~^#'
+KEYWORDS = ["class", "constructor", "function", "method", "field",
+                        "static", "var", "int", "char", "boolean", "void",
+                        "true", "false", "null", "this", "let", "do", "if",
+                        "else", "while", "return"]
 
 
 class JackTokenizer:
@@ -93,26 +99,6 @@ class JackTokenizer:
     Note that ^, # correspond to shiftleft and shiftright, respectively.
     """
 
-    # Token type constants
-    KEYWORD = "keyword"
-    SYMBOL = "symbol"
-    IDENTIFIER = "identifier" 
-    INT_CONST = "integerConstant"
-    STRING_CONST = "stringConstant"
-
-    # Define keywords
-    KEYWORDS = {
-        'class', 'constructor', 'function', 'method', 'field', 'static',
-        'var', 'int', 'char', 'boolean', 'void', 'true', 'false', 'null',
-        'this', 'let', 'do', 'if', 'else', 'while', 'return'
-    }
-
-    # Define symbols
-    SYMBOLS = {
-        '{', '}', '(', ')', '[', ']', '.', ',', ';', '+', '-', '*', '/',
-        '&', '|', '<', '>', '=', '~', '^', '#'
-    }
-
     def __init__(self, input_stream: typing.TextIO) -> None:
         """Opens the input stream and gets ready to tokenize it.
 
@@ -121,103 +107,12 @@ class JackTokenizer:
         """
         # Your code goes here!
         # A good place to start is to read all the lines of the input:
-        # input_lines = input_stream.read().splitlines()
-        self.input_text = self._remove_comments(input_stream.read())
-        self.tokens = self._tokenize()
-        self.current_token = None
+        input_stream = input_stream.read()
+        input_stream = self._remove_comments(input_stream)
+        input_stream = self._seperate_symbols(input_stream)
+        self.tokens = self._tokenize(input_stream)
         self.current_token_idx = -1
 
-    def _remove_comments(self, text: str) -> str:
-        # Store string literals temporarily
-        strings = []
-        def store_string(match):
-            strings.append(match.group(0))
-            return f"__STRING_{len(strings)-1}__"
-        
-        # Replace string literals with placeholders
-        text = re.sub(r'"[^"]*"', store_string, text)
-        
-        # Remove /* ... */ comments
-        text = re.sub(r'/\*.*?\*/', '', text, flags=re.DOTALL)
-        
-        # Remove // comments
-        text = re.sub(r'//.*$', '', text, flags=re.MULTILINE)
-        
-        # Restore string literals
-        def restore_string(match):
-            index = int(match.group(1))
-            return strings[index]
-        
-        text = re.sub(r'__STRING_(\d+)__', restore_string, text)
-        
-        return text
-    
-    def _tokenize(self)->list:
-        tokens = []
-        i = 0
-        text = self.input_text
-        while(i<len(text)):
-            char = text[i]
-
-            # If whitespace continue:
-            if char.isspace():
-                i+=1
-                continue
-
-            # Check if char is a symbol:
-            if char in JackTokenizer.SYMBOLS:
-                tokens.append((self.SYMBOL,char))
-                i+=1
-                continue
-
-            # Handle Keywords and identifiers:
-            if char.isalpha() or char == '_':
-                identifier = ''
-                while i < len(text) and (text[i].isdigit() or text[i].isalpha() or text[i] == '_'):
-                    identifier+=text[i]
-                    i+=1
-                if identifier in JackTokenizer.KEYWORDS:
-                    tokens.append((self.KEYWORD,identifier))
-                else:
-                    tokens.append((self.IDENTIFIER,identifier))
-                continue
-
-            # Handle numbers
-            if char.isdigit():
-                num = ''
-                while i < len(text) and text[i].isdigit():
-                    num += text[i]
-                    i += 1
-                if 0 <= int(num) <= 32767:
-                    tokens.append((self.INT_CONST, int(num)))
-                    continue
-
-            # Handle string constants
-            if char == '"':
-                string = ''
-                i += 1  # Skip opening quote
-                while i < len(text):
-                    if text[i] == '\\' and i + 1 < len(text) and text[i + 1] == '"':
-                        # Handle escaped quote
-                        string += '"'
-                        i += 2  # Skip both the backslash and quote
-                    elif text[i] == '"':
-                        # Found unescaped closing quote
-                        break
-                    elif text[i] != '\n':
-                        string += text[i]
-                        i += 1
-                    else:
-                        i += 1
-                        
-                if i < len(text):  # Found closing quote
-                    tokens.append((self.STRING_CONST, string))
-                    i += 1  # Skip closing quote
-                continue
-
-            i+=1
-
-        return tokens
 
     def has_more_tokens(self) -> bool:
         """Do we have more tokens in the input?
@@ -226,20 +121,14 @@ class JackTokenizer:
             bool: True if there are more tokens, False otherwise.
         """
         # Your code goes here!
-        if self.current_token_idx < len(self.tokens) - 1:
-            return True
-        else:
-            return False
+        return self.current_token_idx < len(self.tokens) - 1
 
     def advance(self) -> None:
-        """Gets the next token from the input and makes it the current token. 
+        """Gets the next token from the input and makes it the current token.
         This method should be called if has_more_tokens() is true. 
         Initially there is no current token.
         """
-        # Your code goes here!
-        if self.has_more_tokens():
-            self.current_token_idx+=1
-            self.current_token = self.tokens[self.current_token_idx]
+        self.current_token_idx += 1
 
     def token_type(self) -> str:
         """
@@ -247,11 +136,20 @@ class JackTokenizer:
             str: the type of the current token, can be
             "KEYWORD", "SYMBOL", "IDENTIFIER", "INT_CONST", "STRING_CONST"
         """
-        # Your code goes here!
-        if self.current_token:
-            return self.current_token[0]
-        else:
-            raise ValueError("The current token is empty")
+        token = self.tokens[self.current_token_idx]
+        if token in SYMBOLS:
+            return "SYMBOL"
+        if token.isdigit():
+            return "INT_CONST"
+        if token.startswith('"') and token.endswith('"'):
+            return "STRING_CONST"
+        if token in KEYWORDS :
+                return "KEYWORD"
+        # else it must be an identifier
+        return "IDENTIFIER"
+
+
+
 
     def keyword(self) -> str:
         """
@@ -262,11 +160,8 @@ class JackTokenizer:
             "BOOLEAN", "CHAR", "VOID", "VAR", "STATIC", "FIELD", "LET", "DO", 
             "IF", "ELSE", "WHILE", "RETURN", "TRUE", "FALSE", "NULL", "THIS"
         """
-        # Your code goes here!
-        if self.token_type() == self.KEYWORD:
-            return self.current_token[1]
-        else:
-            raise ValueError("The current token is not a keyword.")
+        token = self.tokens[self.current_token_idx]
+        return token.upper()
 
     def symbol(self) -> str:
         """
@@ -277,11 +172,7 @@ class JackTokenizer:
             symbol: '{' | '}' | '(' | ')' | '[' | ']' | '.' | ',' | ';' | '+' | 
               '-' | '*' | '/' | '&' | '|' | '<' | '>' | '=' | '~' | '^' | '#'
         """
-        # Your code goes here!
-        if self.token_type() == self.SYMBOL:
-            return self.current_token[1]
-        else:
-            raise ValueError("The current token is not a symbol.")
+        return self.tokens[self.current_token_idx]
 
     def identifier(self) -> str:
         """
@@ -293,11 +184,7 @@ class JackTokenizer:
                   starting with a digit. You can assume keywords cannot be
                   identifiers, so 'self' cannot be an identifier, etc'.
         """
-        # Your code goes here!
-        if self.token_type() == self.IDENTIFIER:
-            return self.current_token[1]
-        else:
-            raise ValueError("The current token is not an identifier.")
+        return self.tokens[self.current_token_idx]
 
     def int_val(self) -> int:
         """
@@ -307,11 +194,7 @@ class JackTokenizer:
             Recall that integerConstant was defined in the grammar like so:
             integerConstant: A decimal number in the range 0-32767.
         """
-        # Your code goes here!
-        if self.token_type() == self.INT_CONST:
-            return self.current_token[1]
-        else:
-            raise ValueError("The current token is not an constant integer.")
+        return int(self.tokens[self.current_token_idx])
 
     def string_val(self) -> str:
         """
@@ -322,8 +205,40 @@ class JackTokenizer:
             StringConstant: '"' A sequence of Unicode characters not including 
                       double quote or newline '"'
         """
-        # Your code goes here!
-        if self.token_type() == self.STRING_CONST:
-            return self.current_token[1]
-        else:
-            raise ValueError("The current token is not an constant string.")
+        return self.tokens[self.current_token_idx][1:-1]
+
+    def _remove_comments(self, stream: str) -> str:
+        while "/*" in stream and "*/" in stream:
+            start = stream.index("/*")
+            end = stream.index("*/", start) + 2
+            stream = stream[:start] + stream[end:]
+        while "//" in stream:
+            start = stream.index("//")
+            end = stream.find("\n", start)
+            stream = stream[:start] + stream[end:] if end != -1 else stream[:start]
+        while "/**" in stream and "*/" in stream:
+            start = stream.index("/**")
+            end = stream.index("*/", start) + 2
+            stream = stream[:start] + stream[end:]
+        return stream.strip()
+
+    def _tokenize(self, input_stream: str) -> List[str]:
+        # This regex matches string constants or non-whitespace sequences
+        pattern = r'"[^"\n]*"|[^\s]+'
+        tokens = re.findall(pattern, input_stream)
+        return tokens
+
+    def _seperate_symbols(self, input_stream: str) -> str:
+        res = ""
+        is_string = False
+        for char in input_stream:
+            if char == '"':
+                is_string = not is_string
+            if char in SYMBOLS and not is_string:
+                res += f"\n{char}\n"
+            else:
+                res += char
+        return res
+
+    def backward(self) -> None:
+        self.current_token_idx -= 1
