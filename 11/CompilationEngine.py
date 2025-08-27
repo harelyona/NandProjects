@@ -165,27 +165,51 @@ class CompilationEngine:
 
     def compile_let(self) -> None:
         """Compiles a let statement."""
-        self.output_stream.write("<letStatement>\n")
-        self._get_keyword()
-        self._get_identifier()
+        # letStatement: 'let' varName ('[' expression ']')? '=' expression ';'
+        let = self._get_keyword()
+        if let != "let":
+            raise ValueError("Expected 'let' keyword")
+
+        identifier = self._get_identifier()
+        self._push_variable(identifier)
         # If the next symbol is [ then it's an array assignment,
         if self.input_stream.symbol() == "[":
-            # Write [expression]
-            self._write_symbol()
+            self.input_stream.advance()
             self.compile_expression()
-            self._write_symbol()
-        self._write_symbol() # Write =
+            self.input_stream.advance()
+            self.writer.write_arithmetic("ADD")
+        self.input_stream.advance() # Skip =
+        # Save the second expression in a temp variable
         self.compile_expression()
-        self._write_symbol() # Write the semicolon
-        self.output_stream.write("</letStatement>\n")
+        self.writer.write_pop("TEMP", 0)
+
+        # Pop the second expression into the correct place
+        self.writer.write_pop("POINTER", 1)
+        self.writer.write_push("TEMP", 0)
+        self.writer.write_pop("THAT", 0)
+        self.input_stream.advance() # Skip semicolon
 
     def compile_while(self) -> None:
         """Compiles a while statement."""
-        self.output_stream.write("<whileStatement>\n")
-        self._get_keyword()
-        # Write (expression){statements}
-        self._write_expressions_and_statements()
-        self.output_stream.write("</whileStatement>\n")
+        start_loop = self._label_generator("WhileStart")
+        end_loop = self._label_generator("WhileEnd")
+        # Write while (expression) {statements}
+        self.input_stream.advance() # Skip 'while'
+        self.input_stream.advance() # Skip (
+
+        # Start of the loop
+        self.writer.write_label(start_loop)
+        self.compile_expression()
+        self.input_stream.advance() # Skip )
+        self.writer.write_arithmetic("NEG")
+        self.writer.write_if(end_loop)
+        self.input_stream.advance() # Skip {
+        self.compile_statements()
+        self.input_stream.advance() # Skip }
+        self.writer.write_goto(start_loop)
+        # End of the loop
+
+        self.writer.write_goto(end_loop)
     def compile_return(self) -> None:
         """Compiles a return statement."""
         self.output_stream.write("<returnStatement>\n")
@@ -202,17 +226,31 @@ class CompilationEngine:
 
     def compile_if(self) -> None:
         """Compiles a if statement, possibly with a trailing else clause."""
-        self.output_stream.write("<ifStatement>\n")
-        self._get_keyword()
-        self._write_expressions_and_statements()
+        # ifStatement: 'if' '(' expression ')' '{' statements '}' ('else' '{'
+        false_label = self._label_generator("FALSE")
+        if_keyword = self._get_keyword()
+        if if_keyword != "if":
+            raise ValueError("Expected 'if' keyword")
+        self.input_stream.advance() # Skip (
+        self.compile_expression()
+        self.input_stream.advance() # Skip )
+        self.writer.write_arithmetic("NEG")
+        self.writer.write_if(false_label)
+        self.compile_statements()
+
         # If else clause is present, compile it
         if self.input_stream.token_type() == "KEYWORD" and self.input_stream.keyword() == "ELSE":
             # Write else {statements}
-            self._get_keyword()
-            self._write_symbol()
+            else_clause = self._get_keyword()
+            if else_clause != "else":
+                raise ValueError("Expected 'else' keyword")
+            self.writer.write_label(false_label)
+            self.input_stream.advance() # Skip {
             self.compile_statements()
-            self._write_symbol()
-        self.output_stream.write("</ifStatement>\n")
+            self.input_stream.advance() # Skip }
+        else:
+            self.writer.write_label(false_label)
+
 
     def compile_expression(self) -> None:
         """Compiles an expression."""
@@ -375,3 +413,22 @@ class CompilationEngine:
         self._write_symbol()
         self.compile_statements()
         self._write_symbol()
+
+    def _get_segment(self, var_name: str) -> str:
+        var_kind = self.subroutine_symbol_table.kind_of(var_name)
+        if var_kind == "STATIC":
+            segment = "STATIC"
+        elif var_kind == "FIELD":
+            segment = "THIS"
+        elif var_kind == "ARG":
+            segment = "ARG"
+        elif var_kind == "VAR":
+            segment = "LOCAL"
+        else:
+            raise ValueError(f"Invalid variable kind: {var_kind}")
+        return segment
+
+    def _push_variable(self, var_name: str) -> None:
+        segment = self._get_segment(var_name)
+        index = self.subroutine_symbol_table.index_of(var_name)
+        self.writer.write_push(segment, index)
