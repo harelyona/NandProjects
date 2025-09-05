@@ -212,20 +212,17 @@ class CompilationEngine:
         self.input_stream.advance() # Skip }
         self.writer.write_goto(start_loop)
         # End of the loop
-
         self.writer.write_goto(end_loop)
+
     def compile_return(self) -> None:
         """Compiles a return statement."""
-        self.output_stream.write("<returnStatement>\n")
-        self._get_keyword()
-        # If the next token is a semicolon, return without an expression
-        if self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ";":
-            self._write_symbol()
-        else:
-            # Write expression
+        return_keyword = self._get_keyword()
+        if return_keyword != "return":
+            raise ValueError("Expected 'return' keyword")
+        # If the next token is not a semicolon, push expression
+        if not (self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ";"):
             self.compile_expression()
-            self._write_symbol()
-        self.output_stream.write("</returnStatement>\n")
+        self.writer.write_return()
 
 
     def compile_if(self) -> None:
@@ -309,35 +306,48 @@ class CompilationEngine:
 
         elif token_type == "IDENTIFIER":
             self.input_stream.advance()
-            if self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() in ["(", ".", '[']:
+            if self.input_stream.token_type() == "SYMBOL":
                 # If an array entry
                 if self.input_stream.symbol() == "[":
                     self.input_stream.backward()
-                    self._get_identifier()
-                    self._write_symbol()
+                    name = self._get_identifier()
+                    self._push_variable(name)
+                    self.input_stream.advance() # Skip [
                     self.compile_expression()
-                    self._write_symbol()
-                # If a subroutine call
-                else:
+                    self.input_stream.advance() # Skip ]
+                    self.writer.write_arithmetic("ADD")
+                    self.writer.write_pop("POINTER", 1)
+                    self.writer.write_push("THAT", 0)
+                # If a method call
+                if self.input_stream.symbol() == ".":
                     self.input_stream.backward()
-                    self._write_subroutine_call()
+                    self._write_subroutine_call("method")
+                # If a function call
+                if self.input_stream.symbol() == "(":
+                    self.input_stream.backward()
+                    self._write_subroutine_call("function")
+
             else:
                 # If a variable
                 self.input_stream.backward()
-                self._get_identifier()
+                var = self._get_identifier()
+                self._push_variable(var)
         else:
             self.input_stream.backward()
 
 
-    def compile_expression_list(self) -> None:
-        """Compiles a (possibly empty) comma-separated list of expressions."""
-        self.output_stream.write("<expressionList>\n")
+    def compile_expression_list(self) -> int:
+        """Compiles a (possibly empty) comma-separated list of expressions.
+        return the number of expressions in the list."""
+        expressions = 0
         if not(self.input_stream.token_type() == "SYMBOL" and self.input_stream.keyword() == ")"):
+            expressions += 1
             self.compile_expression()
             while self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ",":
-                self._write_symbol()
+                self.input_stream.advance() # Skip ,
                 self.compile_expression()
-        self.output_stream.write("</expressionList>\n")
+                expressions += 1
+        return expressions
 
 
     def _get_keyword(self):
@@ -355,14 +365,6 @@ class CompilationEngine:
         self.input_stream.advance()
         return symbol
 
-    def _write_type(self):
-        if self.input_stream.token_type() == "IDENTIFIER":
-            identifier = self.input_stream.identifier()
-            self.output_stream.write(IDENTIFIER.format(identifier))
-        if self.input_stream.token_type() == "KEYWORD":
-            keyword = self.input_stream.keyword().lower()
-            self.output_stream.write(KEYWORD.format(keyword))
-        self.input_stream.advance()
 
     def _get_type(self):
         var_type = None
@@ -385,15 +387,19 @@ class CompilationEngine:
                 self.subroutine_symbol_table.define(name, type, "ARG")
 
 
-    def _write_subroutine_call(self):
+    def _write_subroutine_call(self, subroutine_type: str):
         """Writes a subroutine call: subroutineName(...) or (className|varName).subroutineName(...)."""
         # First identifier: could be a class name, var name, or subroutine name
-        self._get_identifier()
+        vars = 1
+        if subroutine_type == "method":
+            class_name = self._get_identifier()
+            self.input_stream.advance()  # Skip '.'
+            subroutine_name = self._get_identifier()  # subroutine name after the dot
 
-        # If next token is '.', it's a method or function in another class
-        if self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ".":
-            self._write_symbol()  # Write '.'
-            self._get_identifier()  # subroutine name after the dot
+        if subroutine_type == "function":
+            class_name = self.class_name
+            subroutine_name = self._get_identifier()
+
 
         # Now we must see '('
         self._write_symbol()  # Write '('
