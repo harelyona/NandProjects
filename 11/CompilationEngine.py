@@ -12,9 +12,11 @@ from JackTokenizer import JackTokenizer
 from VMWriter import VMWriter
 
 
-OP = ['+', '-', '*', '/', '&', '|', '<', '>', '=']
-KEYWORD_CONSTANTS = ['true', 'false', 'null', 'this']
+OP = {'+':"ADD", '-':"SUB", '&':"AND", '|':"OR", '<':"LT", '>':"GT", '=':"EQ"}
+UNARYOP = {'-':"NEG", '~':"NOT", '^':"SHIFTLEFT", '#':"SHIFTRIGHT"}
+KEYWORD_CONSTANTS_SEGMENTS_AND_IDX = {'true':("CONST", 0), 'false':("CONST", -1), 'null':(), 'this':("POINTER", 0)}
 UNARY_OPT = ['-', '~']
+KEYWORD_CONSTANTS = ['true', 'false', 'null', 'this']
 
 class CompilationEngine:
     """Gets input from a JackTokenizer and emits its parsed structure into an
@@ -79,9 +81,9 @@ class CompilationEngine:
         #(parameterList)
         if subroutine_type == "METHOD":
             self.subroutine_symbol_table.define("this", self.class_name, "ARG")
-        self.input_stream.advance()
+        self.input_stream.advance() # Skip the opening (
         self._write_parameter_list()
-        self.input_stream.advance()
+        self.input_stream.advance() # Skip the closing )
         self.input_stream.advance() # Skip the opening {
         # SubroutineBody: {varDec* statements}
         while self.input_stream.token_type() == "KEYWORD" and self.input_stream.keyword().lower() == "var":
@@ -103,23 +105,23 @@ class CompilationEngine:
         self.compile_statements()
         self.input_stream.advance() # Skip the closing }
 
-    def compile_parameter_list(self) -> None:
-        """Compiles a (possibly empty) parameter list, not including the 
-        enclosing "()".
-        """
-        self.output_stream.write("<parameterList>\n")
-        # If not parameters
-        if self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ")":
-            return
-        # write type var_name
-        self._write_type()
-        self._get_identifier()
-
-        # Write the rest of the parameters
-        while self.input_stream.symbol() == ",":
-            self._write_type()
-            self._get_identifier()
-        self.output_stream.write("</parameterList>\n")
+    # def compile_parameter_list(self) -> None:
+    #     """Compiles a (possibly empty) parameter list, not including the
+    #     enclosing "()".
+    #     """
+    #     self.output_stream.write("<parameterList>\n")
+    #     # If not parameters
+    #     if self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ")":
+    #         return
+    #     # write type var_name
+    #     self._write_type()
+    #     self._get_identifier()
+    #
+    #     # Write the rest of the parameters
+    #     while self.input_stream.symbol() == ",":
+    #         self._write_type()
+    #         self._get_identifier()
+    #     self.output_stream.write("</parameterList>\n")
     def compile_var_dec(self) -> None:
         """Compiles a var declaration."""
         # VarDec: 'var' type varName (',' varName)* ';'
@@ -155,11 +157,13 @@ class CompilationEngine:
 
     def compile_do(self) -> None:
         """Compiles a do statement."""
-        self.output_stream.write("<doStatement>\n")
-        self._get_keyword()  # Write the do keyword
-        self._write_subroutine_call()
-        self._write_symbol()  # Write the semicolon
-        self.output_stream.write("</doStatement>\n")
+        do = self._get_keyword()
+        if do != "do":
+            raise ValueError("Expected 'do' keyword")
+        # subroutine call
+        self.compile_expression()
+        self.writer.write_pop("TEMP", 0)
+        self.input_stream.advance()# skip semicolon
 
 
 
@@ -254,12 +258,13 @@ class CompilationEngine:
 
     def compile_expression(self) -> None:
         """Compiles an expression."""
-        self.output_stream.write("<expression>\n")
+        # expression: term (op term)*
         self.compile_term()
-        while self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() in ["+", "-", "*", "/", "&", "|", "<", ">", "="]:
-            self._write_symbol()
+        while self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() in OP:
+            op = OP[self._get_symbol()] # TODO chack if * and / are need to be Math.
+            self.input_stream.advance() # Skip the operator
             self.compile_term()
-        self.output_stream.write("</expression>\n")
+            self.writer.write_arithmetic(op)
 
 
     def compile_term(self) -> None:
@@ -272,26 +277,35 @@ class CompilationEngine:
         to distinguish between the three possibilities. Any other token is not
         part of this term and should not be advanced over.
         """
-        #self.output_stream.write("starting term\n")
-        self.output_stream.write("<term>\n")
-        if self.input_stream.current_token_idx >= 96:
-            pass
         token_type = self.input_stream.token_type()
+
         if token_type == "INT_CONST":
-            self._write_integer_constant()
+            self.writer.write_push("CONST", self.input_stream.int_val())
+            self.input_stream.advance()
+
         elif token_type == "STRING_CONST":
-            self._write_string_constant()
-        elif token_type == "KEYWORD":
-            self._get_keyword()
+            self._create_string(self.input_stream.string_val())
+
+        elif token_type == "KEYWORD" and self.input_stream.keyword() in KEYWORD_CONSTANTS:
+            if self.input_stream.keyword() in ["false", "null"]:
+                self.writer.write_push("CONST", 0)
+            elif self.input_stream.keyword() == "true":
+                self.writer.write_push("CONST", 0)
+                self.writer.write_arithmetic("NEG")
+            elif self.input_stream.keyword() == "this":
+                self.writer.write_push("POINTER", 0)
+
         elif token_type == "SYMBOL":
             if self.input_stream.symbol() in UNARY_OPT:
-                self._write_symbol()
+                unary_op = UNARYOP[self._get_symbol()]
                 self.compile_term()
+                self.writer.write_arithmetic(unary_op)
             elif self.input_stream.symbol() == "(":
-                self._write_symbol()
+                self.input_stream.advance() # Skip (
                 self.compile_expression()
-                self._write_symbol()
-
+                self.input_stream.advance() # Skip )
+            else:
+                raise ValueError(f"Unexpected symbol: {self.input_stream.symbol()}")
 
         elif token_type == "IDENTIFIER":
             self.input_stream.advance()
@@ -313,16 +327,7 @@ class CompilationEngine:
                 self._get_identifier()
         else:
             self.input_stream.backward()
-        self.output_stream.write("</term>\n")
-        #self.output_stream.write("ending term\n")
 
-    def _write_string_constant(self):
-        self.output_stream.write("<stringConstant> {} </stringConstant>\n".format(self.input_stream.string_val()))
-        self.input_stream.advance()
-
-    def _write_integer_constant(self):
-        self.output_stream.write("<integerConstant> {} </integerConstant>\n".format(self.input_stream.int_val()))
-        self.input_stream.advance()
 
     def compile_expression_list(self) -> None:
         """Compiles a (possibly empty) comma-separated list of expressions."""
@@ -345,19 +350,10 @@ class CompilationEngine:
         self.input_stream.advance()
         return identifier
 
-    def _write_symbol(self):
+    def _get_symbol(self):
         symbol = self.input_stream.symbol()
-        if symbol == "<":
-            self.output_stream.write(SYMBOL.format("&lt;"))
-        elif symbol == ">":
-            self.output_stream.write(SYMBOL.format("&gt;"))
-        elif symbol == "&":
-            self.output_stream.write(SYMBOL.format("&amp;"))
-        elif symbol == '"':
-            self.output_stream.write(SYMBOL.format("&quot;"))
-        else:
-            self.output_stream.write(SYMBOL.format(symbol))
         self.input_stream.advance()
+        return symbol
 
     def _write_type(self):
         if self.input_stream.token_type() == "IDENTIFIER":
@@ -432,3 +428,10 @@ class CompilationEngine:
         segment = self._get_segment(var_name)
         index = self.subroutine_symbol_table.index_of(var_name)
         self.writer.write_push(segment, index)
+
+    def _create_string(self, string: str) -> None:
+        self.writer.write_push("CONST", len(string))
+        self.writer.write_call("String.new", 1)
+        for char in string:
+            self.writer.write_push("CONST", ord(char))
+            self.writer.write_call("String.appendChar", 2)
