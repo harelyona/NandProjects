@@ -242,3 +242,6 @@ class JackTokenizer:
 
     def backward(self) -> None:
         self.current_token_idx -= 1
+
+    def get_current_token(self) -> str:
+        return self.tokens[self.current_token_idx]
