@@ -14,9 +14,8 @@ from VMWriter import VMWriter
 
 OP = {'+':"ADD", '-':"SUB", '&':"AND", '|':"OR", '<':"LT", '>':"GT", '=':"EQ", '*':"Math.multiply", '/':"Math.divide"}
 UNARYOP = {'-':"NEG", '~':"NOT", '^':"SHIFTLEFT", '#':"SHIFTRIGHT"}
-KEYWORD_CONSTANTS_SEGMENTS_AND_IDX = {'true':("CONST", 0), 'false':("CONST", -1), 'null':(), 'this':("POINTER", 0)}
-UNARY_OPT = ['-', '~']
-KEYWORD_CONSTANTS = ['true', 'false', 'null', 'this']
+
+KEYWORD_CONSTANTS = ['TRUE', 'FALSE', 'NULL', 'THIS']
 
 class CompilationEngine:
     """Gets input from a JackTokenizer and emits its parsed structure into an
@@ -53,7 +52,7 @@ class CompilationEngine:
             self.compile_class_var_dec()
         while self.input_stream.token_type() == "KEYWORD" and self.input_stream.keyword() in ["CONSTRUCTOR", "FUNCTION", "METHOD"]:
             self.compile_subroutine()
-        self.input_stream.advance()
+        self._validate_and_skip_token('}')
 
     def compile_class_var_dec(self) -> None:
         # Write static/field type variableName(, variableName)*;
@@ -66,6 +65,7 @@ class CompilationEngine:
             self.input_stream.advance()
             name = self._get_identifier()
             self.symbol_table.define(name, var_type, var_kind)
+        self._validate_and_skip_token(';')
 
     def compile_subroutine(self) -> None:
         """
@@ -79,38 +79,33 @@ class CompilationEngine:
         return_type = self._get_type()
         name = self._get_identifier()
         #(parameterList)
-        if subroutine_type == "method":
+        if subroutine_type == "METHOD":
             self.symbol_table.define("this", self.class_name, "ARG")
         self.input_stream.advance() # Skip the opening (
-        self._write_parameter_list("define")
-        self.input_stream.advance() # Skip the closing )
-        self.input_stream.advance() # Skip the opening {
+        self._write_parameter_list()
+        self._validate_and_skip_token(')')
+
         # SubroutineBody: {varDec* statements}
-        while self.input_stream.token_type() == "KEYWORD" and self.input_stream.keyword().lower() == "var":
+        self._validate_and_skip_token('{')
+        while self.input_stream.token_type() == "KEYWORD" and self.input_stream.keyword() == "VAR":
             self.compile_var_dec()
 
         number_of_locals = self.symbol_table.var_count("VAR")
         self.writer.write_function(f"{self.class_name}.{name}", number_of_locals)
         self.compile_statements()
+        self._validate_and_skip_token('}')
 
-        if subroutine_type == "constructor":
+        if subroutine_type == "CONSTRUCTOR":
             # Set allocated memory segment for the newly created object
             number_of_field_variables = self.symbol_table.var_count("FIELD")
             self.writer.write_push("CONST",number_of_field_variables)
             self.writer.write_call("Memory.alloc",1)
             self.writer.write_pop("POINTER",0)
 
-        elif subroutine_type == "method":
+        elif subroutine_type == "METHOD":
             # Set the pointer to this object
             self.writer.write_push("ARG",0)
             self.writer.write_pop("POINTER",0)
-
-        # self.input_stream.advance() # Skip the opening {
-        # self.compile_parameter_list()
-        # self.input_stream.advance() # Skip the closing )
-        # self.input_stream.advance() # Skip the opening {
-        # self.compile_statements()
-        # self.input_stream.advance() # Skip the closing }
 
 
 
@@ -122,20 +117,19 @@ class CompilationEngine:
         if self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ")":
             return
         # write type var_name
-        parameter_name = self._get_identifier()
         parameter_type = self._get_type()
+        parameter_name = self._get_identifier()
         self.symbol_table.define(parameter_name, parameter_type, "ARG")
         # Write the rest of the parameters
         while self.input_stream.symbol() == ",":
-            parameter_name = self._get_identifier()
+            self.input_stream.advance()
             parameter_type = self._get_type()
+            parameter_name = self._get_identifier()
             self.symbol_table.define(parameter_name, parameter_type, "ARG")
     def compile_var_dec(self) -> None:
         """Compiles a var declaration."""
         # VarDec: 'var' type varName (',' varName)* ';'
-        var = self._get_keyword()
-        if var != "var":
-            raise ValueError("Expected 'var' keyword")
+        self._validate_and_skip_token("VAR")
         var_type = self._get_type()
         var_name = self._get_identifier()
         self.symbol_table.define(var_name, var_type, "VAR")
@@ -165,19 +159,15 @@ class CompilationEngine:
 
     def compile_do(self) -> None:
         """Compiles a do statement."""
-        do = self._get_keyword()
-        if do != "do":
-            raise ValueError("Expected 'do' keyword")
+        self._validate_and_skip_token("DO")
         # subroutine call
-        self.compile_expression()
+        self.compile_term()
         self.writer.write_pop("TEMP", 0)
-        self.input_stream.advance()# skip semicolon
+        self._validate_and_skip_token(';')
 
     def compile_let(self) -> None:
         #letStatement: 'let' varName ('[' expression ']')? '=' expression ';'
-        let = self._get_keyword()
-        if let != "let":
-            raise ValueError(f"Expected 'let' keyword got {self.input_stream.get_current_token()}")
+        self._validate_and_skip_token("LET")
 
         var_name = self._get_identifier()
         is_array = False
@@ -191,7 +181,7 @@ class CompilationEngine:
             self.input_stream.advance()  # Skip ]
             self.writer.write_arithmetic("ADD")
 
-        self.input_stream.advance()  # Skip '='
+        self._validate_and_skip_token('=')
         self.compile_expression()  # Compile RHS
 
         if is_array:
@@ -206,67 +196,64 @@ class CompilationEngine:
             index = self.symbol_table.index_of(var_name)
             self.writer.write_pop(segment, index)
 
-        if self.input_stream.token_type() != "SYMBOL" or self.input_stream.symbol() != ";":
-            raise ValueError(f"Expected ';' at the end of let statement got {self.input_stream.get_current_token()}")
-        self.input_stream.advance()  # Skip ;
+        self._validate_and_skip_token(';')
 
     def compile_while(self) -> None:
         """Compiles a while statement."""
         start_loop = self._label_generator("WhileStart")
         end_loop = self._label_generator("WhileEnd")
         # Write while (expression) {statements}
-        if self.input_stream.token_type() != "KEYWORD" or self._get_keyword() != "while":
-            raise ValueError(f"Expected 'while' keyword got {self.input_stream.get_current_token()}")
+        self._validate_and_skip_token("WHILE")
         self.input_stream.advance() # Skip (
 
         # Start of the loop
         self.writer.write_label(start_loop)
         self.compile_expression()
-        self.input_stream.advance() # Skip )
-        self.writer.write_arithmetic("NEG")
+        self._validate_and_skip_token(')')
+        self.writer.write_arithmetic("NOT")
         self.writer.write_if(end_loop)
-        self.input_stream.advance() # Skip {
+        self._validate_and_skip_token('{')
         self.compile_statements()
-        self.input_stream.advance() # Skip }
+        self._validate_and_skip_token('}')
         self.writer.write_goto(start_loop)
         # End of the loop
-        self.writer.write_goto(end_loop)
+        self.writer.write_label(end_loop)
 
     def compile_return(self) -> None:
         """Compiles a return statement."""
-        return_keyword = self._get_keyword()
-        if return_keyword != "return":
-            raise ValueError("Expected 'return' keyword")
+        self._validate_and_skip_token("RETURN")
         # If the next token is not a semicolon, push expression
         if not (self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ";"):
             self.compile_expression()
+        # Else push dummy 0 for void functions
+        else:
+            self.writer.write_push("CONST", 0)
         self.writer.write_return()
+        self._validate_and_skip_token(';')
 
 
     def compile_if(self) -> None:
         """Compiles a if statement, possibly with a trailing else clause."""
         # ifStatement: 'if' '(' expression ')' '{' statements '}' ('else' '{'
         false_label = self._label_generator("FALSE")
-        if_keyword = self._get_keyword()
-        if if_keyword != "if":
-            raise ValueError("Expected 'if' keyword")
-        self.input_stream.advance() # Skip (
+        self._validate_and_skip_token("IF")
+        self._validate_and_skip_token('(')
         self.compile_expression()
-        self.input_stream.advance() # Skip )
-        self.writer.write_arithmetic("NEG")
+        self._validate_and_skip_token(')')
+        self.writer.write_arithmetic("NOT")
         self.writer.write_if(false_label)
+        self._validate_and_skip_token('{')
         self.compile_statements()
+        self._validate_and_skip_token('}')
 
         # If else clause is present, compile it
         if self.input_stream.token_type() == "KEYWORD" and self.input_stream.keyword() == "ELSE":
             # Write else {statements}
-            else_clause = self._get_keyword()
-            if else_clause != "else":
-                raise ValueError("Expected 'else' keyword")
+            self._validate_and_skip_token("ELSE")
             self.writer.write_label(false_label)
-            self.input_stream.advance() # Skip {
+            self._validate_and_skip_token('{')
             self.compile_statements()
-            self.input_stream.advance() # Skip }
+            self._validate_and_skip_token('}')
         else:
             self.writer.write_label(false_label)
 
@@ -276,9 +263,12 @@ class CompilationEngine:
         # expression: term (op term)*
         self.compile_term()
         while self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() in OP:
-            op = OP[self._get_symbol()] # TODO chack if * and / are need to be Math.
+            op = OP[self._get_symbol()]
             self.compile_term()
-            self.writer.write_arithmetic(op)
+            if op in ["Math.multiply", "Math.divide"]:
+                self.writer.write_call(op, 2)
+            else:
+                self.writer.write_arithmetic(op)
 
 
     def compile_term(self) -> None:
@@ -302,16 +292,17 @@ class CompilationEngine:
             self.input_stream.advance()
 
         elif token_type == "KEYWORD" and self.input_stream.keyword() in KEYWORD_CONSTANTS:
-            if self.input_stream.keyword() in ["false", "null"]:
+            if self.input_stream.keyword() in ["FALSE", "NULL"]:
                 self.writer.write_push("CONST", 0)
-            elif self.input_stream.keyword() == "true":
-                self.writer.write_push("CONST", 0)
+            elif self.input_stream.keyword() == "TRUE":
+                self.writer.write_push("CONST", 1)
                 self.writer.write_arithmetic("NEG")
-            elif self.input_stream.keyword() == "this":
+            elif self.input_stream.keyword() == "THIS":
                 self.writer.write_push("POINTER", 0)
+            self.input_stream.advance()
 
         elif token_type == "SYMBOL":
-            if self.input_stream.symbol() in UNARY_OPT:
+            if self.input_stream.symbol() in UNARYOP:
                 unary_op = UNARYOP[self._get_symbol()]
                 self.compile_term()
                 self.writer.write_arithmetic(unary_op)
@@ -370,13 +361,15 @@ class CompilationEngine:
             expression_count += 1
             if self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ",":
                 self.input_stream.advance()
-            else:
+            elif self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ")":
                 break
+            else:
+                raise ValueError(f"Unexpected token in expression list: {self.input_stream.get_current_token()}")
         return expression_count
 
 
     def _get_keyword(self):
-        keyword = self.input_stream.keyword().lower()
+        keyword = self.input_stream.keyword()
         self.input_stream.advance()
         return keyword
 
@@ -396,22 +389,15 @@ class CompilationEngine:
         if self.input_stream.token_type() == "IDENTIFIER":
             var_type = self.input_stream.identifier()
         if self.input_stream.token_type() == "KEYWORD":
-            var_type = self.input_stream.keyword().lower()
+            var_type = self.input_stream.keyword()
         self.input_stream.advance()
         return var_type
-    def _write_parameter_list(self, mode):
+    def _write_parameter_list(self):
         # type varName (',' type varName)* or empty
         while not (self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ")"):
             type = self._get_type()
             name = self._get_identifier()
-            if mode == "define":
-                self.symbol_table.define(name, type, "ARG")
-            if mode == "push":
-                self._push_variable(name)
-            if self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ",":
-                self.input_stream.advance()
-            else:
-                break
+            self.symbol_table.define(name, type, "ARG")
 
 
     def _write_subroutine_call(self, subroutine_type: str):
@@ -422,26 +408,25 @@ class CompilationEngine:
         subroutine_name = None
         if subroutine_type == "method":
             class_name = self._get_identifier()
-            self.input_stream.advance()  # Skip '.'
+            self._validate_and_skip_token('.')
             subroutine_name = self._get_identifier()  # subroutine name after the dot
             self._push_variable(class_name)
             number_of_args += 1
 
         elif subroutine_type == "class function":
             class_name = self._get_identifier()
-            self.input_stream.advance()  # Skip '.'
+            self._validate_and_skip_token('.')
             subroutine_name = self._get_identifier()
 
         elif subroutine_type == "local function":
             class_name = self.class_name
             subroutine_name = self._get_identifier()
-            self._push_variable(class_name)
+            self.writer.write_push("POINTER", 0)
             number_of_args += 1
 
-        self.input_stream.advance()  # Skip '('
+        self._validate_and_skip_token('(')
         number_of_args += self.compile_expression_list()
-        if self.input_stream.token_type() == "SYMBOL" and self._get_symbol() != ")":
-            raise Exception(f"Expected ')' at the end of subroutine call got {self.input_stream.get_current_token()}")
+        self._validate_and_skip_token(')')
         self.writer.write_call(f"{class_name}.{subroutine_name}", number_of_args)
 
 
@@ -474,3 +459,10 @@ class CompilationEngine:
         for char in string:
             self.writer.write_push("CONST", ord(char))
             self.writer.write_call("String.appendChar", 2)
+
+    def _validate_and_skip_token(self, expected_token: str):
+        current_token = self.input_stream.get_current_token()
+        if current_token not in [expected_token]:
+            raise ValueError(f"Expected '{expected_token}' value got {current_token}")
+        self.input_stream.advance()
+

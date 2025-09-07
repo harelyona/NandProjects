@@ -244,4 +244,15 @@ class JackTokenizer:
         self.current_token_idx -= 1
 
     def get_current_token(self) -> str:
-        return self.tokens[self.current_token_idx]
+        token = None
+        if self.token_type() == "IDENTIFIER":
+            token = self.identifier()
+        elif self.token_type() == "KEYWORD":
+            token = self.keyword()
+        elif self.token_type() == "SYMBOL":
+            token = self.symbol()
+        elif self.token_type() == "INT_CONST":
+            token = self.int_val()
+        elif self.token_type() == "STRING_CONST":
+            token = self.string_val()
+        return token

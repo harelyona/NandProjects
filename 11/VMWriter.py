@@ -6,7 +6,9 @@ as allowed by the Creative Common Attribution-NonCommercial-ShareAlike 3.0
 Unported [License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
 """
 import typing
-SEGMENTS = ["CONST", "ARG", "LOCAL", "STATIC", "THIS", "THAT", "POINTER", "TEMP"]
+SEGMENTS_NAMES = ["CONST", "ARG", "LOCAL", "STATIC", "THIS", "THAT", "POINTER", "TEMP"]
+VM_SEGMENTS = ["constant", "argument", "local", "static", "this", "that", "pointer", "temp"]
+SEGMENT_MAPPER = dict(zip(SEGMENTS_NAMES, VM_SEGMENTS))
 ARITHMETICS = ["ADD", "SUB", "NEG", "EQ", "GT", "LT", "AND", "OR", "NOT", "SHIFTLEFT", "SHIFTRIGHT"]
 
 
@@ -30,9 +32,9 @@ class VMWriter:
             "LOCAL", "STATIC", "THIS", "THAT", "POINTER", "TEMP"
             index (int): the index to push to.
         """
-        if segment not in SEGMENTS or index < 0 or not isinstance(index, int):
+        if segment not in SEGMENTS_NAMES or index < 0 or not isinstance(index, int):
             raise ValueError("The segments is invalid.")
-        self.output_stream.write(f"push {segment.lower()} {index}\n")
+        self.output_stream.write(f"push {SEGMENT_MAPPER[segment]} {index}\n")
 
     def write_pop(self, segment: str, index: int) -> None:
         """Writes a VM pop command.
@@ -43,9 +45,9 @@ class VMWriter:
             index (int): the index to pop from.
         """
         # Your code goes here!
-        if segment not in SEGMENTS or index < 0 or not isinstance(index, int):
+        if segment not in SEGMENTS_NAMES or index < 0 or not isinstance(index, int):
             raise ValueError("The segments is invalid.")
-        self.output_stream.write(f"pop {segment.lower()} {index}\n")
+        self.output_stream.write(f"pop {SEGMENT_MAPPER[segment]} {index}\n")
 
     def write_arithmetic(self, command: str) -> None:
         """Writes a VM arithmetic command.
@@ -56,7 +58,7 @@ class VMWriter:
         """
         # Your code goes here!
         if command not in ARITHMETICS:
-            raise ValueError("The command is invalid.")
+            raise ValueError(f"The command is invalid. got {command}")
         self.output_stream.write(f"{command.lower()}\n")
 
     def write_label(self, label: str) -> None:
