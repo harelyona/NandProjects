@@ -82,7 +82,7 @@ class CompilationEngine:
         if subroutine_type == "METHOD":
             self.symbol_table.define("this", self.class_name, "ARG")
         self.input_stream.advance() # Skip the opening (
-        self._write_parameter_list()
+        self._define_parameter_list()
         self._validate_and_skip_token(')')
 
         # SubroutineBody: {varDec* statements}
@@ -92,8 +92,6 @@ class CompilationEngine:
 
         number_of_locals = self.symbol_table.var_count("VAR")
         self.writer.write_function(f"{self.class_name}.{name}", number_of_locals)
-        self.compile_statements()
-        self._validate_and_skip_token('}')
 
         if subroutine_type == "CONSTRUCTOR":
             # Set allocated memory segment for the newly created object
@@ -107,7 +105,8 @@ class CompilationEngine:
             self.writer.write_push("ARG",0)
             self.writer.write_pop("POINTER",0)
 
-
+        self.compile_statements()
+        self._validate_and_skip_token('}')
 
     def compile_parameter_list(self) -> None:
         """Compiles a (possibly empty) parameter list, not including the
@@ -231,32 +230,33 @@ class CompilationEngine:
         self.writer.write_return()
         self._validate_and_skip_token(';')
 
-
     def compile_if(self) -> None:
-        """Compiles a if statement, possibly with a trailing else clause."""
-        # ifStatement: 'if' '(' expression ')' '{' statements '}' ('else' '{'
-        false_label = self._label_generator("FALSE")
+        else_label = self._label_generator("IF_ELSE")
+        end_label = self._label_generator("IF_END")
+
         self._validate_and_skip_token("IF")
         self._validate_and_skip_token('(')
         self.compile_expression()
         self._validate_and_skip_token(')')
         self.writer.write_arithmetic("NOT")
-        self.writer.write_if(false_label)
+        self.writer.write_if(else_label)
+
+        # then block
         self._validate_and_skip_token('{')
         self.compile_statements()
         self._validate_and_skip_token('}')
+        self.writer.write_goto(end_label)
 
-        # If else clause is present, compile it
+        # else block (optional)
+        self.writer.write_label(else_label)
         if self.input_stream.token_type() == "KEYWORD" and self.input_stream.keyword() == "ELSE":
-            # Write else {statements}
             self._validate_and_skip_token("ELSE")
-            self.writer.write_label(false_label)
             self._validate_and_skip_token('{')
             self.compile_statements()
             self._validate_and_skip_token('}')
-        else:
-            self.writer.write_label(false_label)
 
+        # end of if/else
+        self.writer.write_label(end_label)
 
     def compile_expression(self) -> None:
         """Compiles an expression."""
@@ -271,7 +271,7 @@ class CompilationEngine:
                 self.writer.write_arithmetic(op)
 
 
-    def compile_term(self) -> None:
+    def  compile_term(self) -> None:
         """Compiles a term. 
         This routine is faced with a slight difficulty when
         trying to decide between some of the alternative parsing rules.
@@ -328,7 +328,7 @@ class CompilationEngine:
                     self.writer.write_pop("POINTER", 1)
                     self.writer.write_push("THAT", 0)
                 # If a method call
-                if self.input_stream.symbol() == ".":
+                elif self.input_stream.symbol() == ".":
                     if self.symbol_table.type_of(identifier):
                         # It's a method call on an object
                         self.input_stream.backward()
@@ -338,18 +338,15 @@ class CompilationEngine:
                         self.input_stream.backward()
                         self._write_subroutine_call("class function")
                 # If a function call on this class
-                if self.input_stream.symbol() == "(":
+                elif self.input_stream.symbol() == "(":
                     self.input_stream.backward()
                     self._write_subroutine_call("local function")
 
-
-            else:
-                # If a variable
-                self.input_stream.backward()
-                var = self._get_identifier()
-                self._push_variable(var)
+                # It's a variable
+                else:
+                    self._push_variable(identifier)
         else:
-            self.input_stream.backward()
+            raise ValueError(f"Unexpected token type: {token_type}")
 
 
     def compile_expression_list(self) -> int:
@@ -361,10 +358,6 @@ class CompilationEngine:
             expression_count += 1
             if self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ",":
                 self.input_stream.advance()
-            elif self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ")":
-                break
-            else:
-                raise ValueError(f"Unexpected token in expression list: {self.input_stream.get_current_token()}")
         return expression_count
 
 
@@ -392,11 +385,13 @@ class CompilationEngine:
             var_type = self.input_stream.keyword()
         self.input_stream.advance()
         return var_type
-    def _write_parameter_list(self):
+    def _define_parameter_list(self):
         # type varName (',' type varName)* or empty
         while not (self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ")"):
             type = self._get_type()
             name = self._get_identifier()
+            if self.input_stream.token_type() == "SYMBOL" and self.input_stream.symbol() == ",":
+                self.input_stream.advance()
             self.symbol_table.define(name, type, "ARG")
 
 
@@ -404,30 +399,34 @@ class CompilationEngine:
         """Writes a subroutine call: subroutineName(...) or (className|varName).subroutineName(...)."""
         # First identifier: could be a class name, var name, or subroutine name
         number_of_args = 0
-        class_name = None
+        var_type = None
         subroutine_name = None
         if subroutine_type == "method":
-            class_name = self._get_identifier()
+            var_name = self._get_identifier()
+            var_type = self.symbol_table.type_of(var_name)
             self._validate_and_skip_token('.')
             subroutine_name = self._get_identifier()  # subroutine name after the dot
-            self._push_variable(class_name)
+            self._push_variable(var_name)
             number_of_args += 1
 
         elif subroutine_type == "class function":
-            class_name = self._get_identifier()
+            var_type = self._get_identifier()
             self._validate_and_skip_token('.')
             subroutine_name = self._get_identifier()
 
         elif subroutine_type == "local function":
-            class_name = self.class_name
+            var_type = self.class_name
             subroutine_name = self._get_identifier()
             self.writer.write_push("POINTER", 0)
             number_of_args += 1
 
+        if subroutine_name == "readInt":
+            pass
+
         self._validate_and_skip_token('(')
         number_of_args += self.compile_expression_list()
         self._validate_and_skip_token(')')
-        self.writer.write_call(f"{class_name}.{subroutine_name}", number_of_args)
+        self.writer.write_call(f"{var_type}.{subroutine_name}", number_of_args)
 
 
 
