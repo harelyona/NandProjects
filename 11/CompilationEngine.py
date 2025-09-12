@@ -318,9 +318,7 @@ class CompilationEngine:
             if self.input_stream.token_type() == "SYMBOL":
                 # If an array entry
                 if self.input_stream.symbol() == "[":
-                    self.input_stream.backward()
-                    name = self._get_identifier()
-                    self._push_variable(name)
+                    self._push_variable(identifier)
                     self.input_stream.advance() # Skip [
                     self.compile_expression()
                     self.input_stream.advance() # Skip ]

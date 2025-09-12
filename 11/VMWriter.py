@@ -47,8 +47,6 @@ class VMWriter:
         # Your code goes here!
         if segment not in SEGMENTS_NAMES or index < 0 or not isinstance(index, int):
             raise ValueError("The segments is invalid.")
-        if f"pop {SEGMENT_MAPPER[segment]} {index}" == "pop this 9":
-            pass
         self.output_stream.write(f"pop {SEGMENT_MAPPER[segment]} {index}\n")
 
     def write_arithmetic(self, command: str) -> None:
