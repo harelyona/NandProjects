@@ -18,9 +18,9 @@ class String {
      *  and initial length of 0. */
     constructor String new(int maxLength) {
     let size = 0;
-    ket maxSize = maxLength;
+    let maxSize = maxLength;
     let string = Array.new(maxLength);
-    return string;
+    return this;
     }
 
     /** Disposes this string. */
@@ -49,11 +49,14 @@ class String {
         let string[size] = c;
         let size = size + 1;
     }
+    return this;
+    }
 
     /** Erases the last character from this string. */
     method void eraseLastChar() {
     if (this.size > 0) {
         let size = size - 1;
+        }
     }
 
     /** Returns the integer value of this string, 
@@ -65,14 +68,25 @@ class String {
         // 3.   let d = integer value of str.charAt(i)
         // 4.   let val = (val*10) + d
         // 5. return val
-        int val, i, d;
-        val = 0
-        i = 0;
-        while (i < this.size) {
-            let d = charAt(i) - 48;
-            let val = (val * 10) + d;
-            i = i + 1;
+        var int val, i, d;
+        var boolean is_neg;
+        let val = 0;
+        let i = 0;
+        let is_neg = false;
+        // Check for negative sign
+        if (charAt(0) = 45) { //TODO check this = operator
+            let is_neg = true;
+            let i = 1;
         }
+        while (i < this.size) {
+            let d = asciiToInt(charAt(i));
+            let val = val * 10 + d;
+            let i = i + 1;
+        }
+        if (is_neg) {
+            let val = -1 * val;
+        }
+
         return val;
     }
 
@@ -85,17 +99,67 @@ class String {
         // 4.   return c (as a string)
         // 5. else
         // 6.   return int2String(val / 10).appendChar(c)
+        var int i;
+        var boolean is_neg;
+        let is_neg = false;
+        do this.emptyString();
+
+        // Handle for negative sign
+        if (val < 0) {
+            let is_neg = true;
+            let val = Math.abs(val);
+            do appendChar(45);
+        }
+
+        do setInt2String(val);
+
     }
 
     /** Returns the new line character. */
-    function char newLine() {
-    }
+    function char newLine() { return 128; }
 
     /** Returns the backspace character. */
-    function char backSpace() {
-    }
+    function char backSpace() { return 129; }
 
     /** Returns the double quote (") character. */
-    function char doubleQuote() {
+    function char doubleQuote() { return 34; }
+
+    method char digitToChar(int digit) {
+        return (digit + 48);
     }
+
+    method int asciiToInt(char c) {
+        return (c - 48);
+    }
+    method boolean isDigit(char c) {
+        return ((c >= 48) & (c <= 57));
+    }
+
+    method void setInt2String(int val) {
+    var int lastDigit;
+
+    let lastDigit = getLastDigit(val);
+
+    if (val < 10) {
+        do appendChar(digitToChar(lastDigit));
+        return;
+    }
+
+    do setInt2String(val / 10);
+    do appendChar(digitToChar(lastDigit));
+    return;
+    }
+
+
+    method String emptyString(){
+        let size = 0;
+        return this;
+    }
+
+    function int getLastDigit(int val){
+        var int num;
+        let num = val / 10;
+        return val-(num*10);
+    }
+
 }
