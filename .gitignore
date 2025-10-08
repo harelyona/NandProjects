@@ -19,3 +19,17 @@ t.txt
 10/ExpressionLessSquare/Square.xml
 10/ExpressionLessSquare/SquareGame.xml
 10/drive-tests/
+11/Average/Main.vm
+11/ComplexArrays/Main.vm
+11/ConvertToBin/Main.vm
+11/Pong/Ball.vm
+11/Pong/Bat.vm
+11/Pong/Main.vm
+11/Pong/PongGame.vm
+11/Seven/Main.vm
+11/Square/Main.vm
+11/Square/Square.vm
+11/Square/SquareGame.vm
+11/__pycache__/
+11/drive-tests/
+
