@@ -12,21 +12,31 @@
  * string-oriented operations.
  */
 class String {
+    field Array string;
+    field int size, maxSize;
     /** constructs a new empty string with a maximum length of maxLength
      *  and initial length of 0. */
     constructor String new(int maxLength) {
+    let size = 0;
+    ket maxSize = maxLength;
+    let string = Array.new(maxLength);
+    return string;
     }
 
     /** Disposes this string. */
     method void dispose() {
+    do string.dispose();
     }
 
     /** Returns the current length of this string. */
     method int length() {
+    return this.size;
     }
 
     /** Returns the character at the j-th location of this string. */
     method char charAt(int j) {
+    return Memory.peek(this + j);
+
     }
 
     /** Sets the character at the j-th location of this string to c. */

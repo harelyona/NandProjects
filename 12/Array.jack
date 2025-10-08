@@ -14,9 +14,14 @@
 class Array {
     /** Constructs a new Array of the given size. */
     function Array new(int size) {
+    int memoryAddress i;
+        memoryAddress = Memory.alloc(size); // allocate array in memory
+        return memoryAddress;
     }
 
     /** Disposes this array. */
     method void dispose() {
+    do this.Memory.deAlloc();
+    return;
     }
 }

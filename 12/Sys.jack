@@ -13,20 +13,32 @@ class Sys {
         // Pseudocode:
         // 1. for each relevant OS class, do Class.init
         //    Some OS classes depend on others, so order is important here!
+
         // 2. do Main.main()
+        do Main.main();
         // 3. do Sys.halt()
+        do Sys.halt();
+
     }
 
     /** Halts program execution. */
     function void halt() {
+        while(true){}
     }
 
     /** Waits approximately duration milliseconds and returns.  */
     function void wait(int duration) {
+    int i;
+    let i = 0;
+    while (i < duration) {
+        let i = i + 1;
     }
 
     /** Displays the given error code in the form "ERR<errorCode>",
      *  and halts the program's execution. */
     function void error(int errorCode) {
+        do Output.printString("ERR");
+        do Output.printInt(errorCode);
+        do Sys.halt();
     }
 }
