@@ -35,20 +35,25 @@ class String {
 
     /** Returns the character at the j-th location of this string. */
     method char charAt(int j) {
-    return Memory.peek(this + j);
-
+    return string[j];
     }
 
     /** Sets the character at the j-th location of this string to c. */
     method void setCharAt(int j, char c) {
+    let string[j] = c;
     }
 
     /** Appends c to this string's end and returns this string. */
     method String appendChar(char c) {
+    if (this.size < this.maxSize) {
+        let string[size] = c;
+        let size = size + 1;
     }
 
     /** Erases the last character from this string. */
     method void eraseLastChar() {
+    if (this.size > 0) {
+        let size = size - 1;
     }
 
     /** Returns the integer value of this string, 
@@ -60,6 +65,15 @@ class String {
         // 3.   let d = integer value of str.charAt(i)
         // 4.   let val = (val*10) + d
         // 5. return val
+        int val, i, d;
+        val = 0
+        i = 0;
+        while (i < this.size) {
+            let d = charAt(i) - 48;
+            let val = (val * 10) + d;
+            i = i + 1;
+        }
+        return val;
     }
 
     /** Sets this string to hold a representation of the given value. */
