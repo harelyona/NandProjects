@@ -18,20 +18,23 @@ class Sys {
         do Main.main();
         // 3. do Sys.halt()
         do Sys.halt();
-
+        return;
     }
 
     /** Halts program execution. */
     function void halt() {
-        while(true){}
+        while (true) { }
+        return;
     }
 
     /** Waits approximately duration milliseconds and returns.  */
     function void wait(int duration) {
-    int i;
-    let i = 0;
-    while (i < duration) {
-        let i = i + 1;
+        var int i;
+        let i = 0;
+        while (i < duration) {
+            let i = i + 1;
+        }
+        return;
     }
 
     /** Displays the given error code in the form "ERR<errorCode>",
@@ -40,5 +43,6 @@ class Sys {
         do Output.printString("ERR");
         do Output.printInt(errorCode);
         do Sys.halt();
+        return;
     }
 }
