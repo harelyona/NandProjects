@@ -15,7 +15,7 @@ class Array {
     /** Constructs a new Array of the given size. */
     function Array new(int size) {
         var int memoryAddress;
-        let memoryAddress = Memory.alloc(size);
+        let memoryAddress = Memory.alloc(size); // allocate array in memory
         return memoryAddress;
     }
 
