@@ -17,6 +17,9 @@ class String {
     /** constructs a new empty string with a maximum length of maxLength
      *  and initial length of 0. */
     constructor String new(int maxLength) {
+    if (maxLength < 0) {
+        do Sys.error(14);
+    }
     let size = 0;
     let maxSize = maxLength;
     let string = Array.new(maxLength);
@@ -36,29 +39,37 @@ class String {
 
     /** Returns the character at the j-th location of this string. */
     method char charAt(int j) {
+    if (j < 0 | ~(j < size)) {
+        do Sys.error(15);
+    }
     return string[j];
     }
 
     /** Sets the character at the j-th location of this string to c. */
     method void setCharAt(int j, char c) {
+    if (j < 0 | ~(j < size)) {
+        do Sys.error(16);
+    }
     let string[j] = c;
     return;
     }
 
     /** Appends c to this string's end and returns this string. */
     method String appendChar(char c) {
-    if (size < maxSize) {
-        let string[size] = c;
-        let size = size + 1;
+    if (~(size < maxSize)) {
+        do Sys.error(17);
     }
+    let string[size] = c;
+    let size = size + 1;
     return this;
     }
 
     /** Erases the last character from this string. */
     method void eraseLastChar() {
-    if (size > 0) {
-        let size = size - 1;
-        }
+    if (~(size > 0)) {
+        do Sys.error(18);
+    }
+    let size = size - 1;
     return;
     }
 
@@ -105,7 +116,7 @@ class String {
         var int i;
         var boolean is_neg;
         let is_neg = false;
-        do String.emptyString();
+        do emptyString();
 
         // Handle for negative sign
         if (val < 0) {
