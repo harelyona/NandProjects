@@ -15,6 +15,11 @@ class Math {
 
         /** Returns the absolute value of x. */
         function int abs(int x) {
+        if (x < 0) {
+            return -x;
+        } else {
+            return x;
+            }
         }
 
         /** 
@@ -24,7 +29,11 @@ class Math {
          * the Jack expressions x*y and multiply(x,y) return the same value.
          */
         function int multiply(int x, int y) {
-            // Pseudocode:
+            var int sum, shiftedx, i;
+            let sum = 0;
+            let shiftedx = x;
+            let i = 0;
+            while (i < 16) {
             // 1. let sum = 0
             // 2. let shiftedx = x
             // 3. for i = 0 ... n-1 do
@@ -65,9 +74,25 @@ class Math {
 
         /** Returns the greater number. */
         function int max(int a, int b) {
+        if (a > b) {
+            return a;
+        } else {
+            return b;
         }
 
         /** Returns the smaller number. */
         function int min(int a, int b) {
+        if (a < b) {
+            return a;
+        } else {
+            return b;
         }
+
+    function bool bit(int x, int n) {
+    var int i;
+    let i = 0;
+    while (i < n) {
+        let x = #x;
+    }
+    return (x & 1) = 1;
 }
