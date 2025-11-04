@@ -29,18 +29,26 @@ class Math {
          * the Jack expressions x*y and multiply(x,y) return the same value.
          */
         function int multiply(int x, int y) {
-            var int sum, shiftedx, i;
+            // 1. let sum = 0
+            // 2. let shiftedx = x
+            var int sum, shiftedx, i, n;
             let sum = 0;
             let shiftedx = x;
             let i = 0;
-            while (i < 16) {
-            // 1. let sum = 0
-            // 2. let shiftedx = x
+            let n = Math.numBits(y);
             // 3. for i = 0 ... n-1 do
-            // 4.   if ((i-th bit of y) == 1)
-            // 5.      let sum = sum + shiftedx
-            // 6.   let shiftedx = 2*shiftedx
+            while (i < n) {
+                // 4.   if ((i-th bit of y) == 1)
+                // 5.   let sum = sum + shiftedx
+                if (bit(y, i)) {
+                    let sum = sum + shiftedx;
+                }
+                // 6.   let shiftedx = 2*shiftedx
+                let shiftedx = ^shiftedx; // shift left
+                let i = i + 1;
+            }
             // 7. return sum
+            return sum;
         }
 
         /** 
@@ -68,8 +76,23 @@ class Math {
             // Pseudocode (where '**' is the mathematical power function):
             // 1. let y = 0
             // 2. for j = (n/2 - 1) ... 0 do
-            // 3.   if ((y + 2**j)**2 <= x) then let y = y + 2**j
+            if (x < 0) {
+                do Sys.error(4);
+            }
+            var int y, j, value, n;
+            let y = 0;
+            let n = Math.numBits(x);
+            let j = #(n) - 1
+            while (~(j < 0)) {// Loop while (j >= 0)
+                // 3.   if ((y + 2**j)**2 <= x) then let y = y + 2**j
+                let value = y + Math.shiftLeft(2, j - 1); // y = y + 2**j
+                if ((~((value * value) > x)) & (value * value > 0) { // value**2 <= x
+                    let y = value;
+                }
+                let j = j - 1;
+            }
             // 4. return y
+            return y;
         }
 
         /** Returns the greater number. */
@@ -89,10 +112,23 @@ class Math {
         }
 
     function bool bit(int x, int n) {
-    var int i;
-    let i = 0;
-    while (i < n) {
-        let x = #x;
+        var int i;
+        let i = 0;
+        while (i < n) {
+            let x = #x;
+        }
+        return (x & 1) = 1;
     }
-    return (x & 1) = 1;
+
+    function int numBits(int x) {
+    var int i;
+    let i = 15;
+    while (~(i < 0)) { // Loop while (i >= 0)
+        if (Math.bit(x, i)) {
+            return i + 1;
+            }
+        let i = i - 1;
+        }
+    return 1;
+    }
 }
