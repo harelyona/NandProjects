@@ -1,0 +1,64 @@
+// This file is part of nand2tetris, as taught in The Hebrew University, and
+// was written by Aviv Yaish. It is an extension to the specifications given
+// [here](https://www.nand2tetris.org) (Shimon Schocken and Noam Nisan, 2017),
+// as allowed by the Creative Common Attribution-NonCommercial-ShareAlike 3.0
+// Unported [License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
+
+
+// The ExtendAlu chip is an extension of the standard ALU which also supports
+// shift operations.
+// The inputs of the extended ALU are instruction[9], x[16], y[16].
+// The "ng" and "zr" output pins behave the same as in the regular ALU.
+// The "out" output is defined as follows:
+// If instruction[8]=1 and instruction[7]=1 the output is identical to the
+// regular ALU, where:
+// instruction[5]=zx, instruction[4]=nx, ..., instruction[0]=no
+// Else, if instruction[8]=0 and instruction[7]=1, the output is a shift:
+// - If instruction[4] == 0, the input "y" will be shifted, otherwise "x".
+// - If instruction[5] == 0, the shift will be a right-shift, otherwise left.
+// - All other inputs are undefined.
+
+CHIP ExtendAlu {
+     IN x[16], y[16], instruction[9];
+     OUT out[16], zr, ng;
+
+     PARTS:
+     // Regular ALU operations:
+
+     // Zero x and y if zx or zy is set to 1
+     Mux16(a=x , b=false , sel=instruction[5] , out=zxOut);
+     Mux16(a=y , b=false , sel=instruction[3] , out=zyOut);
+
+     // Negate x and y if nx or ny is set to 1
+     Not16(in=zxOut , out=zxNot);
+     Not16(in=zyOut , out=zyNot);
+     Mux16(a=zxOut , b=zxNot , sel=instruction[4] , out=nxOut);
+     Mux16(a=zyOut , b=zyNot , sel=instruction[2] , out=nyOut);
+
+     // Select between ADD (x + y) and AND (x & y)
+     Add16(a= nxOut, b = nyOut, out = fAdd);
+     And16(a= nxOut , b= nyOut, out= fAnd);
+     Mux16(a= fAnd, b= fAdd, sel= instruction[1], out= fOut);
+
+     // Negate the result
+     Not16(in=fOut , out= fNot);
+
+     // Negate result if no is set to 1 and output if it's negative
+     Mux16(a=fOut , b=fNot, sel=instruction[0] ,out = regAluOutput);
+
+     // Shift Right and left operations:
+     // Select x or y to shift:
+     Mux16(a=y, b=x, sel=instruction[4], out=inputToShift);
+     ShiftRight(in= inputToShift, out = RightShiftOutput);
+     ShiftLeft(in = inputToShift, out = LeftShiftOutput);
+     Mux16(a=RightShiftOutput, b=LeftShiftOutput, sel=instruction[5], out=ShiftOutput);
+
+     // Select between regular operation and shift operations:
+     Mux4Way16(a=false, b=ShiftOutput, c=false, d=regAluOutput, sel=instruction[7..8], out= out, out[0..7] = outLow, out[8..15] = outHigh, out[15]=ng);
+
+     // Check if result is zero
+     Or8Way(in=outLow , out= or1);
+     Or8Way(in=outHigh , out= or2);
+     Or(a=or1 , b=or2 , out= or3);
+     Not(in= or3 , out= zr);
+}

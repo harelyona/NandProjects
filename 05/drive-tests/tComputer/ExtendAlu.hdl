@@ -1,0 +1,46 @@
+/**
+* The input of the extends ALU is instruction[9] and x[16],y[16].
+* the output is define as follows:
+* If instruction[7..8] equals 1 the the output is exactly as the ALU.
+* Where instruction[5]=zx,instruction[4]=nx,...,instruction[0]=no.
+* If instruction[7] equals 0 the output will be x*y and disregard the rest 
+* of the instruction.
+*
+* If instruction[8] equals 0 the output will be shift.
+* Then, if instruction[4] equals 0 it will return shift of y otherwise shift 
+* of x, moreover if instruction[5] equals 0 it will return shift right 
+* otherwise shift left.
+**/
+CHIP ExtendAlu{
+     IN x[16],y[16],instruction[9]; // x is D y is A\M
+     OUT out[16],zr,ng;
+     
+     PARTS:
+        // shift instructions
+        Mux16(a=y, b=x, sel=instruction[4], out=DorAM);
+        ShiftRight(in=DorAM, out=shiftedR);
+        ShiftLeft(in=DorAM, out=shiftedL);
+        Mux16(a=shiftedR, b=shiftedL, sel=instruction[5], out=shiftRes);
+        // multiplication
+        Mul(a=x, b=y, out=mulRes);
+        
+        // regular ALU
+        Mux16(a=x, b=false, sel=instruction[5], out=xAfterZx); // zx
+        Not16(in=xAfterZx, out=negX);
+        Not16(in=yAfterZy, out=negY);
+        Mux16(a=xAfterZx, b=negX, sel=instruction[4], out=xAfterNx); //  nx
+        Mux16(a=y, b=false, sel=instruction[3], out=yAfterZy); // zy	
+        Mux16(a=yAfterZy, b=negY, sel=instruction[2], out=yAfterNy); //  ny
+        And16(a=xAfterNx, b=yAfterNy, out=xAndY);
+        Add16(a=xAfterNx, b=yAfterNy, out=xSumY);
+        Mux16(a=xAndY, b=xSumY, sel=instruction[1], out=result);
+        Not16(in=result, out=negResult);
+        Mux16(a=result, b=negResult, sel=instruction[0], out=regularALUop);
+        // choose between regular, multiplication or shifting operations
+        Mux4Way16(a=false, b=shiftRes, c=mulRes, d=regularALUop, 
+        sel=instruction[7..8], out=finaloutput, out=out, out[15]=ng);
+
+        CompareToZero(in=finaloutput, out=zr); // 1 if it is not zero
+        // Not(in=notZ, out=zr);
+
+}

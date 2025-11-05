@@ -1,0 +1,12 @@
+// returns whether input was zero or not
+
+CHIP CompareToZero{
+    IN in[16];
+    OUT out; // if all bits are zero, returns 1.
+
+    PARTS:
+        Or8Way(in=in[0..7], out=rightBits);
+        Or8Way(in=in[8..15], out=leftBits);
+        Or(a=rightBits, b=leftBits, out=temp);
+        Not(in=temp, out=out);
+        }
