@@ -1,0 +1,30 @@
+class Main{
+    function void main(){
+        var int x;
+        let x=3;
+        let x = Main.shiftLeftTimes(x,5);
+        do Output.printInt(x);
+        return;
+    }
+    // Shifts the value right x times.
+        function int shiftRightTimes(int val,int times){
+            var int i;
+            let i = 0;
+            while(i<times){
+                let val = #(val);
+                let i=i+1;
+            }
+            return val;
+        }
+
+        // Shifts tje value left x times.
+        function int shiftLeftTimes(int val,int times){
+            var int i;
+            let i = 0;
+            while(i<times){
+                let val = ^(val);
+                let i=i+1;
+            }
+            return val;
+        }
+}

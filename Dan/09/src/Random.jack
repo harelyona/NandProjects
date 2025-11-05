@@ -1,0 +1,53 @@
+class Random {
+    field int seed;
+
+    // Constructor to initialize the seed
+    constructor Random new(int initialSeed) {
+        let seed = initialSeed;
+        return this;
+    }
+
+    // Method to generate a random number between 0 and max-1
+    method int random(int max) {
+        // Constants for the LCG (linear congruential generator)
+        var int a, c, m;
+
+        let a = 13;      // Multiplier
+        let c = 25;   // Increment
+        let m = 32749;        // Modulus (2^15)
+
+        // Update seed using the LCG formula
+        let seed = ((a * seed) + c);
+        let seed = Random.modulo(seed,m);
+
+        // Scale the random number to the desired range (0 to max-1)
+        return Random.modulo(seed,max);
+    }
+
+    // Modulo function
+    function int modulo(int a, int b) {
+        var int absB;
+        var int div;
+        
+        // Prevent division by zero
+        if (b = 0) {
+            do Sys.error(1); // Return error (modulo by zero is undefined)
+        }
+
+        // Ensure b is positive for consistent results
+        let absB = b;
+        if (b < 0) {
+            let absB = -b;
+        }
+
+        // return remainder
+        let div = Math.divide(a,b);
+        return (a - (b*div));
+    }
+
+    // disposes the object
+	method void dispose(){
+		do Memory.deAlloc(this);
+		return;
+	}
+}

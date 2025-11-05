@@ -1,0 +1,200 @@
+class Wordle {
+	field WordList words_list;
+	field String word_to_guess;
+
+	constructor Wordle new(){
+		return this;
+	}
+
+	// This method is responsible for the game loop:
+	method void game_loop(){
+		var char key;
+		var bool enter_was_pressed,correct_guess;
+		var int attempts,attempt_num, seed;
+		let correct_guess = false;
+		let attempts = 6;
+		let attempt_num = 0;
+		let enter_was_pressed = false;
+		do Output.printString("Press enter to start the game.");
+		do Output.println();
+
+		// Wait for the user press enter.
+		while (~(enter_was_pressed)) {
+				let key = Keyboard.keyPressed();
+				if (key = 128){
+					let enter_was_pressed = true;
+				}
+		}
+		// Reset the screen
+		do Wordle.reset_screen();
+
+		// Halt the system to prevent bugs
+		do Sys.wait(1000);
+
+		// ask for seed
+		let seed = askForSeed();
+		let words_list = WordList.new(seed);
+
+		// Halt the system to prevent bugs
+		do Sys.wait(1000);
+
+		// Start guessing:
+		let word_to_guess = words_list.getRandomWord();
+		do Wordle.reset_screen();
+		do Output.printString("Start guessing");
+		do Output.println();
+
+		// only for debugging
+		do Output.printString("Word to guess (only for debugging):");
+		do Output.println();
+		do Output.printString(word_to_guess);
+		do Output.println();
+
+		// make attempts
+		while(attempt_num < attempts){
+			let correct_guess = guess();
+			do Output.println();
+			if (correct_guess){
+				do Output.printString("You guessed correctly!");
+				do Output.println();
+				return;
+			}
+			let attempt_num = attempt_num + 1;
+		}
+
+		// if all attempts are over, end game
+		do Output.printString("You are out of attempts. game over.");
+		do Output.println();
+		return;
+	}
+
+	// Method for reading a seed iteger
+	method int askForSeed(){
+		var int seed;
+		let seed = Keyboard.readInt("Please enter an integer, for randomly generating numbers:");
+		return seed;
+	}
+
+	// This method is responsible for one guess
+	// it returns true if the guess is correct
+	method bool guess() {
+		var bool finished_guessing, valid_guess, first_invalid;
+		var String guessed_word;
+		var int screenLength, colIndex, tripleLength;
+		let valid_guess = false;
+		let finished_guessing = false;
+		let first_invalid = true;
+		let screenLength = 64;
+		let tripleLength = screenLength*3;
+		let colIndex = 0;
+		
+		// this loop runs until a valid word is entered
+		while(~(finished_guessing)) {
+			let guessed_word = Keyboard.readLine("");
+			let valid_guess = words_list.isGuessValid(guessed_word);
+			if (valid_guess) {
+				// clear invalid guesses from screen
+				if(~first_invalid){
+					while (colIndex < tripleLength){
+						do Output.backSpace();
+						let colIndex = colIndex + 1;
+					}
+					do Output.printString(guessed_word);
+					do Output.println();
+				}
+
+				let valid_guess = check_guess(guessed_word);
+				let finished_guessing = true;
+			}
+
+			// tell user the guess is invalid
+			else {
+				if(first_invalid){
+					let first_invalid = false;
+					while (colIndex < screenLength){
+						do Output.backSpace();
+						let colIndex = colIndex + 1;
+					}
+				}
+				else{
+					while (colIndex < tripleLength){
+						do Output.backSpace();
+						let colIndex = colIndex + 1;
+					}
+				}
+				let colIndex = 0;
+				do Output.printString("invalid guess");
+				do Output.println();
+				do Output.println();
+			}
+		}
+		return valid_guess;
+}
+	
+	/** This method prints for every position of the guessed word if the letter is in the word or not and returns if the word was guessed correctly */
+
+	method bool check_guess(String word){
+		var bool correct_guess;
+		var int word_len,i;
+		var YellowsList yellows;
+		var char guessed_letter,actual_letter;
+		let word_len = 5;
+		let correct_guess = true;
+		let yellows = YellowsList.new(word_to_guess, word_len);
+
+		let i = 0;
+		while(i<word_len){
+			let guessed_letter = word.charAt(i);
+			let actual_letter = word_to_guess.charAt(i);
+			if (guessed_letter = actual_letter){
+				do Output.printString("G");
+				do yellows.removeChar(guessed_letter);
+			}
+			else{
+				let correct_guess = false;
+				if (yellows.isInList(guessed_letter)){
+					do Output.printString("Y");
+					do yellows.removeChar(guessed_letter);
+				}
+				else{
+					do Output.printString("*");
+				}
+			}
+			let i = i + 1;
+		}
+		do Output.println();
+		do yellows.dispose();
+		return correct_guess;
+	}
+
+	// This method returns true if c is in word otherwise false.
+	method bool letter_in_word(char c,String word){
+		var int word_len,i;
+		var char letter;
+		let word_len = word.length();
+		let i = 0;
+		while(i<word_len){
+			let letter = word.charAt(i);
+			if (c = letter){
+				return true;
+			}
+			let i = i + 1;
+		}
+		return false;
+	}
+
+	// disposes the object
+	method void dispose(){
+		do words_list.dispose();
+		do word_to_guess.dispose();
+		do Memory.deAlloc(this);
+		return;
+	}
+
+	// Resets the screen and moves the cursor back to origin
+	function void reset_screen(){
+		do Screen.clearScreen();
+		do Output.moveCursor(0,0);
+		return;
+	}
+}

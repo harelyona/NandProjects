@@ -1,0 +1,51 @@
+// This file is part of nand2tetris, as taught in The Hebrew University, and
+// was written by Aviv Yaish. It is an extension to the specifications given
+// [here](https://www.nand2tetris.org) (Shimon Schocken and Noam Nisan, 2017),
+// as allowed by the Creative Common Attribution-NonCommercial-ShareAlike 3.0
+// Unported [License](https://creativecommons.org/licenses/by-nc-sa/3.0/).
+
+/**
+  * In Jack programs, the first function that runs is always the function "main"
+  * from the class "Main".
+  * You can include as many classes and functions as you want.
+  */
+class Main {
+  function void main() {
+    var Wordle wordle;
+    // Print a message that explains the game.
+    do Main.print_intro();
+    let wordle = Wordle.new();
+    do wordle.game_loop();
+    do wordle.dispose();
+    do Sys.halt();
+    return;
+  }
+
+  // This function prints the instructions
+  function void print_intro(){
+    do Output.printString("Welcome to Wordle!");
+    do Output.println();
+    do Output.printString("In wordle your goal is to guess a 5 letter word.");
+    do Output.println();
+    do Output.printString("Instructions:");
+    do Output.println();
+    do Output.printString("Type a five letter word in order to guess the word.");
+    do Output.println();
+    do Output.printString("* means that the letter is not in the word.");
+    do Output.println();
+    do Output.printString("Y means the letter is in the word but not in the correct spot.");
+    do Output.println();
+    do Output.printString("G means the letter is in the correct spot and in the word.");
+    do Output.println();
+    do Output.printString("Press enter to make a guess.");
+    do Output.println();
+    do Output.printString("You have 6 attemps to guess the word correctly.");
+    do Output.println();
+    do Output.printString("If you entered an invalid word it won't register.");
+    do Output.println();
+    do Output.printString("Enjoy!");
+    do Output.println();
+    return;
+  }
+}
+

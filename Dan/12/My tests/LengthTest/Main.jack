@@ -1,0 +1,12 @@
+class Main{
+    function void main(){
+        // if(Math.bit(6,3)){
+        //     do Output.printString("True");
+        // }
+        // else{
+        //     do Output.printString("False");            
+        // }
+        do Output.printInt(Math.intLength(17));
+        return;
+    }
+}

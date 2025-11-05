@@ -1,0 +1,10 @@
+function Main.main 1
+push constant 33
+pop local 0
+push local 0
+push constant 15
+and
+call Output.printInt 1
+pop temp 0
+push constant 0
+return
