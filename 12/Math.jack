@@ -9,8 +9,11 @@
  * Note: Jack compilers implement multiplication and division using OS method calls.
  */
 class Math {
+        static int num;
         /** Initializes the library. */
         function void init() {
+            let num = 0;
+            return;
         }
 
         /** Returns the absolute value of x. */
@@ -40,7 +43,7 @@ class Math {
             while (i < n) {
                 // 4.   if ((i-th bit of y) == 1)
                 // 5.   let sum = sum + shiftedx
-                if (bit(y, i)) {
+                if (Math.bit(y, i)) {
                     let sum = sum + shiftedx;
                 }
                 // 6.   let shiftedx = 2*shiftedx
@@ -63,11 +66,49 @@ class Math {
             // at most a single addition operator at every recursion step.
             // Pseudocode:
             // 1. if (y > x) return 0
-            // 2. let q = divide(x, 2*y)
+            var bool negativex, negativey;
+            var int result;
+            let negativex = false;
+            let negativey = false;
+            if (y = 0) {
+                do Sys.error(5);
+            }
+            if (y > x) {
+                return 0;
+            }
+            if (x < 0) {
+                let negativex = true;
+            }
+            if (y < 0) {
+                let negativey = true;
+            }
+            let x = Math.abs(x);
+            let y = Math.abs(y);
+            let result = Math.divider(x, y);
+            if ((negativex | negativey) & ~(negativex & negativey)) {
+                let result = -result;
+            }
+            return result;
+        }
+
+        function int divider(int x, int y) {
+            //2. let q = divide(x, 2*y)
+            var int q, reminder;
+            if (y > x) {
+                return 0;
+            }
+            let q = Math.divider(x, ^y);
+            let reminder = x - num
             // 3. if ((x - 2*q*y) < y)
             // 4.   return 2*q
             // 5. else
             // 6.   return 2*q + 1
+            if (reminder < y) {
+                return ^q;
+            } else {
+                num = num + y;
+                return (^q) + 1;
+            }
         }
 
         /** Returns the integer part of the square root of x. */
