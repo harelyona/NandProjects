@@ -25,9 +25,9 @@ class Math {
             }
         }
 
-        /** 
-         * Returns the product of x and y. 
-         * When a Jack compiler detects the multiplication operator '*' in the 
+        /**
+         * Returns the product of x and y.
+         * When a Jack compiler detects the multiplication operator '*' in the
          * program's code, it handles it by invoking this method. In other words,
          * the Jack expressions x*y and multiply(x,y) return the same value.
          */
@@ -54,9 +54,9 @@ class Math {
             return sum;
         }
 
-        /** 
+        /**
          * Returns the integer part of x/y.
-         * When a Jack compiler detects the multiplication operator '/' in the 
+         * When a Jack compiler detects the multiplication operator '/' in the
          * program's code, it handles it by invoking this method. In other words,
          * the Jack expressions x/y and divide(x,y) return the same value.
          */
@@ -73,9 +73,6 @@ class Math {
             if (y = 0) {
                 do Sys.error(5);
             }
-            if (y > x) {
-                return 0;
-            }
             if (x < 0) {
                 let negativex = true;
             }
@@ -84,6 +81,7 @@ class Math {
             }
             let x = Math.abs(x);
             let y = Math.abs(y);
+            let num = 0;
             let result = Math.divider(x, y);
             if ((negativex | negativey) & ~(negativex & negativey)) {
                 let result = -result;
@@ -98,7 +96,7 @@ class Math {
                 return 0;
             }
             let q = Math.divider(x, ^y);
-            let reminder = x - num
+            let reminder = x - num;
             // 3. if ((x - 2*q*y) < y)
             // 4.   return 2*q
             // 5. else
@@ -106,7 +104,7 @@ class Math {
             if (reminder < y) {
                 return ^q;
             } else {
-                num = num + y;
+                let num = num + y;
                 return (^q) + 1;
             }
         }
@@ -117,17 +115,17 @@ class Math {
             // Pseudocode (where '**' is the mathematical power function):
             // 1. let y = 0
             // 2. for j = (n/2 - 1) ... 0 do
+            var int y, j, value, n;
             if (x < 0) {
                 do Sys.error(4);
             }
-            var int y, j, value, n;
             let y = 0;
             let n = Math.numBits(x);
-            let j = #(n) - 1
+            let j = #(n); // n/2 - 1
             while (~(j < 0)) {// Loop while (j >= 0)
                 // 3.   if ((y + 2**j)**2 <= x) then let y = y + 2**j
-                let value = y + Math.shiftLeft(2, j - 1); // y = y + 2**j
-                if ((~((value * value) > x)) & (value * value > 0) { // value**2 <= x
+                let value = y + Math.shiftLeft(1, j); // y = y + 2**j
+                if ((~((value * value) > x)) & (value * value > 0)) { // value**2 <= x
                     let y = value;
                 }
                 let j = j - 1;
@@ -142,21 +140,23 @@ class Math {
             return a;
         } else {
             return b;
+            }
         }
-
         /** Returns the smaller number. */
         function int min(int a, int b) {
         if (a < b) {
             return a;
         } else {
             return b;
+            }
         }
 
-    function bool bit(int x, int n) {
+    function int bit(int x, int n) {
         var int i;
         let i = 0;
         while (i < n) {
             let x = #x;
+            let i = i + 1;
         }
         return (x & 1) = 1;
     }
@@ -171,5 +171,15 @@ class Math {
         let i = i - 1;
         }
     return 1;
+    }
+    function int shiftLeft(int x, int n) {
+        var int i, result;
+        let result = x;
+        let i = 0;
+        while (i < n) {
+            let result = ^result;
+            let i = i + 1;
+        }
+        return result;
     }
 }
