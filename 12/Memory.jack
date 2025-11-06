@@ -12,32 +12,61 @@
  */ 
 class Memory {
     /** Initializes the class. */
+    static int freeList, heapBase;
+    static Array RAM;
+
     function void init() {
         // Pseudocode:
         // 1. freeList = heapBase
         // 2. freeList.length = heapLength
         // 3. freeList.next = null
+        let RAM = 0;
+        let heapBase = 2048;
+        let freeList = heapBase;
+        let RAM[freeList] = 16383 - heapBase;
+        let RAM[freeList + 1] = 0;
+        return;
     }
 
     /** Returns the RAM value at the given address. */
     function int peek(int address) {
+        return RAM[address];
     }
 
     /** Sets the RAM value at the given address to the given value. */
     function void poke(int address, int value) {
+    RAM[address] = value;
+    return;
     }
 
     /** Finds an available RAM block of the given size and returns
      *  a reference to its base address. Assume size > 0. */
     function int alloc(int size) {
+        var int cur, block, curSize;
+        let cur = freeList;
         // Pseudocode:
         // 1. Search freeList using best-fit or first-fit heuristics to obtain
         //    a segment with segment.length > size.
         //    If no such segment is found, return -1.
+        while Memory.peek(cur) < size {
+            let cur = Memory.peek(cur + 1);
+            if cur = 0 {
+                return -1;
+            }
+        }
         // 2. block = needed part of the found segment (or all of it, if the 
         //            segment remainder is too small).
         // 3. block[-1] = size + 1 // Remember block size, for de-allocation
+        let block = cur + 2;
+        let curSize = Memory.peek(cur);
+        let block[-2] = size + 1;
         // 4. Update freeList to reflect the allocation
+        if curSize > size + 2 {
+            let block[] = curSize - size - 2;
+            let RAM[cur + 1] = Memory.peek(cur + 1);
+        } else {
+            let RAM[prev + 1] = Memory.peek(cur + 1);
+        }
         // 5. Return block
         // The figure MemoryTest/MemoryFreeListExample.png illustrates how
         // the freeList should look like.
