@@ -42,40 +42,38 @@ class Memory {
     /** Finds an available RAM block of the given size and returns
      *  a reference to its base address. Assume size > 0. */
     function int alloc(int size) {
-        var int prv, cur, next, curSize, remainder;
+        var int prv, cur, next, curSize, remainder, allocatedBlockSize;
         let cur = freeList;
         let prv = 0;
-        // Pseudocode:
-        // 1. Search freeList using best-fit or first-fit heuristics to obtain
-        //    a segment with segment.length > size.
-        //    If no such segment is found, return -1.
-        while Memory.peek(cur) < size + 2 {
+        let allocatedBlockSize = size + 2;
+        while (cur > 0) { // (cur=0 means end of list)
+            let curSize = Memory.peek(cur);
+            if (curSize > allocatedBlockSize - 1) { //curSize >= allocatedBlockSize
+                let next = Memory.peek(cur + 1);
+                if (curSize - allocatedBlockSize > 1) { //curSize - allocatedBlockSize >= 2
+                   let remainder = cur + allocatedBlockSize;
+                   do Memory.poke(remainder, curSize - allocatedBlockSize);
+                   do Memory.poke(remainder + 1, next);
+                   if (prv = 0) {
+                       let freeList = remainder;
+                   } else {
+                       do Memory.poke(prv + 1, remainder);
+                   }
+                } else {
+                    if (prv = 0) {
+                        let freeList = next;
+                    } else {
+                        do Memory.poke(prv + 1, next);
+                    }
+                    let allocatedBlockSize = curSize;
+                }
+                do Memory.poke(cur, allocatedBlockSize);
+                return cur + 2;
+            }
             let prv = cur;
             let cur = Memory.peek(cur + 1);
-            if cur = 0 {
-                return -1;
-            }
         }
-        // 2. block = needed part of the found segment (or all of it, if the 
-        //            segment remainder is too small).
-        // 3. block[-1] = size + 1 // Remember block size, for de-allocation
-        let curSize = Memory.peek(cur);
-        let next = Memory.peek(cur + 1);
-        do Memory.poke(cur, size + 2); // update block size
-        // 4. Update freeList to reflect the allocation
-
-        if curSize > size + 3 {
-           let remainder = cur + size + 2;
-           Memory.poke(remainder, curSize - size - 2);
-           Memory.poke(reminder + 1, next);
-           Memory.poke(cur + 1, remainder);
-        } else {
-            Memory.poke(prv + 1, next);
-        }
-        // 5. Return block
-        return cur;
-        // The figure MemoryTest/MemoryFreeListExample.png illustrates how
-        // the freeList should look like.
+        return -1;
     }
 
     /** De-allocates the given object (cast as an array) by making
@@ -84,13 +82,26 @@ class Memory {
         // Pseudocode:
         // 1. segment = o - 1
         // 2. Insert segment into the freeList
-    }    
+        do Memory.poke(o - 1, freeList);
+        let freeList = o - 2;
+        return;
+    }
 
-    /** Returns the maximal element contained in the given Array/object. 
+    /** Returns the maximal element contained in the given Array/object.
      *  Assume inputs are initialized and contain at least one element. */
     function int max(Array o) {
-        // Hint: the algorithm you need to implement in Memory.alloc saves the
-        // size of the allocated block in the memory cell right before the 
-        // start of the block, and this can be used to implement Memory.max.
+    var int max_val, i, val, length, size, end;
+    let size = Memory.peek(o - 2);
+    let length = size - 2;
+    let max_val = Memory.peek(o);
+    let i = o + 1;
+    while (i < o + length) {
+        let val = Memory.peek(i);
+        if (val > max_val) {
+            let max_val = val;
+        }
+        let i = i + 1;
+    }
+    return max_val;
     }
 }

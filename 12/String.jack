@@ -152,7 +152,7 @@ class String {
     method void setInt2String(int val) {
     var int lastDigit;
 
-    let lastDigit = getLastDigit(val);
+    let lastDigit = String.getLastDigit(val);
 
     if (val < 10) {
         do appendChar(digitToChar(lastDigit));
