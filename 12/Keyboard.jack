@@ -102,7 +102,7 @@ class Keyboard {
             // 8.   else if (c = backSpace)
             // 9.      remove the last character from str, if possible
             // 10.     move the cursor accordingly
-            if (c = String.backSpace()) {do str.typeBackspace(str);}
+            if (c = String.backSpace()) {do Keyboard.typeBackspace(str);}
             // 11.  else
             // 12.    do str.appendChar(c)
             else{
@@ -128,12 +128,11 @@ class Keyboard {
             return value;
         }
 
-    method void typeBackspace(String str){
+    function void typeBackspace(String str){
         if (str.length() > 0){
             do str.eraseLastChar();
             do Output.backSpace();
             }
         return;
-        }
-
+    }
 }
