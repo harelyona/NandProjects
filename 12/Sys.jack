@@ -13,10 +13,10 @@ class Sys {
         // Pseudocode:
         // 1. for each relevant OS class, do Class.init
         //    Some OS classes depend on others, so order is important here!
-        do Math.init();
         do Memory.init();
-        do Screen.init();
+        do Math.init();
         do Output.init();
+        do Screen.init();
         do Keyboard.init();
         do Main.main();
         do Sys.halt();
