@@ -94,11 +94,11 @@ class String {
         }
         while (i < size) {
             let d = asciiToInt(charAt(i));
-            let val = val * 10 + d;
+            let val = (val * 10) + d;
             let i = i + 1;
         }
         if (is_neg) {
-            let val = -1 * val;
+            let val = (-1) * val;
         }
 
         return val;
