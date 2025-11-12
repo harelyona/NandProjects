@@ -188,8 +188,7 @@ class Output {
     function void moveCursor(int i, int j) {
     let cursorRow = i;
     let cursorCol = j;
-    do Output.printChar(32);
-    do Output.backSpace();
+    do Output.printCharHelper(32);
     return;
     }
 
@@ -198,24 +197,8 @@ class Output {
     function void printChar(char c) {
         // Your implementation should be as efficient as possible.
         // For example, you can draw multiple pixels at once, for each row.
-        var int i, address, existingWord, mask, newWord;
-        var Array cmap;
-        let i = 0;
-        let cmap = Output.getMap(c);
-        while (i < 11) {
-            let address = screen + (((cursorRow * 11) + i) * 512 + cursorCol * 8)/16;
-            let existingWord = Memory.peek(address);
-            if (Output.isEven(cursorCol)) {
-                let newWord = (existingWord & 255) |
-                              Output.shiftLeftnTimes(cmap[i], 8); // Use cmap[i]
-            }
-            else {
-                let newWord = (existingWord & -256) |
-                              cmap[i]; // Use cmap[i]
-            }
-        let i = i + 1;
-        do Memory.poke(address, newWord);
-        }
+        do Output.printCharHelper(c);
+        do Output.advanceCursor();
         return;
         }
 
@@ -239,30 +222,18 @@ class Output {
     let str = String.new(6);
     do str.setInt(i);
     do Output.printString(str);
+    do str.dispose();
     return;
     }
 
     /** Advances the cursor to the beginning of the next line. */
     function void println() {
-    if (cursorRow = 22) {
-        do Sys.error(20);
-    }
-    let cursorCol = 0;
-    let cursorRow = cursorRow + 1;
-    return;
-    }
-
-    /** Moves the cursor one column back. */
-    function void backSpace() {
-        if (cursorCol = 0) {
-            do Sys.error(20);
-        }
-        let cursorCol = cursorCol - 1;
+        do Output.moveCursor(cursorRow+1,0);
         return;
     }
 
     function int shiftLeftnTimes(int val, int n) {
-        var int i, result;
+        var int i;
         let i = 0;
         while (i < n) {
             let val = ^val;
@@ -285,4 +256,35 @@ class Output {
         }
         return;
     }
+
+    function void printCharHelper(char c) {
+        var int i, address, existingWord, mask, newWord;
+        var Array cmap;
+        let i = 0;
+        let cmap = Output.getMap(c);
+        while (i < 11) {
+            let address = screen + ((((cursorRow * 11) + i) * 512) + (cursorCol * 8))/16;
+            let existingWord = Memory.peek(address);
+            if (~(Output.isEven(cursorCol))) {
+                let newWord = (existingWord & 255) |
+                              Output.shiftLeftnTimes(cmap[i], 8); // Use cmap[i]
+            }
+            else {
+                let newWord = (existingWord & (-256)) |
+                              cmap[i]; // Use cmap[i]
+            }
+        do Memory.poke(address, newWord);
+        let i = i + 1;
+        }
+    return;
+    }
+    /** Moves the cursor one column back. */
+    function void backSpace() {
+        if (cursorCol = 0) {
+            do Sys.error(20);
+        }
+        let cursorCol = cursorCol - 1;
+        do Output.moveCursor(cursorRow+1,0);
+         return;
+     }
 }
