@@ -228,9 +228,17 @@ class Output {
 
     /** Advances the cursor to the beginning of the next line. */
     function void println() {
-        do Output.moveCursor(cursorRow+1,0);
-        return;
+    var int nextRow;
+    let nextRow = cursorRow + 1;
+
+    // Check for wrap-around
+    if (nextRow > 22) {
+        let nextRow = 0;
     }
+
+    do Output.moveCursor(nextRow, 0);
+    return;
+}
 
     function int shiftLeftnTimes(int val, int n) {
         var int i;
@@ -280,11 +288,11 @@ class Output {
     }
     /** Moves the cursor one column back. */
     function void backSpace() {
-        if (cursorCol = 0) {
-            do Sys.error(20);
-        }
-        let cursorCol = cursorCol - 1;
-        do Output.moveCursor(cursorRow+1,0);
-         return;
-     }
+    if (cursorCol = 0) {
+        do Sys.error(20);
+    }
+    let cursorCol = cursorCol - 1;
+    do Output.moveCursor(cursorRow, cursorCol);
+     return;
+ }
 }
