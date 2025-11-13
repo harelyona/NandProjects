@@ -271,7 +271,7 @@ class Output {
         let i = 0;
         let cmap = Output.getMap(c);
         while (i < 11) {
-            let address = screen + ((((cursorRow * 11) + i) * 512) + (cursorCol * 8))/16;
+            let address = screen + (((cursorRow * 11) + i) * 32) + (cursorCol/2);
             let existingWord = Memory.peek(address);
             if (~(Output.isEven(cursorCol))) {
                 let newWord = (existingWord & 255) |

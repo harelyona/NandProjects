@@ -92,7 +92,7 @@ class Math {
         function int divider(int x, int y) {
             //2. let q = divide(x, 2*y)
             var int q, reminder;
-            if (y > x) {
+            if ((y > x) | (y < 0)) {
                 return 0;
             }
             let q = Math.divider(x, ^y);
