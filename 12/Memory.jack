@@ -23,7 +23,7 @@ class Memory {
         let RAM = 0;
         let heapBase = 2048;
         let freeList = heapBase;
-        let RAM[freeList] = 16383 - heapBase;
+        let RAM[freeList] = 16384 - heapBase;
         let RAM[freeList + 1] = 0;
         return;
     }
@@ -68,7 +68,6 @@ class Memory {
                     } else {
                         do Memory.poke(prv + 1, next);
                     }
-                    let allocatedBlockSize = curSize;
                 }
                 do Memory.poke(cur, allocatedBlockSize);
                 return cur + 2;
