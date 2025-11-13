@@ -233,8 +233,6 @@ class Output {
     function void println() {
     var int nextRow;
     let nextRow = cursorRow + 1;
-
-    // Check for wrap-around
     if (nextRow > 22) {
         let nextRow = 0;
     }
@@ -278,11 +276,11 @@ class Output {
             let existingWord = Memory.peek(address);
             if (~(Output.isEven(cursorCol))) {
                 let newWord = (existingWord & 255) |
-                              Output.shiftLeftnTimes(cmap[i], 8); // Use cmap[i]
+                              Output.shiftLeftnTimes(cmap[i], 8);
             }
             else {
                 let newWord = (existingWord & (-256)) |
-                              cmap[i]; // Use cmap[i]
+                              cmap[i];
             }
         do Memory.poke(address, newWord);
         let i = i + 1;

@@ -49,7 +49,7 @@ class Memory {
         let cur = freeList;
         let prv = 0;
         let allocatedBlockSize = size + 2;
-        while (cur > 0) { // (cur=0 means end of list)
+        while (cur > 0) {
             let curSize = Memory.peek(cur);
             if (curSize > (allocatedBlockSize - 1)) { //curSize >= allocatedBlockSize
                 let next = Memory.peek(cur + 1);

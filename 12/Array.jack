@@ -19,7 +19,7 @@ class Array {
             do Sys.error(2);
         }
 
-        let memoryAddress = Memory.alloc(size); // allocate array in memory
+        let memoryAddress = Memory.alloc(size);
         return memoryAddress;
     }
 

@@ -36,7 +36,6 @@ class Keyboard {
          * F1 - F12 = 141 - 152
          */
         function char keyPressed() {
-            // Uses Memory.peek
             return Memory.peek(KBD);
         }
 
@@ -110,7 +109,7 @@ class Keyboard {
 
             let str = Keyboard.readLine(message);
             let value = str.intValue();
-            do str.dispose();  // Clean up the string
+            do str.dispose();
             return value;
         }
 
