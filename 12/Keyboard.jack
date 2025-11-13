@@ -62,7 +62,9 @@ class Keyboard {
 
             // 5. display c at the current cursor location
             // 6. advance the cursor
-            do Output.printChar(c);
+            if ((c > 31) & (c < 127)) {
+                do Output.printChar(c);
+            }
 
             // 7. return c
             return c;
@@ -76,40 +78,24 @@ class Keyboard {
          * is longer than a single character.
          */
         function String readLine(String message) {
-            // This should behave exactly like the built-in OS.
-            // You can assume input is at most 64 characters long.
-            // Why? Because this is the width of our screen!
             var String str;
             var char c;
-            // Pseudocode:
-            // 1. printString(message)
             do Output.printString(message);
-            // 2. let str = ""
             let str = String.new(64);
-            // 3. while true
             while (true) {
-
-
-            // 4.   let c = readChar()
-            let c = Keyboard.readChar();
-            // 5.   if (c = newLine)
-            // 6.      display newLine (if not displayed already by readChar())
-            // 7.      return str
-            if (c = String.newLine()) {
-                do Output.printChar(c);
-                return str;
-            }
-            // 8.   else if (c = backSpace)
-            // 9.      remove the last character from str, if possible
-            // 10.     move the cursor accordingly
-            if (c = String.backSpace()) {do Keyboard.typeBackspace(str);}
-            // 11.  else
-            // 12.    do str.appendChar(c)
-            else{
-                do str.appendChar(c);
+                let c = Keyboard.readChar();
+                if (c = String.newLine()) {
+                    do Output.println();
+                    return str;
+                }
+                if (c = String.backSpace()) {
+                    do Keyboard.typeBackspace(str);
+                }
+                else {
+                    do str.appendChar(c);
                 }
             }
-        return str;
+            return str;
         }
 
         /**

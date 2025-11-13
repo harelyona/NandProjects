@@ -50,6 +50,9 @@ class Screen {
             //    represented: 16384 + (32*y) + (x/16).
             // 2. Use Memory.peek to get the 16-bit value of this address
             var int addr,ramVal,bitPos;
+            if ((x > 511) | (x < 0) | (y > 255) | (y < 0)) {
+                do Sys.error(7);
+            }
             let addr = Screen.getRamAddress(x,y);
             let ramVal = Memory.peek(addr);
             // 3. Use some bitwise operation to set (only) the bit that corresponds
@@ -70,7 +73,12 @@ class Screen {
         /** Draws a line from pixel (x1,y1) to pixel (x2,y2), using the current color. */
         function void drawLine(int x1, int y1, int x2, int y2) {
             var int x, y, a, b, diff, dx, dy, stepX, stepY;
-
+            if ((x1 > 511) | (x1 < 0) | (y1 > 255) | (y1 < 0)) {
+                do Sys.error(8);
+            }
+            if ((x2 > 511) | (x2 < 0) | (y2 > 255) | (y2 < 0)) {
+                do Sys.error(8);
+            }
             if (x1 = x2) {
                 do Screen.drawVerticalLine(x1, y1, y2);
                 return;
@@ -117,6 +125,12 @@ class Screen {
          * and bottom right corner is (x2,y2), using the current color. */
         function void drawRectangle(int x1, int y1, int x2, int y2) {
             var int y, yMin, yMax;
+            if ((x1 > 511) | (x1 < 0) | (y1 > 255) | (y1 < 0)) {
+                do Sys.error(9);
+            }
+            if ((x2 > 511) | (x2 < 0) | (y2 > 255) | (y2 < 0)) {
+                do Sys.error(9);
+            }
             let yMin = Math.min(y1, y2);
             let yMax = Math.max(y1, y2);
             let y = yMin;
@@ -134,6 +148,12 @@ class Screen {
             // Pseudocode:
             // 1. for (dy = -r ... r)
             var int dy, halfWidth;
+            if ((x > 511) | (x < 0) | (y > 255) | (y < 0)) {
+                do Sys.error(12);
+            }
+            if (r < 1) {
+                do Sys.error(13);
+            }
             let dy = -r;
             while (dy < (r + 1)) {
                 // 2.   let halfWidth = sqrt(r*r - dy*dy)

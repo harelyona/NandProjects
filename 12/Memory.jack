@@ -43,6 +43,9 @@ class Memory {
      *  a reference to its base address. Assume size > 0. */
     function int alloc(int size) {
         var int prv, cur, next, curSize, remainder, allocatedBlockSize;
+        if (size < 0) {
+            do Sys.error(5);
+        }
         let cur = freeList;
         let prv = 0;
         let allocatedBlockSize = size + 2;

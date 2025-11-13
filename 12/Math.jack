@@ -71,7 +71,7 @@ class Math {
             let negativex = false;
             let negativey = false;
             if (y = 0) {
-                do Sys.error(5);
+                do Sys.error(3);
             }
             if (x < 0) {
                 let negativex = true;
