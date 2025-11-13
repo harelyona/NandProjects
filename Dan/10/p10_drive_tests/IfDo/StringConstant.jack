@@ -1,8 +1,0 @@
-class StringConstant{
-	method void blaBla(){
- 	var String message;
-	let message = "The ultimate fighting game";
-	do Output.printString(message);
-	return;
-	}
-}

@@ -1,9 +1,0 @@
-class UnderScore {
-
-	method void blaBla(boolean h){
-	var int _i,j;
-	let j = _i;
-	return;
-	}	
-
-}

@@ -1,9 +1,0 @@
-class Main{
-    function void main(){
-        var int x;
-        let x=33;
-        do Output.printInt(x&15);
-        return;
-    }
-    
-}

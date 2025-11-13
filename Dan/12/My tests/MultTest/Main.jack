@@ -1,8 +1,0 @@
-class Main{
-    function void main(){
-        // do Output.printInt(234*12);
-        // do Output.printInt(2809/12);
-        do Output.printInt(Math.sqrt(32767));
-        return;
-    }
-}
