@@ -36,3 +36,17 @@ t.txt
 12/SysTest
 12/ArrayTest
 00/AUTHORS
+04/drive-tests/
+05/drive-tests
+06/drive-test/
+10/drive_tests/
+12/KeyboardTest/
+12/MathTest/
+12/MemoryTest/
+12/Pong/
+12/ScreenTest/
+12/ScreenTest/
+12/StringTest/
+05/CPU.out
+06/__pycache__/
+12/drive_tests/

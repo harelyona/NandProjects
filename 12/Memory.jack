@@ -51,9 +51,9 @@ class Memory {
         let allocatedBlockSize = size + 2;
         while (cur > 0) { // (cur=0 means end of list)
             let curSize = Memory.peek(cur);
-            if (curSize > allocatedBlockSize - 1) { //curSize >= allocatedBlockSize
+            if (curSize > (allocatedBlockSize - 1)) { //curSize >= allocatedBlockSize
                 let next = Memory.peek(cur + 1);
-                if (curSize - allocatedBlockSize > 1) { //curSize - allocatedBlockSize >= 2
+                if ((curSize - allocatedBlockSize) > 1) { //curSize - allocatedBlockSize >= 2
                    let remainder = cur + allocatedBlockSize;
                    do Memory.poke(remainder, curSize - allocatedBlockSize);
                    do Memory.poke(remainder + 1, next);
@@ -98,7 +98,7 @@ class Memory {
     let length = size - 2;
     let max_val = Memory.peek(o);
     let i = o + 1;
-    while (i < o + length) {
+    while (i < (o + length)) {
         let val = Memory.peek(i);
         if (val > max_val) {
             let max_val = val;

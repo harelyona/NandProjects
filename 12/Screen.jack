@@ -105,7 +105,7 @@ class Screen {
             } else {
                 let stepY = -1;
             }
-            while ((a < dx + 1) & (b < dy + 1)) {
+            while ((a < (dx + 1)) & (b < (dy + 1))) {
                 do Screen.drawPixel(x, y);
                 if (diff < 0) {
                     let a = a + 1;
@@ -176,7 +176,7 @@ class Screen {
             var int i;
             let i = 0;
             while(i<times){
-                let val = ^(val);
+                let val = ^val;
                 let i=i+1;
             }
             return val;
@@ -185,7 +185,7 @@ class Screen {
             var int i;
             let i = 0;
             while(i<times){
-                let val = #(val);
+                let val = #val;
                 let i=i+1;
             }
             return val;

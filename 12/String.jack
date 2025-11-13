@@ -17,12 +17,11 @@ class String {
     /** constructs a new empty string with a maximum length of maxLength
      *  and initial length of 0. */
     constructor String new(int maxLength) {
-    if (maxLength < 0) {
-        do Sys.error(14);
-    }
+    if (maxLength < 0) {do Sys.error(14);}
     let size = 0;
     let maxSize = maxLength;
-    let string = Array.new(maxLength);
+    if(maxLength=0) {let string = Array.new(1);}
+    else {let string = Array.new(maxLength);}
     return this;
     }
 
@@ -76,31 +75,30 @@ class String {
     /** Returns the integer value of this string,
      *  until a non-digit character is detected. */
     method int intValue() {
-        // Pseudocode:
-        // 1. let val = 0
-        // 2. for (i = 0 .. str.length()) do
-        // 3.   let d = integer value of str.charAt(i)
-        // 4.   let val = (val*10) + d
-        // 5. return val
         var int val, i, d;
         var boolean is_neg;
         let val = 0;
         let i = 0;
         let is_neg = false;
-        // Check for negative sign
-        if (charAt(0) = 45) {
-            let is_neg = true;
-            let i = 1;
+        if (size > 0) {
+            if (charAt(0) = 45) {
+                let is_neg = true;
+                let i = 1;
+            }
         }
         while (i < size) {
-            let d = asciiToInt(charAt(i));
-            let val = (val * 10) + d;
-            let i = i + 1;
+            let d = charAt(i);
+            if (isDigit(d)) {
+                let val = (val * 10) + asciiToInt(d);
+                let i = i + 1;
+            }
+            else {
+                let i = size;
+            }
         }
         if (is_neg) {
             let val = (-1) * val;
         }
-
         return val;
     }
 
@@ -158,7 +156,6 @@ class String {
         do appendChar(digitToChar(lastDigit));
         return;
     }
-
     do setInt2String(val / 10);
     do appendChar(digitToChar(lastDigit));
     return;
