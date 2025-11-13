@@ -186,6 +186,9 @@ class Output {
     /** Moves the cursor to the j-th column of the i-th row,
      *  and erases the character displayed there. */
     function void moveCursor(int i, int j) {
+    if ((i < 0) | (i > 22) | (j < 0) | (j > 63)) {
+        do Sys.error(20);
+    }
     let cursorRow = i;
     let cursorCol = j;
     do Output.printCharHelper(32);
@@ -288,11 +291,19 @@ class Output {
     }
     /** Moves the cursor one column back. */
     function void backSpace() {
-    if (cursorCol = 0) {
-        do Sys.error(20);
+    var int row, col;
+    if ((cursorRow = 0) & (cursorCol = 0)) {
+        return;
     }
-    let cursorCol = cursorCol - 1;
-    do Output.moveCursor(cursorRow, cursorCol);
-     return;
+    if (cursorCol=0) {
+        let row = cursorRow - 1;
+        let col = 63;
+    }
+    else{
+        let row = cursorRow;
+        let col = cursorCol - 1;
+    }
+    do Output.moveCursor(row, col);
+    return;
  }
 }
