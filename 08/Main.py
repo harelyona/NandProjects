@@ -75,23 +75,20 @@ if "__main__" == __name__:
     if not len(sys.argv) == 2:
         sys.exit("Invalid usage, please use: VMtranslator <input path>")
     argument_path = os.path.abspath(sys.argv[1])
-    bootstrap = False
     if os.path.isdir(argument_path):
         files_to_translate = [
             os.path.join(argument_path, filename)
             for filename in os.listdir(argument_path)]
         output_path = os.path.join(argument_path, os.path.basename(
             argument_path))
-        files = list(map(os.path.basename, files_to_translate))
-        bootstrap = True if "Sys.vm" in files else False
     else:
         files_to_translate = [argument_path]
         output_path, extension = os.path.splitext(argument_path)
     output_path += ".asm"
-
+    bootstrap = True
     with open(output_path, 'w') as output_file:
-        code_writer = CodeWriter(output_file)
         for input_path in files_to_translate:
+            code_writer = CodeWriter(output_file)
             filename, extension = os.path.splitext(input_path)
             if extension.lower() != ".vm":
                 continue
