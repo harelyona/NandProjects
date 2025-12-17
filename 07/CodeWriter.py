@@ -69,6 +69,12 @@ class CodeWriter:
         if command == "neg":
             self.output_stream.write("@SP\nA=M-1\nM=-M\n")
             return
+        if command == "shiftleft":
+            self.output_stream.write("@SP\nA=M-1\nM=M<<\n")
+            return
+        if command == "shiftright":
+            self.output_stream.write("@SP\nA=M-1\nM=M>>\n")
+            return
         true_label = f"TRUE{self.label_counter}"
         continue_label = f"CONTINUE{self.label_counter}"
         jump_to_end = f"@CONTINUE{self.label_counter}\n0;JMP\n"
