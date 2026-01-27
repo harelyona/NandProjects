@@ -1,0 +1,11 @@
+class Main {
+    function void main() {
+        var boolean result;
+        let result = true;
+        do Output.printInt(result);
+        let result = false;
+        do Output.println();
+        do Output.printInt(result);
+        return;
+        }
+}
